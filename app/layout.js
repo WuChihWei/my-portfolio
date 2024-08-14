@@ -1,6 +1,6 @@
 // app/layout.js
 import Navbar from '../components/Navbar';
-import './globals.css';
+import '../src/app/globals.css';
 
 export const metadata = {
   title: 'My Portfolio',
