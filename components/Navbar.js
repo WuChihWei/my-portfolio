@@ -1,4 +1,5 @@
-"use client"; // Add this line at the top of the file
+// components/Navbar.js
+"use client"; // Add this line at the top to make this a Client Component
 
 import { useState } from 'react';
 import Link from 'next/link';
@@ -38,13 +39,8 @@ const Navbar = () => {
                 </Link>
               </li>
               <li className="hover:bg-gray-200">
-                <Link href="/projects/davinci" className="block px-4 py-2">
-                  Davinci
-                </Link>
-              </li>
-              <li className="hover:bg-gray-200">
-                <Link href="/projects/decide-later" className="block px-4 py-2">
-                  Decide-Later
+                <Link href="/projects/davincin" className="block px-4 py-2">
+                  Davincin
                 </Link>
               </li>
             </ul>

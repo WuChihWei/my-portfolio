@@ -212,7 +212,7 @@ a {
 }
 
 .image-placeholder {
-  background-color: #4f6694; 
+  background-color: #143f94; 
   /* height: 12rem;  */
   /* width: 24rem;  */
   width: 50%;
@@ -250,3 +250,16 @@ a {
   color: rgb(50, 121, 202);
 }
 
+.project-page {
+  display: flex;
+  flex-direction: row;
+  height: 100%;
+}
+
+
+.introduction-page {
+  /* display: flex; */
+  /* flex-direction: column; */
+  height: 100%;
+  background-color: #14b8a6;
+}
