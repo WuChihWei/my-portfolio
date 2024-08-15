@@ -6,6 +6,7 @@ import IntroductionPage from '../../../components/IntroductionPage';
 import UserStoryFeaturePage from '../../../components/UserStoryFeaturePage';
 import MarketResearchPage from '../../../components/MarketResearchPage';
 import BrandingPage from '../../../components/BrandingPage';
+import UIGuidelinePage from '../../../components/UIGuidelinePage';
 
 // Import project data
 import { hommapData } from '../hommap';
@@ -56,6 +57,12 @@ export default function ProjectPage({ params }) {
       largeImageUrl={data.branding.largeImageUrl}
       smallImages={data.branding.smallImages}
     />
+      <UIGuidelinePage 
+        title={data.uiGuideline.title}
+        description={data.uiGuideline.description}
+        images={data.uiGuideline.images}
+      />
+
       {/* Add other sections as needed */}
     </div>
   );

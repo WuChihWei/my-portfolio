@@ -54,5 +54,15 @@ export const superfakeData = {
           "/path-to-small-image3.png"
           ] // replace with actual paths
         },
+
+        // uiGuideline
+    uiGuideline: {
+        title: "UI Guideline",
+        description: "Create a custom card that reflects your unique style and personality. Choose from a range of colors, patterns, and designs to customize the look of your card.",
+        images: [
+          "/path-to-image1.png",
+          "/path-to-image2.png"
+        ] // replace with actual paths
+      },
   };
   
