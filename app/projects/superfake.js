@@ -1,38 +1,33 @@
-// app/projects/hommap.js
+// app/projects/superfake.js
 
 export const superfakeData = {
+
+
+    // introduction
     branding: {
-      title: "Hommap Branding",
-      content: "Branding details for Hommap...",
+      title: "Superfake Branding",
+      content: "Branding details for Superfake...",
     },
     introduction: {
-      title: "Introduction to superfake",
-      description: "This is the introduction to Hommap...",
-      imageUrl: "/images/davinci.png",
+      title: "Introduction to Superfake",
+      description: "This is the introduction to Superfake...",
+      imageUrl: "/images/superfake.png",
+      backgroundColor: "#e6e6fa", // Example color for Superfake
     },
-    marketResearch: {
-      title: "Market Research for Hommap",
-      content: "Market research details for Hommap...",
-    },
-    tech: {
-      title: "Technology Behind Hommap",
-      content: "Tech details for Hommap...",
-    },
-    uiGuideline: {
-      title: "UI Guidelines for Hommap",
-      content: "UI guidelines details for Hommap...",
-    },
-    userStoryFeature: {
-      title: "User Stories and Features for Hommap",
-      content: "User story details for Hommap...",
-    },
-    userTesting: {
-      title: "User Testing for Hommap",
-      content: "User testing details for Hommap...",
-    },
-    wireframeUIs: {
-      title: "Wireframes and UI Sketches for Hommap",
-      content: "Wireframe and UI details for Hommap...",
-    },
+
+     // userStoryFeature
+     userStoryFeature: {
+        title: "User Story + Main Feature",
+        description:
+          "Each and every one of us has that moment when we are suddenly stunned when we come face to face with the enormity of the universe.",
+        features: [
+          { name: "Feature 1", icon: "⭐" },
+          { name: "Feature 2", icon: "⭐" },
+          { name: "Feature 3", icon: "⭐" },
+          { name: "Feature 4", icon: "⭐" },
+        ],
+        imageUrl: "/images/davinci-browser-mockup.png", // Replace with the actual image path
+      },
+  
   };
   

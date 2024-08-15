@@ -255,11 +255,3 @@ a {
   flex-direction: row;
   height: 100%;
 }
-
-
-.introduction-page {
-  /* display: flex; */
-  /* flex-direction: column; */
-  height: 100%;
-  background-color: #14b8a6;
-}
