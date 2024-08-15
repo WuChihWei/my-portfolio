@@ -96,5 +96,29 @@ export const hommapData = {
         }
       ]
     },
+
+    // tech
+    tech: {
+      title: "Tech",
+      content: "Tech details for Davinci...",
+    },
+    tech: {
+      title: "Tech",
+      description: 
+      "You will likely be required to install the fixed mounts. These are what will keep the apparatus stable and secure with your computer monitor in it. Follow directions carefully so that you can be sure to get everything.",
+      imageUrl: "/images/davinci.png",
+      backgroundColor: "#ffe4e1", // Example color for Davinci
+    },
+
+    // userTesting
+    userTesting: {
+      title: "User Testing",
+      description: "Each and every one of us has that moment when we are suddenly stunned when we come face to face with the enormity of the universe.",
+      steps: [
+        { title: "Step 1", description: "Install the fixed mounts to keep the apparatus stable." },
+        { title: "Step 2", description: "Install the fixed mounts to keep the apparatus stable." },
+        { title: "Step 3", description: "Install the fixed mounts to keep the apparatus stable." }
+      ]
+    },
   };
   

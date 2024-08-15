@@ -463,3 +463,113 @@
   color: lightgray; /* Light gray color when disabled */
   cursor: not-allowed; /* Change cursor to indicate it can't be clicked */
 }
+
+
+/* TechPage */
+.tech-page {
+  display: flex;
+  flex-direction: column;
+  height: 800px;
+  width: 100%;
+  margin-top: 20px;
+}
+
+.tech-container {
+  display: flex;
+  flex-direction: row;
+  /* height: calc(100vh - 140px); */
+  width: 100%;
+  height: 100%;
+}
+
+.tech-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 50%;
+}
+
+.tech-content-text {
+  display: flex;
+  flex-direction: column;
+  /* justify-content: center;
+  align-items: center; */
+  width: 50%;
+}
+
+.tech-image-placeholder {
+  display: flex;
+  /* justify-content: center; */
+  /* align-items: center; */
+  background-color: coral;
+  width: 50%;
+  height: 100%;
+}
+
+
+/* User Testing Page */
+.user-testing-page {
+  width: 100%;
+  padding: 2rem;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 700px;
+}
+
+.user-testing-header {
+  margin-bottom: 2rem;
+}
+
+
+/* Steps */
+.user-testing-steps {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+}
+
+.step-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  width: 150px;
+}
+
+.step-icon {
+  background-color: #E5E7EB;
+  border-radius: 50%;
+  height: 80px;
+  width: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1rem;
+}
+
+.step-content {
+  margin-top: 1rem;
+}
+
+.step-title {
+  font-size: 1.25rem;
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+}
+
+.step-description {
+  font-size: 0.875rem;
+  color: #6B7280;
+}
+
+/* Arrow between steps */
+.step-arrow {
+  font-size: 2rem;
+  color: #6B7280;
+  margin: 0 1rem;
+}

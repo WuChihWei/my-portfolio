@@ -8,6 +8,8 @@ import MarketResearchPage from '../../../components/MarketResearchPage';
 import BrandingPage from '../../../components/BrandingPage';
 import UIGuidelinePage from '../../../components/UIGuidelinePage';
 import WireframeUIsPage from '../../../components/WireframeUIsPage';
+import TechPage from '../../../components/TechPage';
+import UserTestingPage from '../../../components/UserTestingPage';
 
 // Import project data
 import { hommapData } from '../hommap';
@@ -68,7 +70,24 @@ export default function ProjectPage({ params }) {
         title={data.wireframeUIs.title}
         cards={data.wireframeUIs.cards}
       />
+
+    <TechPage  
+        title={data.tech.title} 
+        description={data.tech.description} 
+        imageUrl={data.tech.imageUrl} 
+        backgroundColor={data.tech.backgroundColor} 
+      />
       {/* Add other sections as needed */}
+
+      <UserTestingPage 
+  title={data.userTesting.title}
+  description={data.userTesting.description}
+  steps={data.userTesting.steps}
+/>
+
+
     </div>
+
+    
   );
 }
