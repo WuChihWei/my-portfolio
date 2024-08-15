@@ -121,6 +121,33 @@ body {
     rgb(var(--background-start-rgb));
 }
 
+
+/* Add a transparent pink grid overlay */
+/* Transparent pink grid overlay with 12 columns, 40px margin, and 24px gutter */
+/* body::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: 
+    repeating-linear-gradient(
+      to right,
+      transparent 0px,
+      transparent 40px,
+      transparent 40px,
+      transparent 26px,
+      rgba(255, 192, 203, 0.2) 26px,
+      rgba(255, 192, 203, 0.2) calc(26px + ((100% - 80px - 264px) / 12)),
+      transparent calc(26px + ((100% - 80px - 264px) / 12)),
+      transparent calc(26px + ((100% - 80px - 264px) / 12))
+    );
+  pointer-events: none;
+  z-index: 9999;
+} */
+
+
 a {
   color: inherit;
   text-decoration: none;
@@ -136,6 +163,26 @@ a {
   font-size: var(--h1-font-size);
   font-weight: var(--h1-font-weight);
 }
+
+.grid-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: calc(100% - 80px); /* Subtracting 40px margin on both sides */
+  height: 100%;
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: 24px; /* Gutter between columns */
+  margin: 0 40px; /* 40px margin on both sides */
+  pointer-events: none; /* Allows interaction with underlying content */
+  z-index: 9999; /* Ensures it is above all other content */
+}
+
+.grid-column {
+  background-color: rgba(255, 192, 203, 0.2); /* Light pink for visibility */
+  border-left: 1px solid rgba(255, 192, 203, 0.4); /* Optional: border for clarity */
+}
+
 
 
 /* globals.css */
