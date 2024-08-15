@@ -64,5 +64,36 @@ export const superfakeData = {
           "/path-to-image2.png"
         ] // replace with actual paths
       },
+
+      // wireframeUIs
+    wireframeUIs:{
+        title: "Wireframe + UIs",
+        cards: [
+          {
+            imageUrl: "/path-to-image1.png",
+            date: "01 May 2020",
+            heading: "Heading",
+            description: "Moment in the life of any aspiring astronomer of that it is time to buy that first telescope.",
+          },
+          {
+            imageUrl: "/path-to-image2.png",
+            date: "01 May 2020",
+            heading: "Two line header example",
+            description: "Moment in the life of any aspiring astronomer of that it is time to buy that first telescope.",
+          },
+          {
+            imageUrl: "/path-to-image3.png",
+            date: "01 May 2020",
+            heading: "Heading",
+            description: "Moment in the life of any aspiring astronomer of that it is time to buy that first telescope.",
+          },
+          {
+            imageUrl: "/path-to-image4.png",
+            date: "01 May 2020",
+            heading: "Two line header example cool",
+            description: "Moment in the life of any aspiring astronomer of that it is time to buy that first telescope.",
+          }
+        ]
+      },
   };
   

@@ -7,6 +7,7 @@ import UserStoryFeaturePage from '../../../components/UserStoryFeaturePage';
 import MarketResearchPage from '../../../components/MarketResearchPage';
 import BrandingPage from '../../../components/BrandingPage';
 import UIGuidelinePage from '../../../components/UIGuidelinePage';
+import WireframeUIsPage from '../../../components/WireframeUIsPage';
 
 // Import project data
 import { hommapData } from '../hommap';
@@ -63,6 +64,10 @@ export default function ProjectPage({ params }) {
         images={data.uiGuideline.images}
       />
 
+  <WireframeUIsPage 
+        title={data.wireframeUIs.title}
+        cards={data.wireframeUIs.cards}
+      />
       {/* Add other sections as needed */}
     </div>
   );
