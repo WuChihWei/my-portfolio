@@ -533,6 +533,21 @@
   gap: 2rem;
 }
 
+.footer-bottom {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+.footer-bottom-middle {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
 .step-item {
   display: flex;
   flex-direction: column;
