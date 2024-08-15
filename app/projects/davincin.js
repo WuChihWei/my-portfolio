@@ -28,7 +28,18 @@ export const davincinData = {
       imageUrl: "/images/davinci-browser-mockup.png", // Replace with the actual image path
     },
 
-
+    // marketResearch
+      marketResearch: {
+      title: "Market Research",
+      description:
+        "The quality of today’s video game was not at all there when video game first conceptualized and played ever. During the formative years, video games were created by using various interactive electronic devices with various display.",
+      imageUrl: "/images/market-research-image.png", // Replace with actual image path
+      statistics: [
+        { value: "28%", label: "Downloads" },
+        { value: "22%", label: "Users" },
+        { value: "37%", label: "Subscribers" },
+      ],
+    },
 
     // Add other sections as needed
   };

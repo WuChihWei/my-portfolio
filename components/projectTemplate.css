@@ -159,3 +159,61 @@
   width: 100%;
   background-color: coral;
 }
+
+/* MarketResearchPage */
+
+/* Market Research Page Styles */
+.marketResearch-page {
+  display: flex;
+  flex-direction: row;
+  /* align-items: center; */
+  width: 100%;
+  height: 800px;
+  background-color: rgb(122, 216, 216);
+}
+
+.marketResearch-container {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  background-color: rgb(122, 216, 216);
+}
+
+.marketResearch-image{
+  width: 50%;
+  background-color: darkgray;
+  height: 100%;
+}
+
+.marketResearch-content {
+  display: flex;
+  flex-direction: column;
+  padding: 2rem;
+  gap: 2rem;
+  /* align-items: center; */
+  justify-content: center;
+  width: 50%;
+}
+
+.marketResearch-content-stat {
+  display: flex;
+  flex-direction: row;
+  /* align-items: center;
+  justify-content: center; */
+  /* margin-left: 2rem; */
+  justify-content: space-between;
+  width: 50%;
+}
+
+.stat-item {
+  text-align: center;
+}
+
+.stat-value {
+  font-size: 1.875rem; /* Equivalent to text-3xl */
+  font-weight: 700; /* Equivalent to font-bold */
+}
+
+.stat-label {
+  color: #6B7280; /* Equivalent to text-gray-500 */
+}

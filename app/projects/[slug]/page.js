@@ -4,6 +4,7 @@
 
 import IntroductionPage from '../../../components/IntroductionPage';
 import UserStoryFeaturePage from '../../../components/UserStoryFeaturePage';
+import MarketResearchPage from '../../../components/MarketResearchPage';
 
 // Import project data
 import { hommapData } from '../hommap';
@@ -38,6 +39,13 @@ export default function ProjectPage({ params }) {
         description={data.userStoryFeature.description}
         features={data.userStoryFeature.features}
         imageUrl={data.userStoryFeature.imageUrl}
+      />
+
+      <MarketResearchPage 
+        title={data.marketResearch.title}
+        description={data.marketResearch.description}
+        imageUrl={data.marketResearch.imageUrl}
+        statistics={data.marketResearch.statistics}
       />
       {/* Add other sections as needed */}
     </div>
