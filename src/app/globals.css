@@ -213,6 +213,7 @@ a {
 .navbar.scrolled .introduction-carousel {
   height: 40px;
   padding: 0;
+  width: 100%;
 }
 
 .introduction-carousel {
@@ -221,6 +222,7 @@ a {
 
 .navbar.scrolled .introduction-carousel {
   display: block;
+  width: 100%;
 }
 
 .introduction-carousel ul {
