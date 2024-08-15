@@ -33,61 +33,74 @@ export default function ProjectPage({ params }) {
 
   return (
     <div className="project-page">
-      <IntroductionPage 
-        title={data.introduction.title} 
-        description={data.introduction.description} 
-        imageUrl={data.introduction.imageUrl} 
-        backgroundColor={data.introduction.backgroundColor} 
-      />
-      <UserStoryFeaturePage 
-        title={data.userStoryFeature.title}
-        description={data.userStoryFeature.description}
-        features={data.userStoryFeature.features}
-        imageUrl={data.userStoryFeature.imageUrl}
-      />
+      <section id="introduction">
+        <IntroductionPage 
+          title={data.introduction.title} 
+          description={data.introduction.description} 
+          imageUrl={data.introduction.imageUrl} 
+          backgroundColor={data.introduction.backgroundColor} 
+        />
+      </section>
 
-      <MarketResearchPage 
-        title={data.marketResearch.title}
-        description={data.marketResearch.description}
-        imageUrl={data.marketResearch.imageUrl}
-        statistics={data.marketResearch.statistics}
-      />
+      <section id="user-story">
+        <UserStoryFeaturePage 
+          title={data.userStoryFeature.title}
+          description={data.userStoryFeature.description}
+          features={data.userStoryFeature.features}
+          imageUrl={data.userStoryFeature.imageUrl}
+        />
+      </section>
 
-      <BrandingPage 
-      title={data.branding.title}
-      description={data.branding.description}
-      iconUrl={data.branding.iconUrl}
-      largeImageUrl={data.branding.largeImageUrl}
-      smallImages={data.branding.smallImages}
-    />
-      <UIGuidelinePage 
-        title={data.uiGuideline.title}
-        description={data.uiGuideline.description}
-        images={data.uiGuideline.images}
-      />
+      <section id="market-research">
+        <MarketResearchPage 
+          title={data.marketResearch.title}
+          description={data.marketResearch.description}
+          imageUrl={data.marketResearch.imageUrl}
+          statistics={data.marketResearch.statistics}
+        />
+      </section>
 
-  <WireframeUIsPage 
-        title={data.wireframeUIs.title}
-        cards={data.wireframeUIs.cards}
-      />
+      <section id="branding">
+        <BrandingPage 
+          title={data.branding.title}
+          description={data.branding.description}
+          iconUrl={data.branding.iconUrl}
+          largeImageUrl={data.branding.largeImageUrl}
+          smallImages={data.branding.smallImages}
+        />
+      </section>
 
-    <TechPage  
-        title={data.tech.title} 
-        description={data.tech.description} 
-        imageUrl={data.tech.imageUrl} 
-        backgroundColor={data.tech.backgroundColor} 
-      />
-      {/* Add other sections as needed */}
+      <section id="ui-guideline">
+        <UIGuidelinePage 
+          title={data.uiGuideline.title}
+          description={data.uiGuideline.description}
+          images={data.uiGuideline.images}
+        />
+      </section>
 
-      <UserTestingPage 
-  title={data.userTesting.title}
-  description={data.userTesting.description}
-  steps={data.userTesting.steps}
-/>
+      <section id="wireframe-uis">
+        <WireframeUIsPage 
+          title={data.wireframeUIs.title}
+          cards={data.wireframeUIs.cards}
+        />
+      </section>
 
+      <section id="tech">
+        <TechPage  
+          title={data.tech.title} 
+          description={data.tech.description} 
+          imageUrl={data.tech.imageUrl} 
+          backgroundColor={data.tech.backgroundColor} 
+        />
+      </section>
 
+      <section id="user-testing">
+        <UserTestingPage 
+          title={data.userTesting.title}
+          description={data.userTesting.description}
+          steps={data.userTesting.steps}
+        />
+      </section>
     </div>
-
-    
   );
 }

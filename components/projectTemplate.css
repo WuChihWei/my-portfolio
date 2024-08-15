@@ -46,6 +46,13 @@
   height: 100%;
 }
 
+.introduction-carousel{
+  /* display: flex; */
+  /* flex-direction: column; */
+  /* justify-content: space-around; */
+  /* align-items: center; */
+  width: 100%;
+}
 
 .introduction-carousel ul {
   display: flex;
@@ -53,9 +60,9 @@
   width: 100%;
   gap: 1rem; /* space between boxes */
   list-style: none; /* remove default list styling */
-  padding: 0;
-  margin: 0;
-  height: 100%;
+  /* padding: 0;
+  margin: 0; */
+  /* height: 100%; */
 }
 
 .introduction-carousel li {
