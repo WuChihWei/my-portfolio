@@ -32,7 +32,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body>
-        <GridOverlay /> {/* Include the Grid Overlay at the top of the body */}
+        {/* <GridOverlay />  */}
         <Navbar />
         <main>
           {children}

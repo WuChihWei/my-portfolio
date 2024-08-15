@@ -217,3 +217,74 @@
 .stat-label {
   color: #6B7280; /* Equivalent to text-gray-500 */
 }
+
+
+/* BrandingPage */
+
+/* Main container for the Branding Page */
+.branding-page {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 900px;
+  background-color: rgb(122, 216, 216);
+}
+
+/* Branding container to wrap the text and images */
+.branding-container {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  /* background-color: rgb(194, 194, 194); */
+}
+
+/* Container for the icon and text */
+.branding-content {
+  display: flex;
+  width: 100%;
+  height: 100%;
+}
+
+.branding-content-info{
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+  /* align-items: center; */
+  justify-content: center;
+}
+
+.branding-top-image{
+  width: 50%;
+  background-color: darksalmon;
+}
+
+/* Icon styling */
+.branding-content-info .icon {
+  display: block;
+  width: 80px;
+  height: 80px;
+  background-color: #d1d5db;
+  border-radius: 50%;
+}
+
+/* Container for the images */
+.branding-images {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+/* Small images container */
+.branding-small-images {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  height: 100%;
+}
+
+/* Small image styling */
+.branding-small-images img {
+  width: 100%;
+  height: 100%;
+  background-color: #e5e7eb;
+}

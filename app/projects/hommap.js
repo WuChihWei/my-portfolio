@@ -42,5 +42,19 @@ export const hommapData = {
         ],
       },
 
+
+    // branding
+    branding: {
+      title: "Branding",
+      description: "Create a custom card that reflects your unique style and personality. Choose from a range of colors, patterns, and designs to customize the look of your card.",
+      iconUrl: "/path-to-icon.png", // replace with actual path
+      largeImageUrl: "/path-to-large-image.png", // replace with actual path
+      smallImages: [
+        "/path-to-small-image1.png",
+        "/path-to-small-image2.png",
+        "/path-to-small-image3.png"
+        ] // replace with actual paths
+      },
+
   };
   
