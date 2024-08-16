@@ -5,7 +5,11 @@ module.exports = {
     './components/**/*.{js,ts,jsx,tsx}',
   ],
   theme: {
-    extend: {},
+    extend: {
+      height: {
+        'screen-navbar': 'calc(100vh - 64px)',
+      }
+    },
   },
   plugins: [],
 }

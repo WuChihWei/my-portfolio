@@ -6,7 +6,7 @@
 }
 
 /* IntroductionPage */
-.introduction-page {
+/* .introduction-page {
   display: flex;
   flex-direction: column;
   height: 800px;
@@ -31,26 +31,18 @@
 
 .introduction-content-text {
   display: flex;
-  flex-direction: column;
-  /* justify-content: center;
-  align-items: center; */
+  flex-direction: column;ㄋ
   width: 50%;
 }
 
 .introduction-image-placeholder {
   display: flex;
-  /* justify-content: center; */
-  /* align-items: center; */
   background-color: coral;
   width: 50%;
   height: 100%;
 }
 
 .introduction-carousel{
-  /* display: flex; */
-  /* flex-direction: column; */
-  /* justify-content: space-around; */
-  /* align-items: center; */
   width: 100%;
 }
 
@@ -58,37 +50,32 @@
   display: flex;
   align-items: center;
   width: 100%;
-  gap: 1rem; /* space between boxes */
-  list-style: none; /* remove default list styling */
-  /* padding: 0;
-  margin: 0; */
-  /* height: 100%; */
+  gap: 1rem; 
+  list-style: none; 
 }
 
 .introduction-carousel li {
-  color: #374151; /* text color */
+  color: #374151; 
   padding: 1rem;
-  width: calc(12.5% - 1rem); /* 8 boxes per row with space between */
+  width: calc(12.5% - 1rem); 
   text-align: center;
-  flex-shrink: 0; /* prevent shrinking */
+  flex-shrink: 0;
 }
 
 .introduction-carousel li.active {
-  /* background-color: #14b8a6; */
   color: rgb(50, 121, 202);
-}
+} */
 
 
 /* UserStoryFeaturePage */
 
 /* Container and layout styles */
-.userstory-page {
+/* .userstory-page {
   width: 100%;
   height: 1000px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  /* justify-content: center; */
   text-align: center;
 }
 
@@ -101,14 +88,12 @@
   height: 50%;
 }
 
-/* Paragraph styles */
 .userstory-page p {
   font-size: 1.125rem; 
   color: #4B5563;      
   margin-bottom: 2.5rem; 
 }
 
-/* Flex container for features */
 .userstory-page .userstory-flex {
   display: flex;
   justify-content: center;
@@ -116,21 +101,16 @@
   background-color: cornflowerblue;
 }
 
-/* Feature item styles */
 .userstory-page .userstory-item {
   text-align: center;
 }
 
-/* Feature icon container */
 .userstory-page .userstory-item .feature-icon {
-  /* background-color: #E5E7EB;  */
-  border-radius: 9999px;      /* Equivalent to rounded-full */
+  border-radius: 9999px;      
   height: 4rem;              
   width: 4rem;              
   display: flex;
-  /* align-items: center; */
   justify-content: center;
-  /* margin-bottom: 0.5rem;       */
 }
 
 .userstory-flex{
@@ -141,10 +121,8 @@
 
 .userstory-item {
   background-color: rgb(14, 38, 82);
-  /* flex: 1; */
 }
 
-/* Feature description */
 .userstory-page .userstory-item p {
   color: #374151; 
 }
@@ -165,7 +143,7 @@
   height: 100%;
   width: 100%;
   background-color: coral;
-}
+} */
 
 /* MarketResearchPage */
 
@@ -173,7 +151,6 @@
 .marketResearch-page {
   display: flex;
   flex-direction: row;
-  /* align-items: center; */
   width: 100%;
   height: 800px;
   background-color: rgb(122, 216, 216);
@@ -205,9 +182,6 @@
 .marketResearch-content-stat {
   display: flex;
   flex-direction: row;
-  /* align-items: center;
-  justify-content: center; */
-  /* margin-left: 2rem; */
   justify-content: space-between;
   width: 50%;
 }
@@ -217,12 +191,12 @@
 }
 
 .stat-value {
-  font-size: 1.875rem; /* Equivalent to text-3xl */
-  font-weight: 700; /* Equivalent to font-bold */
+  font-size: 1.875rem; 
+  font-weight: 700; 
 }
 
 .stat-label {
-  color: #6B7280; /* Equivalent to text-gray-500 */
+  color: #6B7280; 
 }
 
 
