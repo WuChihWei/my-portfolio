@@ -31,7 +31,7 @@ const Footer = () => {
             <img src="/path-to-icon/logo.png" alt="Logo" className="h-8" />
           </div>
           <div className="text-center md:text-left mb-4 md:mb-0">
-            <p>© Copyright 2020 Pixsellz - Premium UI Goods for Designers</p>
+            <p>© Copyright {new Date().getFullYear()} Jordan Wu</p>
           </div>
           <div className="flex space-x-4">
             <a href="https://facebook.com" className="hover:text-blue-400 transition duration-300">

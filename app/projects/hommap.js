@@ -117,7 +117,8 @@ export const hommapData = {
       steps: [
         { title: "Step 1", description: "Install the fixed mounts to keep the apparatus stable." },
         { title: "Step 2", description: "Install the fixed mounts to keep the apparatus stable." },
-        { title: "Step 3", description: "Install the fixed mounts to keep the apparatus stable." }
+        { title: "Step 3", description: "Install the fixed mounts to keep the apparatus stable." },
+
       ]
     },
   };
