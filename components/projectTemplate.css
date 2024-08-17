@@ -417,7 +417,7 @@
 
 
 /* TechPage */
-.tech-page {
+/* .tech-page {
   display: flex;
   flex-direction: column;
   height: 800px;
@@ -428,7 +428,6 @@
 .tech-container {
   display: flex;
   flex-direction: row;
-  /* height: calc(100vh - 140px); */
   width: 100%;
   height: 100%;
 }
@@ -444,23 +443,20 @@
 .tech-content-text {
   display: flex;
   flex-direction: column;
-  /* justify-content: center;
-  align-items: center; */
   width: 50%;
 }
 
 .tech-image-placeholder {
   display: flex;
-  /* justify-content: center; */
-  /* align-items: center; */
+
   background-color: coral;
   width: 50%;
   height: 100%;
-}
+} */
 
 
 /* User Testing Page */
-.user-testing-page {
+/* .user-testing-page {
   width: 100%;
   padding: 2rem;
   text-align: center;
@@ -475,14 +471,12 @@
   margin-bottom: 2rem;
 }
 
-
-/* Steps */
 .user-testing-steps {
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 2rem;
-}
+} */
 
 .footer-bottom {
   display: flex;
