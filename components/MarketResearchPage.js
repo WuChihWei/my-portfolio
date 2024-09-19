@@ -4,16 +4,16 @@ import './projectTemplate.css';
 
 const MarketResearchPage = ({ title, description, imageUrl, statistics }) => {
   return (
-    <div className="w-full h-screen md:flex-row bg-slate-300 my-10">
+    <div className="w-full h-screen md:flex-row bg-slate-300">
       <div className="flex flex-col h-full w-full lg:flex-row ">
         
         {/* 图片部分移到左边 */}
-        <div className="w-full h-full lg:w-1/2 order-2 lg:order-1 flex items-center justify-center p-4 md:p-8 lg:p-12">
+        <div className="w-full h-full lg:w-1/2 order-2 lg:order-1 flex items-center justify-center px-4 md:px-8 ">
           {imageUrl && (
             <img 
               src={imageUrl} 
               alt={title} 
-              className="max-w-full max-h-full object-contain shadow-lg bg-slate-300 rounded-3xl"
+              className="max-w-full max-h-full object-contain shadow-lgrounded-3xl"
             />
           )}
         </div>

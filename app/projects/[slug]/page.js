@@ -87,6 +87,8 @@ export default function ProjectPage({ params }) {
           title={data.uiGuideline.title}
           description={data.uiGuideline.description}
           images={data.uiGuideline.images}
+          backgroundColor={data.uiGuideline.backgroundColor}
+          logoImage={data.uiGuideline.logoImage}
         />
       </section>
 
