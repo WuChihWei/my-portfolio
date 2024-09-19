@@ -3,15 +3,14 @@
 export const hommapData = {
 
     // introduction
-    branding: {
-      title: "Hommap Branding",
-      content: "Branding details for Hommap...",
-    },
     introduction: {
-      title: "Introduction to Hommap",
-      description: "This is the introduction to Hommap...",
-      imageUrl: "/images/hommap.png",
-      backgroundColor: "#f0f8ff", // Example color for Hommap
+      title: "Allergy First\nPrinciple Solution\nwith just an Address",      
+      description: "Solving home allergy issues through first\n principles interior design, using data analysis and \nAI for a healthier living environment.",
+      // imageUrl: "/hommap-intro-bkg.png",
+      // backgroundColor: "#f0f8ff",
+      backgroundImageUrl: "/hommap-intro-bkg.png",
+      contentImageUrl: "/hommap-landing-laptop.png",
+      websiteLink: "https://hommap.com",
     },
 
 
@@ -26,7 +25,7 @@ export const hommapData = {
         { name: "Feature 3", icon: "⭐" },
         { name: "Feature 4", icon: "⭐" },
       ],
-      imageUrl: "/images/davinci-browser-mockup.png", // Replace with the actual image path
+      imageUrl: "/hommap-intro-bkg.png", // Replace with the actual image path
     },
 
       // marketResearch
@@ -34,14 +33,52 @@ export const hommapData = {
         title: "Market Research",
         description:
           "The quality of today’s video game was not at all there when video game first conceptualized and played ever. During the formative years, video games were created by using various interactive electronic devices with various display.",
-        imageUrl: "/images/market-research-image.png", // Replace with actual image path
+        imageUrl: "/hommap-market.png", // Replace with actual image path
         statistics: [
-          { value: "28%", label: "Downloads" },
-          { value: "22%", label: "Users" },
-          { value: "37%", label: "Subscribers" },
-        ],
+          { value: 100, label: 'Total Users' },
+          { value: 50, label: 'Active Users' },
+          { value: 25, label: 'New Users' },
+        ]
       },
 
+      // solution
+      solution: {
+        title: "Solutions",
+        features: [
+          {
+            icon: '📊',
+            name: 'Historical Environment Data',
+            impact: 2,
+            urgency: 4,
+            marketSize: 2,
+            overall: 14
+          },
+          {
+            icon: '🔄',
+            name: 'Realtime Environment Data',
+            impact: 2,
+            urgency: 4,
+            marketSize: 2,
+            overall: 12
+          },
+          {
+            icon: '🧠',
+            name: 'AI Interior Design Suggestion',
+            impact: 2,
+            urgency: 4,
+            marketSize: 2,
+            overall: 11
+          },
+          {
+            icon: '📋',
+            name: 'Product Check List',
+            impact: 2,
+            urgency: 4,
+            marketSize: 2,
+            overall: 8
+          }
+        ]
+      },
 
     // branding
     branding: {
@@ -122,4 +159,3 @@ export const hommapData = {
       ]
     },
   };
-  

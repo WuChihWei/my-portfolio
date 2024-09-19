@@ -19,6 +19,7 @@ export default function Home() {
           <li className="active">Introduction</li>
           <li>User Story + Main Feature</li>
           <li>Market Research</li>
+          <li>Solutions</li>
           <li>Branding</li>
           <li>Wireframe + Sketch</li>
           <li>UI Guideline</li>

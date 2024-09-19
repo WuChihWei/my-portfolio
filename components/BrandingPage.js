@@ -14,18 +14,18 @@ const BrandingPage = ({ title, description, iconUrl, largeImageUrl, smallImages 
   };
 
   return (
-    <div className="branding-page min-h-screen w-full bg-gray-100 p-4">
-      <div className="branding-container w-full h-screen ">
-        <div className="branding-content flex flex-col h-1/2 md:flex-row md:space-x-8 mb-8">
-          <div className="branding-content-info flex flex-col justify-center items-left h-full md:w-1/2 mb-8 md:mb-0">
-            {iconUrl && <img src={iconUrl} alt="Brand Icon" className="icon w-16 h-16 mb-4" />}
-            <div className="branding-text">
-              <h1 className="text-3xl font-bold mb-4">{title}</h1>
-              <p className="text-lg text-gray-700">{description}</p>
+    <div className="branding-page min-h-screen w-full bg-gray-100 p-10">
+      <div className="branding-container w-full h-screen">
+        <div className="branding-content relative h-1/2 mb-8">
+          {largeImageUrl && (
+            <div className="absolute inset-0">
+              <img src={largeImageUrl} alt="Large Visual" className="w-full h-full object-cover rounded-lg" />
+              <div className="absolute inset-0 bg-black opacity-30 rounded-lg"></div>
             </div>
-          </div>
-          <div className="branding-top-image h-full md:w-1/2 hidden md:block">
-            {largeImageUrl && <img src={largeImageUrl} alt="Large Visual" className="w-full h-full rounded-lg shadow-lg" />}
+          )}
+          <div className="relative z-10 p-8">
+            <h1 className="text-4xl font-bold mb-4 text-white">Branding</h1>
+            <p className="text-xl max-w-2xl text-white">{description}</p>
           </div>
         </div>
         <div className="branding-images mt-4 h-1/2 w-full pb-8">

@@ -4,6 +4,8 @@ import { useState, useEffect } from 'react';
 import { hommapData } from '../projects/hommap';
 import { davincinData } from '../projects/davincin';
 import { superfakeData } from '../projects/superfake';
+import { doc, setDoc } from 'firebase/firestore';
+import { db } from '../../lib/firebase';
 
 const projectData = {
   hommap: hommapData,
@@ -14,6 +16,7 @@ const projectData = {
 export default function UpdatePage() {
   const [selectedProject, setSelectedProject] = useState('');
   const [formData, setFormData] = useState({});
+  const [isUploading, setIsUploading] = useState(false);
 
   useEffect(() => {
     if (selectedProject) {
@@ -91,9 +94,31 @@ export default function UpdatePage() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    // Here you would typically send the formData to your backend
-    console.log('Updated data:', formData);
-    alert('Data updated successfully!');
+    setIsUploading(true);
+    try {
+      const projectRef = doc(db, 'projects', selectedProject);
+      
+      console.log('Updating/Creating document:', selectedProject);
+      console.log('Update data:', formData);
+
+      // Use setDoc with merge option instead of updateDoc
+      await setDoc(projectRef, formData, { merge: true });
+      
+      console.log('Document successfully updated/created');
+      alert('Data updated successfully in Firebase!');
+    } catch (error) {
+      console.error('Error updating document:', error);
+      let errorMessage = 'Error updating data. ';
+      if (error.code) {
+        errorMessage += `Error code: ${error.code}. `;
+      }
+      if (error.message) {
+        errorMessage += `Error message: ${error.message}`;
+      }
+      alert(errorMessage);
+    } finally {
+      setIsUploading(false);
+    }
   };
 
   const renderField = (section, field, value, parentField = null) => {
@@ -212,7 +237,14 @@ export default function UpdatePage() {
   };
 
   return (
-    <div className="min-h-[calc(100vh-280px)] my-5 bg-white">
+    <div className="min-h-[calc(100vh-280px)] my-5 bg-white relative">
+      {isUploading && (
+        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
+          <div className="bg-white p-4 rounded-lg">
+            <p className="text-lg font-semibold">Uploading...</p>
+          </div>
+        </div>
+      )}
       <div className="container p-4 mx-auto h-full" style={{ maxWidth: '1440px' }}>
       <h1 className="text-4xl font-bold mb-8 mt-10">Update Project</h1>
         <select
@@ -237,7 +269,7 @@ export default function UpdatePage() {
               </div>
             ))}
             <button type="submit" className="bg-blue-500 text-white p-2 rounded hover:bg-blue-600">
-              更新
+              Update
             </button>
           </form>
         )}

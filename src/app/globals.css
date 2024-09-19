@@ -3,11 +3,13 @@
 @tailwind utilities;
 
 :root {
+  font-size: 16px; /* 基礎字體大小 */
   --max-width: 1100px;
   --border-radius: 12px;
   --font-mono: ui-monospace, Menlo, Monaco, "Cascadia Mono", "Segoe UI Mono",
     "Roboto Mono", "Oxygen Mono", "Ubuntu Monospace", "Source Code Pro",
     "Fira Mono", "Droid Sans Mono", "Courier New", monospace;
+  --font-family: 'Inter', sans-serif;
 
   --foreground-rgb: 0, 0, 0;
   /* --background-start-rgb: 214, 219, 220; */
@@ -44,17 +46,33 @@
   --card-border-rgb: 131, 134, 135;
 
   h1 {
-    font-size: 3rem;
-    font-weight: 700;
+    font-size: calc(2rem + 1vw);
+    font-weight: 900;
+    line-height: 1.4;
   }
 
   h2 {
-    font-size: 2rem;
+    font-size: calc(1.5rem + 0.5vw);
     font-weight: 700;
   }
 
   h3 {
-    font-size: 1.5rem;
+    font-size: calc(1.2rem + 0.3vw);
+    font-weight: 300;
+  }
+
+  h4 {
+    font-size: calc(1.1rem + 0.2vw);
+    font-weight: 500;
+  }
+
+  h5 {
+    font-size: calc(1rem + 0.1vw);
+    font-weight: 300;
+  }
+
+  p, body {
+    font-size: calc(1rem + 0.1vw);
     font-weight: 300;
   }
   
@@ -67,9 +85,9 @@ h1 {
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --foreground-rgb: 255, 255, 255;
+    /* --foreground-rgb: 255, 255, 255;
     --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
+    --background-end-rgb: 0, 0, 0; */
 
     --primary-glow: radial-gradient(rgba(1, 65, 255, 0.4), rgba(1, 65, 255, 0));
     --secondary-glow: linear-gradient(
@@ -113,40 +131,9 @@ body {
 }
 
 body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+  font-family: var(--font-family);
+
 }
-
-
-/* Add a transparent pink grid overlay */
-/* Transparent pink grid overlay with 12 columns, 40px margin, and 24px gutter */
-/* body::before {
-  content: "";
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-image: 
-    repeating-linear-gradient(
-      to right,
-      transparent 0px,
-      transparent 40px,
-      transparent 40px,
-      transparent 26px,
-      rgba(255, 192, 203, 0.2) 26px,
-      rgba(255, 192, 203, 0.2) calc(26px + ((100% - 80px - 264px) / 12)),
-      transparent calc(26px + ((100% - 80px - 264px) / 12)),
-      transparent calc(26px + ((100% - 80px - 264px) / 12))
-    );
-  pointer-events: none;
-  z-index: 9999;
-} */
 
 
 a {

@@ -10,7 +10,7 @@ import UIGuidelinePage from '../../../components/UIGuidelinePage';
 import WireframeUIsPage from '../../../components/WireframeUIsPage';
 import TechPage from '../../../components/TechPage';
 import UserTestingPage from '../../../components/UserTestingPage';
-
+import SolutionPage from '../../../components/SolutionPage';
 // Import project data
 import { hommapData } from '../hommap';
 import { davincinData } from '../davincin';
@@ -39,6 +39,9 @@ export default function ProjectPage({ params }) {
           description={data.introduction.description} 
           imageUrl={data.introduction.imageUrl} 
           backgroundColor={data.introduction.backgroundColor} 
+          websiteLink={data.introduction.websiteLink}
+          contentImageUrl={data.introduction.contentImageUrl}
+          backgroundImageUrl={data.introduction.backgroundImageUrl}
         />
       </section>
 
@@ -57,6 +60,15 @@ export default function ProjectPage({ params }) {
           description={data.marketResearch.description}
           imageUrl={data.marketResearch.imageUrl}
           statistics={data.marketResearch.statistics}
+        />
+      </section>
+
+      <section id="solution">
+        <SolutionPage
+          title={data.solution.title}
+          description={data.solution.description}
+          features={data.solution.features}
+          imageUrl={data.solution.imageUrl}
         />
       </section>
 
