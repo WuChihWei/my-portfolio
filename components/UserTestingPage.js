@@ -2,7 +2,7 @@ import React from 'react';
 
 const UserTestingPage = ({ title, description, steps }) => {
   return (
-    <div className="min-h-fit flex items-center bg-gray-100 py-8 px-4 sm:px-6 lg:px-8">
+    <div className="min-h-fit flex items-center py-8 px-4 sm:px-6 lg:px-8">
       <div className="h-full max-w-7xl mx-auto  ">
         <div className="text-center mb-8">
           <h1 className="text-3xl font-bold text-gray-900 sm:text-4xl">{title}</h1>

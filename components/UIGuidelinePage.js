@@ -22,13 +22,13 @@ const UIGuidelinePage = ({ title, description, logoImage, images, backgroundColo
             <p className="text-lg text-white max-w-2xl mb-4">{description}</p>
           </div>
         </div>
-        <div className="uiguideline-images flex flex-col md:flex-row md:mb-0 w-full sm:grid-cols-2 lg:grid-cols-3 gap-12 px-12 md:px-12">
+        <div className="uiguideline-images flex flex-col md:flex-row md:mb-0 w-full sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-8 lg:gap-12 px-4 md:px-8 lg:px-12">
           {images && images.map((imgSrc, index) => (
             <div key={index} className="uiguideline-image w-full">
               <img 
                 src={imgSrc} 
                 alt={`UI Guideline Visual ${index + 1}`} 
-                className="w-full h-auto object-cover rounded-lg my-12"
+                className="w-full h-auto object-cover rounded-lg my-4 md:my-8 lg:my-12"
               />
             </div>
           ))}

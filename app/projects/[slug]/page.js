@@ -11,6 +11,7 @@ import WireframeUIsPage from '../../../components/WireframeUIsPage';
 import TechPage from '../../../components/TechPage';
 import UserTestingPage from '../../../components/UserTestingPage';
 import SolutionPage from '../../../components/SolutionPage';
+import PlanPage from '../../../components/PlanPage';
 // Import project data
 import { hommapData } from '../hommap';
 import { davincinData } from '../davincin';
@@ -105,6 +106,15 @@ export default function ProjectPage({ params }) {
           description={data.tech.description} 
           imageUrl={data.tech.imageUrl} 
           backgroundColor={data.tech.backgroundColor} 
+          keyFeatures={data.tech.keyFeatures}
+          userFlow={data.tech.userFlow}
+          apiAndData={data.tech.apiAndData}
+        />
+      </section>
+
+      <section id="plan">
+        <PlanPage 
+          imageUrl={data.planPage.imageUrl}
         />
       </section>
 

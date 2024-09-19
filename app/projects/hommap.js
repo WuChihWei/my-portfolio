@@ -1,5 +1,7 @@
 // app/projects/hommap.js
 
+import PlanPage from "../../components/PlanPage";
+
 export const hommapData = {
 
     // introduction
@@ -85,7 +87,7 @@ export const hommapData = {
       title: "Branding",
       description: "Create a custom card that reflects your unique style and personality. Choose from a range of colors, patterns, and designs to customize the look of your card.",
       iconUrl: "/path-to-icon.png", // replace with actual path
-      largeImageUrl: "/path-to-large-image.png", // replace with actual path
+      largeImageUrl: "/hommap-branding.png", // replace with actual path
       smallImages: [
         "/path-to-small-image1.png",
         "/path-to-small-image2.png",
@@ -139,14 +141,33 @@ export const hommapData = {
     // tech
     tech: {
       title: "Tech",
-      content: "Tech details for Davinci...",
-    },
-    tech: {
-      title: "Tech",
       description: 
-      "You will likely be required to install the fixed mounts. These are what will keep the apparatus stable and secure with your computer monitor in it. Follow directions carefully so that you can be sure to get everything.",
-      imageUrl: "/images/davinci.png",
+        "You will likely be required to install the fixed mounts. These are what will keep the apparatus stable and secure with your computer monitor in it. Follow directions carefully so that you can be sure to get everything.",
+      imageUrl: "/hommap-architecture.png",
       backgroundColor: "#ffe4e1", // Example color for Davinci
+      keyFeatures: [
+        "Local Historical Environment Data",
+        "Local Real-time Environment Data",
+        "AI-Based Interior Design Suggestions",
+        "Product Checklist (based on AI suggestions)"
+      ],
+      userFlow: [
+        "User inputs location to view local historical and real-time environmental data.",
+        "AI analyzes the data and provides interior design suggestions to reduce allergies.",
+        "Based on AI advice, a product checklist is generated for the user."
+      ],
+      apiAndData: [
+        "Integrate local environment data APIs (historical and real-time).",
+        "Use AI models to process data and generate design suggestions.",
+        "Data analysis and AI suggestions powered by Python.",
+        "Frontend built with React and Next.js.",
+        "Data analysis and AI suggestions powered by Python."
+      ]
+    },
+
+    // scrumPlan
+    planPage: {
+      imageUrl: "/hommap-plan.png",
     },
 
     // userTesting

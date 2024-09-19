@@ -58,7 +58,7 @@
 
   h3 {
     font-size: calc(1.2rem + 0.3vw);
-    font-weight: 300;
+    font-weight: 500;
   }
 
   h4 {
@@ -68,11 +68,16 @@
 
   h5 {
     font-size: calc(1rem + 0.1vw);
-    font-weight: 300;
+    font-weight: 500;
   }
 
   p, body {
     font-size: calc(1rem + 0.1vw);
+    font-weight: 300;
+  }
+
+  li {
+    font-size: calc(0.8rem + 0.1vw);
     font-weight: 300;
   }
   
