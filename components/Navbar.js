@@ -86,7 +86,7 @@ const Navbar = () => {
               )}
             </li>
             <li><Link href="/contact">Contact</Link></li>
-            <li><Link href="/free">Free</Link></li>
+            {/* <li><Link href="/free">Admin</Link></li> */}
           </ul>
         </div>
       )}

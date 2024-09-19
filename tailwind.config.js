@@ -8,6 +8,7 @@ module.exports = {
     extend: {
       height: {
         'screen-navbar': 'calc(100vh - 64px)',
+        'screen-200': 'calc(100vh - 280px)',
       }
     },
   },

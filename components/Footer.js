@@ -1,7 +1,16 @@
+'use client';
+
 import React from 'react';
 import { FaFacebook, FaInstagram, FaTwitter, FaYoutube } from 'react-icons/fa';
+import { useRouter } from 'next/navigation';
 
 const Footer = () => {
+  const router = useRouter();
+
+  const handleAdminClick = () => {
+    router.push('/admin');
+  };
+
   return (
     <footer className="bg-gray-800 text-white">
       <div className="container mx-auto px-4 py-8">
@@ -30,8 +39,14 @@ const Footer = () => {
           <div className="mb-4 md:mb-0">
             <img src="/path-to-icon/logo.png" alt="Logo" className="h-8" />
           </div>
-          <div className="text-center md:text-left mb-4 md:mb-0">
-            <p>© Copyright {new Date().getFullYear()} Jordan Wu</p>
+          <div className="text-center md:text-left mb-4 md:mb-0 flex items-center">
+            <p className="mr-4">© Copyright {new Date().getFullYear()} Jordan Wu</p>
+            <button 
+              className="bg-gray-600 hover:bg-gray-700 text-white px-3 py-1 rounded text-sm transition duration-300"
+              onClick={handleAdminClick}
+            >
+              Admin
+            </button>
           </div>
           <div className="flex space-x-4">
             <a href="https://facebook.com" className="hover:text-blue-400 transition duration-300">
