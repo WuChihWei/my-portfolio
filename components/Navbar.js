@@ -41,14 +41,16 @@ const Navbar = () => {
       {isScrolled ? (
         <div className="introduction-carousel">
           <ul>
-            {/* <li onClick={() => handleScrollToSection('introduction')} >Top</li> */}
-            <li onClick={() => handleScrollToSection('introduction')} >Top / Introduction</li>
-            <li onClick={() => handleScrollToSection('user-story')}>User Story / Feature</li>
+            <li onClick={() => handleScrollToSection('introduction')} >Navbar</li>
+            <li onClick={() => handleScrollToSection('introduction')} >Introduction</li>
+            <li onClick={() => handleScrollToSection('user-story')}>User Story</li>
             <li onClick={() => handleScrollToSection('market-research')}>Market Research</li>
+            <li onClick={() => handleScrollToSection('solution')}>Solution</li>
             <li onClick={() => handleScrollToSection('branding')}>Branding</li>
-            <li onClick={() => handleScrollToSection('wireframe-uis')}>Wireframe / Sketch</li>
             <li onClick={() => handleScrollToSection('ui-guideline')}>UI Guideline</li>
+            <li onClick={() => handleScrollToSection('wireframe-uis')}>Wireframe</li>
             <li onClick={() => handleScrollToSection('tech')}>Tech</li>
+            <li onClick={() => handleScrollToSection('plan')}>Plan</li>
             <li onClick={() => handleScrollToSection('user-testing')}>User Testing</li>
           </ul>
         </div>

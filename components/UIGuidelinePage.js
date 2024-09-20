@@ -3,10 +3,10 @@ import './projectTemplate.css';
 
 const UIGuidelinePage = ({ title, description, logoImage, images, backgroundColor  }) => {
   return (
-    <div className="uiguideline-page w-full min-h-full">
+    <div className="uiguideline-page w-full min-h-screen bg-black ">
       <div className="uiguideline-container w-full">
         <div className="uiguideline-content h-[600px] relative" style={{ backgroundColor: backgroundColor }}>
-          <div className="absolute inset-0 flex flex-col justify-between p-12">
+          <div className="absolute inset-0 flex flex-col justify-between p-20">
             <div className="flex justify-between items-start mt-4">
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white">{title}</h1>
               <span className="text-white text-xl">Logo</span>

@@ -1,71 +1,90 @@
 import React, { useState, useEffect } from 'react';
 import './projectTemplate.css';
 
-const WireframeUIsPage = ({ title, cards }) => {
-  const [startIndex, setStartIndex] = useState(0);
-  const [isMdOrLarger, setIsMdOrLarger] = useState(window.innerWidth >= 768);
+const WireframeUIsPage = ({ 
+  title, 
+  cards, 
+  wideImageSrc, 
+  narrowImageSrc 
+}) => {
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const [cardsPerPage, setCardsPerPage] = useState(3);
 
   useEffect(() => {
     const handleResize = () => {
-      setIsMdOrLarger(window.innerWidth >= 768);
+      if (window.innerWidth >= 1280) {
+        setCardsPerPage(3);
+      } else if (window.innerWidth >= 768) {
+        setCardsPerPage(2);
+      } else {
+        setCardsPerPage(1);
+      }
     };
 
+    handleResize();
     window.addEventListener('resize', handleResize);
     return () => window.removeEventListener('resize', handleResize);
   }, []);
 
-  const visibleCards = isMdOrLarger ? cards.slice(startIndex, startIndex + 3) : [cards[startIndex]];
-
   const handleNext = () => {
-    if (startIndex + (isMdOrLarger ? 3 : 1) < cards.length) {
-      setStartIndex(startIndex + 1);
-    }
+    setCurrentIndex((prevIndex) => 
+      Math.min(prevIndex + 1, cards.length - cardsPerPage)
+    );
   };
 
   const handlePrev = () => {
-    if (startIndex > 0) {
-      setStartIndex(startIndex - 1);
-    }
+    setCurrentIndex((prevIndex) => Math.max(prevIndex - 1, 0));
   };
 
   return (
-    <div className="wireframe-uis-page min-h-screen flex justify-center items-center text-center bg-gray-100 p-4">
-      <div className="wireframe-container h-full mx-auto">
+    <div className="wireframe-uis-page min-h-screen flex flex-col justify-center items-center text-center bg-gray-100 py-20">
+      <div className="wireframe-container w-full max-w-[1440px] mx-auto px-4">
         <div className="wireframe-header mb-8">
           <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-800">{title}</h1>
         </div>
-        <div className="wireframe-carousel h-auto relative mx-4">
+        
+        {/* Image section with props */}
+        <div className="flex mb-8">
+          <div className="w-auto h-full">
+            <img src={wideImageSrc} alt="Wide image" className="w-full h-full object-contain" />
+          </div>
+          <div className="w-auto h-full">
+            <img src={narrowImageSrc} alt="Narrow image" className="w-full h-full object-contain" />
+          </div>
+        </div>
+
+        <div className="wireframe-carousel h-auto relative">
           <button 
-            className={`carousel-button left-button absolute left-0 top-1/2 transform -translate-y-1/2 bg-black bg-opacity-50 text-white p-2 rounded-full ${startIndex === 0 ? 'opacity-50 cursor-not-allowed' : ''}`} 
+            className={`carousel-button left-button absolute left-0 top-1/2 transform -translate-y-1/2 bg-black bg-opacity-50 text-white p-2 rounded-full ${currentIndex === 0 ? 'opacity-50 cursor-not-allowed' : ''}`} 
             onClick={handlePrev}
-            disabled={startIndex === 0}
+            disabled={currentIndex === 0}
           >
             ←
           </button>
-          <div className="carousel-cards flex flex-col md:flex-row md:space-x-6 md:overflow-x-auto md:scroll-snap-type-x md:scrollbar-hide">
-            {visibleCards.map((card, index) => (
-              <div key={index} className="carousel-card bg-white rounded-lg shadow-md mb-6 md:mb-0 md:w-96 lg:w-[30rem] flex-shrink-0 md:scroll-snap-align-start">
-                <div className="card-image aspect-[16/9] overflow-hidden">
+          <div className="carousel-cards w-full flex flex-row overflow-hidden ">
+            {cards.slice(currentIndex, currentIndex + cardsPerPage).map((card, index) => (
+              <div key={index} className="carousel-card rounded-3xl  md:w-1/2 lg:w-1/3 flex-shrink-0 flex flex-col p-10">
+                <div className="card-image aspect-[4/3] overflow-hidden  rounded-t-lg">
                   {card.imageUrl && (
                     <img 
                       src={card.imageUrl} 
                       alt={card.heading} 
-                      className="w-full h-full object-cover"
+                      className="w-full h-full object-cover  "
+                      style={{ backgroundColor:"black", borderRadius:"2rem" }}
                     />
                   )}
                 </div>
-                <div className="card-content p-6">
-                  <p className="card-date text-sm text-gray-500 mb-2">{card.date}</p>
-                  <h2 className="card-heading text-2xl font-semibold mb-3">{card.heading}</h2>
-                  <p className="card-description text-lg text-gray-700">{card.description}</p>
+                <div className="card-content flex-grow flex flex-col justify-between">
+                  <h4 className="card-heading  font-semibold my-3">{card.heading}</h4>
+                  <p className="card-description text-s px-8">{card.description}</p>
                 </div>
               </div>
             ))}
           </div>
           <button 
-            className={`carousel-button right-button absolute right-0 top-1/2 transform -translate-y-1/2 bg-black bg-opacity-50 text-white p-2 rounded-full ${startIndex + (isMdOrLarger ? 3 : 1) >= cards.length ? 'opacity-50 cursor-not-allowed' : ''}`} 
+            className={`carousel-button right-button absolute right-0 top-1/2 transform -translate-y-1/2 bg-black bg-opacity-50 text-white p-2 rounded-full ${currentIndex + cardsPerPage >= cards.length ? 'opacity-50 cursor-not-allowed' : ''}`} 
             onClick={handleNext}
-            disabled={startIndex + (isMdOrLarger ? 3 : 1) >= cards.length}
+            disabled={currentIndex + cardsPerPage >= cards.length}
           >
             →
           </button>

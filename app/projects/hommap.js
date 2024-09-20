@@ -21,13 +21,7 @@ export const hommapData = {
       title: "User Story + Main Feature",
       description:
         "Each and every one of us has that moment when we are suddenly stunned when we come face to face with the enormity of the universe.",
-      features: [
-        { name: "Feature 1", icon: "⭐" },
-        { name: "Feature 2", icon: "⭐" },
-        { name: "Feature 3", icon: "⭐" },
-        { name: "Feature 4", icon: "⭐" },
-      ],
-      imageUrl: "/hommap-intro-bkg.png", // Replace with the actual image path
+      imageUrl: "/hommap-userstory.png",
     },
 
       // marketResearch
@@ -89,9 +83,9 @@ export const hommapData = {
       iconUrl: "/path-to-icon.png", // replace with actual path
       largeImageUrl: "/hommap-branding.png", // replace with actual path
       smallImages: [
-        "/path-to-small-image1.png",
-        "/path-to-small-image2.png",
-        "/path-to-small-image3.png"
+        "/hommap-branding-1.png",
+        "/hommap-branding-2.png",
+        "/hommap-branding-3.png"
         ] // replace with actual paths
       },
 
@@ -110,6 +104,8 @@ export const hommapData = {
     // wireframeUIs
     wireframeUIs:{
       title: "Wireframe + UIs",
+      wideImageSrc: "/laptop-frame.png",
+      narrowImageSrc: "/iphone-frame.png",
       cards: [
         {
           imageUrl: "/path-to-image1.png",

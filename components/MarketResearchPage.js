@@ -4,11 +4,9 @@ import './projectTemplate.css';
 
 const MarketResearchPage = ({ title, description, imageUrl, statistics }) => {
   return (
-    <div className="w-full h-screen md:flex-row bg-slate-300">
+    <div className="w-full h-auto p-20 md:flex-row">
       <div className="flex flex-col h-full w-full lg:flex-row ">
-        
-        {/* 图片部分移到左边 */}
-        <div className="w-full h-full lg:w-1/2 order-2 lg:order-1 flex items-center justify-center px-4 md:px-8 ">
+        <div className="w-full h-full lg:w-1/2 order-2 lg:order-1 flex items-center justify-center ">
           {imageUrl && (
             <img 
               src={imageUrl} 
@@ -17,8 +15,6 @@ const MarketResearchPage = ({ title, description, imageUrl, statistics }) => {
             />
           )}
         </div>
-
-        {/* 文字内容移到右边 */}
         <div className="w-full lg:w-1/2 h-full flex flex-col justify-center text-left order-1 lg:order-2 p-4 md:p-8 lg:p-12">
           <h1 className="text-3xl text-left md:text-4xl lg:text-5xl font-bold mb-4"> Prioritization<br />
           + Market Size</h1>

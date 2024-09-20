@@ -50,7 +50,6 @@ export default function ProjectPage({ params }) {
         <UserStoryFeaturePage 
           title={data.userStoryFeature.title}
           description={data.userStoryFeature.description}
-          features={data.userStoryFeature.features}
           imageUrl={data.userStoryFeature.imageUrl}
         />
       </section>
@@ -97,6 +96,8 @@ export default function ProjectPage({ params }) {
         <WireframeUIsPage 
           title={data.wireframeUIs.title}
           cards={data.wireframeUIs.cards}
+          wideImageSrc={data.wireframeUIs.wideImageSrc}
+          narrowImageSrc={data.wireframeUIs.narrowImageSrc}
         />
       </section>
 
