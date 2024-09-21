@@ -6,9 +6,9 @@ const SolutionPage = ({ title, features }) => {
     <div className="flex items-center justify-center md:px-20 lg:overflow-y-auto">
       <div className="w-full text-center ">
         <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4"> Pain Points ⭢ Solutions </h1>
-        <div className="grid grid-cols-1 pt-10 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className="grid grid-cols-1 pt-10 md:grid-cols-2 lg:grid-cols-4 gap-8 auto-cols-fr">
           {features.map((feature, index) => (
-            <div key={index} className="bg-white p-8 rounded-3xl space-y-6  border-gray-200 border-2">
+            <div key={index} className="bg-white p-8 rounded-3xl space-y-6 border-gray-200 border-2">
               <p className="text-sm text-gray-500 mb-2">
                 {index < 4 ? `${['First', 'Second', 'Third', 'Fourth'][index]} Priority` : `Feature ${index + 1}`}
               </p>

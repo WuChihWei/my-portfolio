@@ -174,18 +174,16 @@ a {
 .navbar {
   position: fixed; 
   top: 0;
-  left: 0;
+  /* left: 0; */
   width: 100vw; /* 使用視窗寬度 */
-  margin: 0; /* 移除外邊距 */
-  padding-left: 0;
-  padding-right: 0;
+  /* margin: 20px; */
   /* box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); */
   background-color: white;
   z-index: 1000; /* Ensure the navbar stays on top of other elements */
   padding-top: 1.2rem;
   padding-bottom: 1.2rem;
-  padding-left: 2rem;
-  padding-right: 2rem;
+  padding-left: 3.2rem;
+  padding-right: 3.8rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -241,9 +239,9 @@ a {
 
 .navbar-logo{
   display: flex;
-  /* width: 100%; */
+  height: 40px;
   /* justify-content: space-between; */
-  align-items: center;
+  /* align-items: center; */
   /* background-color: darksalmon; */
 }
 
@@ -272,7 +270,8 @@ a {
 
 .home-cover {
   display: flex;
-  height: calc(100vh - 150px);
+  height: calc(100vh - 120px);
+  margin-top: 20px;
   align-items: center;
   justify-content: center;
   text-align: center;
@@ -344,6 +343,7 @@ a {
   text-align: bottom;
 }
 
+
 .key-skills {
   margin-top: auto; /* 這行將使元素推到底部 */
   width: 100%; /* 確保寬度填滿父容器 */
@@ -352,15 +352,23 @@ a {
 .skill-icons {
   display: grid;
   grid-template-columns: repeat(6, 1fr);
-  gap: 10px;
+  gap: 20px;
+  margin-top: 20px;
+  margin-right: 40px;
+}
+
+.skill-icons img {
+  width: 30px;
+  height: 30px;
+  object-fit: contain;
 }
 
 /* Add styles for your skill icons */
 
 .image-placeholder {
-  background-color: #143f94; 
-  /* height: 12rem;  */
-  /* width: 24rem;  */
+  /* background-color: #143f94;  */
+  /* border-radius: 30px; */
+  align-items: right;
   width: 67%;
   height: 100%;
 }
@@ -401,7 +409,6 @@ a {
   flex-direction: row;
   height: 100%;
 }
-
 
 /* Footer Styles */
 /* .footer {

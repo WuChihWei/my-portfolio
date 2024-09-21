@@ -19,7 +19,7 @@ const BrandingPage = ({ title, description, iconUrl, largeImageUrl, smallImages 
         {largeImageUrl && (
           <img src={largeImageUrl} alt="Large Visual" className="w-full max-h-[500px] object-cover rounded-3xl" />
         )}
-        <div className="absolute inset-0 bg-black opacity-20 rounded-3xl"></div>
+        {/* <div className="absolute inset-0 bg-black opacity-20 rounded-3xl"></div> */}
         <div className="absolute inset-0 z-10 p-8 flex flex-col justify-center">
           <h1 className="text-4xl font-bold mb-4 text-white">Branding</h1>
           <p className="text-xl max-w-2xl text-white">{description}</p>

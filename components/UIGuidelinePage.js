@@ -3,7 +3,7 @@ import './projectTemplate.css';
 
 const UIGuidelinePage = ({ title, description, logoImage, images, backgroundColor  }) => {
   return (
-    <div className="uiguideline-page w-full min-h-screen bg-black ">
+    <div className="uiguideline-page w-full min-h-screen ">
       <div className="uiguideline-container w-full">
         <div className="uiguideline-content h-[600px] relative" style={{ backgroundColor: backgroundColor }}>
           <div className="absolute inset-0 flex flex-col justify-between p-20">

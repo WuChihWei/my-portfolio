@@ -28,7 +28,7 @@ export const hommapData = {
       marketResearch: {
         title: "Market Research",
         description:
-          "The quality of today’s video game was not at all there when video game first conceptualized and played ever. During the formative years, video games were created by using various interactive electronic devices with various display.",
+          "Taiwan’s allergy-focused market includes up to 2.7 million households (TAM), with a subset of 720,000 to 1.35 million households looking for smart home solutions (SAM). In the early stages, 7,200 to 67,500 households (SOM) can be realistically captured.",
         imageUrl: "/hommap-market.png", // Replace with actual image path
         statistics: [
           { value: 100, label: 'Total Users' },
@@ -43,7 +43,7 @@ export const hommapData = {
         features: [
           {
             icon: '📊',
-            name: 'Historical Environment Data',
+            name: 'Update Study List',
             impact: 2,
             urgency: 4,
             marketSize: 2,
@@ -51,7 +51,7 @@ export const hommapData = {
           },
           {
             icon: '🔄',
-            name: 'Realtime Environment Data',
+            name: 'AI Chat to data',
             impact: 2,
             urgency: 4,
             marketSize: 2,
@@ -59,7 +59,7 @@ export const hommapData = {
           },
           {
             icon: '🧠',
-            name: 'AI Interior Design Suggestion',
+            name: 'Analyze Users’ Questions',
             impact: 2,
             urgency: 4,
             marketSize: 2,
@@ -67,7 +67,7 @@ export const hommapData = {
           },
           {
             icon: '📋',
-            name: 'Product Check List',
+            name: 'Paid Consultant',
             impact: 2,
             urgency: 4,
             marketSize: 2,
@@ -169,11 +169,12 @@ export const hommapData = {
     // userTesting
     userTesting: {
       title: "User Testing",
-      description: "Each and every one of us has that moment when we are suddenly stunned when we come face to face with the enormity of the universe.",
+      description: "Acceptance Criteria",
       steps: [
-        { title: "Step 1", description: "Install the fixed mounts to keep the apparatus stable." },
-        { title: "Step 2", description: "Install the fixed mounts to keep the apparatus stable." },
-        { title: "Step 3", description: "Install the fixed mounts to keep the apparatus stable." },
+        { title: "Data Accuracy", description: "Users can view local historical and real-time data." },
+        { title: "AI Accuracy", description: "AI successfully generates interior design suggestions." },
+        { title: "Product List Accuracy", description: "Product checklist reflects the AI suggestions." },
+        { title: "User Experience", description: "User Feedback, open ended interview questions will be conducted."},
 
       ]
     },

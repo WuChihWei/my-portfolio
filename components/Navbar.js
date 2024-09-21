@@ -9,6 +9,7 @@ const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const pathname = usePathname();
   const isProjectPage = pathname.startsWith('/projects/');
+  const isHomePage = pathname === '/';
 
   const toggleDropdown = () => {
     setIsDropdownOpen(!isDropdownOpen);
@@ -38,10 +39,10 @@ const Navbar = () => {
 
   return (
     <nav className={`navbar ${isScrolled && isProjectPage ? 'scrolled' : ''}`}>
-      {isScrolled ? (
+      {isScrolled && isProjectPage ? (
         <div className="introduction-carousel">
           <ul>
-            <li onClick={() => handleScrollToSection('introduction')} >Navbar</li>
+            <li onClick={() => handleScrollToSection('introduction')} >Top</li>
             <li onClick={() => handleScrollToSection('introduction')} >Introduction</li>
             <li onClick={() => handleScrollToSection('user-story')}>User Story</li>
             <li onClick={() => handleScrollToSection('market-research')}>Market Research</li>
@@ -57,11 +58,11 @@ const Navbar = () => {
       ) : (
         <div className="navbar-container">
             <div className="navbar-logo">
-          <img src="/logo.png" alt="L" className="navbar-logo-img" />
-          <span className="navbar-logo-text">Logo</span>
+          <img src="/home-logo.png" alt="L" className="navbar-logo-img" />
+          {/* <span className="navbar-logo-text">Logo</span> */}
           </div>
           <ul className="navbar-items">
-            <li><Link href="/">Portfolio</Link></li>
+            <li><Link href="/">Home</Link></li>
             <li><Link href="/resume">Resume</Link></li>
             <li className="relative">
               <button onClick={toggleDropdown} className="focus:outline-none">

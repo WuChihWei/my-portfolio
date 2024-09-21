@@ -3,10 +3,10 @@ import React from 'react';
 const IntroductionPage = ({ title, description, backgroundImageUrl, contentImageUrl, websiteLink }) => {
   return (
     <div 
-      className="relative w-full h-screen bg-cover bg-center"
+      className="relative w-full h-screen bg-cover bg-center p-10"
       style={{ backgroundImage: `url(${backgroundImageUrl})` }}
     >
-      <div className="absolute inset-0 bg-black opacity-10"></div>
+      <div className="absolute inset-0opacity-10"></div>
       
       <div className="relative z-10 flex flex-col w-full h-full">
         <div className="flex flex-col justify-center w-1/2 h-full p-8 text-white">
@@ -23,7 +23,12 @@ const IntroductionPage = ({ title, description, backgroundImageUrl, contentImage
               Real Website Link: <a href={websiteLink} className="text-blue-300 underline" target="_blank" rel="noopener noreferrer">{websiteLink}</a>
             </p>
           )}
-          <h4 className="text-xl mb-4">{description}</h4>
+          <h4 className="text-xl mb-4">{description.split('\n').map((line, index) => (
+              <React.Fragment key={index}>
+                {line}
+                {index < description.split('\n').length - 1 && <br />}
+              </React.Fragment>
+            ))}</h4>
           <ul className="list-disc pl-5 mb-4">
             <li>Market Research</li>
             <li>User Study</li>
