@@ -345,8 +345,8 @@ a {
 
 
 .key-skills {
-  margin-top: auto; /* 這行將使元素推到底部 */
-  width: 100%; /* 確保寬度填滿父容器 */
+  margin-top: auto; 
+  width: 80%; 
 }
 
 .skill-icons {
@@ -410,112 +410,52 @@ a {
   height: 100%;
 }
 
-/* Footer Styles */
-/* .footer {
+/* .image-main {
   width: 100%;
-  height: 400px;
-  padding: 2rem;
-  background-color: #c7c8c9;
-  color: #6b7280;
-}
-
-.footer-top {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
-  border-bottom: 1px solid #e5e7eb;
-  padding-bottom: 1rem;
-  height: 50%;
-}
-
-.footer-content {
-  display: flex;
-  flex-direction: column;
-
-}
-
-.footer-content h3 {
-  font-size: 1.5rem;
-  font-weight: bold;
-  margin-bottom: 0.5rem;
-}
-
-.footer-content p {
-  font-size: 1rem;
-  margin-bottom: 1rem;
-}
-
-.footer-email {
-  display: flex;
-}
-
-.footer-email input[type="email"] {
-  padding: 0.5rem;
-  border: 1px solid #d1d5db;
-  border-radius: 4px;
-  margin-right: 0.5rem;
-}
-
-.footer-email button {
-  padding: 0.5rem 1rem;
-  background-color: #14b8a6;
-  color: white;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-}
-
-.footer-bottom {
-  display: flex;
-  justify-content: space-around;
-  margin-top: 1rem;
-  height: 50%;
-}
-
-.footer-bottom-left img{
-  background-color: darksalmon;
-  width: 8rem;
-  height: 8rem;
-  border-radius: 100%;
-}
-
-
-.footer-bottom-middle {
-  display: flex;
-  flex-direction: column;
-
-  margin-top: 1rem;
-}
-
-.footer-links {
-  display: flex;
-  flex-direction: row;
-
-  width: 100%;
-}
-
-
-.footer-bottom-right {
-  display: flex;
-  gap: 1rem;
-}
-
-.footer-bottom-right a {
-  color: #374151;
-  text-decoration: none;
-}
-
-.footer-social {
-  display: flex;
-  gap: 1rem;
-}
-
-.footer-social a img {
-  width: 24px;
-  height: 24px;
-}
-
-.footer-copyright {
-  text-align: right;
+  height: 100%;
+  object-fit: cover;
 } */
+
+.home-content-right {
+  width: 80%;
+  height: calc(100vh - 100px);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  gap: 20px;
+  padding: 20px 0;
+  /* background-color: rgb(209, 209, 209); */
+}
+
+.image-scroll-container {
+  display: flex;
+  animation: scroll 30s linear infinite;
+  height: 50%;
+  overflow: visible; /* 允許內容溢出 */
+}
+
+.image-scroll-container.bottom {
+  animation-direction: reverse;
+}
+
+.image-scroll-container:hover {
+  animation-play-state: paused;
+}
+
+.image-scroll-container img {
+  height: 100%; /* 圖片高度填滿容器 */
+  width: auto; /* 寬度自動調整以保持原始寬高比 */
+  object-fit: contain; /* 確保整個圖片可見 */
+  margin-right: 10px; /* 圖片之間的間隔 */
+}
+
+@keyframes scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(calc(-50% - 5px)); /* 調整以考慮間隙 */
+  }
+}
+
+/* 其他樣式保持不變 */

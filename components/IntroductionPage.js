@@ -20,7 +20,7 @@ const IntroductionPage = ({ title, description, backgroundImageUrl, contentImage
           </h1>
           {websiteLink && (
             <p className="mb-4">
-              Real Website Link: <a href={websiteLink} className="text-blue-300 underline" target="_blank" rel="noopener noreferrer">{websiteLink}</a>
+              Real Website Link: <a href={websiteLink} className="text-white-300 underline" target="_blank" rel="noopener noreferrer">{websiteLink}</a>
             </p>
           )}
           <h4 className="text-xl mb-4">{description.split('\n').map((line, index) => (
@@ -37,7 +37,7 @@ const IntroductionPage = ({ title, description, backgroundImageUrl, contentImage
             <li>Front-end, back-end, API integration, AI development</li>
           </ul>
           <p>Made by Jordan Wu</p>
-          <p>GitHub: <a href="https://github.com/WuChihWei" className="text-blue-300 underline">https://github.com/WuChihWei</a></p>
+          <p>GitHub: <a href="https://github.com/WuChihWei" className="text-white-300 underline">https://github.com/WuChihWei</a></p>
         </div>
         
         {contentImageUrl && (

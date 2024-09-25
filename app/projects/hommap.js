@@ -10,8 +10,8 @@ export const hommapData = {
       description: "Solving home allergy issues through first\n principles interior design, using data analysis and \nAI for a healthier living environment.",
       // imageUrl: "/hommap-intro-bkg.png",
       // backgroundColor: "#f0f8ff",
-      backgroundImageUrl: "/hommap-intro-bkg.png",
-      contentImageUrl: "/hommap-landing-laptop.png",
+      backgroundImageUrl: "/hommap-intro.png",
+      // contentImageUrl: "/hommap-landing-laptop.png",
       websiteLink: "https://hommap.com",
     },
 

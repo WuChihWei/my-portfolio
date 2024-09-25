@@ -37,25 +37,26 @@ export default function Home() {
 
   return (
     <div className='home-container'>
-      {/* <Navbar /> */}
       <div className="home-cover">
         <div className="home-content-left">
           <div className="home-content-text-top">
-            <h1 className="heading-main">Allergy First<br />Principle Solution<br />with just an Address</h1>
+            <h1 className="heading-main mb-0">
+              End-to-End <br />Digital Product Enthusiast. <br />From research <br />and coding to <br />design
+            </h1>
           </div>
-          <div className="social-links">
-            <div className="social-link-container">
-              <a href="https://www.linkedin.com/in/jordanwu1993/" className="social-link"> <h5>Linkedin</h5></a>
-              <p>https://www.linkedin.com/in/jordanwu1993/</p>
+          <div className="social-links -mt-6"> {/* 使用負的 margin-top */}
+            <div className="social-link-container ">
+              <a href="https://www.linkedin.com/in/jordanwu-tech/" className="social-link"> <h5 className="m-0">Linkedin</h5>     </a>
+                <p className="-mt-2">https://www.linkedin.com/in/jordanwu-tech/</p>
             </div>
             <div className="social-link-container">
               <a href="https://github.com/jordanwu1993" className="social-link"> <h5>Github</h5></a>
-              <p>https://github.com/jordanwu1993</p>
+              <p className="-mt-2">https://github.com/jordanwu1993</p>
             </div>
           </div>
           <div className="key-skills">
             <h2>Key Skills</h2>
-            <div className="skill-icons grid grid-cols-6 gap-4">
+            <div className="skill-icons grid grid-cols-6 gap-2">
               {[...Array(12)].map((_, index) => (
                 <img
                   key={index}
@@ -67,8 +68,26 @@ export default function Home() {
             </div>
           </div>
         </div>
-        <div className="image-placeholder">
-          <img src="/home-mainpicture.png" alt="Home Image" className="w-full h-full" />
+        <div className="home-content-right">
+          <div className="image-scroll-container top">
+            {[...Array(6)].map((_, index) => (
+              <img key={index} src={`/project-${index + 1}.png`} alt={`Project ${index + 1}`} />
+            ))}
+            {[...Array(6)].map((_, index) => (
+              <img key={index + 6} src={`/project-${index + 1}.png`} alt={`Project ${index + 1}`} />
+            ))}
+          </div>
+          {/* <div className="image-main">
+            <img src="/home-mainpicture.png" alt="Home Image" className="w-full h-full object-cover" />
+          </div> */}
+          <div className="image-scroll-container bottom">
+            {[...Array(6)].map((_, index) => (
+              <img key={index} src={`/project-${index + 7}.png`} alt={`Project ${index + 7}`} />
+            ))}
+            {[...Array(6)].map((_, index) => (
+              <img key={index + 6} src={`/project-${index + 7}.png`} alt={`Project ${index + 7}`} />
+            ))}
+          </div>
         </div>
       </div>
 
