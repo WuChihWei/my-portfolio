@@ -316,6 +316,7 @@ a {
 .resume-item-header {
   padding-bottom: 10px;
   cursor: pointer;
+  font-weight: 500;
 }
 
 .resume-item-content {

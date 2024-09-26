@@ -11,12 +11,12 @@ const UIGuidelinePage = ({ title, description, logoImage, images, backgroundColo
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white">{title}</h1>
               <span className="text-white text-xl">Logo</span>
             </div>
-            <div className="flex justify-center items-center my-8 overflow-hidden">
+            <div className="flex justify-center items-center my-4 overflow-hidden">
               <img 
                 src={logoImage} 
                 alt="Logo" 
                 className="max-w-none h-auto object-contain"
-                style={{ width: '100%', maxWidth: '100vw' }}
+                style={{ width: '100%', maxWidth: '100%', marginRight: '1px' }}
               />
             </div>
             <p className="text-lg text-white max-w-2xl mb-4">{description}</p>

@@ -8,8 +8,8 @@ export const superfakeData = {
   description: "For AI creators, find creative inspiration from\n the daily trending topics.\nShare and explore AI-generated content\n with. a global community.",
   // imageUrl: "/hommap-intro-bkg.png",
   // backgroundColor: "#f0f8ff",
-  backgroundImageUrl: "/super-intro.png",
-  contentImageUrl: "/hommap-landing-laptop.png",
+  // backgroundImageUrl: "/super-intro.png",
+  contentImageUrl: "/super-intro.png",
   websiteLink: "https://hommap.com",
 },
 
@@ -77,7 +77,7 @@ userStoryFeature: {
 // branding
 branding: {
   title: "Branding",
-  description: "Create a custom card that reflects your unique style and personality. Choose from a range of colors, patterns, and designs to customize the look of your card.",
+  description: "The branding evokes a mysterious, psychedelic atmosphere with theatrical design and ironic humor.",
   iconUrl: "/path-to-icon.png", // replace with actual path
   largeImageUrl: "/super-branding.png", // replace with actual path
   smallImages: [
@@ -90,7 +90,7 @@ branding: {
   // uiGuideline
 uiGuideline: {
   title: "UI Guideline",
-  description: "Create a custom card that reflects your unique style and personality. Choose from a range of colors, patterns, and designs to customize the look of your card.",
+  description: "Dominated by purple, it sparks intrigue and creative exploration, while playful, surreal imagery invites users into a limitless world of AI-driven creativity.",
   images: [
     "/super-font.png",
     "/super-color.png",
@@ -102,32 +102,32 @@ uiGuideline: {
 // wireframeUIs
 wireframeUIs:{
   title: "Wireframe + UIs",
-  wideImageSrc: "/laptop-frame.png",
-  narrowImageSrc: "/iphone-frame.png",
+  wideImageSrc: "/super-laptop.png",
+  narrowImageSrc: "/super-mobile.png",
   cards: [
     {
-      imageUrl: "/path-to-image1.png",
-      date: "01 May 2020",
+      imageUrl: "/super-wireframe1.png",
       heading: "Heading",
-      description: "Moment in the life of any aspiring astronomer of that it is time to buy that first telescope.",
     },
     {
-      imageUrl: "/path-to-image2.png",
-      date: "01 May 2020",
+      imageUrl: "/super-wireframe2.png",
       heading: "Two line header example",
-      description: "Moment in the life of any aspiring astronomer of that it is time to buy that first telescope.",
     },
     {
-      imageUrl: "/path-to-image3.png",
-      date: "01 May 2020",
+      imageUrl: "/super-wireframe3.png",
       heading: "Heading",
-      description: "Moment in the life of any aspiring astronomer of that it is time to buy that first telescope.",
     },
     {
-      imageUrl: "/path-to-image4.png",
-      date: "01 May 2020",
+      imageUrl: "/super-wireframe4.png",
       heading: "Two line header example cool",
-      description: "Moment in the life of any aspiring astronomer of that it is time to buy that first telescope.",
+    },
+    {
+      imageUrl: "/super-wireframe5.png",
+      heading: "Two line header example cool",
+    },
+    {
+      imageUrl: "/super-wireframe6.png",
+      heading: "Two line header example cool",
     }
   ]
 },
@@ -136,7 +136,7 @@ wireframeUIs:{
 tech: {
   title: "Tech",
   description: 
-    "You will likely be required to install the fixed mounts. These are what will keep the apparatus stable and secure with your computer monitor in it. Follow directions carefully so that you can be sure to get everything.",
+    "Create a platform for AI creators to find inspiration from trending topics, share AI-generated content, and engage with a global AI-focused community.",
   imageUrl: "/super-architecture.png",
   backgroundColor: "#ffe4e1", // Example color for Davinci
   keyFeatures: [

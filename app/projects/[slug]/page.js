@@ -59,7 +59,7 @@ export default function ProjectPage({ params }) {
           title={data.marketResearch.title}
           description={data.marketResearch.description}
           imageUrl={data.marketResearch.imageUrl}
-          statistics={data.marketResearch.statistics}
+          // statistics={data.marketResearch.statistics}
         />
       </section>
 

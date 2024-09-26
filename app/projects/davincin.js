@@ -8,7 +8,7 @@ export const davincinData = {
     description: "An AI-powered CRM platform for knowledge workers, offering customized assistants to satisfy and analyze audience curiosity.",
     // imageUrl: "/hommap-intro-bkg.png",
     // backgroundColor: "#f0f8ff",
-    backgroundImageUrl: "/davincin-intro.png",
+    // backgroundImageUrl: "/davincin-intro.png",
     contentImageUrl: "/davincin-intro.png",
     websiteLink: "https://hommap.com",
   },
@@ -18,8 +18,8 @@ export const davincinData = {
   userStoryFeature: {
     title: "User Story + Main Feature",
     description:
-      "The U.S. TAM for an AI-powered CRM platform targeting knowledge workers is $2 billion, based on 10 million professionals. The SAM focuses on the 30% actively engaging with their audience, valued at $600 million. The SOM, with a 5% short-term market capture, is estimated at $30 million.",
-    imageUrl: "/davincin-story.png",
+      "Name: John, 30 </br>Occupation: Knowledge Worker (CRM Manager)</br>Background: John is a 30-year-old CRM manager who wants to streamline client management tasks and improve client interactions through AI.",
+    imageUrl: "/davincin-userstory.png",
   },
 
     // marketResearch
@@ -40,8 +40,8 @@ export const davincinData = {
       title: "Solutions",
       features: [
         {
-          icon: '📊',
-          name: 'Historical Environment Data',
+          icon: '📋',
+          name: 'Update Study List',
           impact: 2,
           urgency: 4,
           marketSize: 2,
@@ -49,7 +49,7 @@ export const davincinData = {
         },
         {
           icon: '🔄',
-          name: 'Realtime Environment Data',
+          name: 'AI Chat to data',
           impact: 2,
           urgency: 4,
           marketSize: 2,
@@ -57,15 +57,15 @@ export const davincinData = {
         },
         {
           icon: '🧠',
-          name: 'AI Interior Design Suggestion',
+          name: 'Analyze Users’ Questions',
           impact: 2,
           urgency: 4,
           marketSize: 2,
           overall: 11
         },
         {
-          icon: '📋',
-          name: 'Product Check List',
+          icon: '💬',
+          name: 'Paid Consultant',
           impact: 2,
           urgency: 4,
           marketSize: 2,
@@ -77,8 +77,8 @@ export const davincinData = {
   // branding
   branding: {
     title: "Branding",
-    description: "Create a custom card that reflects your unique style and personality. Choose from a range of colors, patterns, and designs to customize the look of your card.",
-    iconUrl: "/path-to-icon.png", // replace with actual path
+    description: "The brand concept, inspired by Da Vinci to the nth power, is embodied in an hourglass-shaped logo, symbolizing efficient learning across disciplines through AI. Blue, the primary color, represents intelligent technology and innovation.",
+    // iconUrl: "/path-to-icon.png", // replace with actual path
     largeImageUrl: "/davincin-branding.png", // replace with actual path
     smallImages: [
       "/dacincin-brand1.png", 
@@ -90,7 +90,7 @@ export const davincinData = {
     // uiGuideline
   uiGuideline: {
     title: "UI Guideline",
-    description: "Create a custom card that reflects your unique style and personality. Choose from a range of colors, patterns, and designs to customize the look of your card.",
+    description: "hourglass-shaped logo, symbolizing efficient learning across disciplines through AI.",
     images: [
       "/davincin-font.png",
       "/davincin-color.png",
@@ -102,32 +102,27 @@ export const davincinData = {
   // wireframeUIs
   wireframeUIs:{
     title: "Wireframe + UIs",
-    wideImageSrc: "/laptop-frame.png",
-    narrowImageSrc: "/iphone-frame.png",
+    wideImageSrc: "/davincin-laptop.png",
+    narrowImageSrc: "/davincin-mobile.png",
     cards: [
       {
-        imageUrl: "/path-to-image1.png",
-        date: "01 May 2020",
+        imageUrl: "/davincin-wireframe1.png",
         heading: "Heading",
-        description: "Moment in the life of any aspiring astronomer of that it is time to buy that first telescope.",
       },
       {
-        imageUrl: "/path-to-image2.png",
-        date: "01 May 2020",
+        imageUrl: "/davincin-wireframe2.png",
         heading: "Two line header example",
-        description: "Moment in the life of any aspiring astronomer of that it is time to buy that first telescope.",
+        
       },
       {
-        imageUrl: "/path-to-image3.png",
-        date: "01 May 2020",
+        imageUrl: "/davincin-wireframe3.png",
         heading: "Heading",
-        description: "Moment in the life of any aspiring astronomer of that it is time to buy that first telescope.",
+        
       },
       {
-        imageUrl: "/path-to-image4.png",
-        date: "01 May 2020",
+        imageUrl: "/davincin-wireframe4.png",
         heading: "Two line header example cool",
-        description: "Moment in the life of any aspiring astronomer of that it is time to buy that first telescope.",
+        
       }
     ]
   },

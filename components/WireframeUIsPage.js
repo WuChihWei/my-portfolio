@@ -44,12 +44,12 @@ const WireframeUIsPage = ({
         </div>
         
         {/* Image section with props */}
-        <div className="flex mb-8">
+        <div className="flex p-10">
           <div className="w-auto h-full">
             <img src={wideImageSrc} alt="Wide image" className="w-full h-full object-contain" />
           </div>
           <div className="w-auto h-full">
-            <img src={narrowImageSrc} alt="Narrow image" className="w-full h-full object-contain" />
+            <img src={narrowImageSrc} alt="Narrow image" className="w-full h-full object-contain p-12" />
           </div>
         </div>
 
@@ -63,14 +63,14 @@ const WireframeUIsPage = ({
           </button>
           <div className="carousel-cards w-full flex flex-row overflow-hidden ">
             {cards.slice(currentIndex, currentIndex + cardsPerPage).map((card, index) => (
-              <div key={index} className="carousel-card rounded-3xl  md:w-1/2 lg:w-1/3 flex-shrink-0 flex flex-col p-10">
-                <div className="card-image aspect-[4/3] overflow-hidden  rounded-t-lg">
+              <div key={index} className="carousel-card  md:w-1/2 lg:w-1/3 flex-shrink-0 flex flex-col p-3">
+                <div className="card-image aspect-[4/3] overflow-hidden shadow-md rounded-xl">
                   {card.imageUrl && (
                     <img 
                       src={card.imageUrl} 
                       alt={card.heading} 
                       className="w-full h-full object-cover  "
-                      style={{ backgroundColor:"black", borderRadius:"2rem" }}
+                      style={{ borderRadius:"1rem" }}
                     />
                   )}
                 </div>
