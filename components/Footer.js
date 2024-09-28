@@ -1,7 +1,7 @@
 'use client';
 
 import React from 'react';
-import { FaFacebook, FaInstagram, FaTwitter, FaYoutube } from 'react-icons/fa';
+import { FaFacebook, FaGithub, FaLinkedin } from 'react-icons/fa';
 import { useRouter } from 'next/navigation';
 
 const Footer = () => {
@@ -28,7 +28,7 @@ const Footer = () => {
                 placeholder="Email"
                 className="bg-gray-700 text-white px-4 py-2 mb-2 sm:mb-0 sm:mr-2 rounded"
               />
-              <button className="bg-blue-500 hover:bg-blue-600 px-4 py-2 rounded transition duration-300">
+              <button className="bg-white text-black hover:bg-blue-600 px-4 py-2 rounded transition duration-300">
                 Leave Email
               </button>
             </form>
@@ -36,7 +36,7 @@ const Footer = () => {
         </div>
         <div className="flex flex-col md:flex-row justify-between items-center pt-8 border-t border-gray-700">
           <div className="mb-4 md:mb-0">
-            <img src="/path-to-icon/logo.png" alt="Logo" className="h-8" />
+            <img src="/1b1m-logo.png" alt="Logo" className="h-8" />
           </div>
           <div className="text-center md:text-left mb-4 md:mb-0 flex items-center">
             <p className="mr-4">© Copyright {new Date().getFullYear()} Jordan Wu</p>
@@ -48,17 +48,14 @@ const Footer = () => {
             </button>
           </div>
           <div className="flex space-x-4">
-            <a href="https://facebook.com" className="hover:text-blue-400 transition duration-300">
+            <a href="https://github.com" className="hover:text-gray-400 transition duration-300">
+              <FaGithub size={24} />
+            </a>
+            <a href="https://linkedin.com" className="hover:text-blue-400 transition duration-300">
+              <FaLinkedin size={24} />
+            </a>
+            <a href="https://facebook.com" className="hover:text-blue-500 transition duration-300">
               <FaFacebook size={24} />
-            </a>
-            <a href="https://instagram.com" className="hover:text-pink-400 transition duration-300">
-              <FaInstagram size={24} />
-            </a>
-            <a href="https://twitter.com" className="hover:text-blue-300 transition duration-300">
-              <FaTwitter size={24} />
-            </a>
-            <a href="https://youtube.com" className="hover:text-red-500 transition duration-300">
-              <FaYoutube size={24} />
             </a>
           </div>
         </div>

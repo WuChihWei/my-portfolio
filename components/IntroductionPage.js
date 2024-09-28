@@ -2,7 +2,7 @@ import React from 'react';
 
 const IntroductionPage = ({ title, description, backgroundImageUrl, contentImageUrl, websiteLink }) => {
   return (
-    <div className="relative z-10 flex flex-col w-full h-full">
+    <div className="relative z-10 mt-4 md:mt-0 flex flex-col w-full h-full">
       
       <div className="flex flex-col lg:flex-row items-center w-full h-full">
         <div className="flex flex-col justify-between w-full  p-p-gap pt-14 lg:w-2/5 h-1/2 lg:h-full py-6 lg:py-10 text-black">

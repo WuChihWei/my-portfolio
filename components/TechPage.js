@@ -47,12 +47,12 @@ const TechPage = ({ title, description, imageUrl, backgroundColor, keyFeatures, 
             </div>
           </div>
           {imageUrl && (
-            <div className="tech-image-placeholder w-full lg:w-1/2 p-2 sm:p-0">
+            <div className="tech-image-placeholder w-full lg:w-1/2 my-10 md:my-0">
               <h2 className="text-xl sm:text-2xl font-bold mb-2 sm:mb-4">Architecture</h2>
               <img 
                 src={imageUrl} 
                 alt={title} 
-                className="w-4/5 lg:w-full h-auto rounded-lg mx-auto" 
+                className="w-full lg:w-full h-auto rounded-lg mx-auto" 
               />
             </div>
           )}

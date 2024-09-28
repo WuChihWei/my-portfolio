@@ -77,9 +77,9 @@ const Navbar = () => {
 
   return (
     <nav className={`navbar ${isScrolled && isProjectPage ? 'scrolled' : ''}`} ref={menuRef}>
-      <div className="navbar-container">
+      <div className={`navbar-container ${isMobile ? 'mobile' : ''}`}>
         <div className="navbar-logo-container">
-          <div className="navbar-logo">
+          <div className={`navbar-logo ${isMobile ? 'mobile' : ''}`}>
             <img src="/1b1m-logo.png" alt="L" className="navbar-logo-img" />
           </div>
           <div className="navbar-logo-text-container">
@@ -139,20 +139,69 @@ const Navbar = () => {
           </ul>
         )}
       </div>
-      {isScrolled && isProjectPage && (
-        <div className="introduction-carousel">
-          <ul>
-            <li onClick={() => handleScrollToSection('introduction')}>Top</li>
-            <li onClick={() => handleScrollToSection('introduction')}>Introduction</li>
-            <li onClick={() => handleScrollToSection('user-story')}>User Story</li>
-            <li onClick={() => handleScrollToSection('market-research')}>Market Research</li>
-            <li onClick={() => handleScrollToSection('solution')}>Solution</li>
-            <li onClick={() => handleScrollToSection('branding')}>Branding</li>
-            <li onClick={() => handleScrollToSection('ui-guideline')}>UI Guideline</li>
-            <li onClick={() => handleScrollToSection('wireframe-uis')}>Wireframe</li>
-            <li onClick={() => handleScrollToSection('tech')}>Tech</li>
-            <li onClick={() => handleScrollToSection('plan')}>Plan</li>
-            <li onClick={() => handleScrollToSection('user-testing')}>User Testing</li>
+      {isScrolled && isProjectPage && !isOpen && (
+        <div className="introduction-carousel overflow-x-auto whitespace-nowrap scrollbar-thin scrollbar-thumb-white scrollbar-track-transparent">
+          <ul className="flex py-2">
+            <li className="inline-block px-3" onClick={() => handleScrollToSection('introduction')}>Top</li>
+            <li className="inline-block px-3" onClick={() => handleScrollToSection('introduction')}>Introduction</li>
+            <li className="inline-block px-3" onClick={() => handleScrollToSection('user-story')}>User Story</li>
+            <li className="inline-block px-3" onClick={() => handleScrollToSection('market-research')}>Market Research</li>
+            <li className="inline-block px-3" onClick={() => handleScrollToSection('solution')}>Solution</li>
+            <li className="inline-block px-3" onClick={() => handleScrollToSection('branding')}>Branding</li>
+            <li className="inline-block px-3" onClick={() => handleScrollToSection('ui-guideline')}>UI Guideline</li>
+            <li className="inline-block px-3" onClick={() => handleScrollToSection('wireframe-uis')}>Wireframe</li>
+            <li className="inline-block px-3" onClick={() => handleScrollToSection('tech')}>Tech</li>
+            <li className="inline-block px-3" onClick={() => handleScrollToSection('plan')}>Plan</li>
+            <li className="inline-block px-3" onClick={() => handleScrollToSection('user-testing')}>User Testing</li>
+          </ul>
+        </div>
+      )}
+      {isMobile && isOpen && (
+        <div className="mobile-menu-overlay">
+          <ul className="navbar-items open">
+            <li>
+              <Link href="/" onClick={closeMenu} className={isActive('/') ? 'font-bold' : ''}>
+                Home
+              </Link>
+            </li>
+            <li>
+              <Link href="/resume" onClick={closeMenu} className={isActive('/resume') ? 'font-bold' : ''}>
+                Resume
+              </Link>
+            </li>
+            <li className={`relative projects-dropdown ${projectsOpen ? 'open' : ''}`}>
+              <button 
+                onClick={toggleProjects} 
+                className={`focus:outline-none ${isActive('/projects') ? 'font-bold' : ''}`}
+              >
+                Projects
+              </button>
+              {projectsOpen && (
+                <ul className="projects-list">
+                  <li>
+                    <Link href="/projects/superfake" onClick={closeMenu} className={isActive('/projects/superfake') ? 'font-bold' : ''}>
+                      Superfake
+                    </Link>
+                  </li>
+                  <li>
+                    <Link href="/projects/hommap" onClick={closeMenu} className={isActive('/projects/hommap') ? 'font-bold' : ''}>
+                      Hommap
+                    </Link>
+                  </li>
+                  <li>
+                    <Link href="/projects/davincin" onClick={closeMenu} className={isActive('/projects/davincin') ? 'font-bold' : ''}>
+                      Davincin
+                    </Link>
+                  </li>
+                </ul>
+              )}
+            </li>
+            <li>
+              <Link href="/contact" onClick={closeMenu} className={isActive('/contact') ? 'font-bold' : ''}>
+                Contact
+              </Link>
+            </li>
+            {/* <li><Link href="/free">Admin</Link></li> */}
           </ul>
         </div>
       )}
