@@ -12,14 +12,13 @@ const Footer = () => {
   };
 
   return (
-    <footer className="bg-gray-800 text-white">
-      <div className="container mx-auto px-4 py-8">
+    <footer className="bg-black text-white">
+      <div className=" mx-auto px-12 py-8">
         <div className="flex flex-col md:flex-row justify-between items-center mb-8">
           <div className="mb-6 md:mb-0 text-center md:text-left">
-            <h3 className="text-xl font-bold mb-2">Heading</h3>
+            <h3 className="text-xl font-bold mb-2">1B1M.com</h3>
             <p className="max-w-md">
-              In the history of modern astronomy, there is probably no one
-              greater leap forward than the building and launch.
+            One Builder, One Mission. Delivering end-to-end digital solutions through design thinking — Research and strategy to design and coding.
             </p>
           </div>
           <div className="w-full md:w-auto">

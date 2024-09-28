@@ -41,11 +41,20 @@ export default function ContactPage() {
       {/* Left side: Contact Information */}
       <div className="w-full md:w-1/2 pr-4 mb-8 md:mb-0">
         <h1 className="text-3xl font-bold mb-2">Get In Touch</h1>
-        <p className="mb-6 text-gray-600">We are here for you! How can we help?</p>
+        <p className="mb-6 text-gray-600">Hi! How can I help?</p>
         <div className="space-y-2">
-          <p className="flex items-center"><span className="mr-2">📍</span> Stockholm | Berlin | Taipei</p>
-          <p className="flex items-center"><span className="mr-2">🌐</span> https://www.linkedin.com/in/jordanwu-tech/</p>
-          <p className="flex items-center"><span className="mr-2">✉️</span> w99jordan@gmail.com</p>
+          <p className="flex items-center">
+            <span className="mr-2">📍</span> 
+            <span className="font-medium">Stockholm | Berlin | Taipei</span>
+          </p>
+          <p className="flex items-center">
+            <span className="mr-2">🌐</span> 
+            <span className="font-medium">https://www.linkedin.com/in/jordanwu-tech/</span>
+          </p>
+          <p className="flex items-center">
+            <span className="mr-2">✉️</span> 
+            <span className="font-medium">w99jordan@gmail.com</span>
+          </p>
         </div>
       </div>
 

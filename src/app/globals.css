@@ -42,24 +42,24 @@
   --card-border-rgb: 131, 134, 135;
 
   h1 {
-    font-size: calc(2rem + 1vw);
-    font-weight: 700;
-    line-height: 1.4;
+    font-size: calc(2.8rem + 1vw);
+    font-weight: 800;
+    line-height: 1.3;
   }
 
   h2 {
     font-size: calc(1.5rem + 0.5vw);
-    font-weight: 700;
+    font-weight: 800;
   }
 
   h3 {
     font-size: calc(1.2rem + 0.3vw);
-    font-weight: 500;
+    font-weight: 600;
   }
 
   h4 {
     font-size: calc(1.1rem + 0.2vw);
-    font-weight: 500;
+    font-weight: 600;
   }
 
   h5 {
@@ -174,23 +174,20 @@ a {
 .navbar {
   position: fixed; 
   top: 0;
-  /* left: 0; */
   width: 100vw; /* 使用視窗寬度 */
-  /* margin: 20px; */
-  /* box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); */
-  background-color: white;
+  background-color: rgb(255, 255, 255);
   z-index: 1000; /* Ensure the navbar stays on top of other elements */
   padding-top: 1.2rem;
   padding-bottom: 1.2rem;
   padding-left: 3.2rem;
-  padding-right: 3.8rem;
+  padding-right: 3.2rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
   transition: all 0.3s ease;
-  height: 60px;
+  height: 80px;
   font-size: 1rem;
-  font-weight: 500;
+  /* font-weight: 500; */
 }
 
 .navbar.scrolled {
@@ -239,18 +236,26 @@ a {
 
 .navbar-logo{
   display: flex;
-  height: 40px;
+  height: 48px;
   /* justify-content: space-between; */
   /* align-items: center; */
   /* background-color: darksalmon; */
+}
+
+.navbar-logo-container{
+  display: flex;
+  align-items: center;
+}
+
+.navbar-logo-text-container{
+  margin-left: 20px;
 }
 
 .navbar-items{
   display: flex;
   justify-content: space-between;
   align-items: center;
-  /* background-color: darksalmon; */
-  width: 30%;
+  width: 25%;
 }
 
 .container {
@@ -460,3 +465,137 @@ a {
 }
 
 /* 其他樣式保持不變 */
+
+/* Add these new styles */
+.menu-icon {
+  display: none;
+  cursor: pointer;
+}
+
+@media (max-width: 768px) {
+  .navbar-items {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 80px;
+    left: 0;
+    width: 100%;
+    background-color: rgb(255, 255, 255);
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  }
+
+  .navbar-items.open {
+    display: flex;
+  }
+
+  .navbar-items li {
+    width: 100%;
+    text-align: right;
+    padding: 1rem 50px;
+    border-bottom: 1px solid #eee;
+  }
+
+  .menu-icon {
+    display: block;
+  }
+}
+
+.navbar-items {
+  display: flex;
+  align-items: center;
+}
+
+.projects-dropdown {
+  position: relative;
+}
+
+.projects-list {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background-color: white;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  z-index: 10;
+}
+
+.projects-dropdown.open .projects-list {
+  display: block;
+}
+
+@media (max-width: 768px) {
+  .navbar-items {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .projects-dropdown {
+    width: 100%;
+  }
+
+  .projects-list {
+    position: static;
+    display: none;
+    box-shadow: none;
+  }
+
+  .projects-dropdown.open .projects-list {
+    display: block;
+  }
+
+  .projects-dropdown.open + li {
+    margin-top: 0;
+    transition: margin-top 0.3s ease;
+  }
+}
+
+.projects-list li {
+  border-bottom: none;
+  border-right: 1px solid #eee;
+  padding-right: 10px;
+  margin-right: 10px;
+}
+
+.projects-list li:last-child {
+  border-right: none;
+  padding-right: 0;
+  margin-right: 0;
+}
+
+.navbar-items > li > a,
+.navbar-items > li > button {
+  font-size: 1.2rem; /* 增大主導航項目的字體 */
+}
+
+.projects-list li a {
+  font-size: 0.9rem; /* 縮小項目列表的字體 */
+}
+
+.projects-list {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  background-color: transparent;
+  box-shadow: none;
+}
+
+@media (max-width: 768px) {
+  .projects-list {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .projects-list li {
+    border-right: none;
+    /* border-right: 1px solid #eee; */
+    padding: 10px 0;
+    text-align: left;
+    margin: 0;
+    width: 100%;
+  }
+
+  .projects-list li:last-child {
+    border-bottom: none;
+    /* border-right: 1px solid #eee; */
+  }
+}
