@@ -17,7 +17,12 @@ module.exports = {
         'screen-20': 'calc(100vh - 20px)',
         'screen-0': 'calc(100vh - 0px)',
 
-      }
+      },
+      padding: {
+        'p-gap': '0.6vw 2.6vw',
+        // '2.6': '2.6vw',
+      },
+
     },
   },
   plugins: [],
