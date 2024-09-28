@@ -1,7 +1,9 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import { MdOutlineDesignServices, MdOutlineComputer, MdOutlineBrush, MdOutlineBuildCircle } from 'react-icons/md';
+import { MdOutlineDesignServices, MdOutlineComputer, MdOutlineBrush } from 'react-icons/md';
+import { FiTool } from "react-icons/fi";
+
 import { FaLinkedin, FaGithub } from 'react-icons/fa';
 import { MdArrowOutward } from "react-icons/md";
 
@@ -42,13 +44,13 @@ export default function Home() {
   return (
     <div className='home-container'>
       <div className="home-cover flex flex-col md:flex-row">
-        <div className="home-content-left max-md:w-full max-md:h-1/3 w-full h-[calc(30vh-100px)] md:h-[calc(100vh-120px)] md:w-1/3 flex flex-col">
-          <div className="flex flex-col flex-grow">
-            <div className="mb-4">
+        <div className="home-content-left max-md:w-full max-md:h-1/2 w-full h-[calc(30vh-100px)] md:h-[calc(100vh-120px)] md:w-1/3 flex flex-col">
+          <div className="flex flex-col flex-grow p-p-gap">
+            <div className="mb-4 md:py-0 py-20"> {/* 添加 py-8 用於小螢幕 */}
               <h1 className="text-2xl md:text-4xl font-extrabold leading-tight pr-10">
               An End-to-End Digital Product Enthusiast
               </h1>
-              <div className="pt-6 mr-10">
+              <div className="pt-6 mr-10 md:py-0 ">
               <h4>
               One Builder, One Mission. Delivering end-to-end digital solutions through design thinking — from research and strategy to coding and design.
               </h4>
@@ -79,7 +81,7 @@ export default function Home() {
             
           </div>
           
-          <div className="mt-auto"> {/* Key Skills 部分 */}
+          <div className="mt-auto p-p-gap"> {/* Key Skills 部分 */}
             <div className="md:block hidden">
               <h2 className="font-semibold mb-6">Key Skills</h2>
               <div className="grid grid-cols-6 gap-2 sm:gap-4 md:gap-4 lg:gap-6 xl:gap-8">
@@ -95,8 +97,8 @@ export default function Home() {
             </div>
           </div>
         </div>
-        <div className="home-content-right max-md:w-full w-full h-[calc(70vh-100px)] md:h-[calc(100vh-100px)] md:w-2/3 flex flex-col"> {/* Added flex flex-col */}
-          <div className="image-scroll-container top flex-grow"> {/* Added flex-grow */}
+        <div className="home-content-right max-md:w-full w-full h-[calc(50vh-100px)] md:h-[calc(100vh-100px)] md:w-2/3 flex flex-col"> {/* Added flex flex-col */}
+          <div className="image-scroll-container top flex-grow space-y-0 md:space-y-4"> {/* Added flex-grow and space-y classes */}
             {[...Array(6)].map((_, index) => (
               <img key={index} src={`/project-${index + 1}.png`} alt={`Project ${index + 1}`} />
             ))}
@@ -104,7 +106,7 @@ export default function Home() {
               <img key={index + 6} src={`/project-${index + 1}.png`} alt={`Project ${index + 1}`} />
             ))}
           </div>
-          <div className="image-scroll-container bottom flex-grow"> {/* Added flex-grow */}
+          <div className="image-scroll-container bottom flex-grow space-y-0 md:space-y-4"> {/* Added flex-grow and space-y classes */}
             {[...Array(6)].map((_, index) => (
               <img key={index} src={`/project-${index + 7}.png`} alt={`Project ${index + 7}`} />
             ))}
@@ -116,7 +118,7 @@ export default function Home() {
       </div>
 
       {/* Key Skills 部分在小屏幕時顯示在底部 */}
-      <div className="md:hidden block w-full mt-8"> {/* 只在小屏幕顯示 */}
+      <div className="md:hidden block w-full mt-20 p-p-gap"> {/* 只在小屏幕顯示 */}
         <h2 className="font-semibold mb-6">Key Skills</h2>
         <div className="grid grid-cols-6 gap-10">
           {[...Array(12)].map((_, index) => (
@@ -124,49 +126,49 @@ export default function Home() {
               key={index}
               src={`/skill-${index + 1}.png`}
               alt={`Skill ${index + 1}`}
-              className="w-10 h-10"
+              className="w-8 h-8"
             />
           ))}
         </div>
       </div>
 
       {/* Add My Expertise section */}
-      <section className="expertise-section bg-white py-32">
-        <h2 className="text-3xl font-bold text-left mb-6">My Expertise</h2>
-        <div className="expertise-grid mx-auto flex flex-wrap justify-between gap-y-8 gap-x-4 sm:gap-x-6 md:gap-x-8 lg:gap-x-12 xl:gap-x-16">
+      <section className="expertise-section bg-white py-10 mb:py-20 p-p-gap">
+        <h2 className="text-3xl font-bold text-left my-12">My Expertise</h2>
+        <div className="expertise-grid mx-auto flex flex-wrap justify-between gap-y-8 gap-10 sm:gap-12">
           <div className="expertise-item w-full sm:w-[calc(100%)] lg:w-[calc(40%)] xl:w-[calc(20%)] flex flex-col items-start text-left">
-            <div className="bg-black text-white p-2 mb-4">
-              <MdOutlineDesignServices size={34} />
+            <div className="bg-white border-2 border-black p-2 mb-4 rounded-full">
+              <MdOutlineDesignServices size={34} className="text-black" />
             </div>
-            <h3 className="text-xl font-semibold mb-2">Strategy & Direction</h3>
+            <h3 className="text-xl font-semibold my-4">Strategy & Direction</h3>
             <p className="text-sm text-gray-600">Solving home allergy issues through first principles interior design, using data analysis and AI for a healthier living environment.</p>
           </div>
           <div className="expertise-item w-full sm:w-[calc(100%)] lg:w-[calc(40%)] xl:w-[calc(20%)] flex flex-col items-start text-left">
-            <div className="bg-black text-white p-2 mb-4">
-              <MdOutlineComputer size={34} />
+            <div className="bg-white border-2 border-black p-2 mb-4 rounded-full">
+              <MdOutlineComputer size={34} className="text-black" />
             </div>
-            <h3 className="text-xl font-semibold mb-2">Technology</h3>
+            <h3 className="text-xl font-semibold my-4">Technology</h3>
             <p className="text-sm text-gray-600">Solving home allergy issues through first principles interior design, using data analysis and AI for a healthier living environment.</p>
           </div>
           <div className="expertise-item w-full sm:w-[calc(100%)] lg:w-[calc(40%)] xl:w-[calc(20%)] flex flex-col items-start text-left">
-            <div className="bg-black text-white p-2 mb-4">
-              <MdOutlineBrush size={34} />
+            <div className="bg-white border-2 border-black p-2 mb-4 rounded-full">
+              <MdOutlineBrush size={34} className="text-black" />
             </div>
-            <h3 className="text-xl font-semibold mb-2">UI & UX Design</h3>
+            <h3 className="text-xl font-semibold my-4">UI & UX Design</h3>
             <p className="text-sm text-gray-600">Solving home allergy issues through first principles interior design, using data analysis and AI for a healthier living environment.</p>
           </div>
           <div className="expertise-item w-full sm:w-[calc(100%)] lg:w-[calc(40%)] xl:w-[calc(20%)] flex flex-col items-start text-left">
-            <div className="bg-black text-white p-2 mb-4">
-              <MdOutlineBuildCircle size={34} />
+            <div className="bg-white border-2 border-black p-2 mb-4 rounded-full">
+              <FiTool size={34} className="text-black" />
             </div>
-            <h3 className="text-xl font-semibold mb-2">Key Skills</h3>
+            <h3 className="text-xl font-semibold my-4">Key Skills</h3>
             <p className="text-sm text-gray-600">Solving home allergy issues through first principles interior design, using data analysis and AI for a healthier living environment.</p>
           </div>
         </div>
       </section>
 
       {/* After the home cover section */}
-      <section className="resume-section">
+      <section className="resume-section p-p-gap">
         <div className="resume-container">
           <h2>Experience</h2>
           <div className="resume-item">
