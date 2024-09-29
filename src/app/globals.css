@@ -3,8 +3,7 @@
 @tailwind utilities;
 
 :root {
-  font-size: 16px; /* 基礎字體大小 */
-  /* --max-width: 1100px; */
+  font-size: 16px;
   --border-radius: 12px;
   --font-mono: ui-monospace, Menlo, Monaco, "Cascadia Mono", "Segoe UI Mono",
     "Roboto Mono", "Oxygen Mono", "Ubuntu Monospace", "Source Code Pro",
@@ -41,6 +40,7 @@
   --card-rgb: 180, 185, 188;
   --card-border-rgb: 131, 134, 135;
 
+  /* 標題和文本樣式 */
   h1 {
     font-size: calc(2.2rem + 1.4vw);
     font-weight: 800;
@@ -48,7 +48,7 @@
   }
 
   h2 {
-    font-size: calc(1.6rem + 0.6vw);
+    font-size: calc(1.4rem + 0.6vw);
     font-weight: 800;
   }
 
@@ -58,7 +58,7 @@
   }
 
   h4 {
-    font-size: calc(0.8rem + 0.5vw);
+    font-size: calc(1rem + 0.5vw);
     font-weight: 600;
   }
 
@@ -76,17 +76,6 @@
     font-size: calc(0.8rem + 0.1vw);
     font-weight: 300;
   }
-/* 
-  li {
-    font-size: calc(1.2rem + 0.1vw);
-    font-weight: 500;
-  } */
-  
-}
-
-h1 {
-  font-size: var(--h1-font-size);
-  font-weight: var(--h1-font-weight); /* Optional */
 }
 
 @media (prefers-color-scheme: dark) {
@@ -119,6 +108,7 @@ h1 {
   }
 }
 
+/* 全局樣式 */
 * {
   box-sizing: border-box;
   padding: 0;
@@ -135,9 +125,9 @@ body {
 
 body {
   font-family: var(--font-family);
-  margin: 0; /* 移除 body 的默認邊距 */
+  margin: 0;
   padding: 0;
-  overflow-x: hidden; /* 防止水平滾動 */
+  overflow-x: hidden;
 }
 
 a {
@@ -151,11 +141,7 @@ a {
   }
 }
 
-.h1-custom {
-  font-size: var(--h1-font-size);
-  font-weight: var(--h1-font-weight);
-}
-
+/* 網格覆蓋 */
 .grid-overlay {
   position: fixed;
   top: 0;
@@ -175,7 +161,7 @@ a {
   border-left: 1px solid rgba(255, 192, 203, 0.4); /* Optional: border for clarity */
 }
 
-/* globals.css */
+/* 導航欄樣式 */
 .navbar {
   position: fixed;
   top: 0;
@@ -184,6 +170,35 @@ a {
   z-index: 1000;
   display: flex;
   flex-direction: column;
+}
+
+.navbar-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.6vw 2.6vw;
+  background-color: #ffffff;
+}
+
+.navbar-logo{
+  display: flex;
+  height: 48px;
+}
+
+.navbar-logo-container{
+  display: flex;
+  align-items: center;
+}
+
+.navbar-logo-text-container{
+  margin-left: 20px;
+}
+
+.navbar-items{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 25%;
 }
 
 @media (max-width: 768px) {
@@ -244,43 +259,10 @@ a {
   cursor: pointer;
 }
 
-.navbar-container {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 0.6vw 2.6vw;
-  background-color: #ffffff; 
-  
-}
-
-.navbar-logo{
-  display: flex;
-  height: 48px;
-  /* justify-content: space-between; */
-  /* align-items: center; */
-  /* background-color: darksalmon; */
-}
-
-.navbar-logo-container{
-  display: flex;
-  align-items: center;
-}
-
-.navbar-logo-text-container{
-  margin-left: 20px;
-}
-
-.navbar-items{
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  width: 25%;
-}
-
+/* 主頁樣式 */
 .container {
   max-width: 1280px;
   margin: 0 auto;
-  /* padding: 0 2rem; */
 }
 
 .home-container {
@@ -309,6 +291,50 @@ a {
   align-self: flex-start; 
   height: 100%;
 }
+
+.home-content-right {
+  width: 80%;
+  height: calc(100vh - 100px);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  gap: 20px;
+  padding: 20px 0;
+  /* background-color: rgb(209, 209, 209); */
+}
+
+.home-carousel {
+  display: flex;
+  justify-content: space-between;
+  /* margin-top: 2.5rem;  */
+  gap: 1rem; /* space between boxes */
+  overflow-x: auto; /* allow horizontal scrolling if content overflows */
+}
+
+.home-carousel ul {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  gap: 1rem; /* space between boxes */
+  list-style: none; /* remove default list styling */
+  padding: 0;
+  margin: 0;
+}
+
+.home-carousel li {
+  color: #374151; /* text color */
+  padding: 1rem;
+  width: calc(12.5% - 1rem); /* 8 boxes per row with space between */
+  text-align: center;
+  flex-shrink: 0; /* prevent shrinking */
+}
+
+.home-carousel li.active {
+  /* background-color: #14b8a6; */
+  color: rgb(50, 121, 202);
+}
+
+/* 簡歷部分樣式 */
 .resume-section {
   margin-top: 40px;
 }
@@ -396,65 +422,19 @@ a {
   height: 100%;
 }
 
-.home-carousel {
-  display: flex;
-  justify-content: space-between;
-  /* margin-top: 2.5rem;  */
-  gap: 1rem; /* space between boxes */
-  overflow-x: auto; /* allow horizontal scrolling if content overflows */
-}
-
-.home-carousel ul {
-  display: flex;
-  align-items: center;
-  width: 100%;
-  gap: 1rem; /* space between boxes */
-  list-style: none; /* remove default list styling */
-  padding: 0;
-  margin: 0;
-}
-
-.home-carousel li {
-  color: #374151; /* text color */
-  padding: 1rem;
-  width: calc(12.5% - 1rem); /* 8 boxes per row with space between */
-  text-align: center;
-  flex-shrink: 0; /* prevent shrinking */
-}
-
-.home-carousel li.active {
-  /* background-color: #14b8a6; */
-  color: rgb(50, 121, 202);
-}
-
+/* 項目頁面樣式 */
 .project-page {
   display: flex;
   flex-direction: row;
   height: 100%;
 }
 
-/* .image-main {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-} */
-
-.home-content-right {
-  width: 80%;
-  height: calc(100vh - 100px);
-  display: flex;
-  flex-direction: column;
-  overflow: hidden;
-  gap: 20px;
-  padding: 20px 0;
-  /* background-color: rgb(209, 209, 209); */
-}
-
+/* 圖片滾動容器 */
 .image-scroll-container {
   display: flex;
   animation: scroll 30s linear infinite;
   height: 50%;
-  overflow: visible; /* 允許內容溢出 */
+  overflow: visible;
 }
 
 .image-scroll-container.bottom {
@@ -481,14 +461,7 @@ a {
   }
 }
 
-/* 其他樣式保持不變 */
-
-/* Add these new styles */
-/* .menu-icon {
-  display: none;
-  cursor: pointer;
-} */
-
+/* 響應式設計 */
 @media (max-width: 768px) {
   .navbar-items {
     display: none;
@@ -554,6 +527,7 @@ a {
     position: static;
     display: none;
     box-shadow: none;
+    
   }
 
   .projects-dropdown.open .projects-list {
@@ -566,11 +540,21 @@ a {
   }
 }
 
+.projects-list {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  background-color: white;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  padding: 20px; 
+  margin-top: 10px;
+  border-radius: 10px;
+}
+
 .projects-list li {
   border-bottom: none;
-  border-right: 1px solid #eee;
-  padding-right: 10px;
-  margin-right: 10px;
+  /* border-bottom: 1px solid #eee; */
+  padding: 10px;
 }
 
 .projects-list li:last-child {
@@ -581,25 +565,23 @@ a {
 
 .navbar-items > li > a,
 .navbar-items > li > button {
-  font-size: 1.2rem; /* 增大主導航項目的字體 */
+  font-size: 1rem; /* 增大主導航項目的字體 */
 }
 
 .projects-list li a {
   font-size: 0.9rem; /* 縮小項目列表的字體 */
 }
 
-.projects-list {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  background-color: transparent;
-  box-shadow: none;
-}
+
 
 @media (max-width: 768px) {
   .projects-list {
     flex-direction: column;
     align-items: flex-start;
+    /* z-index: 1001; */
+    margin-top: 0px;
+    border-radius: 0px; 
+    box-shadow: none;
   }
 
   .projects-list li {
@@ -617,7 +599,7 @@ a {
   }
 }
 
-/* Custom scrollbar styles */
+/* 自定義滾動條樣式 */
 .scrollbar-thin::-webkit-scrollbar {
   height: 4px;
 }
@@ -639,4 +621,18 @@ a {
 .scrollbar-thin {
   scrollbar-width: thin;
   scrollbar-color: rgba(255, 255, 255, 0.5) transparent;
+}
+
+
+.menu-overlay {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  background-color: your-background-color;
+  z-index: 1000;
+}
+
+.menu-overlay.projects-open {
+  /* 可以添加特定于打开的 Projects 列表的样式 */
 }

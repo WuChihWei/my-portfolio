@@ -12,20 +12,24 @@ const Navbar = () => {
   const isProjectPage = pathname.startsWith('/projects/');
   const menuRef = useRef(null);
   const [isMobile, setIsMobile] = useState(false);
+  const [showCarousel, setShowCarousel] = useState(true);
 
   const toggleMenu = () => {
     setIsOpen(!isOpen);
     if (projectsOpen) setProjectsOpen(false);
+    setShowCarousel(isOpen); // Hide carousel when opening menu, show when closing
   };
 
   const toggleProjects = (e) => {
     e.stopPropagation(); // 防止事件冒泡到 document
     setProjectsOpen(!projectsOpen);
+    setShowCarousel(projectsOpen); // Hide carousel when opening projects, show when closing
   };
 
   const closeMenu = () => {
     setIsOpen(false);
     setProjectsOpen(false);
+    setShowCarousel(true); // Show carousel when closing menu
   };
 
   useEffect(() => {
@@ -77,15 +81,15 @@ const Navbar = () => {
 
   return (
     <nav className={`navbar ${isScrolled && isProjectPage ? 'scrolled' : ''}`} ref={menuRef}>
-      <div className={`navbar-container ${isMobile ? 'mobile' : ''}`}>
-        <div className="navbar-logo-container">
+      <div className={`navbar-container ${isMobile ? 'mobile' : ''} relative z-50`}>
+        <Link href="/" onClick={closeMenu} className="navbar-logo-container">
           <div className={`navbar-logo ${isMobile ? 'mobile' : ''}`}>
             <img src="/1b1m-logo.png" alt="L" className="navbar-logo-img" />
           </div>
           <div className="navbar-logo-text-container">
-            <h5 className="navbar-logo-text">Jordan Wu’s Portfolio</h5>
+            <h5 className="navbar-logo-text">Jordan Wu's Portfolio</h5>
           </div>
-        </div>
+        </Link>
         {isMobile && (
           <div className="menu-icon" onClick={toggleMenu}>
             {isOpen ? '✕' : '☰'}
@@ -139,10 +143,10 @@ const Navbar = () => {
           </ul>
         )}
       </div>
-      {isScrolled && isProjectPage && !isOpen && (
-        <div className="introduction-carousel overflow-x-auto whitespace-nowrap scrollbar-thin scrollbar-thumb-white scrollbar-track-transparent">
-          <ul className="flex py-2">
-            <li className="inline-block px-3" onClick={() => handleScrollToSection('introduction')}>Top</li>
+      {isScrolled && isProjectPage && showCarousel && (
+        <div className="introduction-carousel z-40 overflow-x-auto">
+          <ul className="flex py-2 whitespace-nowrap">
+            <li className="inline-block px-3" onClick={() => handleScrollToSection('introduction')}>↑</li>
             <li className="inline-block px-3" onClick={() => handleScrollToSection('introduction')}>Introduction</li>
             <li className="inline-block px-3" onClick={() => handleScrollToSection('user-story')}>User Story</li>
             <li className="inline-block px-3" onClick={() => handleScrollToSection('market-research')}>Market Research</li>
@@ -153,55 +157,6 @@ const Navbar = () => {
             <li className="inline-block px-3" onClick={() => handleScrollToSection('tech')}>Tech</li>
             <li className="inline-block px-3" onClick={() => handleScrollToSection('plan')}>Plan</li>
             <li className="inline-block px-3" onClick={() => handleScrollToSection('user-testing')}>User Testing</li>
-          </ul>
-        </div>
-      )}
-      {isMobile && isOpen && (
-        <div className="mobile-menu-overlay">
-          <ul className="navbar-items open">
-            <li>
-              <Link href="/" onClick={closeMenu} className={isActive('/') ? 'font-bold' : ''}>
-                Home
-              </Link>
-            </li>
-            <li>
-              <Link href="/resume" onClick={closeMenu} className={isActive('/resume') ? 'font-bold' : ''}>
-                Resume
-              </Link>
-            </li>
-            <li className={`relative projects-dropdown ${projectsOpen ? 'open' : ''}`}>
-              <button 
-                onClick={toggleProjects} 
-                className={`focus:outline-none ${isActive('/projects') ? 'font-bold' : ''}`}
-              >
-                Projects
-              </button>
-              {projectsOpen && (
-                <ul className="projects-list">
-                  <li>
-                    <Link href="/projects/superfake" onClick={closeMenu} className={isActive('/projects/superfake') ? 'font-bold' : ''}>
-                      Superfake
-                    </Link>
-                  </li>
-                  <li>
-                    <Link href="/projects/hommap" onClick={closeMenu} className={isActive('/projects/hommap') ? 'font-bold' : ''}>
-                      Hommap
-                    </Link>
-                  </li>
-                  <li>
-                    <Link href="/projects/davincin" onClick={closeMenu} className={isActive('/projects/davincin') ? 'font-bold' : ''}>
-                      Davincin
-                    </Link>
-                  </li>
-                </ul>
-              )}
-            </li>
-            <li>
-              <Link href="/contact" onClick={closeMenu} className={isActive('/contact') ? 'font-bold' : ''}>
-                Contact
-              </Link>
-            </li>
-            {/* <li><Link href="/free">Admin</Link></li> */}
           </ul>
         </div>
       )}

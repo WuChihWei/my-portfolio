@@ -18,7 +18,7 @@ const UIGuidelinePage = ({ title, description, logoImage, images, backgroundColo
                 className="max-w-none h-1/4 md:w-full md:h-auto object-contain mx-auto"
               />
             </div>
-            <p className="text-lg text-white max-w-2xl mb-4">{description}</p>
+            <h4 className="text-lg text-white max-w-2xl mb-4">{description}</h4>
           </div>
         </div>
         <div className="uiguideline-images flex flex-col p-p-gap md:flex-row md:mb-0 w-full sm:grid-cols-2 lg:grid-cols-3 gap-0 md:gap-8 lg:gap-12  md:p-8 lg:p-12">

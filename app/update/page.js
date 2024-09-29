@@ -4,13 +4,14 @@ import { useState, useEffect } from 'react';
 import { hommapData } from '../projects/hommap';
 import { davincinData } from '../projects/davincin';
 import { superfakeData } from '../projects/superfake';
-import { doc, setDoc } from 'firebase/firestore';
+import { doc, setDoc, getDoc } from 'firebase/firestore';
 import { db } from '../../lib/firebase';
 import { getStorage, ref, uploadBytes, getDownloadURL, listAll } from 'firebase/storage';
 import { storage } from '../../lib/firebase';
 import { auth } from '../../lib/firebase';
-import { signInAnonymously } from 'firebase/auth';
+import { signInAnonymously, signOut } from 'firebase/auth';
 import Image from 'next/image';
+import { useRouter } from 'next/navigation';
 
 export default function UpdatePage() {
   const [selectedProject, setSelectedProject] = useState('');
@@ -18,6 +19,7 @@ export default function UpdatePage() {
   const [isUploading, setIsUploading] = useState(false);
   const [uploadProgress, setUploadProgress] = useState(null);
   const [defaultImagesUploaded, setDefaultImagesUploaded] = useState(false);
+  const router = useRouter();
 
   // 更新 projectData 對象，添加 resume 部分
   const projectData = {
@@ -33,7 +35,7 @@ export default function UpdatePage() {
 
   useEffect(() => {
     if (selectedProject) {
-      setFormData(projectData[selectedProject]);
+      fetchProjectData(selectedProject);
     }
   }, [selectedProject]);
 
@@ -42,6 +44,24 @@ export default function UpdatePage() {
       console.error("Error signing in anonymously:", error);
     });
   }, []);
+
+  const fetchProjectData = async (project) => {
+    try {
+      const projectRef = doc(db, 'projects', project);
+      const projectSnap = await getDoc(projectRef);
+      
+      if (projectSnap.exists()) {
+        setFormData(projectSnap.data());
+      } else {
+        // If the document doesn't exist in Firebase, use the local data
+        setFormData(projectData[project]);
+      }
+    } catch (error) {
+      console.error('Error fetching project data:', error);
+      // Fallback to local data if there's an error
+      setFormData(projectData[project]);
+    }
+  };
 
   const uploadDefaultImages = async () => {
     if (!selectedProject) {
@@ -246,6 +266,17 @@ export default function UpdatePage() {
     }
   };
 
+  const handleLogout = async () => {
+    try {
+      await signOut(auth);
+      console.log('Logged out successfully');
+      router.push('/admin');
+    } catch (error) {
+      console.error('Error signing out:', error);
+      alert('Error signing out. Please try again.');
+    }
+  };
+
   const renderField = (section, field, value, parentField = null) => {
     if (field === 'cards' && Array.isArray(value)) {
       return (
@@ -416,7 +447,15 @@ export default function UpdatePage() {
         </div>
       )}
       <div className="container p-4 mx-auto h-full" style={{ maxWidth: '1440px' }}>
-        <h1 className="text-4xl font-bold mb-8 mt-10">Update Project</h1>
+        <div className="flex justify-between items-center mb-8">
+          <h1 className="text-4xl font-bold mt-10">Update Project</h1>
+          <button
+            onClick={handleLogout}
+            className="bg-red-500 text-white p-2 rounded hover:bg-red-600"
+          >
+            Logout
+          </button>
+        </div>
         <select
           value={selectedProject}
           onChange={handleProjectChange}

@@ -42,11 +42,11 @@ const AdminPage = () => {
   }
 
   return (
-    <div className="p-4">
-      <h1 className="text-2xl font-bold mb-4">管理員登入</h1>
+    <div className="p-4 h-screen flex flex-col justify-center items-center gap-4">
+      <h4 className="text-2xl font-bold mb-4">Login as Jordan Wu</h4>
       <form onSubmit={handleLogin} className="space-y-4">
         <div>
-          <label htmlFor="email" className="block mb-1">電子郵件</label>
+          <label htmlFor="email" className="block mb-1">Email</label>
           <input
             type="email"
             id="email"
@@ -57,7 +57,7 @@ const AdminPage = () => {
           />
         </div>
         <div>
-          <label htmlFor="password" className="block mb-1">密碼</label>
+          <label htmlFor="password" className="block mb-1">Password</label>
           <input
             type="password"
             id="password"
@@ -69,7 +69,7 @@ const AdminPage = () => {
         </div>
         {error && <p className="text-red-500">{error}</p>}
         <button type="submit" className="w-full bg-blue-500 text-white py-2 rounded hover:bg-blue-600">
-          登入
+          Login
         </button>
       </form>
     </div>

@@ -1,7 +1,8 @@
-// app/projects/[slug]/page.js
+"use client";
 
-"use client"; // This makes the file a client component
-
+import { useState, useEffect } from 'react';
+import { collection, getDocs } from 'firebase/firestore';
+import { db } from '../../../lib/firebase';
 import IntroductionPage from '../../../components/IntroductionPage';
 import UserStoryFeaturePage from '../../../components/UserStoryFeaturePage';
 import MarketResearchPage from '../../../components/MarketResearchPage';
@@ -12,12 +13,13 @@ import TechPage from '../../../components/TechPage';
 import UserTestingPage from '../../../components/UserTestingPage';
 import SolutionPage from '../../../components/SolutionPage';
 import PlanPage from '../../../components/PlanPage';
-// Import project data
+
+// Import project data as fallback
 import { hommapData } from '../hommap';
 import { davincinData } from '../davincin';
 import { superfakeData } from '../superfake';
 
-const projectData = {
+const fallbackProjectData = {
   hommap: hommapData,
   davincin: davincinData,
   superfake: superfakeData,
@@ -25,12 +27,44 @@ const projectData = {
 
 export default function ProjectPage({ params }) {
   const { slug } = params;
+  const [allProjects, setAllProjects] = useState(null);
+  const [loading, setLoading] = useState(true);
 
-  const data = projectData[slug];
+  useEffect(() => {
+    const fetchAllProjects = async () => {
+      console.log('Fetching all project data');
+      try {
+        const projectsCollection = collection(db, 'projects');
+        const projectsSnapshot = await getDocs(projectsCollection);
+        
+        const projectsData = {};
+        projectsSnapshot.forEach((doc) => {
+          projectsData[doc.id] = doc.data();
+        });
 
-  if (!data) {
-    return <p>Project not found</p>; // Handle missing data case
+        console.log('Data fetched from Firebase:', projectsData);
+        setAllProjects(projectsData);
+      } catch (error) {
+        console.error('Error fetching project data:', error);
+        console.log('Using fallback data due to error');
+        setAllProjects(fallbackProjectData);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchAllProjects();
+  }, []);
+
+  if (loading) {
+    return <p>Loading...</p>;
   }
+
+  if (!allProjects || !allProjects[slug]) {
+    return <p>Project not found</p>;
+  }
+
+  const data = allProjects[slug];
 
   return (
     <div className="project-page">
