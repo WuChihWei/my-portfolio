@@ -6,9 +6,6 @@ export const davincinData = {
    introduction: {
     title: "AI CRM for Knowledge Workers Engaging and Analyzing ",      
     description: "An AI-powered CRM platform for knowledge workers, offering customized assistants to satisfy and analyze audience curiosity.",
-    // imageUrl: "/hommap-intro-bkg.png",
-    // backgroundColor: "#f0f8ff",
-    // backgroundImageUrl: "/davincin-intro.png",
     contentImageUrl: "/davincin-intro.png",
     websiteLink: "https://hommap.com",
   },
@@ -78,7 +75,6 @@ export const davincinData = {
   branding: {
     title: "Branding",
     description: "The brand concept, inspired by Da Vinci to the nth power, is embodied in an hourglass-shaped logo, symbolizing efficient learning across disciplines through AI. Blue, the primary color, represents intelligent technology and innovation.",
-    // iconUrl: "/path-to-icon.png", // replace with actual path
     largeImageUrl: "/davincin-branding.png", // replace with actual path
     smallImages: [
       "/dacincin-brand1.png", 
