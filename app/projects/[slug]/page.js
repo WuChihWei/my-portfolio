@@ -106,6 +106,12 @@ export default function ProjectPage({ params }) {
         />
       </section>
 
+      <section id="plan">
+        <PlanPage 
+          imageUrl={data.planPage.imageUrl}
+        />
+      </section>
+
       <section id="branding">
         <BrandingPage 
           title={data.branding.title}
@@ -147,11 +153,7 @@ export default function ProjectPage({ params }) {
         />
       </section>
 
-      <section id="plan">
-        <PlanPage 
-          imageUrl={data.planPage.imageUrl}
-        />
-      </section>
+     
 
       <section id="user-testing">
         <UserTestingPage 

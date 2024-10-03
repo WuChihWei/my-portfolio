@@ -102,11 +102,11 @@ const Navbar = () => {
                 Home
               </Link>
             </li>
-            <li>
+            {/* <li>
               <Link href="/resume" onClick={closeMenu} className={isActive('/resume') ? 'font-bold' : ''}>
                 Resume
               </Link>
-            </li>
+            </li> */}
             <li className={`relative projects-dropdown ${projectsOpen ? 'open' : ''}`}>
               <button 
                 onClick={toggleProjects} 

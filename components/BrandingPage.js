@@ -17,8 +17,8 @@ const BrandingPage = ({ title, description, iconUrl, largeImageUrl, smallImages 
           )}
           <div className="absolute inset-0 z-10 p-8 flex flex-col justify-center branding-overlay">
             <h1 className="text-3xl sm:text-4xl font-bold mb-4 text-white">Branding</h1>
-            <p className="text-lg sm:text-xl max-w-2xl text-white">{description}</p>
-          </div>
+            <h4 className="text-lg text-white max-w-2xl mb-4">{description}</h4>
+            </div>
         </div>
         <div className="branding-images mt-8">
           <div className="grid grid-cols-3 gap-8">
@@ -34,7 +34,8 @@ const BrandingPage = ({ title, description, iconUrl, largeImageUrl, smallImages 
       {/* 小螢幕顯示 */}
       <div className="sm:hidden">
         <h1 className="text-3xl font-bold mb-2 text-left">Branding</h1>
-        <p className="text-lg mb-4 text-left">{description}</p>
+        <h2 className="text-lg mb-4 text-left">{description}</h2>
+
         <div className="grid grid-cols-2 gap-4">
           {allImages.slice(0, 4).map((imgSrc, index) => (
             <div key={index} className="w-full aspect-square">

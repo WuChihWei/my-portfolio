@@ -29,6 +29,7 @@ export default function UpdatePage() {
     resume: {
       main: {
         resumeImage: '/JordanWu_CV.jpg',
+        resumePDF: null,
       }
     }
   };
@@ -277,6 +278,62 @@ export default function UpdatePage() {
     }
   };
 
+  // Add this new function to handle updating with default content
+  const handleUpdateWithDefault = async () => {
+    if (!selectedProject) {
+      alert('Please select a project first.');
+      return;
+    }
+
+    setIsUploading(true);
+    try {
+      const projectRef = doc(db, 'projects', selectedProject);
+      const defaultData = projectData[selectedProject];
+      
+      console.log('Updating document with default content:', selectedProject);
+      console.log('Default data:', defaultData);
+
+      await setDoc(projectRef, defaultData, { merge: true });
+      
+      console.log('Document successfully updated with default content');
+      alert('Project updated with default content in Firebase!');
+      
+      // Update the form data to reflect the changes
+      setFormData(defaultData);
+    } catch (error) {
+      console.error('Error updating document with default content:', error);
+      alert('Error updating data with default content. Please try again.');
+    } finally {
+      setIsUploading(false);
+    }
+  };
+
+  const handleFileUpload = async (e, section, field) => {
+    const file = e.target.files[0];
+    if (file) {
+      try {
+        console.log('File selected:', file.name);
+        const path = `${selectedProject}/${section}/${field}/${file.name}`;
+        console.log('Upload path:', path);
+        const downloadURL = await uploadFileToFirebase(file, path);
+        console.log('Upload successful, URL:', downloadURL);
+        
+        setFormData(prev => ({
+          ...prev,
+          [section]: {
+            ...prev[section],
+            [field]: downloadURL
+          }
+        }));
+      } catch (error) {
+        console.error('Error in handleFileUpload:', error);
+        alert('Error uploading file. Please try again.');
+      }
+    } else {
+      console.log('No file selected');
+    }
+  };
+
   const renderField = (section, field, value, parentField = null) => {
     if (field === 'cards' && Array.isArray(value)) {
       return (
@@ -470,13 +527,23 @@ export default function UpdatePage() {
 
         {selectedProject && (
           <>
-            <button
-              onClick={uploadDefaultImages}
-              className="bg-green-500 text-white p-2 rounded hover:bg-green-600 mb-4"
-              disabled={defaultImagesUploaded}
-            >
-              {defaultImagesUploaded ? 'Default Images Uploaded' : 'Upload Default Images'}
-            </button>
+            <div className="flex space-x-4 mb-4">
+              <button
+                onClick={uploadDefaultImages}
+                className="bg-green-500 text-white p-2 rounded hover:bg-green-600"
+                disabled={defaultImagesUploaded}
+              >
+                {defaultImagesUploaded ? 'Default Images Uploaded' : 'Upload Default Images'}
+              </button>
+              
+              {/* New button for updating with default content */}
+              <button
+                onClick={handleUpdateWithDefault}
+                className="bg-yellow-500 text-white p-2 rounded hover:bg-yellow-600"
+              >
+                Update with Default Content
+              </button>
+            </div>
 
             <form onSubmit={handleSubmit} className="space-y-6">
               {selectedProject === 'resume' ? (
@@ -499,6 +566,15 @@ export default function UpdatePage() {
                         />
                       </div>
                     )}
+                  </div>
+                  <div>
+                    <label htmlFor="resumePDF">Upload Resume PDF:</label>
+                    <input
+                      type="file"
+                      id="resumePDF"
+                      accept=".pdf"
+                      onChange={(e) => handleFileUpload(e, 'main', 'resumePDF')}
+                    />
                   </div>
                 </div>
               ) : (

@@ -6,7 +6,7 @@ export const hommapData = {
 
     // introduction
     introduction: {
-      title: "Allergy First\nPrinciple Solution\nwith just an Address",      
+      title: "Allergy First\nPrinciple Solution\n with just an Address",      
       description: "Solving home allergy issues through first\n principles interior design, using data analysis and \nAI for a healthier living environment.",
       // imageUrl: "/hommap-intro-bkg.png",
       // backgroundColor: "#f0f8ff",

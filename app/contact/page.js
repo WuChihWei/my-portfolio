@@ -59,7 +59,7 @@ export default function ContactPage() {
       </div>
 
       {/* Right side: Form and Submit Button */}
-      <div className="w-full md:w-1/2 pl-4">
+      <div className="w-full md:w-1/2">
         <form className="space-y-4" onSubmit={handleSubmit}>
           <div>
             <input
