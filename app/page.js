@@ -45,8 +45,8 @@ export default function Home() {
 
   return (
     <div className='home-container h-auto pb-10 bg-gray-100'>
-      <div className="home-cover flex flex-col md:flex-row">
-        <div className="home-content-left max-md:w-full max-md:h-1/2 w-full h-[calc(30vh-100px)] md:h-[calc(100vh-120px)] md:w-1/3 flex flex-col">
+      <div className="home-cover h-auto flex flex-col md:flex-row">
+        <div className="home-content-left max-md:w-full w-full h-[calc(30vh-100px)] md:h-[calc(100vh-120px)] md:w-1/3 flex flex-col">
           <div className="flex flex-col flex-grow p-p-gap mt-4 md:mt-2">
             <div className="mb-4 py-0"> {/* 添加 py-8 用於小螢幕 */}
               <h1 className="text-4xl font-extrabold pb-2 md:font-extrabold pr-0 md:text-4xl leading-tight md:pr-10">
@@ -104,7 +104,7 @@ export default function Home() {
           </div>
         </div>
 
-        <div className="home-content-right max-md:w-full w-full h-[calc(50vh-100px)] mb-0 md:h-[calc(100vh-100px)] md:w-2/3 flex flex-col"> {/* Added flex flex-col */}
+        <div className="home-content-right max-md:w-full w-full h-[calc(50vh-100px)] mb-0 md:h-[calc(100vh-100px)] md:ml-20 md:w-2/3 flex flex-col"> {/* Added flex flex-col */}
           <div className="image-scroll-container top flex-grow space-y-0 md:space-y-0"> {/* Added flex-grow and space-y classes */}
             {[...Array(6)].map((_, index) => (
               <img key={index} src={`/project-${index + 1}.png`} alt={`Project ${index + 1}`} />
