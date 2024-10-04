@@ -41,18 +41,18 @@ export default function ContactPage() {
       {/* Left side: Contact Information */}
       <div className="w-full md:w-1/2 pr-4 mb-8 md:mb-0">
         <h1 className="text-3xl font-bold mb-2">Get In Touch</h1>
-        <p className="mb-6 text-gray-600">Hi! How can I help?</p>
+        <h4 className="mb-10 text-gray-500">Hi! How can I help?</h4>
         <div className="space-y-2">
           <p className="flex items-center">
-            <span className="mr-2">📍</span> 
+            <span className="mr-4">📍</span> 
             <span className="font-medium">Stockholm | Berlin | Taipei</span>
           </p>
           <p className="flex items-center">
-            <span className="mr-2">🌐</span> 
+            <span className="mr-4">🌐</span> 
             <span className="font-medium">https://www.linkedin.com/in/jordanwu-tech/</span>
           </p>
-          <p className="flex items-center">
-            <span className="mr-2">✉️</span> 
+          <p className="flex items-center ">
+            <span className="mr-4">✉️</span> 
             <span className="font-medium">w99jordan@gmail.com</span>
           </p>
         </div>
@@ -97,7 +97,7 @@ export default function ContactPage() {
               required
             ></textarea>
           </div>
-          <button type="submit" className="w-full bg-indigo-500 text-white px-4 py-3 rounded hover:bg-indigo-600">
+          <button type="submit" className="w-full bg-gray-950 text-white px-4 py-3 rounded hover:bg-indigo-600">
             Submit
           </button>
         </form>

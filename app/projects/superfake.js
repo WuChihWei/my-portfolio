@@ -4,7 +4,7 @@ export const superfakeData = {
   
  // introduction
  introduction: {
-  title: "Discover, Create, \nand Share AI-Driven\n Inspiration",      
+  title: "Discover, Create, and Share - an exclusive content lab for AI creators",      
   description: "For AI creators, find creative inspiration from\n the daily trending topics.\nShare and explore AI-generated content\n with. a global community.",
   // imageUrl: "/hommap-intro-bkg.png",
   // backgroundColor: "#f0f8ff",
@@ -26,12 +26,10 @@ userStoryFeature: {
   marketResearch: {
     title: "Market Research",
     description:
-      "The quality of today’s video game was not at all there when video game first conceptualized and played ever. During the formative years, video games were created by using various interactive electronic devices with various display.",
+      "The U.S. TAM for an AI creator platform is $1 billion, covering all content creators. SAM focuses on AI-driven creators, worth $150 million. SOM, the realistic short-term market capture, is estimated at $4.5 million with 3% market penetration.",
     imageUrl: "/super-market.png", // Replace with actual image path
     statistics: [
-      { value: 100, label: 'Total Users' },
-      { value: 50, label: 'Active Users' },
-      { value: 25, label: 'New Users' },
+      { value: 100, label: 'per AI creator spend on this service annually' }
     ]
   },
 
@@ -42,34 +40,34 @@ userStoryFeature: {
       {
         icon: '📊',
         name: 'Trendy Ideas Resource',
-        impact: 2,
+        impact: 4,
         urgency: 4,
-        marketSize: 2,
-        overall: 14
+        marketSize: 5,
+        overall: 13
       },
       {
         icon: '🔄',
         name: 'Only For AI Posts',
-        impact: 2,
+        impact: 5,
         urgency: 4,
-        marketSize: 2,
+        marketSize: 3,
         overall: 12
       },
       {
         icon: '🧠',
         name: 'AI Tools Compare Visualized UI',
-        impact: 2,
+        impact: 4,
         urgency: 4,
-        marketSize: 2,
+        marketSize: 3,
         overall: 11
       },
       {
         icon: '📋',
-        name: 'Product Check List',
-        impact: 2,
+        name: 'Share Works',
+        impact: 3,
         urgency: 4,
-        marketSize: 2,
-        overall: 8
+        marketSize: 3,
+        overall: 10
       }
     ]
   },
@@ -137,7 +135,7 @@ tech: {
   title: "Tech",
   description: 
     "Create a platform for AI creators to find inspiration from trending topics, share AI-generated content, and engage with a global AI-focused community.",
-  imageUrl: "/super-architecture.png",
+  imageUrl: "/super-tech.png",
   backgroundColor: "#ffe4e1", // Example color for Davinci
   keyFeatures: [
     "Access daily trending topics to inspire AI-generated content.",
@@ -166,12 +164,12 @@ planPage: {
 // userTesting
 userTesting: {
   title: "User Testing",
-  description: "Each and every one of us has that moment when we are suddenly stunned when we come face to face with the enormity of the universe.",
+  description: "Acceptance Criteria",
   steps: [
-    { title: "Step 1", description: "Install the fixed mounts to keep the apparatus stable." },
-    { title: "Step 2", description: "Install the fixed mounts to keep the apparatus stable." },
-    { title: "Step 3", description: "Install the fixed mounts to keep the apparatus stable." },
-    { title: "Step 4", description: "Install the fixed mounts to keep the apparatus stable." },
+    { title: "Trendy Inspiration", description: "Users can browse trending topics and compare AI tools." },
+    { title: "Community", description: "Users can post and explore AI-generated content exclusively." },
+    { title: "System Stability", description: "System is stable, with no critical bugs affecting performance or usability." },
+    { title: "User Experience", description: "User Feedback, open ended interview questions will be conducted." },
   ]
 },
 };

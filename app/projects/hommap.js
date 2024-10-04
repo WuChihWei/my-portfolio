@@ -6,7 +6,7 @@ export const hommapData = {
 
     // introduction
     introduction: {
-      title: "Allergy First\nPrinciple Solution\n with just an Address",      
+      title: "Solve your home allergy issues with data-driven interior design — starting with your address",      
       description: "Solving home allergy issues through first\n principles interior design, using data analysis and \nAI for a healthier living environment.",
       // imageUrl: "/hommap-intro-bkg.png",
       // backgroundColor: "#f0f8ff",
@@ -30,11 +30,9 @@ export const hommapData = {
         description:
           "Taiwan’s allergy-focused market includes up to 2.7 million households (TAM), with a subset of 720,000 to 1.35 million households looking for smart home solutions (SAM). In the early stages, 7,200 to 67,500 households (SOM) can be realistically captured.",
         imageUrl: "/hommap-market.png", // Replace with actual image path
-        // statistics: [
-        //   { value: 100, label: 'Total Users' },
-        //   { value: 50, label: 'Active Users' },
-        //   { value: 25, label: 'New Users' },
-        // ]
+        statistics: [
+          { value: 1500, label: 'per household spend on allergy issues' }
+        ]
       },
 
       // solution
@@ -44,17 +42,17 @@ export const hommapData = {
           {
             icon: '📊',
             name: 'Historical Environment Data',
-            impact: 2,
-            urgency: 4,
-            marketSize: 2,
-            overall: 14
+            impact: 5,
+            urgency: 5,
+            marketSize: 5,
+            overall: 15
           },
           {
             icon: '🔄',
             name: 'Realtime Environment Data',
-            impact: 2,
-            urgency: 4,
-            marketSize: 2,
+            impact: 4,
+            urgency: 5,
+            marketSize: 3,
             overall: 12
           },
           {
@@ -62,16 +60,16 @@ export const hommapData = {
             name: 'AI Interior Suggestion',
             impact: 2,
             urgency: 4,
-            marketSize: 2,
+            marketSize: 5,
             overall: 11
           },
           {
             icon: '📋',
             name: 'Product Check List',
-            impact: 2,
-            urgency: 4,
-            marketSize: 2,
-            overall: 8
+            impact: 3,
+            urgency: 2,
+            marketSize: 4,
+            overall: 9
           }
         ]
       },

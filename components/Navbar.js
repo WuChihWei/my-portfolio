@@ -151,11 +151,11 @@ const Navbar = () => {
             <li className="inline-block px-3" onClick={() => handleScrollToSection('user-story')}>User Story</li>
             <li className="inline-block px-3" onClick={() => handleScrollToSection('market-research')}>Market Research</li>
             <li className="inline-block px-3" onClick={() => handleScrollToSection('solution')}>Solution</li>
+            <li className="inline-block px-3" onClick={() => handleScrollToSection('plan')}>Plan</li>
             <li className="inline-block px-3" onClick={() => handleScrollToSection('branding')}>Branding</li>
             <li className="inline-block px-3" onClick={() => handleScrollToSection('ui-guideline')}>UI Guideline</li>
             <li className="inline-block px-3" onClick={() => handleScrollToSection('wireframe-uis')}>Wireframe</li>
             <li className="inline-block px-3" onClick={() => handleScrollToSection('tech')}>Tech</li>
-            <li className="inline-block px-3" onClick={() => handleScrollToSection('plan')}>Plan</li>
             <li className="inline-block px-3" onClick={() => handleScrollToSection('user-testing')}>User Testing</li>
           </ul>
         </div>

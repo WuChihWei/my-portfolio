@@ -36,8 +36,8 @@ export default function Home() {
 
   function getSkillName(index) {
     const skillNames = [
-      'React', 'Node.js', 'JavaScript', 'HTML', 'CSS', 'Git',
-      'Python', 'SQL', 'MongoDB', 'Docker', 'AWS', 'TypeScript'
+      'JavaScript', 'CSS', 'HTML', 'Python', 'Cursor', 'Xcode',
+      'Figma', 'Firebase', 'React', 'Next.js', 'Adobe AE', 'Trello'
     ];
     return skillNames[index] || `Skill ${index + 1}`;
   }
@@ -53,7 +53,7 @@ export default function Home() {
               </h1>
               <div className="pt-6 mr-10 md:py-0 ">
               <h4>
-              One Builder, One Mission. Delivering end-to-end digital solutions through design thinking — from research and strategy to coding and design.
+              One Builder, One Mission. Delivering end-to-end digital solutions through design thinking — from research and strategy to coding and design with AI-power.
               </h4>
               <div className="flex flex-row space-x-4 mt-4">
                 <a
@@ -93,9 +93,9 @@ export default function Home() {
                       alt={`Skill ${index + 1}`}
                       className="w-4 h-4 sm:w-4 sm:h-4 md:w-6 md:h-6 lg:w-8 lg:h-8"
                     />
-                    <h6 className="mt-1 text-xs sm:text-sm md:text-base text-center">
+                    <h7 className="mt-1 text-xs sm:text-sm md:text-base text-center">
                       {getSkillName(index)}
-                    </h6>
+                    </h7>
                   </div>
                 ))}
               </div>
@@ -103,7 +103,7 @@ export default function Home() {
           </div>
         </div>
         <div className="home-content-right max-md:w-full w-full h-[calc(50vh-100px)] md:h-[calc(100vh-100px)] md:w-2/3 flex flex-col"> {/* Added flex flex-col */}
-          <div className="image-scroll-container top flex-grow space-y-0 md:space-y-4"> {/* Added flex-grow and space-y classes */}
+          <div className="image-scroll-container top flex-grow space-y-0 md:space-y-0"> {/* Added flex-grow and space-y classes */}
             {[...Array(6)].map((_, index) => (
               <img key={index} src={`/project-${index + 1}.png`} alt={`Project ${index + 1}`} />
             ))}
@@ -111,7 +111,7 @@ export default function Home() {
               <img key={index + 6} src={`/project-${index + 1}.png`} alt={`Project ${index + 1}`} />
             ))}
           </div>
-          <div className="image-scroll-container bottom flex-grow space-y-0 md:space-y-4"> {/* Added flex-grow and space-y classes */}
+          <div className="image-scroll-container bottom flex-grow space-y-0 md:space-y-0"> {/* Added flex-grow and space-y classes */}
             {[...Array(6)].map((_, index) => (
               <img key={index} src={`/project-${index + 7}.png`} alt={`Project ${index + 7}`} />
             ))}
@@ -132,9 +132,9 @@ export default function Home() {
           alt={`Skill ${index + 1}`}
           className="w-8 h-8 sm:w-10 sm:h-10"
         />
-        <h6 className="mt-2 text-xs sm:text-sm text-center text-black font-medium">
+        <h7 className="mt-2 text-xs sm:text-sm text-center text-black font-medium">
           {getSkillName(index)}
-        </h6>
+        </h7>
       </div>
     ))}
   </div>
@@ -148,29 +148,29 @@ export default function Home() {
             <div className="bg-white border-2 border-black p-2 mb-4 rounded-full">
               <MdOutlineDesignServices size={34} className="text-black" />
             </div>
-            <h3 className="text-xl font-semibold my-4">Strategy & Direction</h3>
-            <p className="text-sm text-gray-600">Turn market insights into clear, actionable product strategies, guiding projects from concept to launch while aligning business goals with user needs.</p>
+            <h4 className="resume-item-header text-xl font-semibold">Strategy & Direction</h4>
+            <h6 className="text-sm text-gray-600">Turn market insights into clear, actionable product strategies, guiding projects from concept to launch while aligning business goals with user needs.</h6>
           </div>
           <div className="expertise-item w-full sm:w-[calc(100%)] lg:w-[calc(40%)] xl:w-[calc(20%)] flex flex-col items-start text-left">
             <div className="bg-white border-2 border-black p-2 mb-4 rounded-full">
               <MdOutlineComputer size={34} className="text-black" />
             </div>
-            <h3 className="text-xl font-semibold my-4">Technology</h3>
-            <p className="text-sm text-gray-600">Integrate the latest technologies and development practices, ensuring seamless collaboration between design and engineering for scalable, innovative solutions.</p>
+            <h4 className="resume-item-header text-xl font-semibold">Technology</h4>
+            <h6 className="text-sm text-gray-600">Integrate the latest technologies and development practices, ensuring seamless collaboration between design and engineering for scalable, innovative solutions.</h6>
           </div>
           <div className="expertise-item w-full sm:w-[calc(100%)] lg:w-[calc(40%)] xl:w-[calc(20%)] flex flex-col items-start text-left">
             <div className="bg-white border-2 border-black p-2 mb-4 rounded-full">
               <MdOutlineBrush size={34} className="text-black" />
             </div>
-            <h3 className="text-xl font-semibold my-4">UI & UX Design</h3>
-            <p className="text-sm text-gray-600">Craft intuitive, user-centered designs that enhance usability across devices, creating engaging and consistent experiences that meet both user and business goals.</p>
+            <h4 className="resume-item-header text-xl font-semibold">UI & UX Design</h4>
+            <h6 className="text-sm text-gray-600">Craft intuitive, user-centered designs that enhance usability across devices, creating engaging and consistent experiences that meet both user and business goals.</h6>
           </div>
           <div className="expertise-item w-full sm:w-[calc(100%)] lg:w-[calc(40%)] xl:w-[calc(20%)] flex flex-col items-start text-left">
             <div className="bg-white border-2 border-black p-2 mb-4 rounded-full">
               <FiTool size={34} className="text-black" />
             </div>
-            <h3 className="text-xl font-semibold my-4">Key Skills</h3>
-            <p className="text-sm text-gray-600">Experienced with tools like Jira, Trello, Figma, and familiar with managing product lifecycles. Comfortable conducting market research, competitive analysis, and working within Agile frameworks. Skilled in team collaboration and communication.</p>
+            <h4 className="resume-item-header text-xl font-semibold">Key Skills</h4>
+            <h6 className="text-sm text-gray-600">Experienced with tools like Jira, Trello, Figma, and familiar with managing product lifecycles. Comfortable conducting market research, competitive analysis, and working within Agile frameworks. Skilled in team collaboration and communication.</h6>
           </div>
         </div>
       </section>
@@ -181,65 +181,75 @@ export default function Home() {
         <div className="resume-container h-auto">
 
 
-          <div className='title-contatiner'>
+          <div className='title-contatiner py-4'>
              <h2> Digital Product Projects</h2>
-          <div className="resume-item">
+
+             <div className="resume-item">
           <div className="resume-item-header" onClick={() => toggleItem('project-1')}>
-            Superfake - Product Manager + Full Stack Web Developer | 2024
+            This Portfolio | 2024
             </div>
           <div className="resume-item-content" style={{display: openItems['project-1'] ? 'block' : 'none'}}>
-            <li>Developed key features with using React.js, Next.js, and Tailwind CSS. On the back-end, I integrated Firebase for real-time data handling and user management. I also implemented API integrations, including NewsAPI and SerpAPI, to provide real-time content updates. Additionally, I focused on enhancing user engagement with features like daily challenges, commenting, and liking systems.</li>
+            <li>Product Manager + Full Stack Web Developer. Custom-built. There is no third-party UI component library. able to update information.</li>
+          </div>
+          </div>
+          
+          <div className="resume-item">
+          <div className="resume-item-header" onClick={() => toggleItem('project-1')}>
+            Superfake | 2024
+            </div>
+          <div className="resume-item-content" style={{display: openItems['project-1'] ? 'block' : 'none'}}>
+            <li>Product Manager + Full Stack Web Developer. Developed key features with using React.js, Next.js, and Tailwind CSS. On the back-end, I integrated Firebase for real-time data handling and user management. I also implemented API integrations, including NewsAPI and SerpAPI, to provide real-time content updates. Additionally, I focused on enhancing user engagement with features like daily challenges, commenting, and liking systems.</li>
           </div>
           </div>
 
           <div className="resume-item" onClick={() => toggleItem('project-2')}>
           <div className="resume-item-header">
-            Davincin - Product Manager +Full Stack Web Developer | 2024
+            Davincin | 2024
             </div>
           <div className="resume-item-content" style={{display: openItems['project-2'] ? 'block' : 'none'}}>
-            <li>Developed CRM tools for the AI-powered knowledge influencers, including automated client management, personalized AI assistants, and automated reporting. I worked on both front-end and back-end development, utilizing React.js, Next.js, and TypeScript for the user interface and Node.js, Flask, and Firebase for back-end services. I integrated OpenAI's GPT models and LangChain to enable advanced AI functionalities and used Pinecone for vector similarity searches. Additionally, I deployed the application on Vercel and Google Cloud Platform to ensure scalability.</li>
+            <li>Product Manager +Full Stack Web Developer. Developed CRM tools for the AI-powered knowledge influencers, including automated client management, personalized AI assistants, and automated reporting. I worked on both front-end and back-end development, utilizing React.js, Next.js, and TypeScript for the user interface and Node.js, Flask, and Firebase for back-end services. I integrated OpenAI's GPT models and LangChain to enable advanced AI functionalities and used Pinecone for vector similarity searches. Additionally, I deployed the application on Vercel and Google Cloud Platform to ensure scalability.</li>
           </div>
           </div>
 
           <div className="resume-item" onClick={() => toggleItem('project-3')}>
           <div className="resume-item-header">
-            Hommap - Product Manager +Full Stack Web Developer  | 2024
+            Hommap| 2024
             </div>
           <div className="resume-item-content" style={{display: openItems['project-3'] ? 'block' : 'none'}}>
-            <li>Worked on developing a data-driven platform aimed at improving indoor living conditions by addressing home allergy issues. Leveraging AI and data analysis, the platform provides personalized interior design recommendations to reduce allergens while optimizing air quality and home energy management.</li>
+            <li>Product Manager +Full Stack Web Developer. Worked on developing a data-driven platform aimed at improving indoor living conditions by addressing home allergy issues. Leveraging AI and data analysis, the platform provides personalized interior design recommendations to reduce allergens while optimizing air quality and home energy management.</li>
           </div>
           </div>
 
           <div className="resume-item" onClick={() => toggleItem('project-4')}>
           <div className="resume-item-header">
-            Comgora - Product Manager + UI/UX Designer | 2023
+            Comgora | 2023
             </div>
           <div className="resume-item-content" style={{display: openItems['project-4'] ? 'block' : 'none'}}>
-            <li>AI-powered contract app for remote workers. Developed cross-platform app with Flutter. </li>
+            <li>Product Manager + UI/UX Designer. AI-powered contract app for remote workers. Developed cross-platform app with Flutter. </li>
           </div>
           </div>
 
           <div className="resume-item" onClick={() => toggleItem('project-5')}>
           <div className="resume-item-header">
-            Naturian - Full Stack iOS Developer | 2023
+            Naturian  | 2023
             </div>
           <div className="resume-item-content" style={{display: openItems['project-5'] ? 'block' : 'none'}}>
-            <li>A social app for people who want to live a more natural life and explore themselves.</li>
+            <li>Full Stack iOS Developer. A social app for people who want to live a more natural life and explore themselves.</li>
           </div>
           </div>
 
           <div className="resume-item" onClick={() => toggleItem('project-6')}>
           <div className="resume-item-header">
-            What2Pack - Frontend Developer | 2023
+            What2Pack | 2023
             </div>
           <div className="resume-item-content" style={{display: openItems['project-6'] ? 'block' : 'none'}}>
-            <li>A tool for travelers to pack their luggage depend on the destination weather.</li>
+            <li>Frontend Developer. A tool for travelers to pack their luggage depend on the destination weather.</li>
           </div>
           </div>
           </div>
 
 
-          <div className='title-contatiner'>
+          <div className='title-contatiner py-4'>
           <h2>Experience</h2>
 
           <div className="resume-item">
@@ -248,7 +258,7 @@ export default function Home() {
             Cofounder & Product Manager at Comgora - Stockholm, Sweden (Nov. 2022 – Sep.2023)
             </div>
             <div className="resume-item-content" style={{display: openItems['experience-1'] ? 'block' : 'none'}}>
-            <li>Led end-to-end development of an AI-powered contract app for remote workers��from concept to MVP—guided by quantitative and qualitative market research with python, including Google keyword analysis and interviews with over 20 potential customers.</li>
+            <li>Led end-to-end development of an AI-powered contract app for remote workersfrom concept to MVP—guided by quantitative and qualitative market research with python, including Google keyword analysis and interviews with over 20 potential customers.</li>
             <li>Designed a 50% cheaper and 60% more efficient Trello/Asana-like workflow on Notion, and built a cross-platform app in Flutter with operating Agile methodologies.</li>
             <li>Developed a two-year product roadmap and vision, demonstrating team leadership by recruiting and organizing a team of over 7 professionals in development, marketing, finance and design.</li>
             <li>Collaborated with a venture capital expert (Fortune 500 companies) to refine product vision, define target customer profiles, and conduct SWOT analyses, identifying legal and cybersecurity risks to inform strategic decisions.</li>
@@ -257,7 +267,7 @@ export default function Home() {
 
             <div className="resume-item">
             <div className="resume-item-header" onClick={() => toggleItem('experience-2')}>
-            Art Director at Studs - Stockholm, Sweden  (Nov. 2022 – Sep.2023)
+            Art Director at Studs - Stockholm, Sweden (Nov. 2022 – Sep.2023)
             </div>
             <div className="resume-item-content" style={{display: openItems['experience-2'] ? 'block' : 'none'}}>
             <li>Managed a team of two designers, guiding the UX strategy of Studs' official website and stakeholder collaboration with over 25 technical companies across Stockholm, Amsterdam, Barcelona, and Greece, enhancing product alignment and cross-cultural partnerships.</li>
@@ -286,7 +296,7 @@ export default function Home() {
             </div>
             </div>
 
-          <div className='title-contatiner'>
+          <div className='title-contatiner py-4'>
           <h2>Education</h2>
           <div className="resume-item">
             <div className="resume-item-header" onClick={() => toggleItem('education-1')}>
@@ -300,7 +310,7 @@ export default function Home() {
             )}
           </div>
 
-          <div className="resume-item">
+          <div className="resume-item ">
             <div className="resume-item-header" onClick={() => toggleItem('education-2')}>
               B.A. of Industrial Product Design, Shih Chen University - Taipei, Taiwan | 2018
             </div>
@@ -314,7 +324,7 @@ export default function Home() {
         </div>  
 
         
-          < div className='title-container'>
+          < div className='title-container py-4'>
           <h2>Achievements</h2>
           <div className="resume-item">
             <div className="resume-item-header-static">

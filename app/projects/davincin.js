@@ -26,9 +26,8 @@ export const davincinData = {
         "The U.S. TAM for an AI-powered CRM platform targeting knowledge workers is $2 billion, based on 10 million professionals. The SAM focuses on the 30% actively engaging with their audience, valued at $600 million. The SOM, with a 5% short-term market capture, is estimated at $30 million.",
       imageUrl: "/davincin-market.png", // Replace with actual image path
       statistics: [
-        { value: 100, label: 'Total Users' },
-        { value: 50, label: 'Active Users' },
-        { value: 25, label: 'New Users' },
+        { value: 200, label: 'per knowledge workers spend on this issues annually' }
+      
       ]
     },
 
@@ -39,34 +38,34 @@ export const davincinData = {
         {
           icon: '📋',
           name: 'Update Study List',
-          impact: 2,
+          impact: 5,
           urgency: 4,
-          marketSize: 2,
+          marketSize: 5,
           overall: 14
         },
         {
           icon: '🔄',
           name: 'AI Chat to data',
-          impact: 2,
-          urgency: 4,
-          marketSize: 2,
+          impact: 4,
+          urgency: 5,
+          marketSize: 3,
           overall: 12
         },
         {
           icon: '🧠',
           name: 'Analyze Users’ Questions',
-          impact: 2,
-          urgency: 4,
-          marketSize: 2,
+          impact: 3,
+          urgency: 3,
+          marketSize: 5,
           overall: 11
         },
         {
           icon: '💬',
           name: 'Paid Consultant',
           impact: 2,
-          urgency: 4,
-          marketSize: 2,
-          overall: 8
+          urgency: 5,
+          marketSize: 4,
+          overall: 11
         }
       ]
     },
@@ -159,7 +158,7 @@ export const davincinData = {
   // userTesting
   userTesting: {
     title: "User Testing",
-    description: "Each and every one of us has that moment when we are suddenly stunned when we come face to face with the enormity of the universe.",
+    description: "Acceptance Criteria",
     steps: [
       { title: "Accuracy of AI Chat", description: "Knowledge workers can update their study list." },
       { title: "User Chat Experience", description: "AI chatbot can respond to audience questions using curated data." },

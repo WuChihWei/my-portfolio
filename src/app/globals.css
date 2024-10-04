@@ -68,6 +68,12 @@
   }
 
   h6 {
+    font-size: calc(0.9rem + 0.1vw);
+    font-weight: 300;
+  }
+
+
+  h7 {
     font-size: calc(0.6rem + 0.1vw);
     font-weight: 400;
   }
@@ -359,22 +365,32 @@ a {
 }
 
 .resume-section h2 {
-  margin-bottom: 20px;
-  border-bottom: 3px solid #303030;
+  margin-bottom: 10px;
+  border-bottom: 3px solid #4f4f4f;
   padding-bottom: 10px;
 }
 
 .resume-item {
   margin-bottom: 10px;
-  border-bottom: 1px solid #303030;
+  border-bottom: 1px solid #acacac;
   overflow: hidden;
 }
 
 .resume-item-header {
   cursor: pointer;
-  font-weight: 600;
+  font-weight: 500;
   margin-bottom: 4px;
+  padding: 10px 0px;
   /* 其他樣式 */
+}
+
+.resume-item-content{
+  padding-bottom: 10px;
+  color: rgb(88, 88, 88);
+}
+
+.resume-item-content li{
+  font-size: calc(0.8rem + 0.2vw);
 }
 
 .resume-item-content.open {
@@ -650,9 +666,14 @@ a {
 
 .resume-item-header-static {
   cursor: default;
-  padding-bottom: 10px;
+  /* padding-bottom: 10px; */
   cursor: pointer;
-  font-weight: 600;
+  /* font-weight: 400; */
+  cursor: pointer;
+  font-weight: 500;
+  margin-bottom: 4px;
+  padding: 10px 0px;
+  
 }
 /* 
 body li {
