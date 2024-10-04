@@ -183,7 +183,7 @@ export default function Home() {
 
 
           <div className='title-contatiner py-4'>
-             <h2> Digital Product Projects</h2>
+             <h2 className='text-3xl font-bold'> Digital Product Projects</h2>
 
              <div className="resume-item">
           <div className="resume-item-header" onClick={() => toggleItem('project-1')}>
@@ -225,7 +225,7 @@ export default function Home() {
           <div className="resume-item-header">
             Comgora | 2023
             </div>
-          <div className="resume-item-content" style={{display: openItems['project-4'] ? 'block' : 'none'}}>
+          <div className="resume-item-content my-1" style={{display: openItems['project-4'] ? 'block' : 'none'}}>
             <li>Product Manager + UI/UX Designer. AI-powered contract app for remote workers. Developed cross-platform app with Flutter. </li>
           </div>
           </div>
@@ -258,7 +258,7 @@ export default function Home() {
             <div className="resume-item-header" onClick={() => toggleItem('experience-1')}>
             Cofounder & Product Manager at Comgora - Stockholm, Sweden (Nov. 2022 – Sep.2023)
             </div>
-            <div className="resume-item-content" style={{display: openItems['experience-1'] ? 'block' : 'none'}}>
+            <div className="resume-item-content my-2" style={{display: openItems['experience-1'] ? 'block' : 'none'}}>
             <li>Led end-to-end development of an AI-powered contract app for remote workersfrom concept to MVP—guided by quantitative and qualitative market research with python, including Google keyword analysis and interviews with over 20 potential customers.</li>
             <li>Designed a 50% cheaper and 60% more efficient Trello/Asana-like workflow on Notion, and built a cross-platform app in Flutter with operating Agile methodologies.</li>
             <li>Developed a two-year product roadmap and vision, demonstrating team leadership by recruiting and organizing a team of over 7 professionals in development, marketing, finance and design.</li>
@@ -270,7 +270,7 @@ export default function Home() {
             <div className="resume-item-header" onClick={() => toggleItem('experience-2')}>
             Art Director at Studs - Stockholm, Sweden (Nov. 2022 – Sep.2023)
             </div>
-            <div className="resume-item-content" style={{display: openItems['experience-2'] ? 'block' : 'none'}}>
+            <div className="resume-item-content my-2" style={{display: openItems['experience-2'] ? 'block' : 'none'}}>
             <li>Managed a team of two designers, guiding the UX strategy of Studs' official website and stakeholder collaboration with over 25 technical companies across Stockholm, Amsterdam, Barcelona, and Greece, enhancing product alignment and cross-cultural partnerships.</li>
             <li>ncreased social media content production by 120%, resulting in a 40% increase in views by implementing data-driven strategies and optimizing user engagement metrics.</li>
             </div>
@@ -280,7 +280,7 @@ export default function Home() {
             <div className="resume-item-header" onClick={() => toggleItem('experience-3')}>
             Trainee at AppWorks School - Taipei, Taiwan (Apr. 2022 - Aug. 2022)
             </div>
-            <div className="resume-item-content" style={{display: openItems['experience-3'] ? 'block' : 'none'}}>
+            <div className="resume-item-content my-2" style={{display: openItems['experience-3'] ? 'block' : 'none'}}>
             <li>Collaborated with a team of 4 cross-platform developers using Agile methodologies on the “STYLiSH” E-commerce app; iterated UX/UI by 60% performance and reduced crash rates by 40% through unit testing and optimization, resulting in a 43% increase in 24 positive user reviews.</li>
             <li>Developed iOS object oriented programming projects using Swift. Cooperated with Android, Back-End and Front-End teams through Scrum and agile develop mode</li>
             </div>
@@ -290,7 +290,7 @@ export default function Home() {
             <div className="resume-item-header" onClick={() => toggleItem('experience-4')}>
             Product Owner at Atom Health Corp. - Taipei, Taiwan (May. 2021 - Sep. 2022)
             </div>
-            <div className="resume-item-content" style={{display: openItems['experience-4'] ? 'block' : 'none'}}>
+            <div className="resume-item-content my-2" style={{display: openItems['experience-4'] ? 'block' : 'none'}}>
             <li >Led development and patented medical devices, proven by the FDA. Negotiate with the 2 biggest medical manufacturing factories between China and Taiwan, contributing 67% of annual revenue during Covid.</li>
             <li>Drove data-driven marketing strategies through Shopify, improving conversion rates by 60% and U.S. mask sales by 46% during the pandemic through redesigning products’ ads and packaging.</li>
             </div>
@@ -304,7 +304,7 @@ export default function Home() {
               M.S. of Interactive Media Technology, KTH Royal Institute of Technology - Stockholm, Sweden | 2024
             </div>
             {openItems['education-1'] && (
-              <div className="resume-item-content">
+              <div className="resume-item-content my-2">
                   <li>Dedicated to the Technology Entrepreneurship Program.</li>
                   <li>Specialized in digital product integration and user centered design.</li>
               </div>
@@ -316,7 +316,7 @@ export default function Home() {
               B.A. of Industrial Product Design, Shih Chen University - Taipei, Taiwan | 2018
             </div>
             {openItems['education-2'] && (
-              <div className="resume-item-content">
+              <div className="resume-item-content my-2">
                   <li>Dedicated to the Design Management Program.</li>
                   <li>Specialized in service demechanical design and design thinking.</li>
               </div>

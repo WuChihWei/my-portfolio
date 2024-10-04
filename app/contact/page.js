@@ -42,7 +42,7 @@ export default function ContactPage() {
       <div className="w-full md:w-1/2 pr-4 mb-8 md:mb-0 ">
         <h1 className="text-3xl font-bold mb-0">Get In Touch</h1>
         <h4 className="mb-6 text-gray-500">Hi! How can I help?</h4>
-        <div className="md:space-y-2">
+        <div className="space-y-2">
           <p className="flex items-center">
             <span className="mr-4">📍</span> 
             <span className="text-sm md:text-base font-medium">Stockholm | Berlin | Taipei</span>
