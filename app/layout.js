@@ -5,8 +5,8 @@ import GridOverlay from '../components/GridOverlay';
 import '../src/app/globals.css';
 
 export const metadata = {
-  title: 'My Portfolio',
-  description: 'Welcome to my personal portfolio website',
+  title: 'Jordan Wu',
+  description: 'Welcome to Jordan Wu portfolio website',
 };
 
 export default function RootLayout({ children }) {

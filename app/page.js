@@ -16,6 +16,7 @@ export default function Home() {
     'project-4': false,
     'project-5': false,
     'project-6': false,
+    'project-7': false,
     'experience-1': false,
     'experience-2': false,
     'experience-3': false,
@@ -195,55 +196,55 @@ export default function Home() {
           </div>
           
           <div className="resume-item">
-          <div className="resume-item-header" onClick={() => toggleItem('project-1')}>
+          <div className="resume-item-header" onClick={() => toggleItem('project-2')}>
             Superfake | 2024
             </div>
-          <div className="resume-item-content" style={{display: openItems['project-1'] ? 'block' : 'none'}}>
-            <li>Product Manager + Full Stack Web Developer. Developed key features with using React.js, Next.js, and Tailwind CSS. On the back-end, I integrated Firebase for real-time data handling and user management. I also implemented API integrations, including NewsAPI and SerpAPI, to provide real-time content updates. Additionally, I focused on enhancing user engagement with features like daily challenges, commenting, and liking systems.</li>
-          </div>
-          </div>
-
-          <div className="resume-item" onClick={() => toggleItem('project-2')}>
-          <div className="resume-item-header">
-            Davincin | 2024
-            </div>
           <div className="resume-item-content" style={{display: openItems['project-2'] ? 'block' : 'none'}}>
-            <li>Product Manager +Full Stack Web Developer. Developed CRM tools for the AI-powered knowledge influencers, including automated client management, personalized AI assistants, and automated reporting. I worked on both front-end and back-end development, utilizing React.js, Next.js, and TypeScript for the user interface and Node.js, Flask, and Firebase for back-end services. I integrated OpenAI's GPT models and LangChain to enable advanced AI functionalities and used Pinecone for vector similarity searches. Additionally, I deployed the application on Vercel and Google Cloud Platform to ensure scalability.</li>
+            <li>Product Manager + Full Stack Web Developer. Developed key features with using React.js, Next.js, and Tailwind CSS. On the back-end, I integrated Firebase for real-time data handling and user management. I also implemented API integrations, including NewsAPI and SerpAPI, to provide real-time content updates. Additionally, I focused on enhancing user engagement with features like daily challenges, commenting, and liking systems.</li>
           </div>
           </div>
 
           <div className="resume-item" onClick={() => toggleItem('project-3')}>
           <div className="resume-item-header">
-            Hommap| 2024
+            Davincin | 2024
             </div>
           <div className="resume-item-content" style={{display: openItems['project-3'] ? 'block' : 'none'}}>
-            <li>Product Manager +Full Stack Web Developer. Worked on developing a data-driven platform aimed at improving indoor living conditions by addressing home allergy issues. Leveraging AI and data analysis, the platform provides personalized interior design recommendations to reduce allergens while optimizing air quality and home energy management.</li>
+            <li>Product Manager +Full Stack Web Developer. Developed CRM tools for the AI-powered knowledge influencers, including automated client management, personalized AI assistants, and automated reporting. I worked on both front-end and back-end development, utilizing React.js, Next.js, and TypeScript for the user interface and Node.js, Flask, and Firebase for back-end services. I integrated OpenAI's GPT models and LangChain to enable advanced AI functionalities and used Pinecone for vector similarity searches. Additionally, I deployed the application on Vercel and Google Cloud Platform to ensure scalability.</li>
           </div>
           </div>
 
           <div className="resume-item" onClick={() => toggleItem('project-4')}>
           <div className="resume-item-header">
-            Comgora | 2023
+            Hommap| 2024
             </div>
-          <div className="resume-item-content my-1" style={{display: openItems['project-4'] ? 'block' : 'none'}}>
-            <li>Product Manager + UI/UX Designer. AI-powered contract app for remote workers. Developed cross-platform app with Flutter. </li>
+          <div className="resume-item-content" style={{display: openItems['project-4'] ? 'block' : 'none'}}>
+            <li>Product Manager +Full Stack Web Developer. Worked on developing a data-driven platform aimed at improving indoor living conditions by addressing home allergy issues. Leveraging AI and data analysis, the platform provides personalized interior design recommendations to reduce allergens while optimizing air quality and home energy management.</li>
           </div>
           </div>
 
           <div className="resume-item" onClick={() => toggleItem('project-5')}>
           <div className="resume-item-header">
-            Naturian  | 2023
+            Comgora | 2023
             </div>
-          <div className="resume-item-content" style={{display: openItems['project-5'] ? 'block' : 'none'}}>
-            <li>Full Stack iOS Developer. A social app for people who want to live a more natural life and explore themselves.</li>
+          <div className="resume-item-content my-1" style={{display: openItems['project-5'] ? 'block' : 'none'}}>
+            <li>Product Manager + UI/UX Designer. AI-powered contract app for remote workers. Developed cross-platform app with Flutter. </li>
           </div>
           </div>
 
           <div className="resume-item" onClick={() => toggleItem('project-6')}>
           <div className="resume-item-header">
-            What2Pack | 2023
+            Naturian  | 2023
             </div>
           <div className="resume-item-content" style={{display: openItems['project-6'] ? 'block' : 'none'}}>
+            <li>Full Stack iOS Developer. A social app for people who want to live a more natural life and explore themselves.</li>
+          </div>
+          </div>
+
+          <div className="resume-item" onClick={() => toggleItem('project-7')}>
+          <div className="resume-item-header">
+            What2Pack | 2023
+            </div>
+          <div className="resume-item-content" style={{display: openItems['project-7'] ? 'block' : 'none'}}>
             <li>Frontend Developer. A tool for travelers to pack their luggage depend on the destination weather.</li>
           </div>
           </div>
