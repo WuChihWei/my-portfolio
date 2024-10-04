@@ -37,9 +37,9 @@ export default function ContactPage() {
   };
 
   return (
-    <div className="container h-screen pt-20 md:h-screen-40 items-center mx-auto px-4 py-8 flex flex-wrap">
+    <div className="container h-screen pt-10 md:h-screen-40 items-center mx-auto px-4 py-8 flex flex-wrap">
       {/* Left side: Contact Information */}
-      <div className="w-full md:w-1/2 pr-4 mb-8 md:mb-0 ">
+      <div className="w-full md:w-1/2 pr-4 md:mb-0 ">
         <h1 className="text-3xl font-bold mb-0">Get In Touch</h1>
         <h4 className="mb-6 text-gray-500">Hi! How can I help?</h4>
         <div className="space-y-2">
