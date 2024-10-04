@@ -54,7 +54,7 @@ export default function Home() {
               </h1>
               <div className="pt-4 md:pt-6 mr-0 md:mr-10 mt-2 md:mt-2 ">
               <h5>
-              One Builder, One Mission. Delivering end-to-end digital solutions through design thinking, from research and strategy to coding and design with AI-power.
+              One Builder, One Mission. Delivering end-to-end digital solutions through design thinking, from research and strategy to coding and design with AI-power. Check my projects in the web menu.
               </h5>
               <div className="flex flex-row space-x-4 mt-2 md:mt-4">
                 <a
