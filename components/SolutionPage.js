@@ -11,7 +11,7 @@ const SolutionPage = ({ title, features }) => {
   return (
     <div className="flex items-center justify-center mb-40 md:px-20 lg:overflow-y-auto">
       <div className="w-full text-center">
-        <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4"> Pain Points ⭢ Solutions </h1>
+        <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-4"> Pain Points ⭢ Solutions </h1>
         <div className="grid grid-cols-1 pt-10 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-8 auto-cols-fr">
           {features.map((feature, index) => (
             <div 

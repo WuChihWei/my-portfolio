@@ -40,7 +40,7 @@ const WireframeUIsPage = ({
     <div className="wireframe-uis-page min-h-screen flex flex-col justify-center items-center text-center bg-gray-100 py-20 mb-20">
       <div className="wireframe-container w-full max-w-[1440px] mx-auto px-4">
         <div className="wireframe-header mb-8">
-          <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-800">{title}</h1>
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-800">{title}</h1>
         </div>
         
         {/* Image section with responsive layout */}

@@ -7,7 +7,7 @@ const IntroductionPage = ({ title, description, backgroundImageUrl, contentImage
       <div className="flex flex-col lg:flex-row items-center w-full h-full">
         <div className="flex flex-col justify-between w-full  p-p-gap pt-14 lg:w-2/5 h-1/2 lg:h-full py-6 lg:py-10 text-black">
           <div className='top-title'>
-            <h1 className="text-2xl sm:text-3xl lg:text-5xl font-bold mb-4">
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-4">  
               {title}
             </h1>
             {websiteLink && (

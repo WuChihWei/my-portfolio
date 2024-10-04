@@ -7,7 +7,7 @@ const UserStoryFeaturePage = ({ title, description, imageUrl }) => {
   return (
     <div className="w-full h-full flex flex-col my-16 md:my-40 p-4 md:p-p-gap">
       <div className="flex-shrink-0">
-        <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-left md:text-center">
+        <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-left md:text-center">
           User Story + Pain Points
         </h1>
       </div>

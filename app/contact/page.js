@@ -37,23 +37,23 @@ export default function ContactPage() {
   };
 
   return (
-    <div className="container h-screen-20 items-center mx-auto px-4 py-8 flex flex-wrap">
+    <div className="container h-screen pt-20 md:h-screen-40 items-center mx-auto px-4 py-8 flex flex-wrap">
       {/* Left side: Contact Information */}
-      <div className="w-full md:w-1/2 pr-4 mb-8 md:mb-0">
-        <h1 className="text-3xl font-bold mb-2">Get In Touch</h1>
-        <h4 className="mb-10 text-gray-500">Hi! How can I help?</h4>
-        <div className="space-y-2">
+      <div className="w-full md:w-1/2 pr-4 mb-8 md:mb-0 ">
+        <h1 className="text-3xl font-bold mb-0">Get In Touch</h1>
+        <h4 className="mb-6 text-gray-500">Hi! How can I help?</h4>
+        <div className="md:space-y-2">
           <p className="flex items-center">
             <span className="mr-4">📍</span> 
-            <span className="font-medium">Stockholm | Berlin | Taipei</span>
+            <span className="text-sm md:text-base font-medium">Stockholm | Berlin | Taipei</span>
           </p>
           <p className="flex items-center">
             <span className="mr-4">🌐</span> 
-            <span className="font-medium">https://www.linkedin.com/in/jordanwu-tech/</span>
+            <span className="text-sm md:text-base font-medium">https://www.linkedin.com/in/jordanwu-tech/</span>
           </p>
           <p className="flex items-center ">
             <span className="mr-4">✉️</span> 
-            <span className="font-medium">w99jordan@gmail.com</span>
+            <span className="text-sm md:text-base font-medium">w99jordan@gmail.com</span>
           </p>
         </div>
       </div>

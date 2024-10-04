@@ -48,14 +48,14 @@ export default function Home() {
         <div className="home-content-left max-md:w-full max-md:h-1/2 w-full h-[calc(30vh-100px)] md:h-[calc(100vh-120px)] md:w-1/3 flex flex-col">
           <div className="flex flex-col flex-grow p-p-gap mt-2">
             <div className="mb-4 py-0"> {/* 添加 py-8 用於小螢幕 */}
-              <h1 className="text-2xl md:text-4xl font-extrabold leading-tight pr-10">
+              <h1 className="text-3xl font-extrabold pr-0 md:text-4xl leading-tight md:pr-10">
               An End-to-End Digital Product Enthusiast
               </h1>
-              <div className="pt-6 mr-10 md:py-0 ">
-              <h4>
-              One Builder, One Mission. Delivering end-to-end digital solutions through design thinking — from research and strategy to coding and design with AI-power.
-              </h4>
-              <div className="flex flex-row space-x-4 mt-4">
+              <div className="md:pt-6 mr-0 md:mr-10 mt-0 md:mt-0 ">
+              <h5>
+              One Builder, One Mission. Delivering end-to-end digital solutions through design thinking, from research and strategy to coding and design with AI-power.
+              </h5>
+              <div className="flex flex-row space-x-4 mt-2 md:mt-4">
                 <a
                   href="https://www.linkedin.com/in/jordanwu-tech/"
                   target="_blank"
@@ -93,16 +93,17 @@ export default function Home() {
                       alt={`Skill ${index + 1}`}
                       className="w-4 h-4 sm:w-4 sm:h-4 md:w-6 md:h-6 lg:w-8 lg:h-8"
                     />
-                    <h7 className="mt-1 text-xs sm:text-sm md:text-base text-center">
+                    <h6 className="mt-1 text-xs sm:text-sm md:text-base text-center">
                       {getSkillName(index)}
-                    </h7>
+                    </h6>
                   </div>
                 ))}
               </div>
             </div>
           </div>
         </div>
-        <div className="home-content-right max-md:w-full w-full h-[calc(50vh-100px)] md:h-[calc(100vh-100px)] md:w-2/3 flex flex-col"> {/* Added flex flex-col */}
+
+        <div className="home-content-right max-md:w-full w-full h-[calc(50vh-100px)] mb-0 md:h-[calc(100vh-100px)] md:w-2/3 flex flex-col"> {/* Added flex flex-col */}
           <div className="image-scroll-container top flex-grow space-y-0 md:space-y-0"> {/* Added flex-grow and space-y classes */}
             {[...Array(6)].map((_, index) => (
               <img key={index} src={`/project-${index + 1}.png`} alt={`Project ${index + 1}`} />
@@ -122,9 +123,9 @@ export default function Home() {
         </div>
       </div>
 
-      <div className="md:hidden block w-full mt-20 p-p-gap justify-start"> {/* 只在小屏幕顯示 */}
-  <h2 className="font-semibold mb-6 text-lg justify-start">Key Skills</h2>
-  <div className="grid grid-cols-6 gap-4 sm:gap-6">
+      <div className="md:hidden block w-full mt-20 p-p-gap justify-start"> {/* 只在小屏幕显示 */}
+  <h2 className="text-3xl font-bold mb-6 justify-start">Key Skills</h2>
+  <div className="grid grid-cols-4 gap-4 sm:gap-6">
     {[...Array(12)].map((_, index) => (
       <div key={index} className="flex flex-col items-center">
         <img
@@ -132,9 +133,9 @@ export default function Home() {
           alt={`Skill ${index + 1}`}
           className="w-8 h-8 sm:w-10 sm:h-10"
         />
-        <h7 className="mt-2 text-xs sm:text-sm text-center text-black font-medium">
+        <h6 className="mt-2 text-xs sm:text-sm text-center text-black font-medium">
           {getSkillName(index)}
-        </h7>
+        </h6>
       </div>
     ))}
   </div>
@@ -250,7 +251,7 @@ export default function Home() {
 
 
           <div className='title-contatiner py-4'>
-          <h2>Experience</h2>
+          <h2 className='text-3xl font-bold'>Experience</h2>
 
           <div className="resume-item">
 
@@ -297,7 +298,7 @@ export default function Home() {
             </div>
 
           <div className='title-contatiner py-4'>
-          <h2>Education</h2>
+          <h2 className='text-3xl font-bold'>Education</h2>
           <div className="resume-item">
             <div className="resume-item-header" onClick={() => toggleItem('education-1')}>
               M.S. of Interactive Media Technology, KTH Royal Institute of Technology - Stockholm, Sweden | 2024
@@ -325,7 +326,7 @@ export default function Home() {
 
         
           < div className='title-container py-4'>
-          <h2>Achievements</h2>
+          <h2 className='text-3xl font-bold'>Achievements</h2>
           <div className="resume-item">
             <div className="resume-item-header-static">
               HIC Team Paper in SMC 2023 proceedings volume | 2023

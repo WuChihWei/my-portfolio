@@ -5,7 +5,7 @@ const UserTestingPage = ({ title, description, steps }) => {
     <div className="min-h-fit flex items-center p-p-gap mb-20 sm:px-6 lg:px-8">
       <div className="h-full max-w-7xl mx-auto w-full">
         <div className="text-left sm:text-center mb-8">
-          <h1 className="text-3xl font-bold text-gray-900 sm:text-4xl">{title}</h1>
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900">{title}</h1>
           <h4 className="mt-4 text-xl text-gray-600">{description}</h4>
         </div>
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-10 md:grid-cols-4 md:gap-20 md:p-10 ">
