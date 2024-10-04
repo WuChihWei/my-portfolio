@@ -91,9 +91,9 @@ export default function Home() {
                     <img
                       src={`/skill-${index + 1}.png`}
                       alt={`Skill ${index + 1}`}
-                      className="w-4 h-4 sm:w-4 sm:h-4 md:w-6 md:h-6 lg:w-8 lg:h-8"
+                      className="w-4 h-4 sm:w-4 sm:h-4 md:w-7 md:h-7 "
                     />
-                    <h6 className="mt-1 text-xs sm:text-sm md:text-base text-center">
+                    <h6 className="mt-1 text-xs sm:text-xs md:text-xs text-center">
                       {getSkillName(index)}
                     </h6>
                   </div>
