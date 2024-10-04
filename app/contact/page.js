@@ -37,7 +37,7 @@ export default function ContactPage() {
   };
 
   return (
-    <div className="container h-full pt-14 md:h-screen-40 items-center mx-auto px-4 py-8 flex flex-wrap">
+    <div className="container h-full pt-20 md:h-screen-40 items-center mx-auto px-4 py-8 flex flex-wrap">
       {/* Left side: Contact Information */}
       <div className="w-full mb-4 md:w-1/2 pr-4">
         <h1 className="text-3xl font-bold">Get In Touch</h1>

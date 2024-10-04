@@ -145,7 +145,7 @@ const Navbar = () => {
       </div>
       {isScrolled && isProjectPage && showCarousel && (
         <div className="introduction-carousel z-40 overflow-x-auto">
-          <ul className="flex py-2 whitespace-nowrap">
+          <ul className="flex py-4 whitespace-nowrap">
             <li className="inline-block px-3" onClick={() => handleScrollToSection('introduction')}>↑</li>
             <li className="inline-block px-3" onClick={() => handleScrollToSection('introduction')}>Introduction</li>
             <li className="inline-block px-3" onClick={() => handleScrollToSection('user-story')}>User Story</li>

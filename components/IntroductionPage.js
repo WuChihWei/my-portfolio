@@ -24,7 +24,7 @@ const IntroductionPage = ({ title, description, backgroundImageUrl, contentImage
           </div>
 
           <div className='list-description'>
-            <ul className="list-disc pl-5 mb-4">
+            <ul className="list-disc text-xs pl-5 mb-4">
               <li>Market Research</li>
               <li>User Study</li>
               <li>UI/UX Design</li>
@@ -34,7 +34,7 @@ const IntroductionPage = ({ title, description, backgroundImageUrl, contentImage
           </div>
 
           <div className='name-description flex items-center'>
-            <h5 className="mr-4">Created by Jordan Wu with AI assistance</h5>
+            <h5 className="mr-4 text-xs">Created by Jordan Wu with AI assistance</h5>
             <a href="https://github.com/WuChihWei" 
                className="inline-flex items-center px-3 py-1 bg-gray-800 text-white text-sm rounded-md hover:bg-gray-700 transition-colors duration-300"
                target="_blank" 
