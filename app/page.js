@@ -48,7 +48,7 @@ export default function Home() {
         <div className="home-content-left max-md:w-full max-md:h-1/2 w-full h-[calc(30vh-100px)] md:h-[calc(100vh-120px)] md:w-1/3 flex flex-col">
           <div className="flex flex-col flex-grow p-p-gap mt-4 md:mt-2">
             <div className="mb-4 py-0"> {/* 添加 py-8 用於小螢幕 */}
-              <h1 className="text-4xl font-bold pb-2 md:font-extrabold pr-0 md:text-4xl leading-tight md:pr-10">
+              <h1 className="text-4xl font-extrabold pb-2 md:font-extrabold pr-0 md:text-4xl leading-tight md:pr-10">
               An End-to-End Digital Product Enthusiast
               </h1>
               <div className="pt-4 md:pt-6 mr-0 md:mr-10 mt-2 md:mt-2 ">
