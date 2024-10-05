@@ -19,9 +19,11 @@ module.exports = {
 
       },
       padding: {
-        'p-gap': '0.6vw 2.6vw',
+        'p-gap': '0vw 3vw',
         // '2.6': '2.6vw',
       },
+      variants: {},
+      corePlugins: {},
 
     },
   },

@@ -2,6 +2,53 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer components {
+  .heading-1-custom {
+    @apply text-4xl font-bold mb-4 md:text-5xl lg:text-7xl lg:font-extrabold
+    tracking-tight leading-tight
+    md:tracking-normal md:leading-snug
+    lg:tracking-wide lg:leading-tight;
+  }
+
+  .heading-2-custom {
+    @apply text-4xl font-bold text-left
+
+  }
+
+  .heading-3-custom {
+    @apply text-lg font-bold mb-4 md:text-lg lg:text-2xl lg:font-semibold
+    tracking-tight leading-tight
+    md:tracking-normal md:leading-snug
+    lg:tracking-wide lg:leading-tight;
+  }
+
+  .heading-4-custom {
+    @apply text-lg font-bold mb-4 md:text-lg lg:text-xl lg:font-medium
+    tracking-tight leading-tight
+    md:tracking-normal md:leading-snug
+    lg:tracking-wide lg:leading-tight;
+  }
+
+  .heading-5-custom {
+    @apply text-lg font-bold mb-4 md:text-lg lg:text-xl lg:font-normal text-balance
+    tracking-tight leading-tight
+    md:tracking-normal md:leading-snug;
+  }
+
+  .decription-1-custom {
+    @apply text-sm leading-snug tracking-wide
+  }
+
+  .resume-item-header {
+    @apply flex justify-between items-center cursor-pointer text-lg font-bold md:text-lg lg:text-xl lg:font-semibold mb-2 my-4
+  }
+
+  .resume-item-subheader {
+    @apply flex items-center text-lg font-normal md:text-lg lg:text-xl lg:font-normal 
+  }
+
+}
+
 :root {
   font-size: 16px;
   --border-radius: 12px;
@@ -41,7 +88,7 @@
   --card-border-rgb: 131, 134, 135;
 
   /* 標題和文本樣式 */
-  h1 {
+  /* h1 {
     font-size: clamp(2rem, 2.2rem + 1.4vw, 3.5rem);
     font-weight: 800;
     line-height: 1.3;
@@ -81,37 +128,14 @@
   ul {
     font-size: clamp(0.8rem, 0.8rem + 0.1vw, 1rem);
     font-weight: 300;
-  }
+  } */
 }
 
 @media (prefers-color-scheme: dark) {
-  :root {
-
-    --primary-glow: radial-gradient(rgba(1, 65, 255, 0.4), rgba(1, 65, 255, 0));
-    --secondary-glow: linear-gradient(
-      to bottom right,
-      rgba(1, 65, 255, 0),
-      rgba(1, 65, 255, 0),
-      rgba(1, 65, 255, 0.3)
-    );
-
-    --tile-start-rgb: 2, 13, 46;
-    --tile-end-rgb: 2, 5, 19;
-    --tile-border: conic-gradient(
-      #ffffff80,
-      #ffffff40,
-      #ffffff30,
-      #ffffff20,
-      #ffffff10,
-      #ffffff10,
-      #ffffff80
-    );
-
-    --callout-rgb: 20, 20, 20;
-    --callout-border-rgb: 108, 108, 108;
-    --card-rgb: 100, 100, 100;
-    --card-border-rgb: 200, 200, 200;
-  }
+    :root {
+      --text-color: white;
+      --background-color: black;
+    }
 }
 
 /* 全局樣式 */
@@ -141,11 +165,7 @@ a {
   text-decoration: none;
 }
 
-@media (prefers-color-scheme: dark) {
-  html {
-    color-scheme: dark;
-  }
-}
+
 
 /* 網格覆蓋 */
 .grid-overlay {
@@ -184,11 +204,12 @@ a {
   align-items: center;
   padding: 0.6vw 2.6vw;
   background-color: #ffffff;
+  /* height: 64px; */
 }
 
 .navbar-logo{
   display: flex;
-  height: 48px;
+  height: 40px;
 }
 
 .navbar-logo-container{
@@ -279,35 +300,32 @@ a {
 }
 
 .home-cover {
-  display: flex;
+  /* display: flex;
   height: calc(100vh - 120px);
   margin-top: 20px;
   align-items: center;
   justify-content: center;
-  text-align: center;
+  text-align: center; */
 }
 
-.home-content-left {
+/* .home-content-left {
   display: flex;
   flex-direction: column;
   width: 33%;
   text-align: left;
   align-items: start;
-  /* margin: 30px; */
   align-self: flex-start; 
   height: 100%;
-}
+} */
 
-.home-content-right {
+/* .home-content-right {
   width: 80%;
   height: calc(100vh - 100px);
   display: flex;
   flex-direction: column;
   overflow: hidden;
-  gap: 20px;
   padding: 20px 0;
-  /* background-color: rgb(209, 209, 209); */
-}
+} */
 
 .home-carousel {
   display: flex;
@@ -341,22 +359,22 @@ a {
 }
 
 /* 簡歷部分樣式 */
-.resume-section {
+/* .resume-section {
   margin-top: 40px;
-}
+} */
 
 .title-container {
   margin-top: 30px;
 }
 
-.resume-container {
+/* .resume-container {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
   height: auto;
   margin: 0 auto;
   gap: 10px;
-}
+} */
 
 .resume-section h2 {
   margin-bottom: 10px;
@@ -370,13 +388,12 @@ a {
   overflow: hidden;
 }
 
-.resume-item-header {
+/* .resume-item-header {
   cursor: pointer;
   font-weight: 500;
   margin-bottom: 4px;
   padding: 10px 0px;
-  /* 其他樣式 */
-}
+} */
 
 .resume-item-content{
   padding-bottom: 10px;
@@ -660,7 +677,6 @@ a {
 
 .resume-item-header-static {
   cursor: default;
-  /* padding-bottom: 10px; */
   cursor: pointer;
   /* font-weight: 400; */
   cursor: pointer;

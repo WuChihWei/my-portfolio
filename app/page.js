@@ -7,6 +7,11 @@ import { FiTool } from "react-icons/fi";
 import { FaLinkedin, FaGithub } from 'react-icons/fa';
 import { MdArrowOutward } from "react-icons/md";
 
+const skillIcons = [
+  '/skill-1.png', '/skill-2.png', '/skill-3.png', '/skill-4.png',
+  '/skill-5.png', '/skill-6.png', '/skill-7.png', '/skill-8.png',
+  '/skill-9.png', '/skill-10.png', '/skill-11.png', '/skill-12.png'
+];
 
 export default function Home() {
   const [openItems, setOpenItems] = useState({
@@ -44,67 +49,52 @@ export default function Home() {
   }
 
   return (
-    <div className='home-container h-auto pb-10 bg-gray-100'>
-      <div className="home-cover h-auto flex flex-col md:flex-row">
-        <div className="home-content-left max-md:w-full w-full h-[calc(30vh-100px)] md:h-[calc(100vh-120px)] md:w-1/3 flex flex-col">
-          <div className="flex flex-col flex-grow p-p-gap mt-4 md:mt-2">
-            <div className="mb-4 py-0"> {/* 添加 py-8 用於小螢幕 */}
-              <h1 className="text-4xl font-extrabold pb-2 md:font-extrabold pr-0 md:text-4xl leading-tight md:pr-10">
-              An End-to-End Digital Product Enthusiast
+    <div className='home-container h-auto '>
+      <div className="home-cover h-full flex flex-col md:flex-row justify-items-center items-center bg-stone-900" >
+        <div className="home-content-left md:w-1/2 flex flex-col justify-items-center text-left">
+          <div className="flex flex-col flex-grow p-p-gap mt-4 md:mt-2  text-white">
+            <div className="mb-0"> {/* 添加 py-8 用於小螢幕 */}
+              <h1 className="heading-1-custom">
+              End-to-End Digital Product Enthusiast
               </h1>
-              <div className="pt-4 md:pt-6 mr-0 md:mr-10 mt-2 md:mt-2 ">
-              <h5>
-              One Builder, One Mission. Delivering end-to-end digital solutions through design thinking, from research and strategy to coding and design with AI-power. Check my projects in the web menu.
-              </h5>
-              <div className="flex flex-row space-x-4 mt-2 md:mt-4">
+              <div className="py-2 md:py-0 mr-0 md:mr-10">
+              <h4 className='heading-4-custom'>
+              One Builder, One Mission.<br />
+              Delivering digital solutions through design thinking, strategy to coding with AI-power.
+              </h4>
+              <div className="flex flex-row space-x-4 mt-0 md:pt-2 justify-items-center items-center">
+                <div className='bg-white p-2 px-4 rounded-full'>
                 <a
                   href="https://www.linkedin.com/in/jordanwu-tech/"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center text-blue-600 hover:text-blue-800 transition-colors duration-300"
+                  className="resume-item-subheader text-black hover:text-blue-800 transition-colors duration-300"
                 >
                   <FaLinkedin className="mr-2" />
                   LinkedIn
-                  <MdArrowOutward className="ml-2 text-sl" />
+                  <MdArrowOutward className="ml-10 text-sl" />
                 </a>
+                </div>
+                <div className='text-white bg-black p-2 px-4 rounded-full border-2'>
                 <a
                   href="https://github.com/WuChihWei"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center text-gray-800 hover:text-gray-600 transition-colors duration-300"
+                  className="resume-item-subheader text-white hover:text-gray-600 transition-colors duration-300"
                 >
                   <FaGithub className="mr-2" />
                   GitHub
-                  <MdArrowOutward className="ml-2 text-sl" />
+                  <MdArrowOutward className="ml-10 text-sl" />
                 </a>
+                </div>
               </div>
               </div>
             </div>
             
           </div>
-          
-          <div className="mt-auto p-p-gap justify-start"> {/* Key Skills 部分 */}
-            <div className="md:block hidden">
-              <h2 className="font-semibold mb-6">Key Skills</h2>
-              <div className="grid grid-cols-6 gap-2 sm:gap-4 md:gap-3 lg:gap-4 xl:gap-6 justify-start">
-                {[...Array(12)].map((_, index) => (
-                  <div key={index} className="flex flex-col items-center">
-                    <img
-                      src={`/skill-${index + 1}.png`}
-                      alt={`Skill ${index + 1}`}
-                      className="w-4 h-4 sm:w-4 sm:h-4 md:w-7 md:h-7 "
-                    />
-                    <h6 className="mt-1 text-xs sm:text-xs md:text-xs text-center">
-                      {getSkillName(index)}
-                    </h6>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </div>
         </div>
 
-        <div className="home-content-right max-md:w-full w-full h-[calc(50vh-100px)] mb-0 md:h-[calc(100vh-100px)] md:ml-20 md:w-2/3 flex flex-col"> {/* Added flex flex-col */}
+        <div className="p-6 gap-2 max-md:w-full w-full h-[calc(50vh-100px)] md:h-[calc(100vh-120px)] md:w-1/2 flex flex-col overflow-hidden">
           <div className="image-scroll-container top flex-grow space-y-0 md:space-y-0"> {/* Added flex-grow and space-y classes */}
             {[...Array(6)].map((_, index) => (
               <img key={index} src={`/project-${index + 1}.png`} alt={`Project ${index + 1}`} />
@@ -124,7 +114,7 @@ export default function Home() {
         </div>
       </div>
 
-      <div className="md:hidden block w-full mt-20 p-p-gap justify-start"> {/* 只在小屏幕显示 */}
+      {/* <div className="md:hidden block w-full mt-20 p-p-gap justify-start"> 
   <h2 className="text-3xl font-bold mb-6 justify-start">Key Skills</h2>
   <div className="grid grid-cols-4 gap-4 sm:gap-6">
     {[...Array(12)].map((_, index) => (
@@ -140,55 +130,60 @@ export default function Home() {
       </div>
     ))}
   </div>
-</div>
+</div> */}
 
       {/* Add My Expertise section */}
-      <section className="expertise-sectionpy-10 mb:py-20 p-p-gap">
-        <h2 className="text-3xl font-bold text-left my-12">My Expertise</h2>
-        <div className="expertise-grid mx-auto flex flex-wrap justify-between gap-y-8 gap-10 sm:gap-12">
+      <section className=" bg-stone-300 py-20 mb:py-10 p-p-gap">
+        <div>
+        <h2 className="heading-2-custom mb-8">My Expertise</h2>
+        <div className="expertise-grid mx-auto flex flex-wrap justify-between gap-y-4 gap-10 sm:gap-12">
           <div className="expertise-item w-full sm:w-[calc(100%)] lg:w-[calc(40%)] xl:w-[calc(20%)] flex flex-col items-start text-left">
-            <div className="bg-white border-2 border-black p-2 mb-4 rounded-full">
-              <MdOutlineDesignServices size={34} className="text-black" />
+            <div className="mb-2">
+              <MdOutlineDesignServices size={24} className="text-black" />
             </div>
-            <h4 className="resume-item-header text-xl font-semibold">Strategy & Direction</h4>
-            <h6 className="text-sm text-gray-600">Turn market insights into clear, actionable product strategies, guiding projects from concept to launch while aligning business goals with user needs.</h6>
+            <h4 className="heading-3-custom">Strategy & Direction</h4>
+            <p className="decription-1-custom">Turn market insights into clear, actionable product strategies, guiding projects from concept to launch while aligning business goals with user needs.</p>
           </div>
           <div className="expertise-item w-full sm:w-[calc(100%)] lg:w-[calc(40%)] xl:w-[calc(20%)] flex flex-col items-start text-left">
-            <div className="bg-white border-2 border-black p-2 mb-4 rounded-full">
-              <MdOutlineComputer size={34} className="text-black" />
+            <div className="mb-2">
+              <MdOutlineComputer size={24} className="text-black" />
             </div>
-            <h4 className="resume-item-header text-xl font-semibold">Technology</h4>
-            <h6 className="text-sm text-gray-600">Integrate the latest technologies and development practices, ensuring seamless collaboration between design and engineering for scalable, innovative solutions.</h6>
+            <h4 className="heading-3-custom">Technology</h4>
+            <p className="decription-1-custom ">Integrate the latest technologies and development practices, ensuring seamless collaboration between design and engineering for scalable, innovative solutions.</p>
           </div>
           <div className="expertise-item w-full sm:w-[calc(100%)] lg:w-[calc(40%)] xl:w-[calc(20%)] flex flex-col items-start text-left">
-            <div className="bg-white border-2 border-black p-2 mb-4 rounded-full">
-              <MdOutlineBrush size={34} className="text-black" />
+            <div className="mb-2">
+              <MdOutlineBrush size={24} className="text-black" />
             </div>
-            <h4 className="resume-item-header text-xl font-semibold">UI & UX Design</h4>
-            <h6 className="text-sm text-gray-600">Craft intuitive, user-centered designs that enhance usability across devices, creating engaging and consistent experiences that meet both user and business goals.</h6>
+            <h4 className="heading-3-custom">UI & UX Design</h4>
+            <p className="decription-1-custom ">Craft intuitive, user-centered designs that enhance usability across devices, creating engaging and consistent experiences that meet both user and business goals.</p>
           </div>
           <div className="expertise-item w-full sm:w-[calc(100%)] lg:w-[calc(40%)] xl:w-[calc(20%)] flex flex-col items-start text-left">
-            <div className="bg-white border-2 border-black p-2 mb-4 rounded-full">
-              <FiTool size={34} className="text-black" />
+            <div className=" mb-2">
+              <FiTool size={24} className="text-black" />
             </div>
-            <h4 className="resume-item-header text-xl font-semibold">Key Skills</h4>
-            <h6 className="text-sm text-gray-600">Experienced with tools like Jira, Trello, Figma, and familiar with managing product lifecycles. Comfortable conducting market research, competitive analysis, and working within Agile frameworks. Skilled in team collaboration and communication.</h6>
+            <h4 className="heading-3-custom">Key Skills</h4>
+            <p className="decription-1-custom ">Experienced with tools like Jira, Trello, Figma, and familiar with managing product lifecycles. Comfortable conducting market research, competitive analysis, and working within Agile frameworks.</p>
           </div>
+        </div>
         </div>
       </section>
 
       {/* After the home cover section */}
-      <section className="resume-section p-p-gap h-auto ">
-
+      <section className="resume-section p-p-gap py-10 ">
+       
         <div className="resume-container h-auto">
-
-
-          <div className='title-contatiner py-4'>
-             <h2 className='text-3xl font-bold'> Digital Product Projects</h2>
+         
+          <div className='title-contatiner py-10'>
+             <h2 className='heading-2-custom'> Digital Projects</h2>
 
              <div className="resume-item">
           <div className="resume-item-header" onClick={() => toggleItem('project-1')}>
-            This Portfolio | 2024
+          <span>1B1M Portfolio</span>
+             <span className="resume-item-subheader">
+             2024
+             <MdArrowOutward className="ml-1" />
+             </span>
             </div>
           <div className="resume-item-content" style={{display: openItems['project-1'] ? 'block' : 'none'}}>
             <li>Product Manager + Full Stack Web Developer. Custom-built. There is no third-party UI component library. able to update information.</li>
@@ -197,7 +192,11 @@ export default function Home() {
           
           <div className="resume-item">
           <div className="resume-item-header" onClick={() => toggleItem('project-2')}>
-            Superfake | 2024
+             <span>Superfake</span>
+             <span className="resume-item-subheader">
+             2024
+             <MdArrowOutward className="ml-1" />
+             </span>
             </div>
           <div className="resume-item-content" style={{display: openItems['project-2'] ? 'block' : 'none'}}>
             <li>Product Manager + Full Stack Web Developer. Developed key features with using React.js, Next.js, and Tailwind CSS. On the back-end, I integrated Firebase for real-time data handling and user management. I also implemented API integrations, including NewsAPI and SerpAPI, to provide real-time content updates. Additionally, I focused on enhancing user engagement with features like daily challenges, commenting, and liking systems.</li>
@@ -206,7 +205,11 @@ export default function Home() {
 
           <div className="resume-item" onClick={() => toggleItem('project-3')}>
           <div className="resume-item-header">
-            Davincin | 2024
+          <span>Davincin</span>
+             <span className="resume-item-subheader">
+             2024
+             <MdArrowOutward className="ml-1" />
+             </span>
             </div>
           <div className="resume-item-content" style={{display: openItems['project-3'] ? 'block' : 'none'}}>
             <li>Product Manager +Full Stack Web Developer. Developed CRM tools for the AI-powered knowledge influencers, including automated client management, personalized AI assistants, and automated reporting. I worked on both front-end and back-end development, utilizing React.js, Next.js, and TypeScript for the user interface and Node.js, Flask, and Firebase for back-end services. I integrated OpenAI's GPT models and LangChain to enable advanced AI functionalities and used Pinecone for vector similarity searches. Additionally, I deployed the application on Vercel and Google Cloud Platform to ensure scalability.</li>
@@ -215,7 +218,11 @@ export default function Home() {
 
           <div className="resume-item" onClick={() => toggleItem('project-4')}>
           <div className="resume-item-header">
-            Hommap| 2024
+          <span>Hommap</span>
+             <span className="resume-item-subheader">
+             2024
+             <MdArrowOutward className="ml-1" />
+             </span>
             </div>
           <div className="resume-item-content" style={{display: openItems['project-4'] ? 'block' : 'none'}}>
             <li>Product Manager +Full Stack Web Developer. Worked on developing a data-driven platform aimed at improving indoor living conditions by addressing home allergy issues. Leveraging AI and data analysis, the platform provides personalized interior design recommendations to reduce allergens while optimizing air quality and home energy management.</li>
@@ -224,40 +231,56 @@ export default function Home() {
 
           <div className="resume-item" onClick={() => toggleItem('project-5')}>
           <div className="resume-item-header">
-            Comgora | 2023
+          <span>Comgora</span>
+             <span className="resume-item-subheader">
+             2023
+             <MdArrowOutward className="ml-1" />
+             </span>
             </div>
           <div className="resume-item-content my-1" style={{display: openItems['project-5'] ? 'block' : 'none'}}>
             <li>Product Manager + UI/UX Designer. AI-powered contract app for remote workers. Developed cross-platform app with Flutter. </li>
           </div>
           </div>
 
+          <div className="resume-item" onClick={() => toggleItem('project-7')}>
+          <div className="resume-item-header">
+          <span>What2Pack</span>
+             <span className="resume-item-subheader">
+             2023
+             <MdArrowOutward className="ml-1" />
+             </span>
+            </div>
+          <div className="resume-item-content" style={{display: openItems['project-7'] ? 'block' : 'none'}}>
+            <li>Frontend Developer of Four. A tool for travelers to pack their luggage depend on the destination weather.</li>
+          </div>
+          </div>
+
           <div className="resume-item" onClick={() => toggleItem('project-6')}>
           <div className="resume-item-header">
-            Naturian  | 2023
+          <span>Naturian</span>
+             <span className="resume-item-subheader">
+             2022
+             <MdArrowOutward className="ml-1" />
+             </span>
             </div>
           <div className="resume-item-content" style={{display: openItems['project-6'] ? 'block' : 'none'}}>
             <li>Full Stack iOS Developer. A social app for people who want to live a more natural life and explore themselves.</li>
           </div>
           </div>
-
-          <div className="resume-item" onClick={() => toggleItem('project-7')}>
-          <div className="resume-item-header">
-            What2Pack | 2023
-            </div>
-          <div className="resume-item-content" style={{display: openItems['project-7'] ? 'block' : 'none'}}>
-            <li>Frontend Developer. A tool for travelers to pack their luggage depend on the destination weather.</li>
-          </div>
-          </div>
           </div>
 
 
-          <div className='title-contatiner py-4'>
-          <h2 className='text-3xl font-bold'>Experience</h2>
+          <div className='title-contatiner py-10'>
+          <h2 className='heading-2-custom'>Experience</h2>
 
           <div className="resume-item">
-
             <div className="resume-item-header" onClick={() => toggleItem('experience-1')}>
-            Cofounder & Product Manager at Comgora - Stockholm, Sweden (Nov. 2022 – Sep.2023)
+            <span>Cofounder & Product Manager at Comgora</span>
+             <span className="resume-item-subheader">
+             (Stockholm, Sweden) 2023
+             <MdArrowOutward className="ml-1" />
+             </span>
+
             </div>
             <div className="resume-item-content my-2" style={{display: openItems['experience-1'] ? 'block' : 'none'}}>
             <li>Led end-to-end development of an AI-powered contract app for remote workersfrom concept to MVP—guided by quantitative and qualitative market research with python, including Google keyword analysis and interviews with over 20 potential customers.</li>
@@ -269,7 +292,12 @@ export default function Home() {
 
             <div className="resume-item">
             <div className="resume-item-header" onClick={() => toggleItem('experience-2')}>
-            Art Director at Studs - Stockholm, Sweden (Nov. 2022 – Sep.2023)
+            <span>Art Director at Studs</span>
+             <span className="resume-item-subheader">
+             (Stockholm, Sweden) 2023
+             <MdArrowOutward className="ml-1" />
+             </span>
+
             </div>
             <div className="resume-item-content my-2" style={{display: openItems['experience-2'] ? 'block' : 'none'}}>
             <li>Managed a team of two designers, guiding the UX strategy of Studs' official website and stakeholder collaboration with over 25 technical companies across Stockholm, Amsterdam, Barcelona, and Greece, enhancing product alignment and cross-cultural partnerships.</li>
@@ -279,7 +307,12 @@ export default function Home() {
 
             <div className="resume-item">
             <div className="resume-item-header" onClick={() => toggleItem('experience-3')}>
-            Trainee at AppWorks School - Taipei, Taiwan (Apr. 2022 - Aug. 2022)
+            <span>Trainee at AppWorks School</span>
+             <span className="resume-item-subheader">
+             (Taipei, Taiwan) 2022
+             <MdArrowOutward className="ml-1" />
+             </span>
+
             </div>
             <div className="resume-item-content my-2" style={{display: openItems['experience-3'] ? 'block' : 'none'}}>
             <li>Collaborated with a team of 4 cross-platform developers using Agile methodologies on the “STYLiSH” E-commerce app; iterated UX/UI by 60% performance and reduced crash rates by 40% through unit testing and optimization, resulting in a 43% increase in 24 positive user reviews.</li>
@@ -289,7 +322,12 @@ export default function Home() {
 
             <div className="resume-item">
             <div className="resume-item-header" onClick={() => toggleItem('experience-4')}>
-            Product Owner at Atom Health Corp. - Taipei, Taiwan (May. 2021 - Sep. 2022)
+            <span>Product Owner at Atom Health Corp.</span>
+             <span className="resume-item-subheader">
+             (Taipei, Taiwan) 2021
+             <MdArrowOutward className="ml-1" />
+             </span>
+
             </div>
             <div className="resume-item-content my-2" style={{display: openItems['experience-4'] ? 'block' : 'none'}}>
             <li >Led development and patented medical devices, proven by the FDA. Negotiate with the 2 biggest medical manufacturing factories between China and Taiwan, contributing 67% of annual revenue during Covid.</li>
@@ -297,8 +335,36 @@ export default function Home() {
             </div>
             </div>
             </div>
+        </div>
 
-          <div className='title-contatiner py-4'>
+      </section>  
+
+      <section className='skillSection w-full h-[60vh]'>
+        <div className='flex flex-col md:flex-row h-full'>
+          <div className='w-full md:w-1/2 p-p-gap bg-stone-300 flex flex-col justify-center'>
+            <h2 className='heading-2-custom pb-4'>Innovative Skills</h2>
+            <p className='heading-5-custom pr-20 pt-10'>
+            From research, and coding to design. Skilled in product strategy, user research, and cross- functional team leadership. Proven ability to manage full product lifecycles using Agile methodologies.
+            From research, and coding to design. Skilled in product strategy, user research, and cross- functional team leadership. 
+            </p>
+          </div>
+          <div className='w-full md:w-1/2 bg-stone-800 resume-item-subheader justify-center'>
+            <div className=' grid grid-cols-3 sm:grid-cols-4 gap-6 p-4 md:p-4'>
+              {skillIcons.map((icon, index) => (
+                <div key={index} className='resume-item-subheader justify-center p-8 '>
+                  <img src={icon} alt={`Skill ${index + 1}`} className='w-12 h-12' />
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+  );
+}
+
+
+{/* <div className='title-contatiner py-4'>
           <h2 className='text-3xl font-bold'>Education</h2>
           <div className="resume-item">
             <div className="resume-item-header" onClick={() => toggleItem('education-1')}>
@@ -323,10 +389,10 @@ export default function Home() {
               </div>
             )}
           </div>
-        </div>  
+        </div>   */}
 
         
-          < div className='title-container py-4'>
+          {/* < div className='title-container py-4'>
           <h2 className='text-3xl font-bold'>Achievements</h2>
           <div className="resume-item">
             <div className="resume-item-header-static">
@@ -350,12 +416,4 @@ export default function Home() {
               Yilan Chair International Design Award | 2017
             </div>
           </div>
-          </div>
-
-        </div>
-
-      </section>  
-
-    </div>
-  );
-}
+          </div> */}

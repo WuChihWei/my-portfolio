@@ -18,7 +18,7 @@ export const superfakeData = {
 userStoryFeature: {
   title: "User Story + Main Feature",
   description:
-    "Each and every one of us has that moment when we are suddenly stunned when we come face to face with the enormity of the universe.",
+    "Name: Alex, 25</br>Occupation: Content Creator</br>Background: Alex is a 25-year-old digital artist looking for fresh ideas and exposure in the competitive world of social media content creation.",
   imageUrl: "/super-story.png",
 },
 
