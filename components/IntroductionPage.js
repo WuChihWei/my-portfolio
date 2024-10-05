@@ -5,7 +5,7 @@ const IntroductionPage = ({ title, description, backgroundImageUrl, contentImage
     <div className="relative z-10 mt-4 md:mt-0 flex flex-col w-full h-full">
       
       <div className="flex flex-col lg:flex-row items-center w-full h-full">
-        <div className="flex flex-col justify-between w-full  p-p-gap pt-14 lg:w-2/5 h-1/2 lg:h-full py-6 lg:py-10 text-black">
+        <div className="flex flex-col justify-between w-full  p-p-gap pt-14 lg:w-2/5 h-2/3 md:h-1/2 lg:h-full py-6 lg:py-10 text-black">
           <div className='top-title'>
             <h1 className="heading-sub1-custom">  
               {title}
@@ -23,7 +23,7 @@ const IntroductionPage = ({ title, description, backgroundImageUrl, contentImage
             </h4>
           </div>
 
-          <div className='list-description'>
+          {/* <div className='list-description'>
             <ul className="list-disc text-xs pl-5 mb-4">
               <li>Market Research</li>
               <li>User Study</li>
@@ -31,10 +31,10 @@ const IntroductionPage = ({ title, description, backgroundImageUrl, contentImage
               <li>Branding</li>
               <li>Front-end, back-end, API integration, AI development</li>
             </ul>
-          </div>
+          </div> */}
 
           <div className='name-description flex items-center'>
-            <h5 className="mr-4 text-xs">Created by Jordan Wu with AI assistance in 3 weeks.</h5>
+            <h5 className="mr-4 text-xs">Jordan's' 3-weeks Project</h5>
             <a href="https://github.com/WuChihWei" 
                className="inline-flex items-center px-3 py-1 bg-gray-800 text-white text-sm rounded-md hover:bg-gray-700 transition-colors duration-300"
                target="_blank" 
@@ -47,7 +47,7 @@ const IntroductionPage = ({ title, description, backgroundImageUrl, contentImage
           </div>
         </div>
 
-        <div className="w-full lg:w-3/5 h-1/2 lg:h-1/2">
+        <div className="w-full lg:w-3/5 h-1/2 lg:h-1/2 relative">
           {contentImageUrl && (
             <div className="flex items-center justify-center lg:justify-end h-full">
               <img 
@@ -55,6 +55,16 @@ const IntroductionPage = ({ title, description, backgroundImageUrl, contentImage
                 alt={`${title} screenshot`} 
                 className="w-full h-full object-cover" 
               />
+              <div className="absolute bottom-0 left-0 p-4 bg-opacity-50 text-white text-shadow">
+                <ul className="list-disc ml-4 text-s mb-2">
+                  <li>Market Research</li>
+                  <li>User Study</li>
+                  <li>UI/UX Design</li>
+                  <li>Branding</li>
+                  <li>Front-end, back-end, API integration, AI development</li>
+                </ul>
+                <p>Created by Jordan Wu with AI assistance</p>
+              </div>
             </div>
           )}
         </div>
