@@ -1,11 +1,13 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { MdOutlineDesignServices, MdOutlineComputer, MdOutlineBrush } from 'react-icons/md';
 import { FiTool } from "react-icons/fi";
 
 import { FaLinkedin, FaGithub } from 'react-icons/fa';
 import { MdArrowOutward } from "react-icons/md";
+import { collection, getDocs } from 'firebase/firestore';
+import { db } from '../lib/firebase';
 
 const skillIcons = [
   '/skill-1.png', '/skill-2.png', '/skill-3.png', '/skill-4.png',
@@ -14,6 +16,26 @@ const skillIcons = [
 ];
 
 export default function Home() {
+  const [projectsData, setProjectsData] = useState(null);
+
+  useEffect(() => {
+    const fetchProjectsData = async () => {
+      try {
+        const projectsCollection = collection(db, 'projects');
+        const projectsSnapshot = await getDocs(projectsCollection);
+        const projectsData = {};
+        projectsSnapshot.forEach((doc) => {
+          projectsData[doc.id] = doc.data();
+        });
+        setProjectsData(projectsData);
+      } catch (error) {
+        console.error('Error fetching projects data:', error);
+      }
+    };
+
+    fetchProjectsData();
+  }, []);
+
   const [openItems, setOpenItems] = useState({
     'project-1': false,
     'project-2': false,
@@ -50,7 +72,7 @@ export default function Home() {
 
   return (
     <div className='home-container h-auto '>
-      <div className="home-cover h-full flex flex-col md:flex-row justify-items-center items-center bg-stone-900" >
+      <div className="home-cover h-auto pt-8 md:h-[calc(100vh-40px)] flex flex-col md:flex-row justify-items-center items-center bg-stone-900" >
         <div className="home-content-left md:w-1/2 flex flex-col justify-items-center text-left">
           <div className="flex flex-col flex-grow p-p-gap mt-4 md:mt-2  text-white">
             <div className="mb-0"> {/* 添加 py-8 用於小螢幕 */}
@@ -94,7 +116,7 @@ export default function Home() {
           </div>
         </div>
 
-        <div className="p-6 gap-2 max-md:w-full w-full h-[calc(50vh-100px)] md:h-[calc(100vh-120px)] md:w-1/2 flex flex-col overflow-hidden">
+        <div className="p-10 gap-2 max-md:w-full w-full h-[calc(50vh)] md:h-[calc(100vh-80px)] md:w-1/2 flex flex-col overflow-hidden">
           <div className="image-scroll-container top flex-grow space-y-0 md:space-y-0"> {/* Added flex-grow and space-y classes */}
             {[...Array(6)].map((_, index) => (
               <img key={index} src={`/project-${index + 1}.png`} alt={`Project ${index + 1}`} />
@@ -113,24 +135,6 @@ export default function Home() {
           </div>
         </div>
       </div>
-
-      {/* <div className="md:hidden block w-full mt-20 p-p-gap justify-start"> 
-  <h2 className="text-3xl font-bold mb-6 justify-start">Key Skills</h2>
-  <div className="grid grid-cols-4 gap-4 sm:gap-6">
-    {[...Array(12)].map((_, index) => (
-      <div key={index} className="flex flex-col items-center">
-        <img
-          src={`/skill-${index + 1}.png`}
-          alt={`Skill ${index + 1}`}
-          className="w-8 h-8 sm:w-10 sm:h-10"
-        />
-        <h6 className="mt-2 text-xs sm:text-sm text-center text-black font-medium">
-          {getSkillName(index)}
-        </h6>
-      </div>
-    ))}
-  </div>
-</div> */}
 
       {/* Add My Expertise section */}
       <section className=" bg-stone-300 py-20 mb:py-10 p-p-gap">
@@ -170,7 +174,7 @@ export default function Home() {
       </section>
 
       {/* After the home cover section */}
-      <section className="resume-section p-p-gap py-10 ">
+      <section className="resume-section p-p-gap py-10 bg-stone-100">
        
         <div className="resume-container h-auto">
          

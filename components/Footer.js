@@ -43,13 +43,13 @@ const Footer = () => {
             </p>
           </div>
           <div className="w-1/2 p-p-gap md:w-1/2 flex-col items-center">
-          <form onSubmit={handleSubmit} className="w-full ">
+          <form onSubmit={handleSubmit} className="w-full px-20 ">
             <input
               type="text"
               value={name}
               onChange={(e) => setName(e.target.value)}
               placeholder="Name"
-              className="w-full bg-white text-black px-4 py-2 mb-4 rounded"
+              className="w-full bg-stone-100 text-black px-4 py-2 mb-4 rounded"
               required
             />
             <input
@@ -57,27 +57,29 @@ const Footer = () => {
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               placeholder="Email"
-              className="w-full bg-white text-black px-4 py-2 mb-4 rounded"
+              className="w-full bg-stone-100 text-black px-4 py-2 mb-4 rounded"
               required
             />
             <textarea
               value={message}
               onChange={(e) => setMessage(e.target.value)}
               placeholder="Message"
-              className="w-full bg-white text-black px-4 py-2 mb-4 rounded"
+              className="w-full bg-stone-100 text-black px-4 py-2 mb-4 rounded"
               rows="4"
               required
             ></textarea>
-            <button type="submit" className="w-full transparent text-white border-white border-2 hover:bg-gray-200 px-4 py-2 rounded transition duration-300">
+            <button type="submit" className="w-full transparent text-white border-bg-stone-100 border-2 hover:bg-gray-200 px-4 py-2 rounded transition duration-300">
               Leave Email
             </button>
             {submitStatus && <p className="mt-2 text-sm">{submitStatus}</p>}
           </form>
           </div>
         </div>
-        <div className="flex flex-col p-p-gap md:flex-row justify-between items-center pt-8 border-t border-gray-700">
+        <div className="flex flex-col p-p-gap md:flex-row justify-between items-center pt-12 border-t border-stone-400">
           <div className="mb-4 md:mb-0">
-            <h3 className="text-2xl font-bold">1B1M.com</h3>
+            <div className="logo-white-containter">
+            <img src="/1b1m-white-logo.png" alt="L" className="navbar-logo-img" />
+            </div>
           </div>
           <div className="text-center md:text-left mb-4 md:mb-0 flex items-center">
             <h6 className="mr-4">© Copyright {new Date().getFullYear()} Jordan Wu</h6>

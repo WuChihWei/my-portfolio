@@ -1,8 +1,7 @@
 "use client";
 
 import { useState, useEffect } from 'react';
-import { collection, getDocs } from 'firebase/firestore';
-import { db } from '../../../lib/firebase';
+import { useProjectsData } from '../../../hooks/UseProjectsData';
 import IntroductionPage from '../../../components/IntroductionPage';
 import UserStoryFeaturePage from '../../../components/UserStoryFeaturePage';
 import MarketResearchPage from '../../../components/MarketResearchPage';
@@ -14,47 +13,16 @@ import UserTestingPage from '../../../components/UserTestingPage';
 import SolutionPage from '../../../components/SolutionPage';
 import PlanPage from '../../../components/PlanPage';
 
-// Import project data as fallback
-import { hommapData } from '../hommap';
-import { davincinData } from '../davincin';
-import { superfakeData } from '../superfake';
-
-const fallbackProjectData = {
-  hommap: hommapData,
-  davincin: davincinData,
-  superfake: superfakeData,
-};
-
 export default function ProjectPage({ params }) {
   const { slug } = params;
-  const [allProjects, setAllProjects] = useState(null);
+  const allProjects = useProjectsData();
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    const fetchAllProjects = async () => {
-      console.log('Fetching all project data');
-      try {
-        const projectsCollection = collection(db, 'projects');
-        const projectsSnapshot = await getDocs(projectsCollection);
-        
-        const projectsData = {};
-        projectsSnapshot.forEach((doc) => {
-          projectsData[doc.id] = doc.data();
-        });
-
-        console.log('Data fetched from Firebase:', projectsData);
-        setAllProjects(projectsData);
-      } catch (error) {
-        console.error('Error fetching project data:', error);
-        console.log('Using fallback data due to error');
-        setAllProjects(fallbackProjectData);
-      } finally {
-        setLoading(false);
-      }
-    };
-
-    fetchAllProjects();
-  }, []);
+    if (allProjects) {
+      setLoading(false);
+    }
+  }, [allProjects]);
 
   if (loading) {
     return <p>Loading...</p>;

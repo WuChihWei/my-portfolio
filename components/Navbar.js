@@ -84,11 +84,11 @@ const Navbar = () => {
       <div className={`navbar-container ${isMobile ? 'mobile' : ''} relative z-50`}>
         <Link href="/" onClick={closeMenu} className="navbar-logo-container">
           <div className={`navbar-logo ${isMobile ? 'mobile' : ''}`}>
-            <img src="/1b1m-logo.png" alt="L" className="navbar-logo-img" />
+            <img src="/1b1m-black-logo.png" alt="L" className="navbar-logo-img" />
           </div>
-          <div className="navbar-logo-text-container">
+          {/* <div className="navbar-logo-text-container">
             <h5 className="navbar-logo-text">Jordan Wu's Portfolio</h5>
-          </div>
+          </div> */}
         </Link>
         {isMobile && (
           <div className="menu-icon" onClick={toggleMenu}>
@@ -139,6 +139,13 @@ const Navbar = () => {
                 Contact
               </Link>
             </li>
+
+             <li>
+              <Link href="/aboutMe" onClick={closeMenu} className={`${isActive('/aboutMe') ? 'font-bold' : ''} whitespace-nowrap`}>
+                More Me
+              </Link>
+            </li>
+
             {/* <li><Link href="/free">Admin</Link></li> */}
           </ul>
         )}

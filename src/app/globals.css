@@ -47,16 +47,21 @@
     @apply flex items-center text-lg font-normal md:text-lg lg:text-xl lg:font-normal 
   }
 
+  .resume-item-header-static {
+    @apply flex justify-between items-center cursor-default text-lg font-bold md:text-lg lg:text-xl lg:font-semibold mb-2 my-4
+
+  }
+
 }
 
 :root {
-  font-size: 16px;
-  --border-radius: 12px;
+  /* font-size: 16px; */
+  /* --border-radius: 12px; */
   --font-mono: ui-monospace, Menlo, Monaco, "Cascadia Mono", "Segoe UI Mono",
     "Roboto Mono", "Oxygen Mono", "Ubuntu Monospace", "Source Code Pro",
     "Fira Mono", "Droid Sans Mono", "Courier New", monospace;
   --font-family: 'Inter', sans-serif;
-
+/* 
   --primary-glow: conic-gradient(
     from 180deg at 50% 50%,
     #16abff33 0deg,
@@ -68,8 +73,8 @@
   --secondary-glow: radial-gradient(
     rgba(255, 255, 255, 1),
     rgba(255, 255, 255, 0)
-  );
-
+  ); */
+/* 
   --tile-start-rgb: 239, 245, 249;
   --tile-end-rgb: 228, 232, 233;
   --tile-border: conic-gradient(
@@ -80,12 +85,12 @@
     #00000010,
     #00000010,
     #00000080
-  );
-
+  ); */
+/* 
   --callout-rgb: 238, 240, 241;
   --callout-border-rgb: 172, 175, 176;
   --card-rgb: 180, 185, 188;
-  --card-border-rgb: 131, 134, 135;
+  --card-border-rgb: 131, 134, 135; */
 
   /* 標題和文本樣式 */
   /* h1 {
@@ -148,8 +153,8 @@
 html,
 body {
   max-width: 100vw;
-  overflow-x: hidden;
-  padding-top: 20px; 
+  /* overflow-x: hidden; */
+  /* padding-top: 20px;  */
   scroll-behavior: smooth;
 }
 
@@ -196,37 +201,41 @@ a {
   z-index: 1000;
   display: flex;
   flex-direction: column;
+  width: 100%;
+
 }
 
 .navbar-container {
   display: flex;
   justify-content: space-between;
-  align-items: center;
-  padding: 0.6vw 2.6vw;
+  align-items: flex-end;
+  padding:1.4vw 2.6vw 0.8vw 2.6vw ;
   background-color: #ffffff;
+  /* width: 100%; */
   /* height: 64px; */
 }
 
 .navbar-logo{
   display: flex;
-  height: 40px;
+  height: 32px;
+}
+
+.logo-white-containter img{
+height: 32px;
 }
 
 .navbar-logo-container{
   display: flex;
   align-items: center;
+  width: 100%;
 }
-
-.navbar-logo-text-container{
-  margin-left: 20px;
-}
-
 .navbar-items{
   display: flex;
   justify-content: space-between;
-  /* justify-items: ; */
-  align-items: center;
-  width: 25%;
+  /* justify-items: center; */
+  /* align-items: center; */
+  gap: 80px;
+  /* width: 25%; */
 }
 
 @media (max-width: 768px) {
@@ -234,7 +243,6 @@ a {
 
   .navbar-container.mobile {
     padding-top: 20px;
-    /* background-color: rgb(144, 144, 144); */
     align-items: center;
     display: flex;
     align-items: end
@@ -675,16 +683,6 @@ a {
   /* 可以添加特定于打开的 Projects 列表的样式 */
 }
 
-.resume-item-header-static {
-  cursor: default;
-  cursor: pointer;
-  /* font-weight: 400; */
-  cursor: pointer;
-  font-weight: 500;
-  margin-bottom: 4px;
-  padding: 10px 0px;
-  
-}
 /* 
 body li {
   font-size: calc(0.9rem + 0.1vw);
