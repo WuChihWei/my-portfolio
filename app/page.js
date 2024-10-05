@@ -75,12 +75,12 @@ export default function Home() {
       <div className="home-cover h-auto pt-8 md:h-[calc(100vh-40px)] flex flex-col md:flex-row justify-items-center items-center bg-stone-900" >
         <div className="home-content-left md:w-1/2 flex flex-col justify-items-center text-left">
           <div className="flex flex-col flex-grow p-p-gap mt-4 md:mt-2  text-white">
-            <div className="mb-0"> {/* 添加 py-8 用於小螢幕 */}
-              <h1 className="heading-1-custom">
+            <div className="py-6 md:pr-0 md:py-0"> {/* 添加 py-8 用於小螢幕 */}
+              <h1 className="py-4 mr-32 heading-1-custom">
               End-to-End Digital Product Enthusiast
               </h1>
               <div className="py-2 md:py-0 mr-0 md:mr-10">
-              <h4 className='heading-4-custom'>
+              <h4 className='heading-4-custom mr-32 pb-4'>
               One Builder, One Mission.<br />
               Delivering digital solutions through design thinking, strategy to coding with AI-power.
               </h4>
@@ -140,7 +140,7 @@ export default function Home() {
       <section className=" bg-stone-300 py-20 mb:py-10 p-p-gap">
         <div>
         <h2 className="heading-2-custom mb-8">My Expertise</h2>
-        <div className="expertise-grid mx-auto flex flex-wrap justify-between gap-y-4 gap-10 sm:gap-12">
+        <div className="expertise-grid mx-auto flex flex-wrap justify-between gap-y-14 gap-10 sm:gap-12">
           <div className="expertise-item w-full sm:w-[calc(100%)] lg:w-[calc(40%)] xl:w-[calc(20%)] flex flex-col items-start text-left">
             <div className="mb-2">
               <MdOutlineDesignServices size={24} className="text-black" />
@@ -343,22 +343,34 @@ export default function Home() {
 
       </section>  
 
-      <section className='skillSection w-full h-[60vh]'>
+      <section className='skillSection w-full md:h-[60vh]'>
         <div className='flex flex-col md:flex-row h-full'>
-          <div className='w-full md:w-1/2 p-p-gap bg-stone-300 flex flex-col justify-center'>
-            <h2 className='heading-2-custom pb-4'>Innovative Skills</h2>
+          <div className='w-full py-32 md:w-1/2 p-p-gap bg-stone-300 flex flex-col justify-center'>
+            <h2 className='heading-2-custom pb-4'>Key Skills</h2>
             <p className='heading-5-custom pr-20 pt-10'>
             From research, and coding to design. Skilled in product strategy, user research, and cross- functional team leadership. Proven ability to manage full product lifecycles using Agile methodologies.
             From research, and coding to design. Skilled in product strategy, user research, and cross- functional team leadership. 
             </p>
           </div>
-          <div className='w-full md:w-1/2 bg-stone-800 resume-item-subheader justify-center'>
-            <div className=' grid grid-cols-3 sm:grid-cols-4 gap-6 p-4 md:p-4'>
-              {skillIcons.map((icon, index) => (
-                <div key={index} className='resume-item-subheader justify-center p-8 '>
-                  <img src={icon} alt={`Skill ${index + 1}`} className='w-12 h-12' />
+          <div className='w-full md:w-1/2 bg-stone-900 md:bg-stone-800 resume-item-subheader flex items-center justify-center p-p-gap'>
+            <div className='skill-icons-container overflow-x-hidden md:overflow-x-visible h-32 md:h-auto w-full'>
+              <div className='flex md:grid grid-cols-3 md:grid-cols-4 gap-4 lg:gap-6 md:p-4 py-10 animate-carousel md:animate-none'>
+                {/* 小屏幕：重复渲染图标以实现无限滚动 */}
+                <div className='flex md:hidden'>
+                  {[...skillIcons, ...skillIcons].map((icon, index) => (
+                    <div key={`mobile-${index}`} className='flex-shrink-0 flex items-center justify-center p-2'>
+                      <img src={icon} alt={`Skill ${index % skillIcons.length + 1}`} className='w-10 h-10' />
+                    </div>
+                  ))}
                 </div>
-              ))}
+                
+                {/* 大屏幕：只渲染一次图标 */}
+                {skillIcons.map((icon, index) => (
+                  <div key={`desktop-${index}`} className='hidden md:flex items-center justify-center p-2 md:p-6 lg:p-10'>
+                    <img src={icon} alt={`Skill ${index + 1}`} className='md:w-10 md:h-10' />
+                  </div>
+                ))}
+              </div>
             </div>
           </div>
         </div>
@@ -366,58 +378,3 @@ export default function Home() {
     </div>
   );
 }
-
-
-{/* <div className='title-contatiner py-4'>
-          <h2 className='text-3xl font-bold'>Education</h2>
-          <div className="resume-item">
-            <div className="resume-item-header" onClick={() => toggleItem('education-1')}>
-              M.S. of Interactive Media Technology, KTH Royal Institute of Technology - Stockholm, Sweden | 2024
-            </div>
-            {openItems['education-1'] && (
-              <div className="resume-item-content my-2">
-                  <li>Dedicated to the Technology Entrepreneurship Program.</li>
-                  <li>Specialized in digital product integration and user centered design.</li>
-              </div>
-            )}
-          </div>
-
-          <div className="resume-item ">
-            <div className="resume-item-header" onClick={() => toggleItem('education-2')}>
-              B.A. of Industrial Product Design, Shih Chen University - Taipei, Taiwan | 2018
-            </div>
-            {openItems['education-2'] && (
-              <div className="resume-item-content my-2">
-                  <li>Dedicated to the Design Management Program.</li>
-                  <li>Specialized in service demechanical design and design thinking.</li>
-              </div>
-            )}
-          </div>
-        </div>   */}
-
-        
-          {/* < div className='title-container py-4'>
-          <h2 className='text-3xl font-bold'>Achievements</h2>
-          <div className="resume-item">
-            <div className="resume-item-header-static">
-              HIC Team Paper in SMC 2023 proceedings volume | 2023
-            </div>
-          </div>
-
-          <div className="resume-item">
-            <div className="resume-item-header-static">
-              1st Place of Accessories Entry - Poltrona Frau Global Award | 2015
-            </div>
-          </div>
-          <div className="resume-item">
-            <div className="resume-item-header-static">
-              Sustainability Projects Sponsored by National Taiwan Research and Development Institute | 2018
-            </div>
-          </div>
-
-          <div className="resume-item">
-            <div className="resume-item-header-static">
-              Yilan Chair International Design Award | 2017
-            </div>
-          </div>
-          </div> */}

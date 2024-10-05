@@ -17,7 +17,7 @@ const MarketResearchPage = ({ title, description, imageUrl, statistics }) => {
         </div>
         <div className="w-full lg:w-1/2 h-full flex flex-col justify-center text-left order-1 lg:order-2 p-4 md:p-8 lg:p-12">
          <div>
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-4"> Prioritization<br />
+          <h1 className="heading-sub1-custom mb-4"> Prioritization<br />
           + Market Size</h1>
           <p className="text-lg text-left md:text-xl text-gray-700">{description}</p>
           </div>

@@ -81,7 +81,7 @@ const Navbar = () => {
 
   return (
     <nav className={`navbar ${isScrolled && isProjectPage ? 'scrolled' : ''}`} ref={menuRef}>
-      <div className={`navbar-container ${isMobile ? 'mobile' : ''} relative z-50`}>
+      <div className={`navbar-container  ${isMobile ? 'mobile' : ''} relative z-50`}>
         <Link href="/" onClick={closeMenu} className="navbar-logo-container">
           <div className={`navbar-logo ${isMobile ? 'mobile' : ''}`}>
             <img src="/1b1m-black-logo.png" alt="L" className="navbar-logo-img" />
@@ -141,8 +141,8 @@ const Navbar = () => {
             </li>
 
              <li>
-              <Link href="/aboutMe" onClick={closeMenu} className={`${isActive('/aboutMe') ? 'font-bold' : ''} whitespace-nowrap`}>
-                More Me
+              <Link href="/aboutMe" onClick={closeMenu} className={`${isActive('/abou') ? 'font-bold' : ''} whitespace-nowrap`}>
+                About Me
               </Link>
             </li>
 

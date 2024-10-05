@@ -107,19 +107,19 @@ export const hommapData = {
       cards: [
         {
           imageUrl: "/hommap-wireframe1.png",
-          heading: "Heading",
+          heading: "Hero Page",
         },
         {
           imageUrl: "/hommap-wireframe2.png",
-          heading: "Two line header example",
+          heading: "Dashboard",
         },
         {
           imageUrl: "/hommap-wireframe3.png",
-          heading: "Heading",
+          heading: "AI Suggestion Page",
         },
         {
           imageUrl: "/hommap-wireframe4.png",
-          heading: "Two line header example cool",
+          heading: "Login Page",
         }
       ]
     },

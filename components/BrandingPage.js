@@ -16,7 +16,7 @@ const BrandingPage = ({ title, description, iconUrl, largeImageUrl, smallImages 
             />
           )}
           <div className="absolute inset-0 z-10 p-8 flex flex-col justify-center branding-overlay">
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-4 text-white">Branding</h1>
+            <h1 className="heading-sub1-custom mb-6 text-white">Branding</h1>
             <h4 className="text-lg text-white max-w-2xl mb-4">{description}</h4>
             </div>
         </div>

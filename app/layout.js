@@ -1,9 +1,7 @@
-
 import Navbar from '../components/Navbar';
-import Footer from '../components/Footer'; // Import the Footer component
+import FooterWrapper from '../components/FooterWrapper';
 import GridOverlay from '../components/GridOverlay'; 
 import '../src/app/globals.css';
-// import { ProjectsProvider } from '../contexts/ProjectsContext';
 
 export const metadata = {
   title: 'Jordan Wu',
@@ -21,7 +19,7 @@ export default function RootLayout({ children }) {
           {children}
         {/* </ProjectsProvider> */}
         </main>
-        <Footer /> {/* Add Footer here */}
+        <FooterWrapper />
       </body>
     </html>
   );

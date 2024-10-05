@@ -2,10 +2,10 @@ import React from 'react';
 
 const PlanPage = ({ imageUrl }) => {
   return (
-    <div className="w-full py-8 md:py-16 mb-20">
+    <div className="w-full py-8 md:py-16 mb-20 md:p-p-gap">
       <div className="w-full flex flex-col items-left">
         <div className="plan-content w-full mb-8 px-4 md:px-8">
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-4 text-left">3 Weeks Scrum Plan</h1>
+          <h1 className="heading-sub1-custom mb-4 text-left">3 Weeks Scrum Plan</h1>
         </div>
         {imageUrl && (
           <div className="plan-image-placeholder w-full px-4 md:px-8">

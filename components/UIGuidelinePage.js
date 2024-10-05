@@ -5,13 +5,13 @@ const UIGuidelinePage = ({ title, description, logoImage, images, backgroundColo
   return (
     <div className="uiguideline-page w-full min-h-screen mb-20">
       <div className="uiguideline-container w-full">
-        <div className="uiguideline-content h-[600px]  relative" style={{ backgroundColor: backgroundColor }}>
+        <div className="uiguideline-content h-[600px] relative" style={{ backgroundColor: backgroundColor }}>
           <div className="absolute inset-0 flex flex-col justify-between p-p-gap">
-            <div className="flex justify-between items-start mt-4">
-              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white">{title}</h1>
+            <div className="flex justify-between items-start mt-8">
+              <h1 className="heading-sub1-custom  text-white">{title}</h1>
               <span className="text-white text-xl">Logo</span>
             </div>
-            <div className="flex justify-center items-center my-4 overflow-hidden md:h-full">
+            <div className="flex justify-center items-center my-0 overflow-hidden md:h-full">
               <img 
                 src={logoImage} 
                 alt="Logo" 

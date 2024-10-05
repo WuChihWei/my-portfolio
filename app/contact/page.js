@@ -10,11 +10,18 @@ export default function ContactPage() {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
+  const handleAdminClick = () => {
+    router.push('/admin');
+  };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     console.log('Form submitted');
     setSubmitStatus('Sending...');
 
+    const router = useRouter();
+
+ 
     try {
       console.log('Sending request to /api/contact');
       const response = await fetch('/api/contact', {
@@ -37,11 +44,11 @@ export default function ContactPage() {
   };
 
   return (
-    <div className="container h-full pt-20 md:h-screen-40 items-center mx-auto px-4 py-8 flex flex-wrap">
+    <div className="h-screen-200 pt-20 md:h-screen-40 items-center mx-auto p-p-gap flex flex-wrap">
       {/* Left side: Contact Information */}
-      <div className="w-full mb-4 md:w-1/2 pr-4">
-        <h1 className="text-3xl font-bold">Get In Touch</h1>
-        <h4 className="mb-6 text-gray-500">Hi! How can I help?</h4>
+      <div className="w-full mb-4  md:w-1/2 pr-4">
+        <h2 className="heading-1-custom">Get In Touch</h2>
+        <h4 className="heading-5-custom mb-6 text-gray-500">Hi! How can I help?</h4>
         <div className="space-y-2 md:space-y-4">
           <p className="flex items-center">
             <span className="mr-4">📍</span> 
@@ -103,6 +110,8 @@ export default function ContactPage() {
         </form>
         {submitStatus && <p className="mt-4 text-center">{submitStatus}</p>}
       </div>
+
+      
     </div>
   );
 }

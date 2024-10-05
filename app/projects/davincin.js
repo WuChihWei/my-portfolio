@@ -102,21 +102,21 @@ export const davincinData = {
     cards: [
       {
         imageUrl: "/davincin-wireframe1.png",
-        heading: "Heading",
+        heading: "Home Page",
       },
       {
         imageUrl: "/davincin-wireframe2.png",
-        heading: "Two line header example",
+        heading: "Dashboard Page",
         
       },
       {
         imageUrl: "/davincin-wireframe3.png",
-        heading: "Heading",
+        heading: "Analize Dashboard Page",
         
       },
       {
         imageUrl: "/davincin-wireframe4.png",
-        heading: "Two line header example cool",
+        heading: "Chat Page",
         
       }
     ]

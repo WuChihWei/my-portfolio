@@ -42,7 +42,7 @@ const TechPage = ({ title, description, imageUrl, backgroundColor, keyFeatures, 
         <div className="w-full flex flex-col lg:flex-row items-start">
           <div className="tech-content w-full lg:w-1/2 mb-6 lg:mb-0">
             <div className="w-full lg:w-4/5 xl:w-3/4">
-              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-4 text-left">{title}</h1>
+              <h1 className="heading-sub1-custom mb-4 text-left">{title}</h1>
               <h5 className="text-base sm:text-lg md:text-xl text-left">{description}</h5>
             </div>
           </div>

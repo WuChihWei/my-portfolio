@@ -6,16 +6,11 @@ import { useRouter } from 'next/navigation';
 import { useState } from 'react';
 import axios from 'axios';
 
-const Footer = () => {
-  const router = useRouter();
+const FooterTop = () => {
   const [email, setEmail] = useState('');
   const [name, setName] = useState('');
   const [message, setMessage] = useState('');
   const [submitStatus, setSubmitStatus] = useState('');
-
-  const handleAdminClick = () => {
-    router.push('/admin');
-  };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -33,93 +28,105 @@ const Footer = () => {
   };
 
   return (
-    <footer className="bg-stone-900 text-white py-20">
-      <div className="">
-        <div className="w-full flex flex-col md:flex-row justify-evenly items-center mb-12 py-20">
-          <div className="w-1/2 p-p-gap mb-8 md:mb-0 flex flex-col justify-center">
-            <h2 className="heading-2-custom">Contact me</h2>
-            <p className="heading-5-custom pr-20 pt-10">
-              In the history of modern astronomy, there is probably no one greater leap forward than the building and launch.
-            </p>
-          </div>
-          <div className="w-1/2 p-p-gap md:w-1/2 flex-col items-center">
-          <form onSubmit={handleSubmit} className="w-full px-20 ">
-            <input
-              type="text"
-              value={name}
-              onChange={(e) => setName(e.target.value)}
-              placeholder="Name"
-              className="w-full bg-stone-100 text-black px-4 py-2 mb-4 rounded"
-              required
-            />
-            <input
-              type="email"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              placeholder="Email"
-              className="w-full bg-stone-100 text-black px-4 py-2 mb-4 rounded"
-              required
-            />
-            <textarea
-              value={message}
-              onChange={(e) => setMessage(e.target.value)}
-              placeholder="Message"
-              className="w-full bg-stone-100 text-black px-4 py-2 mb-4 rounded"
-              rows="4"
-              required
-            ></textarea>
-            <button type="submit" className="w-full transparent text-white border-bg-stone-100 border-2 hover:bg-gray-200 px-4 py-2 rounded transition duration-300">
-              Leave Email
-            </button>
-            {submitStatus && <p className="mt-2 text-sm">{submitStatus}</p>}
-          </form>
-          </div>
-        </div>
-        <div className="flex flex-col p-p-gap md:flex-row justify-between items-center pt-12 border-t border-stone-400">
-          <div className="mb-4 md:mb-0">
-            <div className="logo-white-containter">
-            <img src="/1b1m-white-logo.png" alt="L" className="navbar-logo-img" />
-            </div>
-          </div>
-          <div className="text-center md:text-left mb-4 md:mb-0 flex items-center">
-            <h6 className="mr-4">© Copyright {new Date().getFullYear()} Jordan Wu</h6>
-            <button 
-              className="bg-gray-700 hover:bg-stone-600 text-white px-4 py-2 rounded-full text-sm transition duration-300"
-              onClick={handleAdminClick}
-            >
-              Admin
-            </button>
-          </div>
-          <div className="flex space-x-4">
-            <a 
-              href="https://www.linkedin.com/in/jordanwu-tech/" 
-              className="text-white hover:text-gray-300 transition duration-300"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <FaLinkedin size={24} />
-            </a>
-            <a 
-              href="https://github.com/WuChihWei" 
-              className="text-white hover:text-gray-300 transition duration-300"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <FaGithub size={24} />
-            </a>
-            <a 
-              href="https://www.facebook.com/profile.php?id=100000916091743" 
-              className="text-white hover:text-gray-300 transition duration-300"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <FaFacebook size={24} />
-            </a>
-          </div>
+    <>
+      <div className="w-full md:w-1/2 p-p-gap mb-6 md:mb-0 flex flex-col md:justify-center">
+        <h2 className="heading-2-custom">Contact me</h2>
+        <p className="heading-5-custom pr-20 pt-10">
+          In the history of modern astronomy, there is probably no one greater leap forward than the building and launch.
+        </p>
+      </div>
+      <div className="w-full p-p-gap justify-items-start md:w-1/2 flex-col md:items-center">
+        <form onSubmit={handleSubmit} className="w-full md:px-20 ">
+          <input
+            type="text"
+            value={name}
+            onChange={(e) => setName(e.target.value)}
+            placeholder="Name"
+            className="w-full bg-stone-100 text-black px-4 py-2 mb-4 rounded"
+            required
+          />
+          <input
+            type="email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            placeholder="Email"
+            className="w-full bg-stone-100 text-black px-4 py-2 mb-4 rounded"
+            required
+          />
+          <textarea
+            value={message}
+            onChange={(e) => setMessage(e.target.value)}
+            placeholder="Message"
+            className="w-full bg-stone-100 text-black px-4 py-2 mb-4 rounded"
+            rows="4"
+            required
+          ></textarea>
+          <button type="submit" className="w-full transparent text-white border-bg-stone-100 border-2 hover:bg-gray-200 px-4 py-2 rounded transition duration-300">
+            Leave Email
+          </button>
+          {submitStatus && <p className="mt-2 text-sm">{submitStatus}</p>}
+        </form>
+      </div>
+    </>
+  );
+};
+
+const FooterBottom = () => {
+  const router = useRouter();
+
+  const handleAdminClick = () => {
+    router.push('/admin');
+  };
+
+  return (
+    <>
+      <div className="mb-4 md:mb-0">
+        <div className="logo-white-containter">
+          <img src="/1b1m-white-logo.png" alt="L" className="navbar-logo-img" />
         </div>
       </div>
-    </footer>
+      <div className="text-center md:text-left mb-4 md:mb-0 flex items-center">
+        <h6 className="mr-4">© Copyright {new Date().getFullYear()} Jordan Wu</h6>
+        <button 
+          className="bg-gray-700 hover:bg-stone-600 text-white px-4 py-2 rounded-full text-sm transition duration-300"
+          onClick={handleAdminClick}
+        >
+          Admin
+        </button>
+      </div>
+      <div className="flex space-x-4">
+        <a 
+          href="https://www.linkedin.com/in/jordanwu-tech/" 
+          className="text-white hover:text-gray-300 transition duration-300"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <FaLinkedin size={24} />
+        </a>
+        <a 
+          href="https://github.com/WuChihWei" 
+          className="text-white hover:text-gray-300 transition duration-300"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <FaGithub size={24} />
+        </a>
+        <a 
+          href="https://www.facebook.com/profile.php?id=100000916091743" 
+          className="text-white hover:text-gray-300 transition duration-300"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <FaFacebook size={24} />
+        </a>
+      </div>
+    </>
   );
+};
+
+const Footer = {
+  Top: FooterTop,
+  Bottom: FooterBottom
 };
 
 export default Footer;

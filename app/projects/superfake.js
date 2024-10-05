@@ -105,27 +105,27 @@ wireframeUIs:{
   cards: [
     {
       imageUrl: "/super-wireframe1.png",
-      heading: "Heading",
+      heading: "Post Detail Page",
     },
     {
       imageUrl: "/super-wireframe2.png",
-      heading: "Two line header example",
+      heading: "Post Page",
     },
     {
       imageUrl: "/super-wireframe3.png",
-      heading: "Heading",
+      heading: "Feed Page",
     },
     {
       imageUrl: "/super-wireframe4.png",
-      heading: "Two line header example cool",
+      heading: "Profile Edit Page",
     },
     {
       imageUrl: "/super-wireframe5.png",
-      heading: "Two line header example cool",
+      heading: "Profile Page",
     },
     {
       imageUrl: "/super-wireframe6.png",
-      heading: "Two line header example cool",
+      heading: "Login Page",
     }
   ]
 },
