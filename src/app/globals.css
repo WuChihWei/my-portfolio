@@ -4,7 +4,7 @@
 
 @layer components {
   .heading-1-custom {
-    @apply text-5xl font-black mb-4 md:text-4xl lg:text-6xl lg:font-extrabold
+    @apply text-5xl font-black mb-4 md:text-6xl lg:text-7xl lg:font-extrabold
     tracking-wide leading-snug
     md:tracking-normal md:leading-snug
     lg:tracking-normal lg:leading-snug;
@@ -30,7 +30,7 @@
   }
 
   .heading-4-custom {
-    @apply text-2xl font-normal mb-4 md:text-xl lg:text-xl lg:font-medium
+    @apply text-xl font-normal mb-4 md:text-xl lg:text-xl lg:font-medium
     tracking-normal leading-snug
     md:tracking-normal md:leading-snug
     lg:tracking-wide lg:leading-tight;

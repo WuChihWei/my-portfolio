@@ -73,18 +73,19 @@ export default function Home() {
   return (
     <div className='home-container h-auto '>
       <div className="home-cover h-auto pt-8 md:h-[calc(100vh-40px)] flex flex-col md:flex-row justify-items-center items-center bg-stone-900" >
-        <div className="home-content-left md:w-1/2 flex flex-col justify-items-center text-left">
+        <div className="home-content-left md:w-2/5 flex flex-col justify-items-center text-left">
           <div className="flex flex-col flex-grow p-p-gap mt-4 md:mt-2  text-white">
             <div className="py-6 md:pr-0 md:py-0"> {/* 添加 py-8 用於小螢幕 */}
-              <h1 className="py-4 mr-32 heading-1-custom">
+              <h1 className="py-4 mr-20 heading-1-custom">
               End-to-End Digital Product Enthusiast
               </h1>
               <div className="py-2 md:py-0 mr-0 md:mr-10">
-              <h4 className='heading-4-custom mr-32 pb-4'>
-              One Builder, One Mission.<br />
-              Delivering digital solutions through design thinking, strategy to coding with AI-power.
+              <h4 className='heading-4-custom mr-12 pb-4'>
+              One Builder, One Mission.
+              Delivering digital solutions through design thinking, strategy to coding with AI-power.<br />
+              Check my 3-weeks projects in the menu.
               </h4>
-              <div className="flex flex-row space-x-4 mt-0 md:pt-2 justify-items-center items-center">
+              <div className="flex flex-row space-x-2 md:space-x-4 mt-0 md:pt-2 justify-items-center items-center">
                 <div className='bg-white p-2 px-4 rounded-full'>
                 <a
                   href="https://www.linkedin.com/in/jordanwu-tech/"
@@ -93,11 +94,11 @@ export default function Home() {
                   className="resume-item-subheader text-black hover:text-blue-800 transition-colors duration-300"
                 >
                   <FaLinkedin className="mr-2" />
-                  LinkedIn
-                  <MdArrowOutward className="ml-10 text-sl" />
+                  {/* LinkedIn */}
+                  <MdArrowOutward className="ml-2 md:ml-4 text-base" />
                 </a>
                 </div>
-                <div className='text-white bg-black p-2 px-4 rounded-full border-2'>
+                <div className='text-white bg-stone-900 p-2 px-4 rounded-full border-2'>
                 <a
                   href="https://github.com/WuChihWei"
                   target="_blank"
@@ -105,8 +106,8 @@ export default function Home() {
                   className="resume-item-subheader text-white hover:text-gray-600 transition-colors duration-300"
                 >
                   <FaGithub className="mr-2" />
-                  GitHub
-                  <MdArrowOutward className="ml-10 text-sl" />
+                  {/* GitHub */}
+                  <MdArrowOutward className="ml-2 md:ml-4 text-base" />
                 </a>
                 </div>
               </div>
@@ -116,16 +117,16 @@ export default function Home() {
           </div>
         </div>
 
-        <div className="p-10 gap-2 max-md:w-full w-full h-[calc(50vh)] md:h-[calc(100vh-80px)] md:w-1/2 flex flex-col overflow-hidden">
-          <div className="image-scroll-container top flex-grow space-y-0 md:space-y-0"> {/* Added flex-grow and space-y classes */}
+        <div className="p-10 gap-2 max-md:w-full w-full h-[calc(50vh)] md:h-[calc(100vh-80px)] md:w-3/5 flex flex-col overflow-hidden">
+          <div className="h-full image-scroll-container top flex-grow space-y-0 md:space-y-0 "> 
             {[...Array(6)].map((_, index) => (
               <img key={index} src={`/project-${index + 1}.png`} alt={`Project ${index + 1}`} />
             ))}
             {[...Array(6)].map((_, index) => (
-              <img key={index + 6} src={`/project-${index + 1}.png`} alt={`Project ${index + 1}`} />
+              <img className='h-full' key={index + 6} src={`/project-${index + 1}.png`} alt={`Project ${index + 1}`} />
             ))}
           </div>
-          <div className="image-scroll-container bottom flex-grow space-y-0 md:space-y-0"> {/* Added flex-grow and space-y classes */}
+          <div className="h-full image-scroll-container bottom flex-grow space-y-0 md:space-y-0"> {/* Added flex-grow and space-y classes */}
             {[...Array(6)].map((_, index) => (
               <img key={index} src={`/project-${index + 7}.png`} alt={`Project ${index + 7}`} />
             ))}
