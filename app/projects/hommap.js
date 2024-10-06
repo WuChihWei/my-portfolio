@@ -6,8 +6,8 @@ export const hommapData = {
 
     // introduction
     introduction: {
-      title: "Solve your home allergy issues with data-driven interior design — starting with your address",      
-      description: "Solving home allergy issues through first\n principles interior design, using data analysis and \nAI for a healthier living environment.",
+      title: "Solve your home allergy issues with data-driven interior design",      
+      description: "Solving home allergy issues through first\n principles interior design, using data analysis and \nAI for a healthier living environment, with just your address.",
       // imageUrl: "/hommap-intro-bkg.png",
       // backgroundColor: "#f0f8ff",
       // backgroundImageUrl: "/hommap-intro.png",

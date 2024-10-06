@@ -18,7 +18,7 @@ const IntroductionPage = ({ title, description, backgroundImageUrl, contentImage
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                Visit Website
+                Visit The Website
               </a>
             )}
 

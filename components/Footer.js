@@ -32,7 +32,7 @@ const FooterTop = () => {
       <div className="w-full md:w-1/2 p-p-gap mb-6 md:mb-0 flex flex-col md:justify-center">
         <h2 className="heading-2-custom">Contact me</h2>
         <p className="heading-5-custom pr-20 pt-10">
-          In the history of modern astronomy, there is probably no one greater leap forward than the building and launch.
+        Get in touch to bring your innovative project to life—let's create something impactful together.
         </p>
       </div>
       <div className="w-full p-p-gap justify-items-start md:w-1/2 flex-col md:items-center">

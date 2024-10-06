@@ -48,7 +48,7 @@ export default function ContactPage() {
       {/* Left side: Contact Information */}
       <div className="w-full mb-4  md:w-1/2 pr-4">
         <h2 className="heading-1-custom">Get In Touch</h2>
-        <h4 className="heading-5-custom mb-6 text-gray-500">Hi! How can I help?</h4>
+        <h4 className="heading-3-custom mr-20 mb-6 text-stone-900">Get in touch to bring your innovative project to life — let's create something impactful together.</h4>
         <div className="space-y-2 md:space-y-4">
           <p className="flex items-center">
             <span className="mr-4">📍</span> 
