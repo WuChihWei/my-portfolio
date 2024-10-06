@@ -348,7 +348,7 @@ export default function Home() {
         <div className='flex flex-col md:flex-row h-full'>
           <div className='w-full py-32 md:w-1/2 p-p-gap bg-stone-300 flex flex-col justify-center'>
             <h2 className='heading-2-custom pb-4'>Innovative Skills</h2>
-            <p className='heading-5-custom pr-20 pt-10'>
+            <p className='heading-5-custom pr-2 md:pr-20 pt-10'>
             I integrate front-end technologies like React.js and Next.js with back-end systems using Node.js, Flask, and Firebase, while leveraging AI to enhance user experiences and automate processes. Combining data-driven insights with intuitive design, I deliver scalable, innovative solutions that anticipate user needs and solve challenges efficiently.
             </p>
           </div>
