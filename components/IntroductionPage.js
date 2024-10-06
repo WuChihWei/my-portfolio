@@ -5,7 +5,7 @@ const IntroductionPage = ({ title, description, backgroundImageUrl, contentImage
     <div className="relative z-10 pt-10 flex flex-col w-full md:h-screen">
       
       <div className="flex flex-col lg:flex-row items-center w-full h-full">
-        <div className="flex flex-col justify-between md:justify-around w-full p-p-gap py-14 pr-20 md:pr-10 h-full lg:w-1/2 text-black">
+        <div className="flex flex-col justify-between md:justify-around w-full p-p-gap py-14 pr-10 md:pr-10 h-full lg:w-1/2 text-black">
           <div className='top-title'>
             <h1 className="heading-sub1-custom">  
               {title}
@@ -43,7 +43,7 @@ const IntroductionPage = ({ title, description, backgroundImageUrl, contentImage
 
          
           <div className='list-description'>
-            <ul className="list-disc text-xs md:text-base">
+            <ul className="list-disc sm:text-sm md:text-base">
               <p className='pb-2 font-semibold text-stone-400'>Jordan's' 3-weeks, Project Response for</p>
               <p>- Market Research</p>
               <p>- User Study</p>
