@@ -23,10 +23,10 @@
   }
 
   .heading-3-custom {
-    @apply text-xl font-bold mb-4 md:text-lg lg:text-2xl lg:font-semibold
+    @apply text-xl font-bold mb-0 md:text-lg lg:text-2xl lg:font-bold
     tracking-tight leading-tight
     md:tracking-normal md:leading-snug
-    lg:tracking-wide lg:leading-tight;
+    lg:tracking-wide lg:leading-snug;
   }
 
   .heading-4-custom {
@@ -44,6 +44,10 @@
 
   .decription-1-custom {
     @apply text-base leading-snug tracking-wide
+  }
+
+  .decription-2-custom {
+    @apply text-lg leading-snug tracking-normal font-medium
   }
 
   .resume-item-header {
@@ -228,11 +232,11 @@ a {
 
 .navbar-logo{
   display: flex;
-  height: 32px;
+  height: 20px;
 }
 
 .logo-white-containter img{
-height: 32px;
+height: 20px;
 }
 
 .navbar-logo-container{
@@ -285,7 +289,7 @@ height: 32px;
 
 .navbar-logo.mobile .navbar-logo-img {
   width: auto; 
-  height: 30px;
+  height: 20px;
   /* margin-top: 0px; */
   /* background-color: gray; */
   align-items: flex-end;
@@ -412,7 +416,7 @@ height: 32px;
 }
 
 .resume-item {
-  margin-bottom: 10px;
+  /* margin-bottom: 10px; */
   border-bottom: 1px solid #acacac;
   overflow: hidden;
 }

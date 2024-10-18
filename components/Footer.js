@@ -82,13 +82,13 @@ const FooterBottom = () => {
     <div className="flex flex-col-reverse gap-10 py-6 items-center md:flex-row md:justify-between w-full">
       <div className="mb-4 md:mb-0">
         <div className="logo-white-containter">
-          <img src="/1b1m-white-logo.png" alt="L" className="navbar-logo-img" />
+          <img src="/jordan-wu_white_logo.png" alt="L" className="navbar-logo-img" />
         </div>
       </div>
       <div className="text-center mb-4 md:mb-0 flex flex-col md:flex-row items-center">
         <h6 className="mb-2 md:mb-0 md:mr-4">© Copyright {new Date().getFullYear()} Jordan Wu</h6>
         <button 
-          className="bg-gray-700 hover:bg-stone-600 text-white px-4 py-2 rounded-full text-sm transition duration-300"
+          className="bg-gray-800 hover:bg-stone-600 text-stone-200 px-4 py-2 rounded-full text-sm transition duration-300"
           onClick={handleAdminClick}
         >
           Admin

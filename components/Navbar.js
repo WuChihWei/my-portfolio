@@ -84,7 +84,7 @@ const Navbar = () => {
       <div className={`navbar-container ${isMobile ? 'mobile' : ''} relative z-50`}>
         <Link href="/" onClick={closeMenu} className="navbar-logo-container">
           <div className={`navbar-logo ${isMobile ? 'mobile' : ''}`}>
-            <img src="/1b1m-black-logo.png" alt="L" className="navbar-logo-img" />
+            <img src="/jordan-wu_logo.png" alt="L" className="navbar-logo-img" />
           </div>
         </Link>
         {isMobile ? (

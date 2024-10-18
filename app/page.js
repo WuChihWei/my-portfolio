@@ -3,7 +3,7 @@
 import { useState, useEffect } from 'react';
 import { MdOutlineDesignServices, MdOutlineComputer, MdOutlineBrush } from 'react-icons/md';
 import { FiTool } from "react-icons/fi";
-
+import { IoMdInformationCircleOutline } from "react-icons/io";
 import { FaLinkedin, FaGithub } from 'react-icons/fa';
 import { MdArrowOutward } from "react-icons/md";
 import { collection, getDocs } from 'firebase/firestore';
@@ -76,12 +76,11 @@ export default function Home() {
         <div className="home-content-left md:w-2/5 flex flex-col justify-items-center text-left">
           <div className="flex flex-col flex-grow p-p-gap mt-4 md:mt-2  text-white">
             <div className="py-6 md:pr-0 md:py-0"> {/* 添加 py-8 用於小螢幕 */}
-              <h1 className="py-4 mr-20 heading-1-custom">
+              <h1 className="py-2 mr-20 heading-1-custom">
               End-to-End Digital Product Enthusiast
               </h1>
               <div className="py-2 md:py-0 mr-0 md:mr-10">
               <h4 className='heading-4-custom mr-12 pb-4'>
-              One Builder, One Mission.
               Delivering digital solutions through design thinking, strategy to coding with AI-power.<br />
               Check my 3-weeks projects in the menu.
               </h4>
@@ -94,7 +93,7 @@ export default function Home() {
                   className="resume-item-subheader text-black hover:text-blue-800 transition-colors duration-300"
                 >
                   <FaLinkedin className="mr-2" />
-                  {/* LinkedIn */}
+                  <p className="mr-2 text-sm">LinkedIn</p>                  
                   <MdArrowOutward className="ml-2 md:ml-4 text-base" />
                 </a>
                 </div>
@@ -105,8 +104,8 @@ export default function Home() {
                   rel="noopener noreferrer"
                   className="resume-item-subheader text-white hover:text-gray-600 transition-colors duration-300"
                 >
-                  <FaGithub className="mr-2" />
-                  {/* GitHub */}
+                  <FaGithub className="mr-2 text-sm" />
+                  <p className="mr-2 text-sm">GitHub</p>
                   <MdArrowOutward className="ml-2 md:ml-4 text-base" />
                 </a>
                 </div>
@@ -126,7 +125,7 @@ export default function Home() {
               <img className='h-full' key={index + 6} src={`/project-${index + 1}.png`} alt={`Project ${index + 1}`} />
             ))}
           </div>
-          <div className="h-full image-scroll-container bottom flex-grow space-y-0 md:space-y-0"> {/* Added flex-grow and space-y classes */}
+          <div className="h-full image-scroll-container bottom flex-grow space-y-0 md:space-y-0"> 
             {[...Array(6)].map((_, index) => (
               <img key={index} src={`/project-${index + 7}.png`} alt={`Project ${index + 7}`} />
             ))}
@@ -143,32 +142,37 @@ export default function Home() {
         <h2 className="heading-2-custom mb-8">My Expertise</h2>
         <div className="expertise-grid mx-auto flex flex-wrap justify-between gap-y-14 gap-10 sm:gap-12">
           <div className="expertise-item w-full sm:w-[calc(100%)] lg:w-[calc(40%)] xl:w-[calc(20%)] flex flex-col items-start text-left">
-            <div className="mb-2">
+            <div className="mb-2 flex">
               <MdOutlineDesignServices size={24} className="text-black" />
+              <h5 className="heading-4-custom ml-2">Strategy & Direction</h5> 
             </div>
-            <h4 className="heading-3-custom">Strategy & Direction</h4>
-            <p className="decription-1-custom">Turn market insights into clear, actionable product strategies, guiding projects from concept to launch while aligning business goals with user needs.</p>
+            <h4 className="heading-3-custom">20+ Projects</h4>
+            <p className="decription-1-custom">In 2 Years. Developed actionable product strategies, guiding projects from concept to launch, aligning user needs with business goals.</p>
           </div>
           <div className="expertise-item w-full sm:w-[calc(100%)] lg:w-[calc(40%)] xl:w-[calc(20%)] flex flex-col items-start text-left">
-            <div className="mb-2">
+            <div className="mb-2 flex">
               <MdOutlineComputer size={24} className="text-black" />
+              <h5 className="heading-4-custom ml-2">Technology</h5> 
             </div>
-            <h4 className="heading-3-custom">Technology</h4>
-            <p className="decription-1-custom ">Integrate the latest technologies and development practices, ensuring seamless collaboration between design and engineering for scalable, innovative solutions.</p>
+            <h4 className="heading-3-custom">30% Faster Delivery</h4>
+            <p className="decription-1-custom ">In 2 Months. Integrated emerging technologies to improve scalability and foster collaboration between design and engineering.</p>
           </div>
           <div className="expertise-item w-full sm:w-[calc(100%)] lg:w-[calc(40%)] xl:w-[calc(20%)] flex flex-col items-start text-left">
-            <div className="mb-2">
-              <MdOutlineBrush size={24} className="text-black" />
-            </div>
-            <h4 className="heading-3-custom">UI & UX Design</h4>
-            <p className="decription-1-custom ">Craft intuitive, user-centered designs that enhance usability across devices, creating engaging and consistent experiences that meet both user and business goals.</p>
+          <div className="mb-2 flex"> 
+            <MdOutlineBrush size={24} className="text-black" />
+            <h5 className="heading-4-custom ml-2">UI & UX Design</h5> 
+          </div>
+            <h4 className="heading-3-custom">25% Engagement Increase</h4>
+            <p className="decription-1-custom "> In 2 Months. Led user-centered design processes, enhancing usability and consistency across devices.</p>
           </div>
           <div className="expertise-item w-full sm:w-[calc(100%)] lg:w-[calc(40%)] xl:w-[calc(20%)] flex flex-col items-start text-left">
-            <div className=" mb-2">
+            <div className=" mb-2 flex">
               <FiTool size={24} className="text-black" />
+              <h5 className="heading-4-custom ml-2">Key Skills</h5> 
             </div>
-            <h4 className="heading-3-custom">Key Skills</h4>
-            <p className="decription-1-custom ">Experienced with tools like Jira, Trello, Figma, and familiar with managing product lifecycles. Comfortable conducting market research, competitive analysis, and working within Agile frameworks.</p>
+            <h4 className="heading-3-custom">40% Efficiency Increase</h4>
+            <p className="decription-1-custom ">in 2 months. Proficient in Jira, Trello, Figma, and Agile frameworks, managing complete product lifecycles and conducting market research.
+            </p>
           </div>
         </div>
         </div>
@@ -180,98 +184,160 @@ export default function Home() {
         <div className="resume-container h-auto">
          
           <div className='title-contatiner py-10'>
-             <h2 className='heading-2-custom'> Digital Projects</h2>
+             <h2 className='heading-2-custom'>Projects</h2>
 
-             <div className="resume-item">
-          <div className="resume-item-header" onClick={() => toggleItem('project-1')}>
-          <span>1B1M Portfolio</span>
-             <span className="resume-item-subheader">
-             2024
-             <MdArrowOutward className="ml-1" />
-             </span>
+            <div className="resume-item" onClick={() => toggleItem('project-1')}>
+            <div className="resume-item-header flex flex-col md:flex-row place-items-start">
+
+            <div className='flex flex-col place-items-start'>
+            <div className="flex items-center space-x-1 ">
+            <h3 className='heading-3-custom'>Jordan-Wu.com</h3>
+            <IoMdInformationCircleOutline size={20} className="text-stone-800" /> 
+            </div>
+            <div className="flex md:items-center"> 
+            <p className='decription-2-custom'>What you are reading now. (2024)</p>
+            </div>
+            </div>
+            
+            <div className="flex justify-end">
+            <img src="/home_p1.png" alt="Description" className="w-[260px] h-[180px] items-end  bg-white" /> 
+            </div>
             </div>
           <div className="resume-item-content" style={{display: openItems['project-1'] ? 'block' : 'none'}}>
-            <li>Product Manager + Full Stack Web Developer. Custom-built. There is no third-party UI component library. able to update information.</li>
+            <p>Product Manager + Full Stack Web Developer. Custom-built. There is no third-party UI component library. able to update information.</p>
           </div>
           </div>
           
-          <div className="resume-item">
-          <div className="resume-item-header" onClick={() => toggleItem('project-2')}>
-             <span>Superfake</span>
-             <span className="resume-item-subheader">
-             2024
-             <MdArrowOutward className="ml-1" />
-             </span>
-            </div>
-          <div className="resume-item-content" style={{display: openItems['project-2'] ? 'block' : 'none'}}>
-            <li>Product Manager + Full Stack Web Developer. Developed key features with using React.js, Next.js, and Tailwind CSS. On the back-end, I integrated Firebase for real-time data handling and user management. I also implemented API integrations, including NewsAPI and SerpAPI, to provide real-time content updates. Additionally, I focused on enhancing user engagement with features like daily challenges, commenting, and liking systems.</li>
-          </div>
-          </div>
-
           <div className="resume-item" onClick={() => toggleItem('project-3')}>
-          <div className="resume-item-header">
-          <span>Davincin</span>
-             <span className="resume-item-subheader">
-             2024
-             <MdArrowOutward className="ml-1" />
-             </span>
+          <div className="resume-item-header flex flex-col md:flex-row place-items-start">
+
+            <div className='flex flex-col place-items-start'>
+            <div className="flex items-center space-x-1 ">
+            <h3 className='heading-3-custom'>Davincin</h3>
+            <IoMdInformationCircleOutline size={20} className="text-stone-800" /> 
+            </div>
+            <div className="flex md:items-center"> 
+            <p className='decription-2-custom'>AI CRM for Knowledge Workers Engaging and Analyzing. (2024)</p>
+            </div>
+            </div>
+
+
+            <div>
+            <img src="/home_p2.png" alt="Davincin" className="w-[260px] h-[180px] bg-white" /> 
+            </div>
             </div>
           <div className="resume-item-content" style={{display: openItems['project-3'] ? 'block' : 'none'}}>
-            <li>Product Manager +Full Stack Web Developer. Developed CRM tools for the AI-powered knowledge influencers, including automated client management, personalized AI assistants, and automated reporting. I worked on both front-end and back-end development, utilizing React.js, Next.js, and TypeScript for the user interface and Node.js, Flask, and Firebase for back-end services. I integrated OpenAI's GPT models and LangChain to enable advanced AI functionalities and used Pinecone for vector similarity searches. Additionally, I deployed the application on Vercel and Google Cloud Platform to ensure scalability.</li>
+            <p>Product Manager +Full Stack Web Developer. Developed CRM tools for the AI-powered knowledge influencers, including automated client management, personalized AI assistants, and automated reporting. I worked on both front-end and back-end development, utilizing React.js, Next.js, and TypeScript for the user interface and Node.js, Flask, and Firebase for back-end services. I integrated OpenAI's GPT models and LangChain to enable advanced AI functionalities and used Pinecone for vector similarity searches. Additionally, I deployed the application on Vercel and Google Cloud Platform to ensure scalability.</p>
           </div>
           </div>
 
+          <div className="resume-item onClick={() => toggleItem('project-4')}">
+          <div className="resume-item-header flex flex-col md:flex-row place-items-start">
+
+            <div className='flex flex-col place-items-start'>
+            <div className="flex items-center space-x-1 ">
+            <h3 className='heading-3-custom'>Superfake</h3>
+            <IoMdInformationCircleOutline size={20} className="text-stone-800" /> 
+            </div>
+            <div className="flex md:items-center"> 
+            <p className='decription-2-custom'>Discover, Create, and Share AI-Driven Inspiration. (2024)</p>
+            </div>
+            </div>      
+
+            <div>
+            <img src="/home_p4.png" alt="Superfake" className="w-[260px] h-[180px] bg-white" /> 
+            </div>
+            </div>
+          <div className="resume-item-content" style={{display: openItems['project-2'] ? 'block' : 'none'}}>
+            <p>Product Manager + Full Stack Web Developer. Developed key features with using React.js, Next.js, and Tailwind CSS. On the back-end, I integrated Firebase for real-time data handling and user management. I also implemented API integrations, including NewsAPI and SerpAPI, to provide real-time content updates. Additionally, I focused on enhancing user engagement with features like daily challenges, commenting, and liking systems.</p>
+          </div>
+          </div>
+
+         
+
           <div className="resume-item" onClick={() => toggleItem('project-4')}>
-          <div className="resume-item-header">
-          <span>Hommap</span>
-             <span className="resume-item-subheader">
-             2024
-             <MdArrowOutward className="ml-1" />
-             </span>
+          <div className="resume-item-header flex flex-col md:flex-row place-items-start">
+
+            <div className='flex flex-col place-items-start'>
+            <div className="flex items-center space-x-1 ">
+            <h3 className='heading-3-custom'>Hommap</h3>
+            <IoMdInformationCircleOutline size={20} className="text-stone-800" /> 
+            </div>
+            <div className="flex md:items-center"> 
+            <p className='decription-2-custom'>Solve your home allergy issues with data-driven interior design. (2024)</p>
+            </div>
+            </div>
+
+            <div>
+            <img src="/home_p3.png" alt="Davincin" className="w-[260px] h-[180px] bg-white" /> 
+            </div>
             </div>
           <div className="resume-item-content" style={{display: openItems['project-4'] ? 'block' : 'none'}}>
-            <li>Product Manager +Full Stack Web Developer. Worked on developing a data-driven platform aimed at improving indoor living conditions by addressing home allergy issues. Leveraging AI and data analysis, the platform provides personalized interior design recommendations to reduce allergens while optimizing air quality and home energy management.</li>
+            <p>Product Manager +Full Stack Web Developer. Worked on developing a data-driven platform aimed at improving indoor living conditions by addressing home allergy issues. Leveraging AI and data analysis, the platform provides personalized interior design recommendations to reduce allergens while optimizing air quality and home energy management.</p>
           </div>
           </div>
 
           <div className="resume-item" onClick={() => toggleItem('project-5')}>
-          <div className="resume-item-header">
-          <span>Comgora</span>
-             <span className="resume-item-subheader">
-             2023
-             <MdArrowOutward className="ml-1" />
-             </span>
+          <div className="resume-item-header flex flex-col md:flex-row place-items-start">
+        
+            <div className='flex flex-col place-items-start'>
+            <div className="flex items-center space-x-1 ">
+            <h3 className='heading-3-custom'>Comgora</h3>
+            <IoMdInformationCircleOutline size={20} className="text-stone-800" /> 
+            </div>
+            <div className="flex md:items-center"> 
+            <p className='decription-2-custom'>AI contract generator for small business. (2023)</p>
+            </div>
+            </div>
+
+            <div>
+            <img src="/home_p5.png" alt="Davincin" className="w-[260px] h-[180px] bg-white" /> 
+            </div>
             </div>
           <div className="resume-item-content my-1" style={{display: openItems['project-5'] ? 'block' : 'none'}}>
             <li>Product Manager + UI/UX Designer. AI-powered contract app for remote workers. Developed cross-platform app with Flutter. </li>
           </div>
           </div>
 
-          <div className="resume-item" onClick={() => toggleItem('project-7')}>
-          <div className="resume-item-header">
-          <span>What2Pack</span>
-             <span className="resume-item-subheader">
-             2023
-             <MdArrowOutward className="ml-1" />
-             </span>
+          <div className="resume-item" onClick={() => toggleItem('project-6')}>
+          <div className="resume-item-header flex flex-col md:flex-row place-items-start">
+            <div className='flex flex-col place-items-start'>
+            <div className="flex items-center space-x-1 ">
+            <h3 className='heading-3-custom'>Naturian</h3>
+            <IoMdInformationCircleOutline size={20} className="text-stone-800" /> 
             </div>
-          <div className="resume-item-content" style={{display: openItems['project-7'] ? 'block' : 'none'}}>
-            <li>Frontend Developer of Four. A tool for travelers to pack their luggage depend on the destination weather.</li>
+            <div className="flex md:items-center"> 
+            <p className='decription-2-custom'>An iOS App for people who want to live a more natural life. (2022)</p>
+            </div>
+            </div>
+            <div>
+            <img src="/home_p6.png" alt="Naturian" className="w-[260px] h-[180px] bg-white " /> 
+            </div>
+            </div>
+          <div className="resume-item-content" style={{display: openItems['project-6'] ? 'block' : 'none'}}>
+            <p>Full Stack iOS Developer. A social app for people who want to live a more natural life and explore themselves.</p>
           </div>
           </div>
 
-          <div className="resume-item" onClick={() => toggleItem('project-6')}>
-          <div className="resume-item-header">
-          <span>Naturian</span>
-             <span className="resume-item-subheader">
-             2022
-             <MdArrowOutward className="ml-1" />
-             </span>
+
+          {/* <div className="resume-item" onClick={() => toggleItem('project-7')}>
+          <div className="resume-item-header flex place-items-start">
+          <div className='flex flex-col place-items-start'>
+            <h3 className='heading-3-custom' >What2Pack</h3>
+            <div className="flex items-center"> 
+              <IoMdInformationCircleOutline size={20} className="text-stone-800 mr-1" /> 
+              <p className='decription-2-custom'>A tool for travelers to pack their luggage. (2023)</p>
             </div>
-          <div className="resume-item-content" style={{display: openItems['project-6'] ? 'block' : 'none'}}>
-            <li>Full Stack iOS Developer. A social app for people who want to live a more natural life and explore themselves.</li>
+            </div>
+            <div>
+            <img src="/path/to/your/image.png" alt="What2Pack" className="w-[180px] h-[100px] bg-white" /> 
+            </div>
+            </div>
+            <div className="resume-item-content" style={{display: openItems['project-7'] ? 'block' : 'none'}}>
+            <p>Frontend Developer of Four Memebers. A tool for travelers to pack their luggage depend on the destination weather.</p>
           </div>
-          </div>
+          </div> */}
+
           </div>
 
 
@@ -283,7 +349,7 @@ export default function Home() {
             <span>Cofounder & Product Manager at Comgora</span>
              <span className="resume-item-subheader">
              (Stockholm, Sweden) 2023
-             <MdArrowOutward className="ml-1" />
+             {/* <MdArrowOutward className="ml-1" /> */}
              </span>
 
             </div>
@@ -300,7 +366,7 @@ export default function Home() {
             <span>Art Director at Studs</span>
              <span className="resume-item-subheader">
              (Stockholm, Sweden) 2023
-             <MdArrowOutward className="ml-1" />
+             {/* <MdArrowOutward className="ml-1" /> */}
              </span>
 
             </div>
@@ -315,7 +381,7 @@ export default function Home() {
             <span>Trainee at AppWorks School</span>
              <span className="resume-item-subheader">
              (Taipei, Taiwan) 2022
-             <MdArrowOutward className="ml-1" />
+             {/* <MdArrowOutward className="ml-1" /> */}
              </span>
 
             </div>
@@ -327,12 +393,11 @@ export default function Home() {
 
             <div className="resume-item">
             <div className="resume-item-header" onClick={() => toggleItem('experience-4')}>
-            <span>Product Owner at Atom Health Corp.</span>
+            <span>Asscoiate Product Owner at Atom Health Corp.</span>
              <span className="resume-item-subheader">
              (Taipei, Taiwan) 2021
-             <MdArrowOutward className="ml-1" />
+             {/* <MdArrowOutward className="ml-1" /> */}
              </span>
-
             </div>
             <div className="resume-item-content my-2" style={{display: openItems['experience-4'] ? 'block' : 'none'}}>
             <li >Led development and patented medical devices, proven by the FDA. Negotiate with the 2 biggest medical manufacturing factories between China and Taiwan, contributing 67% of annual revenue during Covid.</li>
