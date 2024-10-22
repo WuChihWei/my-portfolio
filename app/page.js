@@ -137,7 +137,7 @@ export default function Home() {
       </div>
 
       {/* Add My Expertise section */}
-      <section className=" bg-stone-300 py-20 mb:py-10 p-p-gap">
+      <section className="py-20 mb:py-10 p-p-gap">
         <div>
         <h2 className="heading-2-custom mb-8">My Expertise</h2>
         <div className="expertise-grid mx-auto flex flex-wrap justify-between gap-y-14 gap-10 sm:gap-12">
@@ -208,7 +208,7 @@ export default function Home() {
           </div>
           </div>
           
-          <div className="resume-item" onClick={() => toggleItem('project-3')}>
+          <div className="resume-item" onClick={() => toggleItem('project-2')}>
           <div className="resume-item-header flex flex-col md:flex-row place-items-start">
 
             <div className='flex flex-col place-items-start'>
@@ -226,12 +226,12 @@ export default function Home() {
             <img src="/home_p2.png" alt="Davincin" className="w-[260px] h-[180px] bg-white" /> 
             </div>
             </div>
-          <div className="resume-item-content" style={{display: openItems['project-3'] ? 'block' : 'none'}}>
+          <div className="resume-item-content" style={{display: openItems['project-2'] ? 'block' : 'none'}}>
             <p>Product Manager +Full Stack Web Developer. Developed CRM tools for the AI-powered knowledge influencers, including automated client management, personalized AI assistants, and automated reporting. I worked on both front-end and back-end development, utilizing React.js, Next.js, and TypeScript for the user interface and Node.js, Flask, and Firebase for back-end services. I integrated OpenAI's GPT models and LangChain to enable advanced AI functionalities and used Pinecone for vector similarity searches. Additionally, I deployed the application on Vercel and Google Cloud Platform to ensure scalability.</p>
           </div>
           </div>
 
-          <div className="resume-item onClick={() => toggleItem('project-4')}">
+          <div className="resume-item" onClick={() => toggleItem('project-3')}>
           <div className="resume-item-header flex flex-col md:flex-row place-items-start">
 
             <div className='flex flex-col place-items-start'>
@@ -248,7 +248,7 @@ export default function Home() {
             <img src="/home_p4.png" alt="Superfake" className="w-[260px] h-[180px] bg-white" /> 
             </div>
             </div>
-          <div className="resume-item-content" style={{display: openItems['project-2'] ? 'block' : 'none'}}>
+          <div className="resume-item-content" style={{display: openItems['project-3'] ? 'block' : 'none'}}>
             <p>Product Manager + Full Stack Web Developer. Developed key features with using React.js, Next.js, and Tailwind CSS. On the back-end, I integrated Firebase for real-time data handling and user management. I also implemented API integrations, including NewsAPI and SerpAPI, to provide real-time content updates. Additionally, I focused on enhancing user engagement with features like daily challenges, commenting, and liking systems.</p>
           </div>
           </div>
@@ -273,7 +273,7 @@ export default function Home() {
             </div>
             </div>
           <div className="resume-item-content" style={{display: openItems['project-4'] ? 'block' : 'none'}}>
-            <p>Product Manager +Full Stack Web Developer. Worked on developing a data-driven platform aimed at improving indoor living conditions by addressing home allergy issues. Leveraging AI and data analysis, the platform provides personalized interior design recommendations to reduce allergens while optimizing air quality and home energy management.</p>
+            <p>Product Manager + Full Stack Web Developer. Worked on developing a data-driven platform aimed at improving indoor living conditions by addressing home allergy issues. Leveraging AI and data analysis, the platform provides personalized interior design recommendations to reduce allergens while optimizing air quality and home energy management.</p>
           </div>
           </div>
 

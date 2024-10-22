@@ -111,14 +111,14 @@ const FooterBottom = () => {
         >
           <FaGithub size={24} />
         </a>
-        <a 
+        {/* <a 
           href="https://www.facebook.com/profile.php?id=100000916091743" 
           className="text-white hover:text-gray-300 transition duration-300"
           target="_blank"
           rel="noopener noreferrer"
         >
           <FaFacebook size={24} />
-        </a>
+        </a> */}
       </div>
     </div>
   );
