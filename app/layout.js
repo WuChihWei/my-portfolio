@@ -3,9 +3,10 @@ import FooterWrapper from '../components/FooterWrapper';
 import GridOverlay from '../components/GridOverlay'; 
 import '../src/app/globals.css';
 import { Analytics } from "@vercel/analytics/react"
+
 export const metadata = {
-  title: 'Jordan Wu',
-  description: 'Welcome to Jordan Wu portfolio website',
+  title: 'Jordan Wu Portfolio',
+  description: 'Welcome to Jordan Wu portfolio website, End-to-End Digital Product Enthusiast.',
 };
 
 export default function RootLayout({ children }) {
@@ -20,7 +21,7 @@ export default function RootLayout({ children }) {
         {/* </ProjectsProvider> */}
         </main>
         <FooterWrapper />
-        {{ edit_1 }}  {/* Add the Analytics component here */}
+        <Analytics /> {/* Add the Analytics component here */}
       </body>
     </html>
   );
