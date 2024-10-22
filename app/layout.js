@@ -20,6 +20,7 @@ export default function RootLayout({ children }) {
         {/* </ProjectsProvider> */}
         </main>
         <FooterWrapper />
+        {{ edit_1 }}  {/* Add the Analytics component here */}
       </body>
     </html>
   );
