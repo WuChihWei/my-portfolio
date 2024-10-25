@@ -28,4 +28,7 @@ module.exports = {
     },
   },
   plugins: [],
+  safelist: [
+    'animate-carousel'
+  ],
 }

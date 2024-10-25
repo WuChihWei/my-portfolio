@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef, useCallback } from 'react';
 import { MdOutlineDesignServices, MdOutlineComputer, MdOutlineBrush } from 'react-icons/md';
 import { FiTool } from "react-icons/fi";
 import { IoMdInformationCircleOutline } from "react-icons/io";
@@ -10,9 +10,18 @@ import { collection, getDocs } from 'firebase/firestore';
 import { db } from '../lib/firebase';
 
 const skillIcons = [
-  '/skill-1.png', '/skill-2.png', '/skill-3.png', '/skill-4.png',
-  '/skill-5.png', '/skill-6.png', '/skill-7.png', '/skill-8.png',
-  '/skill-9.png', '/skill-10.png', '/skill-11.png', '/skill-12.png'
+  { icon: '/skill-1.png', name: 'Xcode' },
+  { icon: '/skill-2.png', name: 'React' },
+  { icon: '/skill-3.png', name: 'Next.js' },
+  { icon: '/skill-4.png', name: 'Node.js' },
+  { icon: '/skill-5.png', name: 'Firebase' },
+  { icon: '/skill-6.png', name: 'Python' },
+  { icon: '/skill-7.png', name: 'Flask' },
+  { icon: '/skill-8.png', name: 'MongoDB' },
+  { icon: '/skill-9.png', name: 'Swift' },
+  { icon: '/skill-10.png', name: 'TypeScript' },
+  { icon: '/skill-11.png', name: 'Tailwind' },
+  { icon: '/skill-12.png', name: 'Figma' }
 ];
 
 export default function Home() {
@@ -70,19 +79,42 @@ export default function Home() {
     return skillNames[index] || `Skill ${index + 1}`;
   }
 
+  const carouselRef = useRef(null);
+
+  const moveCarousel = useCallback(() => {
+    const carousel = carouselRef.current;
+    if (!carousel) return;
+
+    let position = 0;
+    const animate = () => {
+      position -= 0.01; // 减小这个值会使动画变慢
+      if (position <= -50) {
+        position = 0;
+      }
+      carousel.style.transform = `translateX(${position}%)`;
+      requestAnimationFrame(animate);
+    };
+    animate();
+  }, []);
+
+  useEffect(() => {
+    moveCarousel();
+  }, [moveCarousel]);
+
   return (
     <div className='home-container h-auto '>
-      <div className="home-cover h-auto pt-8 md:h-[calc(100vh-40px)] flex flex-col md:flex-row justify-items-center items-center bg-stone-900" >
-        <div className="home-content-left md:w-2/5 flex flex-col justify-items-center text-left">
+      <div className="pt-8  p-p-gap items-center bg-white" >
+      <div className="home-cover h-auto md:h-[calc(100vh-80px)] flex flex-col md:flex-row justify-items-center items-center bg-blue-600 rounded-3xl" >
+        <div className="home-content-left md:w-1/2 flex flex-col justify-items-center text-left">
           <div className="flex flex-col flex-grow p-p-gap mt-4 md:mt-2  text-white">
             <div className="py-6 md:pr-0 md:py-0"> {/* 添加 py-8 用於小螢幕 */}
               <h1 className="py-2 mr-20 heading-1-custom">
-              End-to-End Digital Product Enthusiast
+              End-to-end Digital Product Enthusiast delivering user-centered solutions through technology, strategy, and AI-power.
               </h1>
               <div className="py-2 md:py-0 mr-0 md:mr-10">
               <h4 className='heading-4-custom mr-12 pb-4'>
-              Delivering digital solutions through design thinking, strategy to coding with AI-power.<br />
-              Check my 3-weeks projects in the menu.
+              {/* Delivering digital solutions through design thinking, strategy to coding with AI-power.<br />
+              Check my 3-weeks projects in the menu. */}
               </h4>
               <div className="flex flex-row space-x-2 md:space-x-4 mt-0 md:pt-2 justify-items-center items-center">
                 <div className='bg-white p-2 px-4 rounded-full'>
@@ -116,7 +148,8 @@ export default function Home() {
           </div>
         </div>
 
-        <div className="p-10 gap-2 max-md:w-full w-full h-[calc(50vh)] md:h-[calc(100vh-80px)] md:w-3/5 flex flex-col overflow-hidden">
+        <div className="h-4/5  pr-10 md:w-1/2 flex flex-col overflow-hidden rounded-3xl">
+        <div className="md:py-8 gap-4 max-md:w-full w-full h-[calc(50vh)] md:h-[calc(100vh)] flex flex-col overflow-hidden bg-white rounded-3xl">
           <div className="h-full image-scroll-container top flex-grow space-y-0 md:space-y-0 "> 
             {[...Array(6)].map((_, index) => (
               <img key={index} src={`/project-${index + 1}.png`} alt={`Project ${index + 1}`} />
@@ -134,8 +167,9 @@ export default function Home() {
             ))}
           </div>
         </div>
+        </div>
       </div>
-
+      </div>
       {/* Add My Expertise section */}
       <section className="py-20 mb:py-10 p-p-gap">
         <div>
@@ -341,98 +375,248 @@ export default function Home() {
           </div>
 
 
-          <div className='title-contatiner py-10'>
-          <h2 className='heading-2-custom'>Experience</h2>
+  <div className='title-container p-10  bg-stone-200 rounded-3xl'>
+  <h2 className='heading-2-custom'>Experience</h2>
 
-          <div className="resume-item">
-            <div className="resume-item-header" onClick={() => toggleItem('experience-1')}>
-            <span>Cofounder & Product Manager at Comgora</span>
-             <span className="resume-item-subheader">
-             (Stockholm, Sweden) 2023
-             {/* <MdArrowOutward className="ml-1" /> */}
-             </span>
-
-            </div>
-            <div className="resume-item-content my-2" style={{display: openItems['experience-1'] ? 'block' : 'none'}}>
-            <li>Led end-to-end development of an AI-powered contract app for remote workersfrom concept to MVP—guided by quantitative and qualitative market research with python, including Google keyword analysis and interviews with over 20 potential customers.</li>
-            <li>Designed a 50% cheaper and 60% more efficient Trello/Asana-like workflow on Notion, and built a cross-platform app in Flutter with operating Agile methodologies.</li>
-            <li>Developed a two-year product roadmap and vision, demonstrating team leadership by recruiting and organizing a team of over 7 professionals in development, marketing, finance and design.</li>
-            <li>Collaborated with a venture capital expert (Fortune 500 companies) to refine product vision, define target customer profiles, and conduct SWOT analyses, identifying legal and cybersecurity risks to inform strategic decisions.</li>
-            </div>
-            </div>
-
-            <div className="resume-item">
-            <div className="resume-item-header" onClick={() => toggleItem('experience-2')}>
-            <span>Art Director at Studs</span>
-             <span className="resume-item-subheader">
-             (Stockholm, Sweden) 2023
-             {/* <MdArrowOutward className="ml-1" /> */}
-             </span>
-
-            </div>
-            <div className="resume-item-content my-2" style={{display: openItems['experience-2'] ? 'block' : 'none'}}>
-            <li>Managed a team of two designers, guiding the UX strategy of Studs' official website and stakeholder collaboration with over 25 technical companies across Stockholm, Amsterdam, Barcelona, and Greece, enhancing product alignment and cross-cultural partnerships.</li>
-            <li>ncreased social media content production by 120%, resulting in a 40% increase in views by implementing data-driven strategies and optimizing user engagement metrics.</li>
-            </div>
-            </div>
-
-            <div className="resume-item">
-            <div className="resume-item-header" onClick={() => toggleItem('experience-3')}>
-            <span>Trainee at AppWorks School</span>
-             <span className="resume-item-subheader">
-             (Taipei, Taiwan) 2022
-             {/* <MdArrowOutward className="ml-1" /> */}
-             </span>
-
-            </div>
-            <div className="resume-item-content my-2" style={{display: openItems['experience-3'] ? 'block' : 'none'}}>
-            <li>Collaborated with a team of 4 cross-platform developers using Agile methodologies on the “STYLiSH” E-commerce app; iterated UX/UI by 60% performance and reduced crash rates by 40% through unit testing and optimization, resulting in a 43% increase in 24 positive user reviews.</li>
-            <li>Developed iOS object oriented programming projects using Swift. Cooperated with Android, Back-End and Front-End teams through Scrum and agile develop mode</li>
-            </div>
-            </div>
-
-            <div className="resume-item">
-            <div className="resume-item-header" onClick={() => toggleItem('experience-4')}>
-            <span>Asscoiate Product Owner at Atom Health Corp.</span>
-             <span className="resume-item-subheader">
-             (Taipei, Taiwan) 2021
-             {/* <MdArrowOutward className="ml-1" /> */}
-             </span>
-            </div>
-            <div className="resume-item-content my-2" style={{display: openItems['experience-4'] ? 'block' : 'none'}}>
-            <li >Led development and patented medical devices, proven by the FDA. Negotiate with the 2 biggest medical manufacturing factories between China and Taiwan, contributing 67% of annual revenue during Covid.</li>
-            <li>Drove data-driven marketing strategies through Shopify, improving conversion rates by 60% and U.S. mask sales by 46% during the pandemic through redesigning products’ ads and packaging.</li>
-            </div>
-            </div>
-            </div>
+  <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-20">
+    {/* Comgora */}
+    <div className="experience-item py-10 rounded-lg">
+      <div className="flex justify-between items-start mb-4">
+        <div>
+          <h3 className='heading-3-custom text-2xl font-bold'>Comgora</h3>
+          <p className='text-gray-600'>Stockholm 2023</p>
         </div>
+        <IoMdInformationCircleOutline 
+          size={24} 
+          className="text-gray-400 cursor-pointer" 
+          onClick={() => toggleItem('experience-1')} 
+        />
+      </div>
+      <hr className="my-4 border-gray-900" />
+      <div className="space-y-4">
+        <div>
+          <p className="font-semibold">Role</p>
+          <div className="text-right">
+            <p>Cofounder</p>
+            <p>Product Manager</p>
+          </div>
+        </div>
+        <hr className="my-4 border-gray-400" />
+        <div>
+          <p className="font-semibold">Key Projects</p>
+          <div className="text-right">
+            <p>AI Contract App</p>
+            <p>Workflow Optimization</p>
+          </div>
+        </div>
+        <hr className="my-4 border-gray-400" />
+        <div>
+          <p className="font-semibold">Scope</p>
+          <div className="text-right">
+            <p>End-to-end Development</p>
+            <p>Product Strategy</p>
+          </div>
+        </div>
+      </div>
+      {/* <hr className="my-4 border-gray-900" /> */}
+      {openItems['experience-1'] && (
+        <div className="mt-4">
+          <ul className="list-disc pl-5 space-y-2 text-sm">
+            <li>Led end-to-end development of an AI-powered contract app for remote workers.</li>
+            <li>Designed a 50% cheaper and 60% more efficient workflow on Notion.</li>
+            <li>Developed a two-year product roadmap and vision.</li>
+            <li>Collaborated with a venture capital expert to refine product vision.</li>
+          </ul>
+        </div>
+      )}
+    </div>
+
+    {/* Studs */}
+    <div className="experience-item py-10 rounded-lg ">
+      <div className="flex justify-between items-start mb-4">
+        <div>
+          <h3 className='heading-3-custom text-2xl font-bold'>Studs</h3>
+          <p className='text-gray-600'>Stockholm 2023</p>
+        </div>
+        <IoMdInformationCircleOutline 
+          size={24} 
+          className="text-gray-400 cursor-pointer" 
+          onClick={() => toggleItem('experience-2')} 
+        />
+      </div>
+      <hr className="my-4 border-gray-900" />
+      <div className="space-y-4">
+        <div>
+          <p className="font-semibold">Role</p>
+          <div className="text-right space-y-1">
+            <p>Art Director</p>
+          </div>
+        </div>
+        <hr className="my-4 border-gray-400" />
+
+        <div>
+          <p className="font-semibold">Key Projects</p>
+          <div className="text-right space-y-1">
+            <p>Social Media Content</p>
+          </div>
+        </div>
+        <hr className="my-4 border-gray-400" />
+        <div>
+          <p className="font-semibold">Scope</p>
+          <div className="text-right space-y-1">
+            <p>Increase Social Media Engagement</p>
+          </div>
+        </div>
+      </div>
+      {/* <hr className="my-4 border-gray-900" /> */}
+      {openItems['experience-2'] && (
+        <div className="mt-4">
+          <ul className="list-disc pl-5 space-y-2 text-sm">
+            <li>Managed a team of two designers, guiding the UX strategy of Studs' official website.</li>
+            <li>Increased social media content production by 120%, resulting in a 40% increase in views.</li>
+          </ul>
+        </div>
+      )}
+    </div>
+
+    {/* AppWorks School */}
+    <div className="experience-item py-10 rounded-lg ">
+      <div className="flex justify-between items-start mb-4">
+        <div>
+          <h3 className='heading-3-custom text-2xl font-bold'>AppWorks School</h3>
+          <p className='text-gray-600'>Taipei 2022</p>
+        </div>
+        <IoMdInformationCircleOutline 
+          size={24} 
+          className="text-gray-400 cursor-pointer" 
+          onClick={() => toggleItem('experience-3')} 
+        />
+      </div>
+      <hr className="my-4 border-gray-900" />
+      <div className="space-y-4">
+        <div>
+          <p className="font-semibold">Role</p>
+          <div className="text-right space-y-1">
+            <p>Trainee</p>
+            <p>Trainee</p>
+          </div>
+        </div>
+        <hr className="my-4 border-gray-400" />
+
+        <div>
+          <p className="font-semibold">Key Projects</p>
+          <div className="text-right space-y-1">
+            <p>E-commerce App</p>
+            <p>E-commerce App</p>
+
+          </div>
+          <hr className="my-4 border-gray-400" />
+
+        </div>
+        <div>
+          <p className="font-semibold">Scope</p>
+          <div className="text-right space-y-1">
+            <p>Performance Improvement</p>
+          </div>
+        </div>
+      </div>
+      {/* <hr className="my-4 border-gray-900" /> */}
+      {openItems['experience-3'] && (
+        <div className="mt-4">
+          <ul className="list-disc pl-5 space-y-2 text-sm">
+            <li>Collaborated on the "STYLiSH" E-commerce app, improving performance by 60%.</li>
+            <li>Developed iOS projects using Swift and cooperated with cross-functional teams.</li>
+          </ul>
+        </div>
+      )}
+    </div>
+
+    {/* Atom Health Corp. */}
+    <div className="experience-item py-10 rounded-lg ">
+      <div className="flex justify-between items-start mb-4">
+        <div>
+          <h3 className='heading-3-custom text-2xl font-bold'>Atom Health Corp.</h3>
+          <p className='text-gray-600'>Taipei 2021</p>
+        </div>
+        <IoMdInformationCircleOutline 
+          size={24} 
+          className="text-gray-400 cursor-pointer" 
+          onClick={() => toggleItem('experience-4')} 
+        />
+      </div>
+      <hr className="my-4 border-gray-900" />
+      <div className="space-y-4">
+        <div>
+          <p className="font-semibold">Role</p>
+          <div className="text-right space-y-1">
+            <p>Associate Product Owner</p>
+          </div>
+        </div>
+        <hr className="my-4 border-gray-400" />
+
+        <div>
+          <p className="font-semibold">Key Projects</p>
+          <div className="text-right space-y-1">
+            <p>Medical Devices</p>
+          </div>
+        </div>
+        <hr className="my-4 border-gray-400" />
+
+        <div>
+          <p className="font-semibold">Scope</p>
+          <div className="text-right space-y-1">
+            <p>Market Research</p>
+          </div>
+        </div>
+      </div>
+      {/* <hr className="my-4 border-gray-900" /> */}
+      {openItems['experience-4'] && (
+        <div className="mt-4">
+          <ul className="list-disc pl-5 space-y-2 text-sm">
+            <li>Led development of FDA-approved medical devices, contributing 67% of annual revenue.</li>
+            <li>Improved U.S. mask sales by 46% through data-driven marketing strategies.</li>
+          </ul>
+        </div>
+      )}
+    </div>
+  </div>
+</div>
+       
+      </div>
 
       </section>  
 
-      <section className='skillSection w-full md:h-[60vh]'>
-        <div className='flex flex-col md:flex-row h-full'>
-          <div className='w-full py-32 md:w-1/2 p-p-gap bg-stone-300 flex flex-col justify-center'>
-            <h2 className='heading-2-custom pb-4'>Innovative Skills</h2>
-            <p className='heading-5-custom pr-2 md:pr-20 pt-10'>
-            I integrate front-end technologies like React.js and Next.js with back-end systems using Node.js, Flask, and Firebase, while leveraging AI to enhance user experiences and automate processes. Combining data-driven insights with intuitive design, I deliver scalable, innovative solutions that anticipate user needs and solve challenges efficiently.
-            </p>
+      <section className='skillSection w-full py-20  rounded-3xl'>
+        <div className='container h-full py-10  bg-stone-800  rounded-3xl'>
+          <div className='h-1/2 flex flex-col justify-center'>         
+          <h2 className='heading-1-custom text-white py-8  text-center'>Innovative Skills</h2>
+          <p className='heading-4-custom text-white mb-12 px-8 text-center'>
+          I integrate front-end technologies like React.js and Next.js with back-end systems using Node.js, Flask, and Firebase, while leveraging AI to enhance user experiences and automate processes. Combining data-driven insights with intuitive design, I deliver scalable, innovative solutions that anticipate user needs and solve challenges efficiently.
+          </p>
           </div>
-          <div className='w-full md:w-1/2 bg-stone-900 md:bg-stone-800 resume-item-subheader flex items-center justify-center p-p-gap'>
-            <div className='skill-icons-container overflow-x-hidden md:overflow-x-visible h-32 md:h-auto w-full'>
-              <div className='flex md:grid grid-cols-3 md:grid-cols-4 gap-4 lg:gap-6 md:p-4 py-10 animate-carousel md:animate-none'>
-                {/* 小屏幕：重复渲染图标以实现无限滚动 */}
-                <div className='flex md:hidden'>
-                  {[...skillIcons, ...skillIcons].map((icon, index) => (
-                    <div key={`mobile-${index}`} className='flex-shrink-0 flex items-center justify-center p-2'>
-                      <img src={icon} alt={`Skill ${index % skillIcons.length + 1}`} className='w-10 h-10' />
+          <div className='skill-carousel h-1/2 overflow-hidden items-center justify-center'>
+            <div 
+              ref={carouselRef}
+              className='flex flex-col'
+              style={{ width: `${skillIcons.length * 176}px`, height: '200px' }}
+            >
+              <div className='flex'>
+                {skillIcons.map((skill, index) => (
+                  <div key={index} className='flex-none w-40 mx-2'>
+                    <div className='border-2 rounded-full p-2 flex items-center justify-center h-full'>
+                      <img src={skill.icon} alt={skill.name} className='w-8 h-8 mr-6' />
+                      <p className='text-white text-center mr-2 text-sm'>{skill.name}</p>
                     </div>
-                  ))}
-                </div>
-                
-                {/* 大屏幕：只渲染一次图标 */}
-                {skillIcons.map((icon, index) => (
-                  <div key={`desktop-${index}`} className='hidden md:flex items-center justify-center p-2 md:p-6 lg:p-10'>
-                    <img src={icon} alt={`Skill ${index + 1}`} className='md:w-10 md:h-10' />
+                  </div>
+                ))}
+              </div>
+              <div className='flex mt-6' style={{ transform: 'translateX(88px)' }}>
+                {skillIcons.map((skill, index) => (
+                  <div key={`bottom-${index}`} className='flex-none w-40 mx-2'>
+                    <div className='border-2  rounded-full p-2 flex  items-center justify-center h-full'>
+                      <img src={skill.icon} alt={skill.name} className='w-8 h-8 mr-6' />
+                      <p className='text-white text-center mr-2 text-sm'>{skill.name}</p>
+                    </div>
                   </div>
                 ))}
               </div>
@@ -443,3 +627,10 @@ export default function Home() {
     </div>
   );
 }
+
+
+
+
+
+
+

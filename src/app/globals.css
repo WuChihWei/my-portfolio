@@ -4,10 +4,10 @@
 
 @layer components {
   .heading-1-custom {
-    @apply text-5xl font-black mb-4 md:text-6xl lg:text-7xl lg:font-extrabold
-    tracking-wide leading-snug
+    @apply text-4xl font-black mb-4 md:text-5xl lg:text-5xl lg:font-extrabold
+    tracking-wide leading-relaxed
     md:tracking-normal md:leading-snug
-    lg:tracking-normal lg:leading-snug;
+    lg:tracking-normal lg:leading-normal;
   }
 
   .heading-sub1-custom {
@@ -209,25 +209,29 @@ a {
 
 /* 導航欄樣式 */
 .navbar {
+  display: flex;
+  justify-content: center; /* 水平居中 */
+  align-items: center;
+  padding-top: 60px;
+  /* background-color: white; */
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
-  z-index: 1000;
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-
+  z-index: 50;
 }
+
 
 .navbar-container {
   display: flex;
-  justify-content: space-between;
-  align-items: flex-end;
-  padding: 1vw 3vw ;
-  background-color: #ffffff;
-  /* width: 100px; */
-  /* height: 64px; */
+  width: 100%;
+  border-radius: 60px;
+  padding: 20px;
+  background-color: #c7c7c7;
+  max-width: 1080px; 
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.8);
 }
 
 .navbar-logo{
@@ -339,37 +343,10 @@ height: 20px;
 .home-container {
   display: flex;
   flex-direction: column;
-  margin-top: 40px;
+  /* margin-top: 40px; */
   width: 100%;  
 }
 
-.home-cover {
-  /* display: flex;
-  height: calc(100vh - 120px);
-  margin-top: 20px;
-  align-items: center;
-  justify-content: center;
-  text-align: center; */
-}
-
-/* .home-content-left {
-  display: flex;
-  flex-direction: column;
-  width: 33%;
-  text-align: left;
-  align-items: start;
-  align-self: flex-start; 
-  height: 100%;
-} */
-
-/* .home-content-right {
-  width: 80%;
-  height: calc(100vh - 100px);
-  display: flex;
-  flex-direction: column;
-  overflow: hidden;
-  padding: 20px 0;
-} */
 
 .home-carousel {
   display: flex;
@@ -503,6 +480,7 @@ height: 20px;
   animation: scroll 30s linear infinite;
   height: 50%;
   overflow: visible;
+  
 }
 
 .image-scroll-container.bottom {
@@ -525,8 +503,12 @@ height: 20px;
     transform: translateX(0);
   }
   100% {
-    transform: translateX(calc(-50% - 5px)); /* 調整以考慮間隙 */
+    transform: translateX(-50%);
   }
+}
+
+.animate-carousel {
+  animation: carousel 120s linear infinite;
 }
 
 /* 響應式設計 */
@@ -720,40 +702,15 @@ body li {
   animation-play-state: paused;
 }
 
-@keyframes carousel {
-  0% {
-    transform: translateX(0);
-  }
-  100% {
-    transform: translateX(-80%);
-  }
-}
-
-.animate-carousel {
-  animation: carousel 30s linear infinite;
-}
 
 @media (min-width: 768px) {
   .animate-carousel {
-    animation: none;
+    animation: carousel 240s linear infinite;
   }
-}
-
-@keyframes scroll {
-  0% {
-    transform: translateX(0);
-  }
-  100% {
-    transform: translateX(-50%);
-  }
-}
-
-.animate-carousel {
-  animation: scroll 30s linear infinite;
 }
 
 .skill-icons-container {
-  width: 200%; /* 使容器宽度为两倍，以容纳重复的图标集 */
+  width: 200%; /* 使容器宽度为两倍，以容纳重的图标集 */
 }
 
 @media (min-width: 768px) {
@@ -801,34 +758,18 @@ body li {
     padding: 10px;
   }
 }
-/* 
-@media (max-width: 768px) {
-  .navbar-items.mobile {
-    display: none;
-    flex-direction: column;
-    position: absolute;
-    top: 100%;
-    left: 0;
-    width: 100%;
-    background-color: white;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-  }
 
-  .navbar-items.mobile.open {
-    display: flex;
-  }
+.skill-carousel {
+  width: 100%;
+  overflow: hidden;
+}
 
-  .navbar-items.mobile li {
-    padding: 10px 20px;
-    border-bottom: 1px solid #eee;
-  }
+.skill-carousel .flex {
+  display: flex;
+  width: fit-content;
+}
 
-  .navbar-items.mobile .projects-list {
-    display: none;
-    padding-left: 20px;
-  }
+.skill-carousel:hover .animate-carousel {
+  animation-play-state: paused;
+}
 
-  .navbar-items.mobile .projects-dropdown.open .projects-list {
-    display: block;
-  }
-} */
