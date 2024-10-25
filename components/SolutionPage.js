@@ -12,6 +12,20 @@ const SolutionPage = ({ title, features }) => {
     <div className="flex items-center justify-center mb-40 md:px-20 lg:overflow-y-auto">
       <div className="w-full text-center">
         <h1 className="heading-sub1-custom mb-4"> Pain Points ⭢ Solutions </h1>
+        <div className='flex flex-row items-center justify-center gap-10'>
+                <span className="sm:flex items-center justify-center">
+                  <img src="/impact-icon.svg" alt="Impact" className="w-5 h-5 mr-2" />
+                  Impact  (1-5)
+                </span>
+                <span className="sm:flex items-center justify-center">
+                  <img src="/ergency-icon.svg" alt="Urgency" className="w-5 h-5 mr-2" />
+                  Urgency (1-5)
+                </span>
+                <span className="sm:flex items-center justify-center">
+                  <img src="/market-icon.svg" alt="Market Size" className="w-5 h-5 mr-2" />
+                  Market Size  (1-5)
+                </span>
+        </div>
         <div className="grid grid-cols-1 pt-10 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-8 auto-cols-fr">
           {features.map((feature, index) => (
             <div 
