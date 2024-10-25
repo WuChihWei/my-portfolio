@@ -19,7 +19,7 @@
   
 
   .heading-2-custom {
-    @apply text-5xl pb-4 md:text-5xl font-bold text-left leading-normal tracking-normal
+    @apply text-5xl pb-4 md:text-7xl font-bold text-left leading-normal tracking-normal
   }
 
   .heading-3-custom {
@@ -227,7 +227,7 @@ a {
   width: 100%;
   border-radius: 60px;
   padding: 20px;
-  background-color: #c7c7c7;
+  background-color: #ffffff;
   max-width: 1080px; 
   align-items: center;
   justify-content: center;
@@ -236,7 +236,7 @@ a {
 
 .navbar-logo{
   display: flex;
-  height: 20px;
+  height: 14px;
 }
 
 .logo-white-containter img{
@@ -393,9 +393,40 @@ height: 20px;
 }
 
 .resume-item {
-  /* margin-bottom: 10px; */
-  border-bottom: 1px solid #acacac;
+  position: relative;
+}
+
+.resume-item-image-container {
+  position: relative;
   overflow: hidden;
+}
+
+.resume-item-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.7);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+}
+
+.resume-item-image-container:hover .resume-item-overlay,
+.resume-item-overlay.open {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.resume-item-description {
+  color: white;
+  padding: 20px;
+  text-align: center;
+  max-width: 80%;
 }
 
 /* .resume-item-header {
@@ -493,7 +524,7 @@ height: 20px;
 
 .image-scroll-container img {
   height: 100%; /* 圖片高度填滿容器 */
-  width: auto; /* 寬度自動調整以保持原始寬高比 */
+  width: auto; /* 寬度自動調整以保持原始高比 */
   object-fit: contain; /* 確保整個圖片可見 */
   margin-right: 10px; /* 圖片之間的間隔 */
 }
@@ -772,4 +803,7 @@ body li {
 .skill-carousel:hover .animate-carousel {
   animation-play-state: paused;
 }
+
+
+
 
