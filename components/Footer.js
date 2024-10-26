@@ -84,7 +84,7 @@ const FooterBottom = () => {
     <div className="flex flex-col-reverse pb-6 items-center md:flex-row md:justify-between w-full">
       <div className="mb-4 md:mb-0">
         <div className="logo-white-containter">
-          <img src="/jordan-wu_white_logo.png" alt="L" className="navbar-logo-img" />
+          <img src="/jordan_wu_logo.png" alt="L" className="navbar-logo-img" />
         </div>
       </div>
       <div className="text-center mb-4 md:mb-0 flex flex-col md:flex-row items-center">

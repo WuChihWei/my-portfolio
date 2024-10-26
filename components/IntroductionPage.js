@@ -2,7 +2,7 @@ import React from 'react';
 
 const IntroductionPage = ({ title, description, backgroundImageUrl, contentImageUrl, websiteLink }) => {
   return (
-    <div className="relative z-10 pt-10 flex flex-col w-full md:h-screen">
+    <div className="relative z-10 flex flex-col w-full md:h-screen">
       
       <div className="flex flex-col lg:flex-row items-center w-full h-full">
         <div className="flex flex-col justify-between md:justify-around w-full p-p-gap py-14 pr-10 md:pr-10 h-full lg:w-1/2 text-black">
@@ -55,13 +55,13 @@ const IntroductionPage = ({ title, description, backgroundImageUrl, contentImage
 
         </div>
 
-        <div className="w-full lg:w-3/5 h-1/2 md:h-full md:w-full relative">
+        <div className="w-full lg:w-3/5 h-1/2 md:h-full md:w-full relative p-20">
           {contentImageUrl && (
-            <div className="flex  lg:justify-end h-full">
+            <div className="flex  lg:justify-end h-full ">
               <img 
                 src={contentImageUrl} 
                 alt={`${title} screenshot`} 
-                className="w-full h-full  md:object-cover" 
+                className="w-full h-full  md:object-cover rounded-3xl" 
               />
             </div>
           )}

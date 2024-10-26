@@ -84,12 +84,12 @@ export default function Home() {
 
   return (
     <div className='home-container h-auto'>
-      <div className="pt-8  p-p-gap items-center bg-white" >
-      <div className="home-cover h-auto md:h-[calc(100vh-80px)] flex flex-col md:flex-row justify-items-center items-center bg-blue-600 rounded-3xl" >
+      <div className="pt-4  p-p-gap items-center bg-white" >
+      <div className="home-cover h-auto md:h-[calc(100vh-40px)] flex flex-col md:flex-row justify-items-center items-center bg-blue-600 rounded-3xl" >
         <div className="home-content-left md:w-1/2 flex flex-col justify-items-center text-left">
           <div className="flex flex-col flex-grow p-p-gap mt-4 md:mt-2  text-white">
-            <div className="py-6 md:pr-0 md:py-0"> {/* 添加 py-8 用於小螢幕 */}
-              <h1 className="py-2 mr-20 heading-1-custom">
+            <div className="pt-28 md:pr-0 md:py-0"> {/* 添加 py-8 用於小螢幕 */}
+              <h1 className="py-2  heading-1-custom">
               End-to-end Digital Product Enthusiast delivering user-centered solutions through technology, strategy, and AI-power.
               </h1>
               <div className="py-2 md:py-0 mr-0 md:mr-10">
@@ -572,7 +572,7 @@ export default function Home() {
       </section>  
 
       <section className='skillSection w-full py-20  rounded-3xl'>
-        <div className='container h-full py-10  bg-stone-800  rounded-full'>
+        <div className='container h-full py-20  bg-blue-400  rounded-full'>
           <div className='h-1/2 flex flex-col justify-center'>         
           <h2 className='heading-2-custom text-white py-8  text-center'>Innovative Skills</h2>
           <p className='heading-4-custom text-white mb-12 px-8 text-center'>
