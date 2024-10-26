@@ -3,7 +3,6 @@ import FooterWrapper from '../components/FooterWrapper';
 import GridOverlay from '../components/GridOverlay'; 
 import '../src/app/globals.css';
 import { Analytics } from "@vercel/analytics/react"
-import { metadata } from "@vercel/analytics/react"
 
 export const metadata = {
   title: 'Jordan Wu | Product Enthusiast',
