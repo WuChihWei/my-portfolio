@@ -4,7 +4,7 @@
 
 @layer components {
   .heading-1-custom {
-    @apply text-3xl font-semibold mb-4 md:text-4xl lg:text-8xl lg:font-extrabold
+    @apply text-4xl font-bold mb-4 md:text-4xl lg:text-5xl lg:font-bold
     tracking-wide leading-relaxed
     md:tracking-normal md:leading-snug
     lg:tracking-normal lg:leading-normal;

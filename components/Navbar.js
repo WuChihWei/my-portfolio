@@ -84,13 +84,11 @@ const Navbar = () => {
       <div className={`navbar-container ${isMobile ? 'mobile' : ''} relative z-50`}>
         <Link href="/" onClick={closeMenu} className="navbar-logo-container">
           <div className={`navbar-logo ${isMobile ? 'mobile' : ''}`}>
-            <Link href="/">
-              <img
-                src="/jordan_wu_logo.png"
-                alt="Jordan Wu Logo"
-                className={`navbar-logo-img ${isScrolled ? 'rotate-logo' : ''}`}
-              />
-            </Link>
+            <img
+              src="/jordan_wu_logo.png"
+              alt="Jordan Wu Logo"
+              className={`navbar-logo-img ${isScrolled ? 'rotate-logo' : ''}`}
+            />
           </div>
         </Link>
         {isMobile ? (

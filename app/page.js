@@ -572,7 +572,7 @@ export default function Home() {
       </section>  
 
       <section className='skillSection w-full py-20  rounded-3xl'>
-        <div className='container h-full py-20  bg-blue-400  rounded-full'>
+        <div className='container h-full py-20  bg-stone-700  rounded-full'>
           <div className='h-1/2 flex flex-col justify-center'>         
           <h2 className='heading-2-custom text-white py-8  text-center'>Innovative Skills</h2>
           <p className='heading-4-custom text-white mb-12 px-8 text-center'>

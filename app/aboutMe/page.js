@@ -25,15 +25,16 @@ export default function AboutMePage() {
         }));
       };
   return (
-    <div className='home-container py-20 p-10 '>
+    <div className='home-container p-p-gap py-20 md:p-10 '>
       {/* After the home cover section */}
-      <div className='p-10 bg-stone-200 rounded-3xl'>
-      <h1 className="heading-2-custom py-20">
-      End-to-End Digital <br/>
-      Product Enthusiast
-      </h1>
+      <h1 className="heading-2-custom p-20 md:pt-32 text-stone-800 text-center">
+      End-to-end Digital Product Enthusiast delivering user-centered solutions through technology, strategy, and AI-power.
 
-      <section className="resume-section pt-8">
+      </h1>
+      <div className='py-20 p-p-gap bg-stone-200 rounded-3xl'>
+    
+
+      <section className="resume-section pt-8 text-stone-800">
         <div className="resume-container h-full">
             <div className='title-contatiner py-4'>
           <h2 className='heading-2-custom'>Education</h2>
