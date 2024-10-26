@@ -8,7 +8,7 @@ export const metadata = {
   title: 'Jordan Wu | Product Enthusiast',
   description: 'Welcome to Jordan Wu portfolio website, End-to-End Digital Product Enthusiast.',
   icons: {
-    icon: '/jordan_wu_web_logo.png',
+    icon: '/favicon.ico',
   },
 };
 
