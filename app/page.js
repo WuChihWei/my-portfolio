@@ -11,18 +11,18 @@ import { db } from '../lib/firebase';
 import { Fragment } from 'react';
 import { useRouter } from 'next/navigation';
 const skillIcons = [
-  { icon: '/skill-1.png', name: 'Xcode' },
-  { icon: '/skill-2.png', name: 'React' },
-  { icon: '/skill-3.png', name: 'Next.js' },
-  { icon: '/skill-4.png', name: 'Node.js' },
-  { icon: '/skill-5.png', name: 'Firebase' },
-  { icon: '/skill-6.png', name: 'Python' },
-  { icon: '/skill-7.png', name: 'Flask' },
-  { icon: '/skill-8.png', name: 'MongoDB' },
-  { icon: '/skill-9.png', name: 'Swift' },
-  { icon: '/skill-10.png', name: 'TypeScript' },
-  { icon: '/skill-11.png', name: 'Tailwind' },
-  { icon: '/skill-12.png', name: 'Figma' }
+  { icon: '/skill-1.png', name: 'After Effect' },
+  { icon: '/skill-2.png', name: 'Next.js' },
+  { icon: '/skill-3.png', name: 'React' },
+  { icon: '/skill-4.png', name: 'Cursor' },
+  { icon: '/skill-5.png', name: 'Python' },
+  { icon: '/skill-6.png', name: 'HTML' },
+  { icon: '/skill-7.png', name: 'CSS' },
+  { icon: '/skill-8.png', name: 'Javascript' },
+  { icon: '/skill-9.png', name: 'Figma' },
+  { icon: '/skill-10.png', name: 'Firebase' },
+  { icon: '/skill-11.png', name: 'Trello' },
+  { icon: '/skill-12.png', name: 'Xcode' }
 ];
 
 export default function Home() {
@@ -129,8 +129,8 @@ export default function Home() {
           </div>
         </div>
 
-        <div className="h-4/5  pr-10 md:w-1/2 flex flex-col overflow-hidden rounded-3xl">
-        <div className="md:py-8 gap-4 max-md:w-full w-full h-[calc(50vh)] md:h-[calc(100vh)] flex flex-col overflow-hidden bg-white rounded-3xl">
+        <div className="h-4/5 w-full p-6 md:pr-10 md:pt-10 md:w-1/2 flex flex-col overflow-hidden rounded-3xl">
+        <div className="p-6 md:py-8 gap-4 max-md:w-full w-full h-[calc(50vh)] md:h-[calc(100vh)] flex flex-col overflow-hidden bg-white rounded-3xl">
           <div className="h-full image-scroll-container top flex-grow space-y-0 md:space-y-0 "> 
             {[...Array(6)].map((_, index) => (
               <img key={index} src={`/project-${index + 1}.png`} alt={`Project ${index + 1}`} />
@@ -199,9 +199,9 @@ export default function Home() {
       <section className="resume-section p-p-gap">
         <h1 className='heading-2-custom '>Projects</h1>
         <div className="resume-container h-auto">
-          <div className='title-contatiner py-20 bg-stone-100 p-40 rounded-3xl'>
+          <div className='title-contatiner py-20 bg-stone-100 p-10 ls:p-40 rounded-3xl'>
 
-            <div className='grid grid-cols-1 md:grid-cols-2 gap-x-40 gap-y-10'>
+            <div className='grid grid-cols-1 md:grid-cols-2  gap-x-10 md:gap-x-20 ls:gap-x-40 gap-y-10'>
               {/* Project 1 */}
               <div className="resume-item">
                 <div className="resume-item-header flex flex-col place-items-start">
@@ -341,6 +341,7 @@ export default function Home() {
         </div>
       {/* </section> */}
 
+      <div  className='py-10'>
       <div className='title-container  bg-stone-200 rounded-3xl p-20'>
       <h2 className='heading-2-custom'>Work Experience</h2>
 
@@ -565,13 +566,13 @@ export default function Home() {
         </div>
       </div>
     </div>
-       
+    </div>
       {/* </div> */}
 
       </section>  
 
       <section className='skillSection w-full py-20  rounded-3xl'>
-        <div className='container h-full py-10  bg-stone-800  rounded-3xl'>
+        <div className='container h-full py-10  bg-stone-800  rounded-full'>
           <div className='h-1/2 flex flex-col justify-center'>         
           <h2 className='heading-2-custom text-white py-8  text-center'>Innovative Skills</h2>
           <p className='heading-4-custom text-white mb-12 px-8 text-center'>

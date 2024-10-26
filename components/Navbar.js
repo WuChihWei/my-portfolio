@@ -34,8 +34,8 @@ const Navbar = () => {
 
   useEffect(() => {
     const handleScroll = () => {
-      const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-      setIsScrolled(scrollTop > 100); // Change the threshold as needed
+      const scrollPosition = window.scrollY;
+      setIsScrolled(scrollPosition > 50);
     };
 
     const handleClickOutside = (event) => {
@@ -84,7 +84,13 @@ const Navbar = () => {
       <div className={`navbar-container ${isMobile ? 'mobile' : ''} relative z-50`}>
         <Link href="/" onClick={closeMenu} className="navbar-logo-container">
           <div className={`navbar-logo ${isMobile ? 'mobile' : ''}`}>
-            <img src="/jordan-wu_logo.png" alt="L" className="navbar-logo-img" />
+            <Link href="/">
+              <img
+                src="/jordan_wu_logo.png"
+                alt="Jordan Wu Logo"
+                className={`navbar-logo-img ${isScrolled ? 'rotate-logo' : ''}`}
+              />
+            </Link>
           </div>
         </Link>
         {isMobile ? (
@@ -94,8 +100,8 @@ const Navbar = () => {
         ) : (
           <ul className="navbar-items desktop">
             <li>
-              <Link href="/" className={isActive('/') ? 'font-bold' : ''}>
-                Home
+              <Link href="/" className={`${isActive('/') ? 'font-bold' : ''} whitespace-nowrap`}>
+                Jordan Wu
               </Link>
             </li>
             <li className="relative projects-dropdown">

@@ -28,8 +28,8 @@ const FooterTop = () => {
   };
 
   return (
-    <div className=" p-p-gap flex flex-col items-center justify-items-center md:flex-row h-full bg-blue-800 md:m-10 m-20 py-20 rounded-3xl">
-      <div className="w-full  md:w-1/2 p-p-gap mb-6 md:mb-0 flex flex-col md:justify-items-start">
+    <div className="p-p-gap flex flex-col items-center justify-items-center md:flex-row h-full bg-blue-800 md:m-10 m-4 py-20 rounded-3xl">
+      <div className="w-full md:w-1/2 p-p-gap mb-6 md:mb-0 flex flex-col md:justify-items-start">
       <div className="text-white ">
         <h2 className="heading-2-custom">Contact me</h2>
         <p className="heading-5-custom pt-10">

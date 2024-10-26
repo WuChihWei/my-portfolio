@@ -4,7 +4,7 @@
 
 @layer components {
   .heading-1-custom {
-    @apply text-4xl font-black mb-4 md:text-5xl lg:text-5xl lg:font-extrabold
+    @apply text-3xl font-semibold mb-4 md:text-4xl lg:text-5xl lg:font-extrabold
     tracking-wide leading-relaxed
     md:tracking-normal md:leading-snug
     lg:tracking-normal lg:leading-normal;
@@ -212,13 +212,14 @@ a {
   display: flex;
   justify-content: center; /* 水平居中 */
   align-items: center;
-  padding-top: 60px;
+  padding-top: 50px;
   /* background-color: white; */
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
   z-index: 50;
+  
 }
 
 
@@ -226,21 +227,22 @@ a {
   display: flex;
   width: 100%;
   border-radius: 60px;
-  padding: 20px;
+  padding: 12px 12px;
   background-color: #ffffff;
   max-width: 1080px; 
   align-items: center;
   justify-content: center;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.8);
+  box-shadow: 2px 2px 14px rgba(0, 0, 0, 0.8);
+  background-color: rgba(255, 255, 255, 0.9); /* 80% opaque white */
 }
 
-.navbar-logo{
+.navbar-logo img{
   display: flex;
-  height: 14px;
+  height: 60px;
 }
 
 .logo-white-containter img{
-height: 20px;
+height: 10px;
 }
 
 .navbar-logo-container{
@@ -248,11 +250,12 @@ height: 20px;
   align-items: center;
   width: 100%;
 }
+
 .navbar-items{
   display: flex;
   justify-content: space-between;
   gap: 80px;
-  /* width: 200px; */
+  padding-right: 12px;
 }
 
 .projects-dropdown {
@@ -293,7 +296,7 @@ height: 20px;
 
 .navbar-logo.mobile .navbar-logo-img {
   width: auto; 
-  height: 20px;
+  height: 40px;
   /* margin-top: 0px; */
   /* background-color: gray; */
   align-items: flex-end;
@@ -379,7 +382,7 @@ height: 20px;
   color: rgb(50, 121, 202);
 }
 
-/* 簡歷部分樣式 */
+/* 簡歷部���樣式 */
 /* .resume-section {
   margin-top: 40px;
 } */
@@ -883,4 +886,16 @@ body li {
   100% {
     transform: translateX(0);
   }
+}
+
+.navbar-logo-img {
+  transition: transform 0.3s ease-in-out;
+}
+
+.rotate-logo {
+  transform: rotate(180deg);
+}
+
+.navbar-logo {
+  overflow: visible;
 }
