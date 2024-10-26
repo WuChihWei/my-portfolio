@@ -804,6 +804,83 @@ body li {
   animation-play-state: paused;
 }
 
+@keyframes carousel-ltr {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
 
+@keyframes carousel-rtl {
+  0% {
+    transform: translateX(-50%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
 
+.animate-carousel-ltr {
+  animation: carousel-ltr 50s linear infinite;
+}
 
+.animate-carousel-rtl {
+  animation: carousel-rtl 50s linear infinite;
+}
+
+.skill-icon-container {
+  flex: 0 0 auto;
+  width: 160px; /* 調整這個值以改變圖標之間的間距 */
+  padding: 0 10px; /* 在圖標容器內添加一些內邊距 */
+}
+
+.skill-icon-inner {
+  border: 2px solid white;
+  border-radius: 9999px;
+  padding: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+}
+
+.skill-icon {
+  width: 32px;
+  height: 32px;
+  margin-right: 10px;
+}
+
+.skill-name {
+  color: white;
+  text-align: center;
+  font-size: 0.875rem;
+  margin-right: 8px;
+}
+
+.animate-carousel-ltr {
+  animation: carousel-ltr 80s linear infinite;
+}
+
+.animate-carousel-rtl {
+  animation: carousel-rtl 80s linear infinite;
+}
+
+@keyframes carousel-ltr {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(calc(-50% - 80px)); /* 調整這個值以匹配 .skill-icon-container 的一半寬度 */
+  }
+}
+
+@keyframes carousel-rtl {
+  0% {
+    transform: translateX(calc(-50% - 80px)); /* 調整這個值以匹配 .skill-icon-container 的一半寬度 */
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
