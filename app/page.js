@@ -4,8 +4,9 @@ import { useState, useEffect, useRef, useCallback } from 'react';
 import { MdOutlineDesignServices, MdOutlineComputer, MdOutlineBrush } from 'react-icons/md';
 import { FiTool } from "react-icons/fi";
 import { IoMdInformationCircleOutline } from "react-icons/io";
-import { FaLinkedin, FaGithub } from 'react-icons/fa';
+import { FaLinkedin, FaGithub, FaRegPlayCircle, FaRegStopCircle } from 'react-icons/fa';
 import { MdArrowOutward } from "react-icons/md";
+import { LuArrowUpRight } from "react-icons/lu";
 import { collection, getDocs } from 'firebase/firestore';
 import { db } from '../lib/firebase';
 import { Fragment } from 'react';
@@ -28,12 +29,12 @@ const skillIcons = [
 ];
 
 const projects = [
-  { id: 'project-1', videoId: 1000000001 }, // 假 ID
-  { id: 'project-2', videoId: 1000000002 }, // 假 ID
-  { id: 'project-3', videoId: 1 }, 
-  { id: 'project-4', videoId: 1023690918 },
-  { id: 'project-5', videoId: 1023664411 },
-  { id: 'project-6', videoId: 1023686732 }
+  { id: 'project-1', videoId: 1000000002, name:'' }, // 假 ID
+  { id: 'project-2', videoId: 1023732739, name:'davincin' },
+  { id: 'project-3', videoId: 1023720383, name:'hommap' }, 
+  { id: 'project-4', videoId: 1023690918, name:'superfake' },
+  { id: 'project-5', videoId: 1023664411, name:'' },
+  { id: 'project-6', videoId: 1023686732, name:'' }
   // 可以根據需要添加更多項目
 ];
 
@@ -44,6 +45,7 @@ export default function Home() {
   const [hoverProjects, setHoverProjects] = useState({});
   const playerRefs = useRef({});
   const carouselRef = useRef(null);
+  const [isPlaying, setIsPlaying] = useState({});
 
   useEffect(() => {
     const fetchProjectsData = async () => {
@@ -68,7 +70,6 @@ export default function Home() {
       projects.forEach(project => {
         const playerElement = document.getElementById(`vimeo-player-${project.id}`);
         if (playerElement && !playerRefs.current[project.id]) {
-          // 添加 vimeo-wrapper 类
           playerElement.classList.add('vimeo-wrapper');
           
           playerRefs.current[project.id] = new Player(playerElement, {
@@ -78,17 +79,18 @@ export default function Home() {
             background: true,
             muted: true,
             loop: true,
+            autoplay: false
           });
 
           playerRefs.current[project.id].ready().then(() => {
             playerRefs.current[project.id].setVolume(0);
             setIsVideoReady(prev => ({ ...prev, [project.id]: true }));
             
-            // 为 iframe 元素添加类
             const iframe = playerElement.querySelector('iframe');
             if (iframe) {
               iframe.style.width = '100%';
               iframe.style.height = '100%';
+              iframe.style.backgroundColor = '#000000';
             }
           }).catch(error => {
             console.error(`Error initializing player for ${project.id}:`, error);
@@ -123,23 +125,73 @@ export default function Home() {
     }));
   };
 
-  const handleProjectMouseEnter = useCallback((projectId) => {
-    setHoverProjects(prev => ({ ...prev, [projectId]: true }));
-    if (playerRefs.current[projectId] && isVideoReady[projectId]) {
-      playerRefs.current[projectId].play().catch(error => {
-        console.error(`Error playing video for ${projectId}:`, error);
-      });
+  const handleProjectMouseEnter = useCallback(async (projectId) => {
+    if (!isPlaying[projectId]) {
+      try {
+        setHoverProjects(prev => ({ ...prev, [projectId]: true }));
+        if (playerRefs.current[projectId] && isVideoReady[projectId]) {
+          await playerRefs.current[projectId].play();
+        }
+      } catch (error) {
+        console.error(`Error playing video on hover for ${projectId}:`, error);
+      }
     }
-  }, [isVideoReady]);
+  }, [isVideoReady, isPlaying]);
 
-  const handleProjectMouseLeave = useCallback((projectId) => {
-    setHoverProjects(prev => ({ ...prev, [projectId]: false }));
-    if (playerRefs.current[projectId] && isVideoReady[projectId]) {
-      playerRefs.current[projectId].pause().catch(error => {
-        console.error(`Error pausing video for ${projectId}:`, error);
-      });
+  const handleProjectMouseLeave = useCallback(async (projectId) => {
+    if (!isPlaying[projectId]) {
+      try {
+        setHoverProjects(prev => ({ ...prev, [projectId]: false }));
+        if (playerRefs.current[projectId] && isVideoReady[projectId]) {
+          await playerRefs.current[projectId].pause();
+        }
+      } catch (error) {
+        console.error(`Error pausing video on leave for ${projectId}:`, error);
+      }
     }
-  }, [isVideoReady]);
+  }, [isVideoReady, isPlaying]);
+
+  const handlePlayClick = useCallback(async (projectId) => {
+    try {
+      setIsPlaying(prev => {
+        const newState = { ...prev };
+        // 暫停所有其他影片
+        Object.keys(newState).forEach(key => {
+          if (key !== projectId) {
+            newState[key] = false;
+            if (playerRefs.current[key]) {
+              playerRefs.current[key].pause().catch(err => {
+                console.error(`Error pausing video ${key}:`, err);
+              });
+            }
+          }
+        });
+        
+        // 切換當前影片的播放狀態
+        newState[projectId] = !prev[projectId];
+        
+        // 使用 Promise 來處理播放/暫停
+        if (newState[projectId]) {
+          if (playerRefs.current[projectId]) {
+            playerRefs.current[projectId].play().catch(err => {
+              console.error(`Error playing video ${projectId}:`, err);
+              newState[projectId] = false; // 如果播放失敗，恢復狀態
+            });
+          }
+        } else {
+          if (playerRefs.current[projectId]) {
+            playerRefs.current[projectId].pause().catch(err => {
+              console.error(`Error pausing video ${projectId}:`, err);
+            });
+          }
+        }
+        
+        return newState;
+      });
+    } catch (error) {
+      console.error('Error in handlePlayClick:', error);
+    }
+  }, []);
 
   function getSkillName(index) {
     const skillNames = [
@@ -314,22 +366,46 @@ export default function Home() {
                       onMouseEnter={() => handleProjectMouseEnter(project.id)}
                       onMouseLeave={() => handleProjectMouseLeave(project.id)}
                     >
+                      {(project.id === 'project-2' || project.id === 'project-3' || project.id === 'project-4') && (
+                        <div 
+                        className="absolute top-4 right-4 z-10 bg-white rounded-full p-2 cursor-pointer hover:bg-gray-100 transition-all duration-300 shadow-lg hover:shadow-xl"
+                        onClick={(e) => {
+                            e.stopPropagation();
+                            router.push(`/projects/${project.name}`);
+                          }}
+                        >
+                          <LuArrowUpRight 
+                            size={24} 
+                            className="text-black"
+                          />
+                        </div>
+                      )}
+                      
                       <img 
                         src={`/home_p${project.id.split('-')[1]}.png`}
                         alt={getProjectName(project.id)}
                         className="w-full h-full object-cover rounded-3xl absolute top-0 left-0" 
-                        style={{ opacity: hoverProjects[project.id] ? 0 : 1 }}
+                        style={{ 
+                          opacity: hoverProjects[project.id] || isPlaying[project.id] ? 0 : 1,
+                          transition: 'opacity 0.3s ease-in-out',
+                          display: isPlaying[project.id] ? 'none' : 'block'
+                        }}
                       />
+
+
+                      
                       <div 
                         id={`vimeo-player-${project.id}`}
-                        className="w-full h-full  absolute top-0 left-0 overflow-hidden" 
+                        className="w-full h-full absolute top-0 left-0 overflow-hidden" 
                         style={{ 
-                          opacity: hoverProjects[project.id] ? 1 : 0,
+                          opacity: hoverProjects[project.id] || isPlaying[project.id] ? 1 : 0,
+                          transition: 'opacity 0.3s ease-in-out'
                         }}
                       >
                         <div className="w-full h-full">
                           {/* Vimeo player will be inserted here */}
                         </div>
+
                       </div>
                       {openItems[project.id] && (
                         <div className="resume-item-overlay open absolute top-0 left-0 w-full h-full ">
@@ -338,16 +414,39 @@ export default function Home() {
                       )}
                     </div>
                     <div className='flex flex-col place-items-start w-full'>
-                      <div className="flex items-center space-x-1">
+                      <div className="flex items-center space-x-2">
                         <h3 className='heading-3-custom'>{getProjectName(project.id)}</h3>
-                        <IoMdInformationCircleOutline 
-                          size={20} 
-                          className="text-stone-800 cursor-pointer" 
-                          onClick={() => toggleItem(project.id)}
-                        /> 
+                        
+
+                        {isPlaying[project.id] ? (
+                          <FaRegStopCircle 
+                            size={22} 
+                            className="text-red-500 cursor-pointer transition-colors duration-300 hover:text-red-600"
+                            onClick={(e) => {
+                              e.stopPropagation();
+                              handlePlayClick(project.id);
+                            }}
+                          />
+                        ) : (
+                          <FaRegPlayCircle 
+                            size={22} 
+                            className="text-black cursor-pointer transition-colors duration-300 hover:text-blue-600"
+                            onClick={(e) => {
+                              e.stopPropagation();
+                              handlePlayClick(project.id);
+                            }}
+                          />
+                        )}
+                       
                       </div>
                       <div className="flex md:items-center"> 
-                        <p className='decription-2-custom'>{getProjectSubtitle(project.id)}</p>
+                      <IoMdInformationCircleOutline 
+                          size={26} 
+                          className="text-blue-500 cursor-pointer" 
+                          onClick={() => toggleItem(project.id)}
+                        /> 
+                        <p className='decription-2-custom pl-2'>{getProjectSubtitle(project.id)}</p>
+                        
                       </div>
                     </div>
                   </div>
