@@ -352,7 +352,7 @@ export default function Home() {
 
                   {/* <h1 className='heading-2-custom mb-10'>Projects</h1> */}
       <section className="resume-section p-p-gap">
-        <h1 className='heading-2-custom '>Projects</h1>
+        <h1 className='heading-2-custom '>End-to-end Projects</h1>
         <div className="resume-container h-auto">
           <div className='title-contatiner p-2 py-20 bg-stone-100 md:p-10 ls:p-40 rounded-3xl'>
 
