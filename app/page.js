@@ -239,7 +239,7 @@ export default function Home() {
 
   return (
     <div className='home-container h-auto'>
-      <div className="pt-4  p-p-gap items-center bg-white" >
+      <div className="pt-4 p-p-gap items-center bg-white" >
       <div className="home-cover h-auto md:h-[calc(100vh-40px)] flex flex-col md:flex-row justify-items-center items-center bg-blue-600 rounded-3xl" >
         <div className="home-content-left md:w-1/2 flex flex-col justify-items-center text-left">
           <div className="flex flex-col flex-grow p-p-gap mt-4 md:mt-2  text-white">
@@ -354,7 +354,7 @@ export default function Home() {
       <section className="resume-section p-p-gap">
         <h1 className='heading-2-custom '>Projects</h1>
         <div className="resume-container h-auto">
-          <div className='title-contatiner py-20 bg-stone-100 p-10 ls:p-40 rounded-3xl'>
+          <div className='title-contatiner p-2 py-20 bg-stone-100 md:p-10 ls:p-40 rounded-3xl'>
 
             <div className='grid grid-cols-1 md:grid-cols-2 gap-x-0 md:gap-x-40 ls:gap-x-20 gap-y-10 '>
               {projects.map((project) => (
@@ -391,9 +391,6 @@ export default function Home() {
                           display: isPlaying[project.id] ? 'none' : 'block'
                         }}
                       />
-
-
-                      
                       <div 
                         id={`vimeo-player-${project.id}`}
                         className="w-full h-full absolute top-0 left-0 overflow-hidden" 
@@ -417,7 +414,6 @@ export default function Home() {
                       <div className="flex items-center space-x-2">
                         <h3 className='heading-3-custom'>{getProjectName(project.id)}</h3>
                         
-
                         {isPlaying[project.id] ? (
                           <FaRegStopCircle 
                             size={22} 
@@ -430,23 +426,28 @@ export default function Home() {
                         ) : (
                           <FaRegPlayCircle 
                             size={22} 
-                            className="text-black cursor-pointer transition-colors duration-300 hover:text-blue-600"
+                            className="text-blue-600 cursor-pointer transition-colors duration-300 hover:text-blue-900"
                             onClick={(e) => {
                               e.stopPropagation();
                               handlePlayClick(project.id);
                             }}
                           />
                         )}
+                        
                        
                       </div>
-                      <div className="flex md:items-center"> 
+                      <div className="flex">
+                      <div>
                       <IoMdInformationCircleOutline 
-                          size={26} 
-                          className="text-blue-500 cursor-pointer" 
+                          size={22}  // 統一設置為 22
+                          className="text-black cursor-pointer hover:text-blue-600 transition-colors duration-300" 
                           onClick={() => toggleItem(project.id)}
-                        /> 
-                        <p className='decription-2-custom pl-2'>{getProjectSubtitle(project.id)}</p>
-                        
+                        />
+                        </div>
+                     <div>
+                      <p className='decription-2-custom pl-2'>{getProjectSubtitle(project.id)}</p>
+                      </div>
+
                       </div>
                     </div>
                   </div>
@@ -457,11 +458,11 @@ export default function Home() {
         </div>
       {/* </section> */}
 
-      <div  className='py-10'>
-      <div className='title-container  bg-stone-200 rounded-3xl p-20'>
+      <div  className='md:py-10'>
+      <div className='title-container p-4 bg-stone-200 rounded-3xl md:p-20'>
       <h2 className='heading-2-custom'>Work Experience</h2>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-20">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 md:gap-20">
         {/* Comgora */}
         <div className="experience-item py-10 rounded-lg">
           <div className="flex justify-between items-start mb-4">
