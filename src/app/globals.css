@@ -313,7 +313,7 @@ height: 60px;
   color: rgb(50, 121, 202);
 }
 
-/* 簡歷部���樣式 */
+/* 簡歷部樣式 */
 /* .resume-section {
   margin-top: 40px;
 } */
@@ -830,4 +830,38 @@ body li {
 
 .navbar-logo {
   overflow: visible;
+}
+
+.yt-embed-holder {
+  width: 100%;
+  overflow: hidden;
+  aspect-ratio: 16/9;
+  pointer-events: none;
+}
+
+.yt-embed-holder-iframe {
+  width: 300%;
+  height: 300%;
+  /* margin-left: -100%; */
+}
+
+.vimeo-wrapper {
+  position: relative;
+  padding-bottom: 56.25%; 
+  height: 0;
+  overflow: hidden;
+  /* background-color: #000000;  */
+
+}
+
+.vimeo-wrapper iframe {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 100%;
+  height: 100%;
+  /* transform: translate(-50%, -50%); */
+  object-fit: cover;
+  /* background-color: #000000; */
+
 }

@@ -10,6 +10,8 @@ import { collection, getDocs } from 'firebase/firestore';
 import { db } from '../lib/firebase';
 import { Fragment } from 'react';
 import { useRouter } from 'next/navigation';
+import Player from '@vimeo/player';
+
 const skillIcons = [
   { icon: '/skill-1.png', name: 'After Effect' },
   { icon: '/skill-2.png', name: 'Next.js' },
@@ -25,9 +27,24 @@ const skillIcons = [
   { icon: '/skill-12.png', name: 'Xcode' }
 ];
 
+const projects = [
+  { id: 'project-1', videoId: 1000000001 }, // 假 ID
+  { id: 'project-2', videoId: 1000000002 }, // 假 ID
+  { id: 'project-3', videoId: 1 }, 
+  { id: 'project-4', videoId: 1023690918 },
+  { id: 'project-5', videoId: 1023664411 },
+  { id: 'project-6', videoId: 1023686732 }
+  // 可以根據需要添加更多項目
+];
+
 export default function Home() {
   const [projectsData, setProjectsData] = useState(null);
   const router = useRouter();
+  const [isVideoReady, setIsVideoReady] = useState({});
+  const [hoverProjects, setHoverProjects] = useState({});
+  const playerRefs = useRef({});
+  const carouselRef = useRef(null);
+
   useEffect(() => {
     const fetchProjectsData = async () => {
       try {
@@ -46,22 +63,56 @@ export default function Home() {
     fetchProjectsData();
   }, []);
 
+  useEffect(() => {
+    const initPlayers = () => {
+      projects.forEach(project => {
+        const playerElement = document.getElementById(`vimeo-player-${project.id}`);
+        if (playerElement && !playerRefs.current[project.id]) {
+          // 添加 vimeo-wrapper 类
+          playerElement.classList.add('vimeo-wrapper');
+          
+          playerRefs.current[project.id] = new Player(playerElement, {
+            id: project.videoId,
+            responsive: true,
+            autopause: false,
+            background: true,
+            muted: true,
+            loop: true,
+          });
+
+          playerRefs.current[project.id].ready().then(() => {
+            playerRefs.current[project.id].setVolume(0);
+            setIsVideoReady(prev => ({ ...prev, [project.id]: true }));
+            
+            // 为 iframe 元素添加类
+            const iframe = playerElement.querySelector('iframe');
+            if (iframe) {
+              iframe.style.width = '100%';
+              iframe.style.height = '100%';
+            }
+          }).catch(error => {
+            console.error(`Error initializing player for ${project.id}:`, error);
+          });
+        }
+      });
+    };
+
+    initPlayers();
+
+    return () => {
+      projects.forEach(project => {
+        if (playerRefs.current[project.id]) {
+          playerRefs.current[project.id].destroy();
+          delete playerRefs.current[project.id];
+        }
+      });
+    };
+  }, []);
+
   const [openItems, setOpenItems] = useState({
-    'project-1': false,
-    'project-2': false,
-    'project-3': false,
     'project-4': false,
     'project-5': false,
     'project-6': false,
-    'project-7': false,
-    'experience-1': false,
-    'experience-2': false,
-    'experience-3': false,
-    'experience-4': false,
-    'award-1': false,
-    'award-2': false,
-    'education-1': false,
-    'education-2': false,
     // ... 其他項目
   });
 
@@ -72,6 +123,24 @@ export default function Home() {
     }));
   };
 
+  const handleProjectMouseEnter = useCallback((projectId) => {
+    setHoverProjects(prev => ({ ...prev, [projectId]: true }));
+    if (playerRefs.current[projectId] && isVideoReady[projectId]) {
+      playerRefs.current[projectId].play().catch(error => {
+        console.error(`Error playing video for ${projectId}:`, error);
+      });
+    }
+  }, [isVideoReady]);
+
+  const handleProjectMouseLeave = useCallback((projectId) => {
+    setHoverProjects(prev => ({ ...prev, [projectId]: false }));
+    if (playerRefs.current[projectId] && isVideoReady[projectId]) {
+      playerRefs.current[projectId].pause().catch(error => {
+        console.error(`Error pausing video for ${projectId}:`, error);
+      });
+    }
+  }, [isVideoReady]);
+
   function getSkillName(index) {
     const skillNames = [
       'JavaScript', 'CSS', 'HTML', 'Python', 'Cursor', 'Xcode',
@@ -80,7 +149,41 @@ export default function Home() {
     return skillNames[index] || `Skill ${index + 1}`;
   }
 
-  const carouselRef = useRef(null);
+  function getProjectName(projectId) {
+    const names = {
+      'project-1': 'Jordan-Wu.com',
+      'project-2': 'Davincin',
+      'project-3': 'Hommap',
+      'project-4': 'Superfake',
+      'project-5': 'Comgora',
+      'project-6': 'Naturian'
+    };
+    return names[projectId] || 'Unknown Project';
+  }
+
+  function getProjectDescription(projectId) {
+    const descriptions = {
+      'project-1': 'Product Manager + Full Stack Web Developer. Custom-built. There is no third-party UI component library. able to update information.',
+      'project-2': 'Product Manager +Full Stack Web Developer. Developed CRM tools for the AI-powered knowledge influencers, including automated client management, personalized AI assistants, and automated reporting.',
+      'project-3': 'Product Manager + Full Stack Web Developer. Worked on developing a data-driven platform aimed at improving indoor living conditions by addressing home allergy issues.',
+      'project-4': 'Product Manager + Full Stack Web Developer. Developed key features with using React.js, Next.js, and Tailwind CSS.',
+      'project-5': 'Product Manager + UI/UX Designer. AI-powered contract app for remote workers. Developed cross-platform app with Flutter.',
+      'project-6': 'Full Stack iOS Developer. A social app for people who want to live a more natural life and explore themselves.'
+    };
+    return descriptions[projectId] || 'No description available.';
+  }
+
+  function getProjectSubtitle(projectId) {
+    const subtitles = {
+      'project-1': 'What you are reading now. (2024)',
+      'project-2': 'AI CRM for Knowledge Workers Engaging and Analyzing. (2024)',
+      'project-3': 'Solve your home allergy issues with data-driven interior design. (2024)',
+      'project-4': 'Discover, Create, and Share AI-Driven Inspiration. (2024)',
+      'project-5': 'AI contract generator for small business. (2023)',
+      'project-6': 'An iOS App for people who want to live a more natural life. (2022)'
+    };
+    return subtitles[projectId] || '';
+  }
 
   return (
     <div className='home-container h-auto'>
@@ -201,141 +304,55 @@ export default function Home() {
         <div className="resume-container h-auto">
           <div className='title-contatiner py-20 bg-stone-100 p-10 ls:p-40 rounded-3xl'>
 
-            <div className='grid grid-cols-1 md:grid-cols-2  gap-x-10 md:gap-x-20 ls:gap-x-40 gap-y-10'>
-              {/* Project 1 */}
-              <div className="resume-item">
-                <div className="resume-item-header flex flex-col place-items-start">
-                  <div className="flex w-full justify-center bg-white rounded-3xl mb-4 resume-item-image-container" onClick={() => toggleItem('project-1')}>
-                    <img src="/home_p1.png" alt="Jordan-Wu.com" className="w-[600px] h-[450px] object-cover" /> 
-                    <div className={`resume-item-overlay ${openItems['project-1'] ? 'open' : ''}`}>
-                      <p className="resume-item-description">Product Manager + Full Stack Web Developer. Custom-built. There is no third-party UI component library. able to update information.</p>
+            <div className='grid grid-cols-1 md:grid-cols-2 gap-x-0 md:gap-x-40 ls:gap-x-20 gap-y-10 '>
+              {projects.map((project) => (
+                <div key={project.id} className="resume-item w-full">
+                  <div className="resume-item-header flex flex-col place-items-start w-full">
+                    <div 
+                      className="flex w-full h-full justify-center items-center bg-black rounded-3xl mb-4 resume-item-image-container aspect-[4/3]" 
+                      style={{ position: 'relative' }}
+                      onMouseEnter={() => handleProjectMouseEnter(project.id)}
+                      onMouseLeave={() => handleProjectMouseLeave(project.id)}
+                    >
+                      <img 
+                        src={`/home_p${project.id.split('-')[1]}.png`}
+                        alt={getProjectName(project.id)}
+                        className="w-full h-full object-cover rounded-3xl absolute top-0 left-0" 
+                        style={{ opacity: hoverProjects[project.id] ? 0 : 1 }}
+                      />
+                      <div 
+                        id={`vimeo-player-${project.id}`}
+                        className="w-full h-full  absolute top-0 left-0 overflow-hidden" 
+                        style={{ 
+                          opacity: hoverProjects[project.id] ? 1 : 0,
+                        }}
+                      >
+                        <div className="w-full h-full">
+                          {/* Vimeo player will be inserted here */}
+                        </div>
+                      </div>
+                      {openItems[project.id] && (
+                        <div className="resume-item-overlay open absolute top-0 left-0 w-full h-full ">
+                          <p className="resume-item-description">{getProjectDescription(project.id)}</p>
+                        </div>
+                      )}
                     </div>
-                  </div>
-                  <div className='flex flex-col place-items-start'>
-                    <div className="flex items-center space-x-1" onClick={() => toggleItem('project-1')}>
-                      <h3 className='heading-3-custom'>Jordan-Wu.com</h3>
-                      <IoMdInformationCircleOutline size={20} className="text-stone-800 cursor-pointer" /> 
-                    </div>
-                    <div className="flex md:items-center"> 
-                      <p className='decription-2-custom'>What you are reading now. (2024)</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              {/* Project 2 */}
-              <div className="resume-item">
-                <div className="resume-item-header flex flex-col place-items-start">
-                  <div 
-                    className="flex w-full justify-center bg-white rounded-3xl mb-4 resume-item-image-container cursor-pointer" 
-                    onClick={() => router.push('/projects/davincin')}
-                  >
-                    <img src="/home_p2.png" alt="Davincin" className="w-[600px] h-[450px] object-cover" /> 
-                    <div className={`resume-item-overlay ${openItems['project-2'] ? 'open' : ''}`}>
-                      <p className="resume-item-description">Product Manager +Full Stack Web Developer. Developed CRM tools for the AI-powered knowledge influencers, including automated client management, personalized AI assistants, and automated reporting. I worked on both front-end and back-end development, utilizing React.js, Next.js, and TypeScript for the user interface and Node.js, Flask, and Firebase for back-end services. I integrated OpenAI's GPT models and LangChain to enable advanced AI functionalities and used Pinecone for vector similarity searches. Additionally, I deployed the application on Vercel and Google Cloud Platform to ensure scalability.</p>
-                    </div>
-                  </div>
-                  <div className='flex flex-col place-items-start'>
-                    <div className="flex items-center space-x-1" onClick={() => toggleItem('project-2')}>
-                      <h3 className='heading-3-custom'>Davincin</h3>
-                      <IoMdInformationCircleOutline size={20} className="text-stone-800 cursor-pointer" /> 
-                    </div>
-                    <div className="flex md:items-center"> 
-                      <p className='decription-2-custom'>AI CRM for Knowledge Workers Engaging and Analyzing. (2024)</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              {/* Project 3 */}
-              <div className="resume-item">
-                <div className="resume-item-header flex flex-col place-items-start">
-                  <div 
-                    className="flex w-full justify-center bg-white rounded-3xl mb-4 resume-item-image-container cursor-pointer" 
-                    onClick={() => router.push('/projects/superfake')}
-                  >
-                    <img src="/home_p4.png" alt="Superfake" className="w-[600px] h-[450px] object-cover" /> 
-                    <div className={`resume-item-overlay ${openItems['project-3'] ? 'open' : ''}`}>
-                      <p className="resume-item-description">Product Manager + Full Stack Web Developer. Developed key features with using React.js, Next.js, and Tailwind CSS. On the back-end, I integrated Firebase for real-time data handling and user management. I also implemented API integrations, including NewsAPI and SerpAPI, to provide real-time content updates. Additionally, I focused on enhancing user engagement with features like daily challenges, commenting, and liking systems.</p>
-                    </div>
-                  </div>
-                  <div className='flex flex-col place-items-start'>
-                    <div className="flex items-center space-x-1" onClick={() => toggleItem('project-3')}>
-                      <h3 className='heading-3-custom'>Superfake</h3>
-                      <IoMdInformationCircleOutline size={20} className="text-stone-800 cursor-pointer" /> 
-                    </div>
-                    <div className="flex md:items-center"> 
-                      <p className='decription-2-custom'>Discover, Create, and Share AI-Driven Inspiration. (2024)</p>
+                    <div className='flex flex-col place-items-start w-full'>
+                      <div className="flex items-center space-x-1">
+                        <h3 className='heading-3-custom'>{getProjectName(project.id)}</h3>
+                        <IoMdInformationCircleOutline 
+                          size={20} 
+                          className="text-stone-800 cursor-pointer" 
+                          onClick={() => toggleItem(project.id)}
+                        /> 
+                      </div>
+                      <div className="flex md:items-center"> 
+                        <p className='decription-2-custom'>{getProjectSubtitle(project.id)}</p>
+                      </div>
                     </div>
                   </div>
                 </div>
-              </div>
-
-              {/* Project 4 */}
-              <div className="resume-item">
-                <div className="resume-item-header flex flex-col place-items-start">
-                  <div 
-                    className="flex w-full justify-center bg-white rounded-3xl mb-4 resume-item-image-container cursor-pointer" 
-                    onClick={() => router.push('/projects/hommap')}
-                  >
-                    <img src="/home_p3.png" alt="Hommap" className="w-[600px] h-[450px] object-cover" /> 
-                    <div className={`resume-item-overlay ${openItems['project-4'] ? 'open' : ''}`}>
-                      <p className="resume-item-description">Product Manager + Full Stack Web Developer. Worked on developing a data-driven platform aimed at improving indoor living conditions by addressing home allergy issues. Leveraging AI and data analysis, the platform provides personalized interior design recommendations to reduce allergens while optimizing air quality and home energy management.</p>
-                    </div>
-                  </div>
-                  <div className='flex flex-col place-items-start'>
-                    <div className="flex items-center space-x-1" onClick={() => toggleItem('project-4')}>
-                      <h3 className='heading-3-custom'>Hommap</h3>
-                      <IoMdInformationCircleOutline size={20} className="text-stone-800 cursor-pointer" /> 
-                    </div>
-                    <div className="flex md:items-center"> 
-                      <p className='decription-2-custom'>Solve your home allergy issues with data-driven interior design. (2024)</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              {/* Project 5 */}
-              <div className="resume-item">
-                <div className="resume-item-header flex flex-col place-items-start">
-                  <div className="flex w-full justify-center bg-white rounded-3xl mb-4 resume-item-image-container" onClick={() => toggleItem('project-5')}>
-                    <img src="/home_p5.png" alt="Comgora" className="w-[600px] h-[450px] object-cover" /> 
-                    <div className={`resume-item-overlay ${openItems['project-5'] ? 'open' : ''}`}>
-                      <p className="resume-item-description">Product Manager + UI/UX Designer. AI-powered contract app for remote workers. Developed cross-platform app with Flutter.</p>
-                    </div>
-                  </div>
-                  <div className='flex flex-col place-items-start'>
-                    <div className="flex items-center space-x-1" onClick={() => toggleItem('project-5')}>
-                      <h3 className='heading-3-custom'>Comgora</h3>
-                      <IoMdInformationCircleOutline size={20} className="text-stone-800 cursor-pointer" /> 
-                    </div>
-                    <div className="flex md:items-center"> 
-                      <p className='decription-2-custom'>AI contract generator for small business. (2023)</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              {/* Project 6 */}
-              <div className="resume-item">
-                <div className="resume-item-header flex flex-col place-items-start">
-                  <div className="flex w-full justify-center bg-white rounded-3xl mb-4 resume-item-image-container" onClick={() => toggleItem('project-6')}>
-                    <img src="/home_p6.png" alt="Naturian" className="w-[600px] h-[450px] object-cover" /> 
-                    <div className={`resume-item-overlay ${openItems['project-6'] ? 'open' : ''}`}>
-                      <p className="resume-item-description">Full Stack iOS Developer. A social app for people who want to live a more natural life and explore themselves.</p>
-                    </div>
-                  </div>
-                  <div className='flex flex-col place-items-start'>
-                    <div className="flex items-center space-x-1" onClick={() => toggleItem('project-6')}>
-                      <h3 className='heading-3-custom'>Naturian</h3>
-                      <IoMdInformationCircleOutline size={20} className="text-stone-800 cursor-pointer" /> 
-                    </div>
-                    <div className="flex md:items-center"> 
-                      <p className='decription-2-custom'>An iOS App for people who want to live a more natural life. (2022)</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
+              ))}
             </div>
           </div>
         </div>
