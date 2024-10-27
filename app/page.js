@@ -203,12 +203,12 @@ export default function Home() {
 
   function getProjectName(projectId) {
     const names = {
-      'project-1': 'Jordan-Wu.com',
-      'project-2': 'Davincin',
-      'project-3': 'Hommap',
-      'project-4': 'Superfake',
-      'project-5': 'Comgora',
-      'project-6': 'Naturian'
+      'project-1': 'Jordan-Wu.com (Full Stack + UI/UX)',
+      'project-2': 'Davincin (Full Stack + UI/UX)',
+      'project-3': 'Hommap (Full Stack + UI/UX)',
+      'project-4': 'Superfake (Full Stack + UI/UX)',
+      'project-5': 'Comgora (PM + UI/UX)',
+      'project-6': 'Naturian (PM + Full Stack + UI/UX)'
     };
     return names[projectId] || 'Unknown Project';
   }
@@ -216,7 +216,7 @@ export default function Home() {
   function getProjectDescription(projectId) {
     const descriptions = {
       'project-1': 'Product Manager + Full Stack Web Developer. Custom-built. There is no third-party UI component library. able to update information.',
-      'project-2': 'Product Manager +Full Stack Web Developer. Developed CRM tools for the AI-powered knowledge influencers, including automated client management, personalized AI assistants, and automated reporting.',
+      'project-2': 'Product Manager + Full Stack Web Developer. Developed CRM tools for the AI-powered knowledge influencers, including automated client management, personalized AI assistants, and automated reporting.',
       'project-3': 'Product Manager + Full Stack Web Developer. Worked on developing a data-driven platform aimed at improving indoor living conditions by addressing home allergy issues.',
       'project-4': 'Product Manager + Full Stack Web Developer. Developed key features with using React.js, Next.js, and Tailwind CSS.',
       'project-5': 'Product Manager + UI/UX Designer. AI-powered contract app for remote workers. Developed cross-platform app with Flutter.',
@@ -227,12 +227,12 @@ export default function Home() {
 
   function getProjectSubtitle(projectId) {
     const subtitles = {
-      'project-1': 'What you are reading now. (2024)',
-      'project-2': 'AI CRM for Knowledge Workers Engaging and Analyzing. (2024)',
-      'project-3': 'Solve your home allergy issues with data-driven interior design. (2024)',
-      'project-4': 'Discover, Create, and Share AI-Driven Inspiration. (2024)',
-      'project-5': 'AI contract generator for small business. (2023)',
-      'project-6': 'An iOS App for people who want to live a more natural life. (2022)'
+      'project-1': 'What you are reading now. (3-weeks Project)',
+      'project-2': 'AI CRM for Knowledge Workers Engaging and Analyzing. (3-weeks Project)',
+      'project-3': 'Solve your home allergy issues with data-driven interior design. (3-weeks Project)',
+      'project-4': 'Discover, Create, and Share AI-Driven Inspiration. (3-weeks Project)',
+      'project-5': 'AI contract generator for small business. (2-months Project)',
+      'project-6': 'An iOS App for people who want to live a more natural life. (5-weeks Project)'
     };
     return subtitles[projectId] || '';
   }
