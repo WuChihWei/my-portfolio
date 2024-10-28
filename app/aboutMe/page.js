@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import { MdArrowOutward } from "react-icons/md";
+import { CiCircleInfo } from "react-icons/ci";
 
 export default function AboutMePage() {
     const [isClient, setIsClient] = useState(false);
@@ -27,9 +28,8 @@ export default function AboutMePage() {
   return (
     <div className='home-container p-p-gap py-20 md:p-10 '>
       {/* After the home cover section */}
-      <h1 className="heading-2-custom p-20 md:pt-32 text-stone-800 text-center">
+      <h1 className="heading-2-custom p-10 md:pt-32 text-blue-700 text-left">
       End-to-end Digital Product Enthusiast delivering user-centered solutions through technology, strategy, and AI-power.
-
       </h1>
       <div className='py-20 p-p-gap bg-stone-200 rounded-3xl'>
     
@@ -45,15 +45,13 @@ export default function AboutMePage() {
                 <span>M.S. of Interactive Media Technology, KTH Royal Institute of Technology</span>
                  <span className="resume-item-subheader">
                  (Stockholm, Sweden) 2024
-                 <MdArrowOutward className="ml-1" />
+                 {/* <CiCircleInfo className="ml-1" /> */}
                  </span>
                 </div>
-                {openItems['education-1'] && (
                   <div className="resume-item-content my-2">
                       <li>Dedicated to the Technology Entrepreneurship Program.</li>
-                      <li>Specialized in digital product integration and user centered design.</li>
+                      <li>Specialized in digital product integration, AI innovation, interactive technologies and user centered design.</li>
                   </div>
-                )}
               </div>
 
               <div className="resume-item ">
@@ -61,15 +59,13 @@ export default function AboutMePage() {
                   <span>B.A. of Industrial Product Design, Shih Chen University</span>
                  <span className="resume-item-subheader">
                  (Taipei, Taiwan) 2018
-                 <MdArrowOutward className="ml-1" />
+                 {/* <CiCircleInfo className="ml-1" /> */}
                  </span>
                 </div>
-                {openItems['education-2'] && (
                   <div className="resume-item-content my-2">
                       <li>Dedicated to the Design Management Program.</li>
-                      <li>Specialized in service demechanical design and design thinking.</li>
+                      <li>Specialized in sustainable, medical, service design and design thinking.</li>
                   </div>
-                )}
               </div>
             </>
           )}
