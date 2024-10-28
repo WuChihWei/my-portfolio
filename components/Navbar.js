@@ -111,9 +111,10 @@ const Navbar = () => {
               </button>
               {projectsOpen && (
                 <ul className="projects-list">
-                  <li><Link href="/projects/superfake">Superfake</Link></li>
-                  <li><Link href="/projects/hommap">Hommap</Link></li>
                   <li><Link href="/projects/davincin">Davincin</Link></li>
+                  <li><Link href="/projects/hommap">Hommap</Link></li>
+                  <li><Link href="/projects/superfake">Superfake</Link></li>
+
                 </ul>
               )}
             </li>
