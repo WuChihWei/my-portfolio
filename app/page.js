@@ -227,7 +227,7 @@ export default function Home() {
 
   function getProjectSubtitle(projectId) {
     const subtitles = {
-      'project-1': 'What you are reading now. (3-weeks Project)',
+      'project-1': 'What you are reading now. No webflow, Squarespace, Wix... coded by myself. (3-weeks Project)',
       'project-2': 'AI CRM for Knowledge Workers Engaging and Analyzing. (3-weeks Project)',
       'project-3': 'Solve your home allergy issues with data-driven interior design. (3-weeks Project)',
       'project-4': 'Discover, Create, and Share AI-Driven Inspiration. (3-weeks Project)',
