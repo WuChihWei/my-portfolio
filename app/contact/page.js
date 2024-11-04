@@ -14,7 +14,7 @@ export default function ContactPage() {
         <div className="space-y-2 md:space-y-4">
           <p className="flex items-center">
             <span className="mr-4">📍</span> 
-            <span className="text-base md:text-base font-medium">Stockholm | EU </span>
+            <span className="text-base md:text-base font-medium">Stockholm | EU | Taiwan </span>
           </p>
           <p className="flex items-center">
             <span className="mr-4">🌐</span> 
