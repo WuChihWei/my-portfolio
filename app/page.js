@@ -5,6 +5,7 @@ import { MdOutlineDesignServices, MdOutlineComputer, MdOutlineBrush } from 'reac
 import { FiTool } from "react-icons/fi";
 import { IoMdInformationCircleOutline } from "react-icons/io";
 import { FaLinkedin, FaGithub, FaRegPlayCircle, FaRegStopCircle } from 'react-icons/fa';
+import { SiBehance } from "react-icons/si";
 import { MdArrowOutward } from "react-icons/md";
 import { LuArrowUpRight } from "react-icons/lu";
 import { collection, getDocs } from 'firebase/firestore';
@@ -262,7 +263,7 @@ export default function Home() {
                 >
                   <FaLinkedin className="mr-2" />
                   <p className="mr-2 text-sm">LinkedIn</p>                  
-                  <MdArrowOutward className="ml-2 md:ml-4 text-base" />
+                  {/* <MdArrowOutward className="ml-2 md:ml-4 text-base" /> */}
                 </a>
                 </div>
                 <div className='text-white bg-stone-900 p-2 px-4 rounded-full border-2'>
@@ -274,7 +275,19 @@ export default function Home() {
                 >
                   <FaGithub className="mr-2 text-sm" />
                   <p className="mr-2 text-sm">GitHub</p>
-                  <MdArrowOutward className="ml-2 md:ml-4 text-base" />
+                  {/* <MdArrowOutward className="ml-2 md:ml-4 text-base" /> */}
+                </a>
+                </div>
+                <div className='text-white p-2 px-4 rounded-full border-2'>
+                <a
+                  href="https://www.behance.net/gallery/212278441/Digital-Design-Portfolio"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="resume-item-subheader text-white hover:text-stone-800 transition-colors duration-300"
+                >
+                  <SiBehance className="mr-2" />
+                  <p className="mr-2 text-sm">Behance</p>                  
+                  {/* <MdArrowOutward className="ml-2 md:ml-4 text-base" /> */}
                 </a>
                 </div>
               </div>
@@ -316,7 +329,7 @@ export default function Home() {
               <MdOutlineDesignServices size={24} className="text-black" />
               <h5 className="heading-4-custom ml-2">Strategy & Direction</h5> 
             </div>
-            <h4 className="heading-3-custom">20+ Projects</h4>
+            <h4 className="heading-3-custom">14+ Projects</h4>
             <p className="decription-1-custom">In 2 Years. Developed actionable product strategies, guiding projects from concept to launch, aligning user needs with business goals.</p>
           </div>
           <div className="expertise-item w-full sm:w-[calc(100%)] lg:w-[calc(40%)] xl:w-[calc(20%)] flex flex-col items-start text-left">
@@ -332,7 +345,7 @@ export default function Home() {
             <MdOutlineBrush size={24} className="text-black" />
             <h5 className="heading-4-custom ml-2">UI & UX Design</h5> 
           </div>
-            <h4 className="heading-3-custom">25% Engagement Increase</h4>
+            <h4 className="heading-3-custom">45% Engagement Increase</h4>
             <p className="decription-1-custom "> In 2 Months. Led user-centered design processes, enhancing usability and consistency across devices.</p>
           </div>
           <div className="expertise-item w-full sm:w-[calc(100%)] lg:w-[calc(40%)] xl:w-[calc(20%)] flex flex-col items-start text-left">
