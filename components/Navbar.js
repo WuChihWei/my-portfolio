@@ -114,7 +114,7 @@ const Navbar = () => {
                   <li><Link href="/projects/davincin">Davincin</Link></li>
                   <li><Link href="/projects/hommap">Hommap</Link></li>
                   <li><Link href="/projects/superfake">Superfake</Link></li>
-
+                  <li><Link href="/longProjects/comgora">Comgora</Link></li>
                 </ul>
               )}
             </li>
