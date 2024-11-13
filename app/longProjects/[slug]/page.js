@@ -24,26 +24,46 @@ export default function ProjectPage({ params }) {
   const data = projectData;
 
   return (
-    <div className="flex flex-col max-w-7xl mx-auto py-32 sm:px-6 lg:px-8">
+    <div className="flex flex-col max-w-screen-2xl mx-auto py-32 sm:px-20 md:px-20 lg:px-20">
       {/* Hero Section */}
       <section className="py-12">
-        <div className="md:flex flex-col gap-8">
+        <div className="md:flex flex-col gap-12">
           <div className='flex '>
-          <div className="w-full">
-            <h1 className="text-4xl font-bold mb-4">{data.introduction.title}</h1>
+          <div className="w-full md:flex flex-col ">
+            <div className=''>
+            <h1 className="text-6xl w-3/4 font-bold mb-4  ">{data.introduction.title}</h1>
+            </div>
+            <div className='mr-12'>
+            <h3 className="text-xl h-auto font-bold mb-4">Overview</h3>
             <p className="text-lg text-gray-600 mb-6">{data.introduction.description}</p>
+            </div>
           </div>
-          <div className="relative w-full h-[400px]">
+          <div className="relative w-full h-[500px]">
             {data.introduction.imageUrl && (
-              <Image src={data.introduction.imageUrl} alt="Project hero" fill className="object-cover rounded-lg bg-sky-200" />
+              <Image src={data.introduction.imageUrl} 
+              alt="Project hero" 
+              fill 
+              className="object-cover rounded-3xl bg-sky-200" />
             )}
           </div>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-8 mt-8">
             {data.introCards?.map((intro, index) => (
-              <div key={index} className="bg-white rounded-lg">
-                <h3 className="text-xl font-semibold mb-4">{intro.title}</h3>
-                <p className="text-gray-600">{intro.description}</p>
+              <div key={index} className="flex flex-col">
+                <h3 className="text-xl font-bold text-gray-000 mb-2">{intro.title}</h3>
+                <ul className="space-y-1">
+                  {Array.isArray(intro.description) ? (
+                    intro.description.map((point, i) => (
+                      <li key={i} className="text-sm text-gray-900">
+                        {point}
+                      </li>
+                    ))
+                  ) : (
+                    <li className="text-sm text-gray-900">
+                      {intro.description}
+                    </li>
+                  )}
+                </ul>
               </div>
             ))}
           </div>
@@ -51,38 +71,36 @@ export default function ProjectPage({ params }) {
       </section>
 
       {/* Main Tasks & Challenges */}
-      <section className="py-12 ">
-      <div className='flex flex-row-reverse gap-6'>
-          <div className="w-full ">
-            <h1 className="text-4xl font-bold mb-4">{data.tasks.title}</h1>
-            <p className="text-lg text-gray-600 mb-6">{data.tasks.description}</p>
+      <section className="relative -mx-[50vw] left-[50%] right-[50%] w-screen bg-stone-100">
+        <div className="max-w-screen-2xl mx-auto px-4 sm:px-20 lg:px-12">
+          <div className='flex flex-row-reverse gap-6 items-center'>
+            <div className='w-full flex flex-col ml-10'>
+              <h1 className="text-4xl font-bold mb-8">{data.tasks.title}</h1>
+              <div className="space-y-6">
+                {data.tasks.tasksList.map((task, index) => (
+                  <div key={index} className="w-3/4">
+                    <h2 className="text-xl font-bold mb-2">{task.title}</h2>
+                    <p className="text-gray-600">{task.description}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
+            <div className="relative w-full h-[500px] rounded-3xl">
+              <Image 
+                src={data.tasks.imageUrl} 
+                alt="Project hero" 
+                fill 
+                className="object-cover rounded-3xl"
+              />
+            </div>
           </div>
-          <div className="relative w-full h-[400px]">
-            {data.tasks.imageUrl && (
-              <Image src={data.tasks.imageUrl} alt="Project hero" fill className="object-cover rounded-lg bg-sky-200" />
-            )}
-          </div>
-          </div>
+        </div>
       </section>
 
       {/* Prioritize Objectives */}
       <section className="py-12">
-        <h2 className="text-3xl font-bold mb-8 text-center">Prioritize Objectives</h2>
+        <h2 className="text-4xl font-bold my-4 text-left">Prioritize Objectives</h2>
         <div className="w-full text-center">
-        <div className='flex flex-row items-center justify-center gap-10'>
-                <span className="sm:flex items-center justify-center">
-                  <img src="/impact-icon.svg" alt="Impact" className="w-5 h-5 mr-2" />
-                  Impact  (1-5)
-                </span>
-                <span className="sm:flex items-center justify-center">
-                  <img src="/ergency-icon.svg" alt="Urgency" className="w-5 h-5 mr-2" />
-                  Urgency (1-5)
-                </span>
-                <span className="sm:flex items-center justify-center">
-                  <img src="/market-icon.svg" alt="Market Size" className="w-5 h-5 mr-2" />
-                  Market Size  (1-5)
-                </span>
-        </div>
         <div className="grid grid-cols-1 pt-10 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-8 auto-cols-fr">
           {data.objectives.features.map((feature, index) => (
             <div 
@@ -103,38 +121,11 @@ export default function ProjectPage({ params }) {
                 </div>
                 <h4 className="text-lg font-bold ml-2 sm:ml-0 sm:mb-4 text-center">{feature.name}</h4>
               </div>
-              <div className={`flex flex-row sm:flex-col items-center sm:items-center justify-between w-full gap-2 sm:gap-6  sm:flex`}>
-                <span className="flex pl-20 items-center justify-center sm:pl-0">
-                  <img src="/impact-icon.svg" alt="Impact" className="w-5 h-5 mr-2" />
-                  {feature.impact}
-                </span>
-                <span className="flex items-center justify-center">
-                  <img src="/ergency-icon.svg" alt="Urgency" className="w-5 h-5 mr-2" />
-                  {feature.urgency}
-                </span>
-                <span className="flex items-center justify-center">
-                  <img src="/market-icon.svg" alt="Market Size" className="w-5 h-5 mr-2" />
-                  {feature.marketSize}
-                </span>
-                <h5 className="font-semibold">Overall {feature.overall}</h5>
-              </div>
+            
             </div>
           ))}
         </div>
       </div>
-      </section>
-
-      {/* Pre Study */}
-      <section className="py-12">
-        <div>
-        <h2 className="text-4xl font-bold mb-8">Pre Study</h2>
-        <p className="text-lg text-gray-600 mb-6">{data.preStudy.description}</p>
-        </div>
-        <div className="relative w-full h-[500px] ">
-          {data.preStudy?.imageUrl && (
-            <Image src={data.preStudy.imageUrl} alt="Pre study" fill className="object-cover rounded-3xl bg-sky-200" />
-          )}
-        </div>
       </section>
 
       {/* Target Audience */}
@@ -142,14 +133,36 @@ export default function ProjectPage({ params }) {
         <h2 className="text-4xl  font-bold mb-8">Target Audience</h2>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {data.targetAudience?.map((targetAudi, index) => (
-            <div key={index} className="bg-white rounded-lg">
-              <h3 className="text-xl font-semibold mb-4">{targetAudi.title}</h3>
-              <p className="text-gray-600">{targetAudi.description}</p>
-              {targetAudi.imageUrl && (
-                <div className="relative h-80 mt-4 rounded-3xl bg-sky-300">
-                  <Image src={targetAudi.imageUrl} alt={targetAudi.title} fill className="object-cover rounded" />
+            <div key={index} className="flex flex-col">
+              <div className="flex gap-4 items-start">
+                <div className="relative w-32 h-32">
+                  {targetAudi.imageUrl && (
+                    <Image 
+                      src={targetAudi.imageUrl} 
+                      alt={targetAudi.title} 
+                      fill 
+                      className="object-cover rounded-lg"
+                    />
+                  )}
                 </div>
-              )}
+                <div className="flex-1">
+                  <h3 className="text-lg font-semibold mb-2">{targetAudi.title}</h3>
+                  <ul className="space-y-1">
+                    {targetAudi.description.map((detail, i) => {
+                      const [label, ...contentArr] = detail.split(': ');
+                      const content = contentArr.join(': ');
+                      
+                      return (
+                        <li key={i} className="text-sm">
+                          <span className="font-medium">{label}</span>
+                          {content && ': '}
+                          <span className="text-gray-600">{content}</span>
+                        </li>
+                      );
+                    })}
+                  </ul>
+                </div>
+              </div>
             </div>
           ))}
         </div>
@@ -157,58 +170,110 @@ export default function ProjectPage({ params }) {
 
       {/* Empathize: User Experience */}
       <section className="py-12">
-        <div className='grid grid-rows-1 md:grid-cols-2 gap-8'>
-        <div className="relative h-80 rounded-3xl bg-sky-300">
-        <Image src={data.userEvaluation.imageUrl} alt={"userEvaluation"} fill className="object-cover rounded" />
-        </div>
-        <div className="grid md:grid-rows-1 gap-2">
-        <h2 className="text-4xl font-bold ">Empathize</h2>
+        <h2 className="text-4xl font-bold">Empathize Method for UX</h2>
+        <p className="text-lg text-gray-600 ">{data.userEvaluation.description}</p>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-14">
           {data.userExperience?.map((experience, index) => (
-            <div key={index} className="bg-white rounded-lg">
-              <h3 className="text-xl font-semibold">{experience.title}</h3>
-              <p className="text-gray-600">{experience.description}</p>
+            <div key={index} className="bg-white">
+              {experience.imageUrl && (
+                <div className="relative h-[500px] mt-4 rounded-3xl">
+                  <Image src={experience.imageUrl} alt={experience.title} fill className="object-cover rounded-3xl" />
+                </div>
+              )}
+              <h3 className="text-2xl font-semibold my-2">{experience.title}</h3>
+              <ul className="list-disc pl-6 space-y-1">
+                {experience.description.map((desc, i) => (
+                  <li key={i} className="text-base text-gray-600">{desc}</li>
+                ))}
+              </ul>          
             </div>
           ))}
         </div>
-        </div>
       </section>
 
-      {/* Define Problem */}
+      {/* Feedback Collection and Analysis */}
       <section className="py-12">
-        <h2 className="text-4xl font-bold">Define Problem</h2>
-        <p className="text-lg text-gray-600 ">{data.defineProblemInfo.description}</p>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-          {data.defineProblem?.map((problem, index) => (
+        <h2 className="text-4xl font-bold mb-2">Feedback Collection and Analysis</h2>
+        <ul className="list-disc pl-6 space-y-1">
+          {data.analysisProblemInfo.descriptions.map((description, index) => (
+            <li key={index} className="text-base text-gray-600">{description}</li>
+          ))}
+        </ul>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-14">
+          {data.analysisProblem?.map((problem, index) => (
             <div key={index} className="bg-white">
               {problem.imageUrl && (
-                <div className="relative h-80 mt-4 rounded-lg bg-blue-400">
-                  <Image src={problem.imageUrl} alt={problem.title} fill className="object-cover rounded" />
+                <div className="relative h-[500px] mt-4 rounded-3xl">
+                  <Image src={problem.imageUrl} alt={problem.title} fill className="object-cover rounded-3xl" />
                 </div>
               )}
-              <h3 className="text-xl font-semibold mb-4">{problem.title}</h3>
+              <h3 className="text-2xl font-semibold my-2">{problem.title}</h3>
+              <ul className="list-disc space-y-1">
               <p className="text-gray-600">{problem.description}</p>
-          
-            </div>
+              </ul>     
+             </div>
           ))}
         </div>
       </section>
 
-      {/* Prototype: From Issue to Solutions */}
-      <section className="py-12">
-        <h2 className="text-3xl font-bold mb-8 ">Prototype</h2>
-        <div className="relative min-h-96 rounded-3xl mb-4 bg-blue-400">
-        <Image src={data.prototypeMainPic.imageUrl} alt={"userEvaluation"} fill className="object-cover rounded" />
+      {/* Define Problem: From Issue to Solutions */}
+      <section className="relative -mx-[50vw] left-[50%] right-[50%] w-screen py-14 bg-stone-100">
+        <div className="max-w-screen-2xl mx-auto px-4 sm:px-20 lg:px-20">
+          <h2 className="text-4xl font-bold">Define Problem</h2>
+          {/* Main Image */}
+          <div className="relative w-full aspect-[16/9] rounded-3xl bg-stone-100">
+            <Image 
+              src={data.defineMainPic.imageUrl} 
+              alt={"userEvaluation"} 
+              fill
+              className="object-contain rounded-3xl" 
+            />
+          </div>
+
+          {/* Solution Images */}
+          <div className="grid grid-cols-1 md:grid-cols-1">
+            {data.definePrototype?.map((solution, index) => (
+              <div key={index} className="relative w-full aspect-[16/9] rounded-3xl bg-stone-100">
+                {solution.imageUrl && (
+                  <Image 
+                    src={solution.imageUrl} 
+                    alt={solution.title} 
+                    fill 
+                    className="object-contain rounded-3xl" 
+                  />
+                )}
+              </div>
+            ))}
+          </div>
         </div>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+      </section>
+
+       {/* Prototype: From Issue to Solutions */}
+       <section className="py-12">
+        <h2 className="text-4xl font-bold mb-8">Prototype: Solutions</h2>
+        
+        {/* Main Image */}
+        <div className="relative w-full h-screen max-h-[650px] rounded-3xl mb-12 bg-stone-100">
+          <Image 
+            src={data.prototypeMainPic.imageUrl} 
+            alt={"userEvaluation"} 
+            fill
+            className="object-contain rounded-3xl" 
+          />
+        </div>
+
+        {/* Solution Images */}
+        <div className="grid grid-cols-1 md:grid-cols-1">
           {data.prototype?.map((solution, index) => (
-            <div key={index} className="bg-white  rounded-lg">
+            <div key={index} className="relative w-full h-screen max-h-[650px] rounded-3xl mb-12 bg-stone-100">
               {solution.imageUrl && (
-                <div className="relative min-h-96  mt-4">
-                  <Image src={solution.imageUrl} alt={solution.title} fill className="object-cover rounded-3xl bg-blue-400" />
-                </div>
+                <Image 
+                  src={solution.imageUrl} 
+                  alt={solution.title} 
+                  fill
+                  className="object-contain rounded-3xl" 
+                />
               )}
-               <h3 className="text-xl font-semibold mt-2 mb-2">{solution.title}</h3>
-               <p className="text-gray-600">{solution.description}</p>
             </div>
           ))}
         </div>
@@ -221,18 +286,44 @@ export default function ProjectPage({ params }) {
             <h1 className="text-4xl font-bold mb-4">{data.userTestingInfo.title}</h1>
             <p className="text-lg text-gray-600 mb-6">{data.userTestingInfo.description}</p>
           </div>
-          <div className="relative w-full h-[400px]">
+          <div className="relative w-full h-[500px]">
             {data.userTestingInfo.imageUrl && (
-              <Image src={data.userTestingInfo.imageUrl} alt="Project hero" fill className="object-cover rounded-lg bg-sky-200" />
+              <Image src={data.userTestingInfo.imageUrl} alt="Project hero" fill className="object-cover rounded-3xl bg-sky-200" />
             )}
           </div>
           </div>
     
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {data.userTesting?.map((test, index) => (
-            <div key={index} className="bg-white  rounded-lg">
-              <h3 className="text-xl font-semibold mb-4">{test.title}</h3>
-              <p className="text-gray-600">{test.description}</p>
+            <div key={index} className="bg-white rounded-lg p-6">
+              <h3 className="text-xl font-semibold mb-6">{test.title}</h3>
+              <div className="space-y-4">
+                {test.points.map((point, pointIndex) => (
+                  <div key={pointIndex} className="space-y-2">
+                    <div className="flex gap-2">
+                      <span className="text-gray-600">{point.number}.</span>
+                      <span className="font-medium">{point.label}</span>
+                    </div>
+                    {point.text && (
+                      <p className="text-gray-600 pl-5">{point.text}</p>
+                    )}
+                    {point.bullets && (
+                      <ul className="list-disc pl-10 text-gray-600 space-y-1">
+                        {point.bullets.map((bullet, bulletIndex) => (
+                          <li key={bulletIndex}>{bullet}</li>
+                        ))}
+                      </ul>
+                    )}
+                    {point.quotes && (
+                      <div className="pl-5 space-y-1">
+                        {point.quotes.map((quote, quoteIndex) => (
+                          <p key={quoteIndex} className="text-gray-600">"{quote}"</p>
+                        ))}
+                      </div>
+                    )}
+                  </div>
+                ))}
+              </div>
             </div>
           ))}
         </div>
@@ -240,18 +331,12 @@ export default function ProjectPage({ params }) {
 
       {/* Reflections */}
       <section className="py-12">
-        <h2 className="text-3xl font-bold mb-8">Reflections</h2>
+        <h2 className="text-4xl font-bold mb-14">Reflections</h2>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {data.reflections?.map((reflection, index) => (
             <div key={index} className="bg-white rounded-lg">
-              
-              {reflection.imageUrl && (
-                <div className="relative h-96 mt-4 mb-4 rounded-3xl bg-blue-400">
-                  <Image src={reflection.imageUrl} alt={reflection.title} fill className="object-cover rounded" />
-                </div>
-              )}
-              <h3 className="text-xl font-semibold mb-4">{reflection.title}</h3>
-              <p className="text-gray-600">{reflection.description}</p>
+              <h3 className="text-xl font-bold mb-3">{reflection.title}</h3>
+              <p className="text-gray-600 text-base leading-relaxed">{reflection.description}</p>
             </div>
           ))}
         </div>
