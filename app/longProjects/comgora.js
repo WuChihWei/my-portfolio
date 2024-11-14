@@ -75,19 +75,15 @@ const comgoraData = {
       title: "Solutions",
       features: [
         {
-          icon: '📋',
           name: 'readability',
         },
         {
-          icon: '🧠',
           name: 'Efficiently',
         },
         {
-          icon: '🔄',
           name: 'Maintainability',
         },
         {
-          icon: '✨',
           name: 'Aesthetics',
         }
       ]
@@ -169,20 +165,20 @@ const comgoraData = {
 
   // Define Problem
   defineMainPic:{
-    imageUrl: "/userFlow_comgora.png",
-    description: "Interactive AI assistant",
+    imageUrl: "/workflow_comgora.png",
+    description: "Based on the interviews and data analysis, we identified two main features and four key objectives that users value the most. Within the user flow, Problems 1 and 2 emerged as the most critical and confusing pain points during the interviews, significantly impacting the overall user experience and the primary outcomes we aimed to test.",
   },
 
   definePrototype: [
     {
       title: "AI Chat Interface",
       // description: "Interactive AI assistant that handles audience queries using the knowledge worker's content",
-      imageUrl: "/problem1_comgora.png"
+      imageUrl: "/problem2_comgora.png"
     },
     {
       title: "Analytics Dashboard",
       // description: "Comprehensive view of audience engagement patterns and trending topics",
-      imageUrl: "/problem2_comgora.png"
+      imageUrl: "/problem1_comgora.png"
     }
   ],
   // userTesting
@@ -293,7 +289,12 @@ const comgoraData = {
       title: "Ensuring Responsive Collaboration",
       description: "Close collaboration with developers ensured the UI was fully responsive, adapting seamlessly to various devices while maintaining design consistency."
     }
-  ]
+  ],
+
+  flow: {
+    description: "Professionals who create and share content with their audience, seeking better engagement and understanding",
+    imageUrl: "/overall_comgora.png"
+  },
 };
 
 export default comgoraData;

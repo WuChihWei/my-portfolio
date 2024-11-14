@@ -27,11 +27,11 @@ export default function ProjectPage({ params }) {
     <div className="flex flex-col max-w-screen-2xl mx-auto py-32 sm:px-20 md:px-20 lg:px-20">
       {/* Hero Section */}
       <section className="py-12">
-        <div className="md:flex flex-col gap-12">
-          <div className='flex '>
+        <div className=" flex md:flex flex-col gap-12">
+          <div className='flex flex-col md:flex-row  '>
           <div className="w-full md:flex flex-col ">
             <div className=''>
-            <h1 className="text-6xl w-3/4 font-bold mb-4  ">{data.introduction.title}</h1>
+            <h1 className="text-6xl md:w-3/4 font-bold mb-4  ">{data.introduction.title}</h1>
             </div>
             <div className='mr-12'>
             <h3 className="text-xl h-auto font-bold mb-4">Overview</h3>
@@ -73,7 +73,7 @@ export default function ProjectPage({ params }) {
       {/* Main Tasks & Challenges */}
       <section className="relative -mx-[50vw] left-[50%] right-[50%] w-screen bg-stone-100">
         <div className="max-w-screen-2xl mx-auto px-4 sm:px-20 lg:px-12">
-          <div className='flex flex-row-reverse gap-6 items-center'>
+          <div className='flex flex-col md:flex-row-reverse gap-6 items-center'>
             <div className='w-full flex flex-col ml-10'>
               <h1 className="text-4xl font-bold mb-8">{data.tasks.title}</h1>
               <div className="space-y-6">
@@ -95,37 +95,6 @@ export default function ProjectPage({ params }) {
             </div>
           </div>
         </div>
-      </section>
-
-      {/* Prioritize Objectives */}
-      <section className="py-12">
-        <h2 className="text-4xl font-bold my-4 text-left">Prioritize Objectives</h2>
-        <div className="w-full text-center">
-        <div className="grid grid-cols-1 pt-10 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-8 auto-cols-fr">
-          {data.objectives.features.map((feature, index) => (
-            <div 
-              key={index} 
-              className="flex flex-col items-start sm:items-center p-4 sm:p-6 md:p-8 sm:rounded-3xl space-y-4 sm:space-y-6 border-b-2 sm:border-2 border-gray-200 cursor-pointer"
-            >
-              <div className="flex flex-row sm:flex-col items-center sm:items-center w-full">
-                <p className="text-sm text-gray-500 mr-2 sm:mr-0 sm:mb-2 text-center">
-                  <span className="md:hidden">
-                    {index + 1}
-                  </span>
-                  <span className="hidden sm:inline">
-                    {index < 4 ? ` Priority ${['1', '2', '3', '4'][index]} ` : ` Feature ${index + 1}`}
-                  </span>
-                </p>
-                <div className="w-10 h-10 flex items-center justify-center sm:mb-4">
-                  <span className="text-4xl">{feature.icon}</span>
-                </div>
-                <h4 className="text-lg font-bold ml-2 sm:ml-0 sm:mb-4 text-center">{feature.name}</h4>
-              </div>
-            
-            </div>
-          ))}
-        </div>
-      </div>
       </section>
 
       {/* Target Audience */}
@@ -217,11 +186,12 @@ export default function ProjectPage({ params }) {
       </section>
 
       {/* Define Problem: From Issue to Solutions */}
-      <section className="relative -mx-[50vw] left-[50%] right-[50%] w-screen py-14 bg-stone-100">
+      <section className="relative -mx-[50vw] left-[50%] right-[50%] w-screen py-14">
         <div className="max-w-screen-2xl mx-auto px-4 sm:px-20 lg:px-20">
-          <h2 className="text-4xl font-bold">Define Problem</h2>
+          <h2 className="text-4xl font-bold mb-8">Define Problem</h2>
+          
           {/* Main Image */}
-          <div className="relative w-full aspect-[16/9] rounded-3xl bg-stone-100">
+          <div className="relative w-full h-screen max-h-[550px] rounded-3xlmb-6">
             <Image 
               src={data.defineMainPic.imageUrl} 
               alt={"userEvaluation"} 
@@ -229,11 +199,46 @@ export default function ProjectPage({ params }) {
               className="object-contain rounded-3xl" 
             />
           </div>
+          <p className="text-gray-600 mt-4">{data.defineMainPic.description}</p>
+
+      {/* Prioritize Objectives */}
+      <section className="py-12">
+        <h2 className="text-2xl font-bold my-4 text-left">Prioritize Objectives</h2>
+        <div className="w-full text-center">
+        <div className="grid grid-cols-1 pt-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-8 auto-cols-fr">
+          {data.objectives.features.map((feature, index) => (
+            <div 
+              key={index} 
+              className="flex flex-col items-start sm:items-center p-4 sm:p-6 md:p-8 sm:rounded-3xl space-y-4 sm:space-y-6 border-b-2 sm:border-2 border-gray-200 cursor-pointer"
+            >
+              <div className="flex flex-row sm:flex-col items-center sm:items-center w-full">
+                <p className="text-sm text-gray-500 mr-2 sm:mr-0 sm:mb-2 text-center">
+                  <span className="md:hidden">
+                    {index + 1}
+                  </span>
+                  <span className="hidden sm:inline">
+                    {index < 4 ? ` Priority ${['1', '2', '3', '4'][index]} ` : ` Feature ${index + 1}`}
+                  </span>
+                </p>
+                {/* <div className="w-10 h-10 flex items-center justify-center sm:mb-4">
+                  <span className="text-4xl">{feature.icon}</span>
+                </div> */}
+                <h4 className="text-lg font-bold ml-2 sm:ml-0 sm:mb-4 text-center">{feature.name}</h4>
+              </div>
+            
+            </div>
+          ))}
+        </div>
+      </div>
+      </section>
 
           {/* Solution Images */}
-          <div className="grid grid-cols-1 md:grid-cols-1">
+          <div className="grid grid-cols-1 md:grid-cols-1 md:gap-8 md:mt-12">
             {data.definePrototype?.map((solution, index) => (
-              <div key={index} className="relative w-full aspect-[16/9] rounded-3xl bg-stone-100">
+              <div 
+                key={index} 
+                className="relative w-full h-screen max-h-[450px] md:max-h-[650px] rounded-3xl "
+              >
                 {solution.imageUrl && (
                   <Image 
                     src={solution.imageUrl} 
@@ -248,8 +253,10 @@ export default function ProjectPage({ params }) {
         </div>
       </section>
 
-       {/* Prototype: From Issue to Solutions */}
-       <section className="py-12">
+
+
+      {/* Prototype: From Issue to Solutions */}
+      <section className="py-12">
         <h2 className="text-4xl font-bold mb-8">Prototype: Solutions</h2>
         
         {/* Main Image */}
@@ -281,7 +288,7 @@ export default function ProjectPage({ params }) {
 
       {/* User Testing */}
       <section className="py-12">
-      <div className='flex mb-8 '>
+      <div className='flex flex-col md:flex-row mb-8 '>
           <div className="w-full">
             <h1 className="text-4xl font-bold mb-4">{data.userTestingInfo.title}</h1>
             <p className="text-lg text-gray-600 mb-6">{data.userTestingInfo.description}</p>
@@ -341,6 +348,26 @@ export default function ProjectPage({ params }) {
           ))}
         </div>
       </section>
+
+      {/* Other User Flows */}
+      <section className="relative -mx-[50vw] left-[50%] right-[50%] w-screen py-14 bg-stone-100">
+        <div className="max-w-screen-2xl mx-auto px-4 sm:px-20 lg:px-12">
+          <h2 className="text-center text-4xl font-bold mb-4">Some Other User Flows</h2>
+          
+          {/* Main Image */}
+          <div className="relative w-full h-[50vh] sm:h-[40vh] md:h-[80vh] lg:h-[100vh] xl:h-[110vh]">
+            <Image 
+              src={data.flow.imageUrl} 
+              alt={"userEvaluation"} 
+              fill
+              className="object-contain" 
+              sizes="100vw"
+              priority
+            />
+          </div>
+        </div>
+      </section>
+
     </div>
   );
 }
