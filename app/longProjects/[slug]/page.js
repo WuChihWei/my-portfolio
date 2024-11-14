@@ -27,45 +27,81 @@ export default function ProjectPage({ params }) {
     <div className="flex flex-col max-w-screen-2xl mx-auto py-32 sm:px-20 md:px-20 lg:px-20">
       {/* Hero Section */}
       <section className="py-12">
-        <div className=" flex md:flex flex-col gap-12">
-          <div className='flex flex-col md:flex-row  '>
-          <div className="w-full md:flex flex-col ">
-            <div className=''>
-            <h1 className="text-6xl md:w-3/4 font-bold mb-4  ">{data.introduction.title}</h1>
+        <div className="flex md:flex flex-col gap-12">
+          <div className='flex flex-col md:flex-row'>
+            <div className="w-full md:flex flex-col">
+              <div>
+                <h1 className="text-6xl md:w-3/4 font-bold mb-4">{data.introduction.title}</h1>
+              </div>
+              <div className='mr-12'>
+                <h3 className="text-xl h-auto font-bold mb-4">Overview</h3>
+                <p className="text-lg text-gray-600 mb-6">{data.introduction.description}</p>
+              </div>
             </div>
-            <div className='mr-12'>
-            <h3 className="text-xl h-auto font-bold mb-4">Overview</h3>
-            <p className="text-lg text-gray-600 mb-6">{data.introduction.description}</p>
+            <div className="relative w-full h-[500px]">
+              {data.introduction.imageUrl && (
+                <Image 
+                  src={data.introduction.imageUrl} 
+                  alt="Project hero" 
+                  fill 
+                  className="object-cover rounded-3xl bg-rock-200" 
+                />
+              )}
             </div>
           </div>
-          <div className="relative w-full h-[500px]">
-            {data.introduction.imageUrl && (
-              <Image src={data.introduction.imageUrl} 
-              alt="Project hero" 
-              fill 
-              className="object-cover rounded-3xl bg-sky-200" />
-            )}
-          </div>
-          </div>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-8 mt-8">
+
+          {/* Intro Cards */}
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-8">
             {data.introCards?.map((intro, index) => (
               <div key={index} className="flex flex-col">
                 <h3 className="text-xl font-bold text-gray-000 mb-2">{intro.title}</h3>
                 <ul className="space-y-1">
                   {Array.isArray(intro.description) ? (
                     intro.description.map((point, i) => (
-                      <li key={i} className="text-sm text-gray-900">
-                        {point}
-                      </li>
+                      <li key={i} className="text-sm text-gray-900">{point}</li>
                     ))
                   ) : (
-                    <li className="text-sm text-gray-900">
-                      {intro.description}
-                    </li>
+                    <li className="text-sm text-gray-900">{intro.description}</li>
                   )}
                 </ul>
               </div>
             ))}
+          </div>
+
+          {/* Process Flow Navigation */}
+          <div className="mt-20">
+            <div className="relative w-full h-16 bg-gradient-to-r from-gray-700 to-gray-800 rounded-lg shadow-lg">
+              <div className="absolute inset-0 flex justify-between items-center px-4 md:px-8">
+                {[
+                  { name: 'Summary', id: 'objective' },
+                  { name: 'Target Audience', id: 'target-audience' },
+                  { name: 'Empathize Methods', id: 'empathize' },
+                  { name: 'Data Analysis', id: 'Analysis' },
+                  { name: 'Define Problem', id: 'define' },
+                  { name: 'Prototypes', id: 'prototypes' },
+                  { name: 'Testing', id: 'testing' },
+                  { name: 'Reflection', id: 'reflection' }
+                ].map((item) => (
+                  <button
+                    key={item.id}
+                    onClick={() => {
+                      document.getElementById(item.id)?.scrollIntoView({ 
+                        behavior: 'smooth',
+                        block: 'start' 
+                      });
+                    }}
+                    className="text-white text-sm md:text-base font-medium 
+                               hover:text-gray-200 hover:scale-105
+                               transition-all duration-200 
+                               whitespace-nowrap px-2 py-1
+                               focus:outline-none focus:ring-2 focus:ring-gray-300 
+                               rounded-md"
+                  >
+                    {item.name}
+                  </button>
+                ))}
+              </div>
+            </div>
           </div>
         </div>
       </section>
@@ -98,7 +134,7 @@ export default function ProjectPage({ params }) {
       </section>
 
       {/* Target Audience */}
-      <section className="py-12">
+      <section id="target-audience" className="py-12">
         <h2 className="text-4xl  font-bold mb-8">Target Audience</h2>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {data.targetAudience?.map((targetAudi, index) => (
@@ -138,7 +174,7 @@ export default function ProjectPage({ params }) {
       </section>
 
       {/* Empathize: User Experience */}
-      <section className="py-12">
+      <section id="empathize" className="py-12">
         <h2 className="text-4xl font-bold">Empathize Method for UX</h2>
         <p className="text-lg text-gray-600 ">{data.userEvaluation.description}</p>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-14">
@@ -161,7 +197,7 @@ export default function ProjectPage({ params }) {
       </section>
 
       {/* Feedback Collection and Analysis */}
-      <section className="py-12">
+      <section id="Analysis" className="py-12">
         <h2 className="text-4xl font-bold mb-2">Feedback Collection and Analysis</h2>
         <ul className="list-disc pl-6 space-y-1">
           {data.analysisProblemInfo.descriptions.map((description, index) => (
@@ -186,7 +222,7 @@ export default function ProjectPage({ params }) {
       </section>
 
       {/* Define Problem: From Issue to Solutions */}
-      <section className="relative -mx-[50vw] left-[50%] right-[50%] w-screen py-14">
+      <section id="define" className="relative -mx-[50vw] left-[50%] right-[50%] w-screen py-14">
         <div className="max-w-screen-2xl mx-auto px-4 sm:px-20 lg:px-20">
           <h2 className="text-4xl font-bold mb-8">Define Problem</h2>
           
@@ -256,7 +292,7 @@ export default function ProjectPage({ params }) {
 
 
       {/* Prototype: From Issue to Solutions */}
-      <section className="py-12">
+      <section id="prototypes" className="py-12">
         <h2 className="text-4xl font-bold mb-8">Prototype: Solutions</h2>
         
         {/* Main Image */}
@@ -287,7 +323,7 @@ export default function ProjectPage({ params }) {
       </section>
 
       {/* User Testing */}
-      <section className="py-12">
+      <section id="testing" className="py-12">
       <div className='flex flex-col md:flex-row mb-8 '>
           <div className="w-full">
             <h1 className="text-4xl font-bold mb-4">{data.userTestingInfo.title}</h1>
@@ -337,7 +373,7 @@ export default function ProjectPage({ params }) {
       </section>
 
       {/* Reflections */}
-      <section className="py-12">
+      <section id="reflection" className="py-12">
         <h2 className="text-4xl font-bold mb-14">Reflections</h2>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {data.reflections?.map((reflection, index) => (
