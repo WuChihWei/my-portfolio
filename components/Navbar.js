@@ -111,10 +111,13 @@ const Navbar = () => {
               </button>
               {projectsOpen && (
                 <ul className="projects-list">
+                  <li className="project-category font-bold">UI/UX Researches</li>
+                  <li><Link href="/longProjects/comgora">Comgora</Link></li>
+                  <li className="project-category font-bold">3-weeks MVPs</li>
                   <li><Link href="/projects/davincin">Davincin</Link></li>
                   <li><Link href="/projects/hommap">Hommap</Link></li>
                   <li><Link href="/projects/superfake">Superfake</Link></li>
-                  <li><Link href="/longProjects/comgora">Comgora</Link></li>
+         
                 </ul>
               )}
             </li>
@@ -137,6 +140,9 @@ const Navbar = () => {
               <button onClick={toggleProjects}>Projects</button>
               {projectsOpen && (
                 <ul className="projects-list">
+                  <li className="project-category font-bold">UI/UX Researches</li>
+                  <li><Link href="/longProjects/comgora" onClick={closeMenu}>Comgora</Link></li>
+                  <li className="project-category font-bold">3-weeks MVPs</li>
                   <li><Link href="/projects/superfake" onClick={closeMenu}>Superfake</Link></li>
                   <li><Link href="/projects/hommap" onClick={closeMenu}>Hommap</Link></li>
                   <li><Link href="/projects/davincin" onClick={closeMenu}>Davincin</Link></li>
