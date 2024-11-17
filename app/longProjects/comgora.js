@@ -72,7 +72,7 @@ const comgoraData = {
   // objectives (Prioritize Objectives)
  
     objectives: {
-      title: "Solutions",
+      title: "Prioritize Objectives",
       features: [
         {
           name: 'readability',
@@ -292,7 +292,7 @@ const comgoraData = {
   ],
 
   flow: {
-    description: "Professionals who create and share content with their audience, seeking better engagement and understanding",
+    description: "More user flows",
     imageUrl: "/overall_comgora.png"
   },
 };

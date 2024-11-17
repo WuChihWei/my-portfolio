@@ -4,6 +4,7 @@ import { useState, useEffect } from 'react';
 import { useProjectsData } from '../../../hooks/UseProjectsData';
 import Image from 'next/image';
 import comgoraData from '../comgora.js';
+import accessibility from '../accessibility.js';
 
 export default function ProjectPage({ params }) {
   const { slug } = params;
@@ -14,7 +15,13 @@ export default function ProjectPage({ params }) {
   useEffect(() => {
     if (allProjects) {
       setLoading(false);
-      setProjectData(slug === 'comgora' ? comgoraData : allProjects[slug]);
+      setProjectData(
+        slug === 'comgora' 
+          ? comgoraData 
+          : slug === 'accessibility' 
+            ? accessibility 
+            : allProjects[slug]
+      );
     }
   }, [allProjects, slug]);
 
@@ -208,7 +215,7 @@ export default function ProjectPage({ params }) {
           {data.analysisProblem?.map((problem, index) => (
             <div key={index} className="bg-white">
               {problem.imageUrl && (
-                <div className="relative h-[500px] mt-4 rounded-3xl">
+                <div className="relative h-[550px] mt-4 rounded-3xl">
                   <Image src={problem.imageUrl} alt={problem.title} fill className="object-cover rounded-3xl" />
                 </div>
               )}
@@ -222,12 +229,17 @@ export default function ProjectPage({ params }) {
       </section>
 
       {/* Define Problem: From Issue to Solutions */}
-      <section id="define" className="relative -mx-[50vw] left-[50%] right-[50%] w-screen py-14">
+      <section 
+      id="define" 
+      className="relative -mx-[50vw] left-[50%] right-[50%] w-screen py-14"
+      >
         <div className="max-w-screen-2xl mx-auto px-4 sm:px-20 lg:px-20">
-          <h2 className="text-4xl font-bold mb-8">Define Problem</h2>
+          <h2 className="text-4xl font-bold mb-2">Define Problem</h2>
           
           {/* Main Image */}
-          <div className="relative w-full h-screen max-h-[550px] rounded-3xlmb-6">
+          <div 
+                className="relative w-full h-screen max-h-[450px] md:max-h-[650px] rounded-3xl "
+                >
             <Image 
               src={data.defineMainPic.imageUrl} 
               alt={"userEvaluation"} 
@@ -238,11 +250,11 @@ export default function ProjectPage({ params }) {
           <p className="text-gray-600 mt-4">{data.defineMainPic.description}</p>
 
       {/* Prioritize Objectives */}
-      <section className="py-12">
-        <h2 className="text-2xl font-bold my-4 text-left">Prioritize Objectives</h2>
+      <section className="py-4">
+        <h2 className="text-2xl font-bold my-4 text-left">{data.objectives?.title}</h2>
         <div className="w-full text-center">
         <div className="grid grid-cols-1 pt-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-8 auto-cols-fr">
-          {data.objectives.features.map((feature, index) => (
+          {data.objectives?.features?.map((feature, index) => (
             <div 
               key={index} 
               className="flex flex-col items-start sm:items-center p-4 sm:p-6 md:p-8 sm:rounded-3xl space-y-4 sm:space-y-6 border-b-2 sm:border-2 border-gray-200 cursor-pointer"
@@ -268,13 +280,100 @@ export default function ProjectPage({ params }) {
       </div>
       </section>
 
-          {/* Solution Images */}
-          <div className="grid grid-cols-1 md:grid-cols-1 md:gap-8 md:mt-12">
+      {/* Solution Images */}
+          <div className="grid grid-cols-1 md:grid-cols-1 md:gap-4 md:mt-4">
             {data.definePrototype?.map((solution, index) => (
               <div 
                 key={index} 
-                className="relative w-full h-screen max-h-[450px] md:max-h-[650px] rounded-3xl "
+                className="flex flex-col gap-4"
               >
+                <div className="relative w-full h-screen max-h-[450px] md:max-h-[650px] rounded-3xl">
+                  {solution.imageUrl && (
+                    <Image 
+                      src={solution.imageUrl} 
+                      alt={solution.title} 
+                      fill 
+                      className="object-contain rounded-3xl" 
+                    />
+                  )}
+                </div>
+                {solution.description && (
+                  <p className="text-gray-600 text-sm">{solution.description}</p>
+                )}
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* user pre-testing flow */}
+      <section id="userPreTest" className="relative -mx-[50vw] left-[50%] right-[50%] w-screen py-14 bg-white">
+        <div className="max-w-screen-2xl mx-auto px-4 sm:px-20 lg:px-20">
+          <h2 className="text-4xl font-bold mb-2">{data?.userTestFLow?.title} </h2>
+          <p className="text-gray-600">{data?.userTestFLow?.description}</p>
+            <div 
+                className="relative w-full h-screen max-h-[450px] md:max-h-[650px] rounded-3xl "
+                >
+            <Image 
+              src={data?.userTestFLow?.imageUrl} 
+              alt={"userEvaluation"} 
+              fill
+              className="object-contain rounded-3xl" 
+            />
+          </div>
+          </div>
+      </section>
+
+           {/* result */}
+      <section 
+      id="result" 
+      className="relative -mx-[50vw] left-[50%] right-[50%] w-screen py-14"
+      style={{
+        backgroundImage: data?.result?.backgroundImage ? `url(${data?.result?.backgroundImage})` : 'none',
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+        backgroundRepeat: 'no-repeat',
+        minHeight: '400px'
+      }}
+      >
+        <div className="max-w-screen-2xl mx-auto px-4 sm:px-20 lg:px-20">
+          <h2 className="text-4xl font-bold mb-2 text-white">{data?.result?.title} </h2>
+          {/* Main Image */}
+          <div 
+                className="relative w-full h-screen max-h-[450px] md:max-h-[650px] rounded-3xl "
+                >
+            <Image 
+              src={data?.result?.imageUrl} 
+              alt={"userEvaluation"} 
+              fill
+              className="object-contain rounded-3xl" 
+            />
+          </div>
+          <p className="text-white mt-4">{data?.result?.description}</p>
+          </div>
+      </section>
+
+      {/* Prototype: From Issue to Solutions */}
+      <section id="prototypes" className="py-12">
+        <h2 className="text-4xl font-bold mb-8">Prototype: Solutions</h2>
+        
+        {/* Main Image */}
+        {data?.prototypeMainPic?.imageUrl && (
+          <div className="relative w-full h-screen max-h-[650px] rounded-3xl mb-12 bg-stone-100">
+            <Image 
+              src={data.prototypeMainPic.imageUrl} 
+              alt={"userEvaluation"} 
+              fill
+              className="object-contain rounded-3xl" 
+            />
+          </div>
+        )}
+
+        {/* Solution Images */}
+        <div className="grid grid-cols-1 md:grid-cols-1 gap-8">
+          {data.prototype?.map((solution, index) => (
+            <div key={index} className="flex flex-col gap-4">
+              <div className="relative w-full h-screen max-h-[650px] rounded-3xl bg-stone-100">
                 {solution.imageUrl && (
                   <Image 
                     src={solution.imageUrl} 
@@ -284,93 +383,75 @@ export default function ProjectPage({ params }) {
                   />
                 )}
               </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-
-
-      {/* Prototype: From Issue to Solutions */}
-      <section id="prototypes" className="py-12">
-        <h2 className="text-4xl font-bold mb-8">Prototype: Solutions</h2>
-        
-        {/* Main Image */}
-        <div className="relative w-full h-screen max-h-[650px] rounded-3xl mb-12 bg-stone-100">
-          <Image 
-            src={data.prototypeMainPic.imageUrl} 
-            alt={"userEvaluation"} 
-            fill
-            className="object-contain rounded-3xl" 
-          />
-        </div>
-
-        {/* Solution Images */}
-        <div className="grid grid-cols-1 md:grid-cols-1">
-          {data.prototype?.map((solution, index) => (
-            <div key={index} className="relative w-full h-screen max-h-[650px] rounded-3xl mb-12 bg-stone-100">
-              {solution.imageUrl && (
-                <Image 
-                  src={solution.imageUrl} 
-                  alt={solution.title} 
-                  fill
-                  className="object-contain rounded-3xl" 
-                />
+              {solution.description && (
+                <p className="text-gray-600 text-lg">{solution.description}</p>
               )}
             </div>
           ))}
         </div>
       </section>
 
-      {/* User Testing */}
-      <section id="testing" className="py-12">
-      <div className='flex flex-col md:flex-row mb-8 '>
-          <div className="w-full">
-            <h1 className="text-4xl font-bold mb-4">{data.userTestingInfo.title}</h1>
-            <p className="text-lg text-gray-600 mb-6">{data.userTestingInfo.description}</p>
-          </div>
-          <div className="relative w-full h-[500px]">
-            {data.userTestingInfo.imageUrl && (
-              <Image src={data.userTestingInfo.imageUrl} alt="Project hero" fill className="object-cover rounded-3xl bg-sky-200" />
-            )}
-          </div>
-          </div>
-    
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          {data.userTesting?.map((test, index) => (
-            <div key={index} className="bg-white rounded-lg p-6">
-              <h3 className="text-xl font-semibold mb-6">{test.title}</h3>
-              <div className="space-y-4">
-                {test.points.map((point, pointIndex) => (
-                  <div key={pointIndex} className="space-y-2">
-                    <div className="flex gap-2">
-                      <span className="text-gray-600">{point.number}.</span>
-                      <span className="font-medium">{point.label}</span>
-                    </div>
-                    {point.text && (
-                      <p className="text-gray-600 pl-5">{point.text}</p>
-                    )}
-                    {point.bullets && (
-                      <ul className="list-disc pl-10 text-gray-600 space-y-1">
-                        {point.bullets.map((bullet, bulletIndex) => (
-                          <li key={bulletIndex}>{bullet}</li>
-                        ))}
-                      </ul>
-                    )}
-                    {point.quotes && (
-                      <div className="pl-5 space-y-1">
-                        {point.quotes.map((quote, quoteIndex) => (
-                          <p key={quoteIndex} className="text-gray-600">"{quote}"</p>
-                        ))}
-                      </div>
-                    )}
-                  </div>
-                ))}
+      {(data?.userTestingInfo || data?.userTesting) && (
+        <section id="testing" className="py-12">
+          {/* Testing Info Section */}
+          {data?.userTestingInfo && (
+            <div className='flex flex-col md:flex-row mb-8'>
+              <div className="w-full">
+                <h1 className="text-4xl font-bold mb-4">{data.userTestingInfo.title}</h1>
+                <p className="text-lg text-gray-600 mb-6">{data.userTestingInfo.description}</p>
               </div>
+              {data.userTestingInfo.imageUrl && (
+                <div className="relative w-full h-[500px]">
+                  <Image 
+                    src={data.userTestingInfo.imageUrl} 
+                    alt="Project hero" 
+                    fill 
+                    className="object-cover rounded-3xl bg-sky-200" 
+                  />
+                </div>
+              )}
             </div>
-          ))}
-        </div>
-      </section>
+          )}
+          
+          {/* Testing Points Grid */}
+          {data?.userTesting?.length > 0 && (
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+              {data.userTesting.map((test, index) => (
+                <div key={index} className="bg-white rounded-lg p-6">
+                  <h3 className="text-xl font-semibold mb-6">{test.title}</h3>
+                  <div className="space-y-4">
+                    {test.points?.map((point, pointIndex) => (
+                      <div key={pointIndex} className="space-y-2">
+                        <div className="flex gap-2">
+                          <span className="text-gray-600">{point.number}.</span>
+                          <span className="font-medium">{point.label}</span>
+                        </div>
+                        {point.text && (
+                          <p className="text-gray-600 pl-5">{point.text}</p>
+                        )}
+                        {point.bullets?.length > 0 && (
+                          <ul className="list-disc pl-10 text-gray-600 space-y-1">
+                            {point.bullets.map((bullet, bulletIndex) => (
+                              <li key={bulletIndex}>{bullet}</li>
+                            ))}
+                          </ul>
+                        )}
+                        {point.quotes?.length > 0 && (
+                          <div className="pl-5 space-y-1">
+                            {point.quotes.map((quote, quoteIndex) => (
+                              <p key={quoteIndex} className="text-gray-600">"{quote}"</p>
+                            ))}
+                          </div>
+                        )}
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              ))}
+            </div>
+          )}
+        </section>
+      )}
 
       {/* Reflections */}
       <section id="reflection" className="py-12">
@@ -386,20 +467,27 @@ export default function ProjectPage({ params }) {
       </section>
 
       {/* Other User Flows */}
-      <section className="relative -mx-[50vw] left-[50%] right-[50%] w-screen py-14 bg-stone-100">
+      <section className="relative -mx-[50vw] left-[50%] right-[50%] w-screen py-14 bg-white">
         <div className="max-w-screen-2xl mx-auto px-4 sm:px-20 lg:px-12">
-          <h2 className="text-center text-4xl font-bold mb-4">Some Other User Flows</h2>
+          <h2 className="text-center text-4xl font-bold mb-4">Annex</h2>
           
           {/* Main Image */}
-          <div className="relative w-full h-[50vh] sm:h-[40vh] md:h-[80vh] lg:h-[100vh] xl:h-[110vh]">
-            <Image 
-              src={data.flow.imageUrl} 
-              alt={"userEvaluation"} 
-              fill
-              className="object-contain" 
-              sizes="100vw"
-              priority
-            />
+          <div className="flex flex-col gap-6">
+            <div className="relative w-full h-[50vh] sm:h-[40vh] md:h-[80vh] lg:h-[100vh] xl:h-[110vh]">
+              <Image 
+                src={data.flow.imageUrl} 
+                alt={"userEvaluation"} 
+                fill
+                className="object-contain" 
+                sizes="100vw"
+                priority
+              />
+            </div>
+            {data.flow?.description && (
+              <p className="text-gray-600 text-lg text-center px-4">
+                {data.flow.description}
+              </p>
+            )}
           </div>
         </div>
       </section>
