@@ -7,7 +7,7 @@ export const davincinData = {
     title: "AI CRM for Knowledge Workers Engaging and Analyzing ",      
     description: "An AI-powered CRM platform for knowledge workers, offering customized assistants to satisfy and analyze audience curiosity.",
     contentImageUrl: "/davincin-intro.png",
-    websiteLink: "https://hommap.com",
+    websiteLink: "https://davincin-three.vercel.app/",
   },
 
 

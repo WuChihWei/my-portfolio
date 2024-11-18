@@ -12,7 +12,7 @@ export const hommapData = {
       // backgroundColor: "#f0f8ff",
       // backgroundImageUrl: "/hommap-intro.png",
       contentImageUrl: "/hommap-intro.png",
-      websiteLink: "https://hommap.com",
+      websiteLink: "https://allergymap.vercel.app/",
     },
 
 

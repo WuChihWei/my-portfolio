@@ -10,7 +10,7 @@ export const superfakeData = {
   // backgroundColor: "#f0f8ff",
   // backgroundImageUrl: "/super-intro.png",
   contentImageUrl: "/super-intro.png",
-  websiteLink: "https://hommap.com",
+  websiteLink: "https://superfake-show.vercel.app/",
 },
 
 
