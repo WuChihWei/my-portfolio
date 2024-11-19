@@ -268,9 +268,6 @@ export default function ProjectPage({ params }) {
                     {index < 4 ? ` Priority ${['1', '2', '3', '4'][index]} ` : ` Feature ${index + 1}`}
                   </span>
                 </p>
-                {/* <div className="w-10 h-10 flex items-center justify-center sm:mb-4">
-                  <span className="text-4xl">{feature.icon}</span>
-                </div> */}
                 <h4 className="text-lg font-bold ml-2 sm:ml-0 sm:mb-4 text-center">{feature.name}</h4>
               </div>
             
@@ -306,52 +303,62 @@ export default function ProjectPage({ params }) {
         </div>
       </section>
 
-      {/* user pre-testing flow */}
-      <section id="userPreTest" className="relative -mx-[50vw] left-[50%] right-[50%] w-screen py-14 bg-white">
-        <div className="max-w-screen-2xl mx-auto px-4 sm:px-20 lg:px-20">
-          <h2 className="text-4xl font-bold mb-2">{data?.userTestFLow?.title} </h2>
-          <p className="text-gray-600">{data?.userTestFLow?.description}</p>
-            <div 
-                className="relative w-full h-screen max-h-[450px] md:max-h-[650px] rounded-3xl "
-                >
-            <Image 
-              src={data?.userTestFLow?.imageUrl} 
-              alt={"userEvaluation"} 
-              fill
-              className="object-contain rounded-3xl" 
-            />
+      {data?.userTestFLow && (
+        <section id="userPreTest" className="relative -mx-[50vw] left-[50%] right-[50%] w-screen py-14 bg-white">
+          <div className="max-w-screen-2xl mx-auto px-4 sm:px-20 lg:px-20">
+            {data.userTestFLow.title && (
+              <h2 className="text-4xl font-bold mb-2">{data.userTestFLow.title}</h2>
+            )}
+            {data.userTestFLow.description && (
+              <p className="text-gray-600">{data.userTestFLow.description}</p>
+            )}
+            {data.userTestFLow.imageUrl && (
+              <div className="relative w-full h-screen max-h-[450px] md:max-h-[650px] rounded-3xl">
+                <Image 
+                  src={data.userTestFLow.imageUrl} 
+                  alt={"userEvaluation"} 
+                  fill
+                  className="object-contain rounded-3xl" 
+                />
+              </div>
+            )}
           </div>
-          </div>
-      </section>
+        </section>
+      )}
 
-           {/* result */}
-      <section 
-      id="result" 
-      className="relative -mx-[50vw] left-[50%] right-[50%] w-screen py-14"
-      style={{
-        backgroundImage: data?.result?.backgroundImage ? `url(${data?.result?.backgroundImage})` : 'none',
-        backgroundSize: 'cover',
-        backgroundPosition: 'center',
-        backgroundRepeat: 'no-repeat',
-        minHeight: '400px'
-      }}
-      >
-        <div className="max-w-screen-2xl mx-auto px-4 sm:px-20 lg:px-20">
-          <h2 className="text-4xl font-bold mb-2 text-white">{data?.result?.title} </h2>
-          {/* Main Image */}
-          <div 
-                className="relative w-full h-screen max-h-[450px] md:max-h-[650px] rounded-3xl "
-                >
-            <Image 
-              src={data?.result?.imageUrl} 
-              alt={"userEvaluation"} 
-              fill
-              className="object-contain rounded-3xl" 
-            />
+      {data?.result && (
+        <section 
+          id="result" 
+          className="relative -mx-[50vw] left-[50%] right-[50%] w-screen py-14"
+          style={{
+            backgroundImage: data?.result?.backgroundImage ? `url(${data.result.backgroundImage})` : 'none',
+            backgroundSize: 'cover',
+            backgroundPosition: 'center',
+            backgroundRepeat: 'no-repeat',
+            minHeight: '400px'
+          }}
+        >
+          <div className="max-w-screen-2xl mx-auto px-4 sm:px-20 lg:px-20">
+            {data.result.title && (
+              <h2 className="text-4xl font-bold mb-2 text-white">{data.result.title}</h2>
+            )}
+            {/* Main Image */}
+            {data.result.imageUrl && (
+              <div className="relative w-full h-screen max-h-[450px] md:max-h-[650px] rounded-3xl">
+                <Image 
+                  src={data.result.imageUrl} 
+                  alt={"userEvaluation"} 
+                  fill
+                  className="object-contain rounded-3xl" 
+                />
+              </div>
+            )}
+            {data.result.description && (
+              <p className="text-white mt-4">{data.result.description}</p>
+            )}
           </div>
-          <p className="text-white mt-4">{data?.result?.description}</p>
-          </div>
-      </section>
+        </section>
+      )}
 
       {/* Prototype: From Issue to Solutions */}
       <section id="prototypes" className="py-12">
