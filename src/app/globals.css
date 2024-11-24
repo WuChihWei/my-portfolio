@@ -124,6 +124,26 @@ a {
   text-shadow: 0 1px 2px rgba(0, 0, 0, 0.8);
 }
 
+.popup-overlay {
+  position: fixed; /* 固定定位 */
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(255, 255, 255, 1); /* 半透明背景 */
+  display: flex;
+  justify-content: center; /* 垂直居中 */
+  align-items: center; /* 水平居中 */
+  z-index: 1000; /* 確保在最上層 */
+}
+
+.popup {
+  background: white; /* 彈出窗口的背景 */
+  padding: 20px;
+  border-radius: 8px; /* 圓角 */
+  text-align: center; /* 文字居中 */
+}
+
 .grid-column {
   background-color: rgba(255, 192, 203, 0.2); /* Light pink for visibility */
   border-left: 1px solid rgba(255, 192, 203, 0.4); /* Optional: border for clarity */

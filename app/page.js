@@ -49,6 +49,7 @@ export default function Home() {
   const playerRefs = useRef({});
   const carouselRef = useRef(null);
   const [isPlaying, setIsPlaying] = useState({});
+  const [showPopup, setShowPopup] = useState(true);
 
   useEffect(() => {
     const fetchProjectsData = async () => {
@@ -244,8 +245,35 @@ export default function Home() {
     return subtitles[projectId] || '';
   }
 
+  const handleClosePopup = () => {
+    setShowPopup(false);
+  };
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setShowPopup(false); // 2秒後關閉彈出窗口
+    }, 200);
+
+    return () => clearTimeout(timer); // 清除計時器
+  }, []);
+
   return (
     <div className='home-container h-auto'>
+      {showPopup && (
+        <div className="popup-overlay">
+          <div className="popup">
+            <script src="https://unpkg.com/@dotlottie/player-component@2.7.12/dist/dotlottie-player.mjs" type="module"></script>
+            <dotlottie-player 
+              src="https://lottie.host/4ff342c3-c8ff-481b-b59a-87c7e623b90f/eznxhoiuNf.lottie" 
+              background="transparent" 
+              speed="1" 
+              style={{ width: '100px', height: '100px' }} 
+              loop 
+              autoplay>
+            </dotlottie-player>
+          </div>
+        </div>
+      )}
       <div className="pt-10 p-p-gap items-center bg-white" >
       <div className="p-4 md:p-10 home-cover gap-4 h-auto md:h-[calc(100vh-80px)] flex flex-col md:flex-row justify-items-center items-center bg-blue-600 rounded-3xl" >
         <div className="home-content-left md:w-1/2 flex flex-col justify-items-center text-left">
