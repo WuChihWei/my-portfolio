@@ -252,7 +252,7 @@ export default function Home() {
   useEffect(() => {
     const timer = setTimeout(() => {
       setShowPopup(false); // 2秒後關閉彈出窗口
-    }, 500);
+    }, 1000);
 
     return () => clearTimeout(timer); // 清除計時器
   }, []);
