@@ -278,7 +278,7 @@ export default function Home() {
       <div className="p-4 md:p-10 home-cover gap-4 h-auto md:h-[calc(100vh-80px)] flex flex-col md:flex-row justify-items-center items-center bg-blue-600 rounded-3xl" >
         <div className="home-content-left md:w-1/2 flex flex-col justify-items-center text-left">
           <div className="flex flex-col flex-grow md:mt-2  text-white">
-            <div className="pt-28 md:pr-0 md:py-0"> {/* 添加 py-8 用於小螢幕 */}
+            <div className="pt-6 md:pr-0 md:py-0"> {/* 添加 py-8 用於小螢幕 */}
              
               <div className='rounded-ful'>
                 <a
