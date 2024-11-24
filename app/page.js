@@ -5,7 +5,7 @@ import { MdOutlineDesignServices, MdOutlineComputer, MdOutlineBrush } from 'reac
 import { FiTool } from "react-icons/fi";
 import { IoMdInformationCircleOutline } from "react-icons/io";
 import { FaLinkedin, FaGithub, FaRegPlayCircle, FaRegStopCircle } from 'react-icons/fa';
-import { SiBehance } from "react-icons/si";
+import { IoLogoBehance } from "react-icons/io5";
 import { MdArrowOutward } from "react-icons/md";
 import { LuArrowUpRight } from "react-icons/lu";
 import { collection, getDocs } from 'firebase/firestore';
@@ -13,6 +13,7 @@ import { db } from '../lib/firebase';
 import { Fragment } from 'react';
 import { useRouter } from 'next/navigation';
 import Player from '@vimeo/player';
+import Link from 'next/link'; // 確保在文件頂部導入 Link
 
 const skillIcons = [
   { icon: '/skill-1.png', name: 'After Effect' },
@@ -34,8 +35,9 @@ const projects = [
   { id: 'project-2', videoId: 1023732739, name:'davincin' },
   { id: 'project-3', videoId: 1023720383, name:'hommap' }, 
   { id: 'project-4', videoId: 1023690918, name:'superfake' },
-  { id: 'project-5', videoId: 1023664411, name:'' },
-  { id: 'project-6', videoId: 1023686732, name:'' }
+  { id: 'project-5', videoId: 1023664411, name:'comgora' },
+  { id: 'project-6', videoId: 1023686732, name:'' },
+  { id: 'project-7', videoId: 0, name:'' }
   // 可以根據需要添加更多項目
 ];
 
@@ -209,7 +211,8 @@ export default function Home() {
       'project-3': 'Hommap (Full Stack + UI/UX)',
       'project-4': 'Superfake (Full Stack + UI/UX)',
       'project-5': 'Comgora (PM + UI/UX)',
-      'project-6': 'Naturian (PM + Full Stack + UI/UX)'
+      'project-6': 'Naturian (PM + Full Stack + UI/UX)',
+      'project-7': 'AI Accessibility Tool (UI/UX + Frontend)'
     };
     return names[projectId] || 'Unknown Project';
   }
@@ -221,7 +224,9 @@ export default function Home() {
       'project-3': 'Product Manager + Full Stack Web Developer. Worked on developing a data-driven platform aimed at improving indoor living conditions by addressing home allergy issues.',
       'project-4': 'Product Manager + Full Stack Web Developer. Developed key features with using React.js, Next.js, and Tailwind CSS.',
       'project-5': 'Product Manager + UI/UX Designer. AI-powered contract app for remote workers. Developed cross-platform app with Flutter.',
-      'project-6': 'Full Stack iOS Developer. A social app for people who want to live a more natural life and explore themselves.'
+      'project-6': 'Full Stack iOS Developer. A social app for people who want to live a more natural life and explore themselves.',
+      'project-7': 'Thesis Project. Adaptive Web Design for Aging Eyes: An AI-Driven Approach.'
+
     };
     return descriptions[projectId] || 'No description available.';
   }
@@ -233,39 +238,40 @@ export default function Home() {
       'project-3': 'Solve your home allergy issues with data-driven interior design. (3-weeks Project)',
       'project-4': 'Discover, Create, and Share AI-Driven Inspiration. (3-weeks Project)',
       'project-5': 'AI contract generator for small business. (2-months Project)',
-      'project-6': 'An iOS App for people who want to live a more natural life. (5-weeks Project)'
+      'project-6': 'An iOS App for people who want to live a more natural life. (5-weeks Project)',
+      'project-7': 'Adaptive Web Design for Aging Eyes: An AI-Driven Approach'
     };
     return subtitles[projectId] || '';
   }
 
   return (
     <div className='home-container h-auto'>
-      <div className="pt-4 p-p-gap items-center bg-white" >
-      <div className="home-cover h-auto md:h-[calc(100vh-40px)] flex flex-col md:flex-row justify-items-center items-center bg-blue-600 rounded-3xl" >
+      <div className="pt-10 p-p-gap items-center bg-white" >
+      <div className="p-4 md:p-10 home-cover gap-4 h-auto md:h-[calc(100vh-80px)] flex flex-col md:flex-row justify-items-center items-center bg-blue-600 rounded-3xl" >
         <div className="home-content-left md:w-1/2 flex flex-col justify-items-center text-left">
-          <div className="flex flex-col flex-grow p-p-gap mt-4 md:mt-2  text-white">
+          <div className="flex flex-col flex-grow md:mt-2  text-white">
             <div className="pt-28 md:pr-0 md:py-0"> {/* 添加 py-8 用於小螢幕 */}
-              <h1 className="py-2  heading-1-custom">
-              End-to-end Digital Product Enthusiast delivering user-centered solutions through technology, strategy, and AI-power.
-              </h1>
+             
+              <div className='rounded-ful'>
+                <a
+                  href="https://www.linkedin.com/in/jordanwu-tech/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="resume-item-subheader text-white hover:text-blue-800 transition-colors duration-300"
+                >
+                <FaLinkedin className="mb-2" size={40}/> 
+                </a>
+                </div>
+
+              <h1 className=" pr-6  heading-1-custom">
+              End-to-end Digital Product Enthusiast passionate about programming, business strategy, and product design.              </h1>
               <div className="py-2 md:py-0 mr-0 md:mr-10">
               <h4 className='heading-4-custom mr-12 pb-4'>
               {/* Delivering digital solutions through design thinking, strategy to coding with AI-power.<br />
               Check my 3-weeks projects in the menu. */}
               </h4>
-              <div className="flex flex-row space-x-2 md:space-x-4 mt-0 md:pt-2 justify-items-center items-center">
-                <div className='bg-white p-2 px-4 rounded-full'>
-                <a
-                  href="https://www.linkedin.com/in/jordanwu-tech/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="resume-item-subheader text-black hover:text-blue-800 transition-colors duration-300"
-                >
-                  <FaLinkedin className="mr-2" />
-                  <p className="mr-2 text-sm">LinkedIn</p>                  
-                  {/* <MdArrowOutward className="ml-2 md:ml-4 text-base" /> */}
-                </a>
-                </div>
+              <div className="flex flex-row space-x-2 md:space-x-4 mt-0 md:pt-0 justify-items-center items-center">
+            
                 <div className='text-white bg-stone-900 p-2 px-4 rounded-full border-2'>
                 <a
                   href="https://github.com/WuChihWei"
@@ -273,8 +279,8 @@ export default function Home() {
                   rel="noopener noreferrer"
                   className="resume-item-subheader text-white hover:text-gray-600 transition-colors duration-300"
                 >
-                  <FaGithub className="mr-2 text-sm" />
-                  <p className="mr-2 text-sm">GitHub</p>
+                  <FaGithub className="mr-4 text-m" />
+                  <p className="mr-2 text-m">GitHub</p>
                   {/* <MdArrowOutward className="ml-2 md:ml-4 text-base" /> */}
                 </a>
                 </div>
@@ -285,8 +291,8 @@ export default function Home() {
                   rel="noopener noreferrer"
                   className="resume-item-subheader text-white hover:text-stone-800 transition-colors duration-300"
                 >
-                  <SiBehance className="mr-2" />
-                  <p className="mr-2 text-sm">Behance</p>                  
+                  <IoLogoBehance className="mr-2 text-m" />
+                  <p className="mr-2 text-m">Behance</p>                  
                   {/* <MdArrowOutward className="ml-2 md:ml-4 text-base" /> */}
                 </a>
                 </div>
@@ -297,80 +303,110 @@ export default function Home() {
           </div>
         </div>
 
-        <div className="h-4/5 w-full p-6 md:pr-10 md:pt-10 md:w-1/2 flex flex-col overflow-hidden rounded-3xl">
-        <div className="p-6 md:py-8 gap-4 max-md:w-full w-full h-[calc(50vh)] md:h-[calc(100vh)] flex flex-col overflow-hidden bg-white rounded-3xl">
-          <div className="h-full image-scroll-container top flex-grow space-y-0 md:space-y-0 "> 
-            {[...Array(6)].map((_, index) => (
-              <img key={index} src={`/project-${index + 1}.png`} alt={`Project ${index + 1}`} />
-            ))}
-            {[...Array(6)].map((_, index) => (
-              <img className='h-full' key={index + 6} src={`/project-${index + 1}.png`} alt={`Project ${index + 1}`} />
-            ))}
+        <div className="h-[calc(40vh)] md:h-[calc(50vh)] lg:md:h-[calc(70vh)] w-full md:w-2/3 flex flex-col overflow-hidden rounded-3xl bg-white">
+         <div className="max-md:w-full w-full h-[calc(80vh)] md:h-[calc(80vh)] flex flex-col overflow-hidden rounded-3xl">
+          <div
+            style={{
+              position: "relative",
+              height: "100%",
+              overflow: "hidden",
+              borderRadius: "1.5rem"
+            }}
+            className="rounded-3xl"
+          >
+            <iframe
+              src="https://player.vimeo.com/video/1032796335?badge=0&autopause=0&background=1&player_id=0&app_id=58479"
+              frameBorder="0"
+              allow="autoplay; fullscreen; picture-in-picture; clipboard-write"
+              style={{
+                position: "absolute",
+                top: "50%",
+                left: "50%",
+                width: "auto",
+                height: "100%",
+                minWidth: "100%",
+                transform: "translate(-50%, -50%) scale(1.4)",
+                objectFit: "cover",
+                borderRadius: "inherit" // Ensures the iframe respects the parent's border-radius
+              }}
+              title="demo_seek_job_jordan Wu"
+            />
           </div>
-          <div className="h-full image-scroll-container bottom flex-grow space-y-0 md:space-y-0"> 
-            {[...Array(6)].map((_, index) => (
-              <img key={index} src={`/project-${index + 7}.png`} alt={`Project ${index + 7}`} />
-            ))}
-            {[...Array(6)].map((_, index) => (
-              <img key={index + 6} src={`/project-${index + 7}.png`} alt={`Project ${index + 7}`} />
-            ))}
-          </div>
-        </div>
-        </div>
+  </div>
+      </div>
+
       </div>
       </div>
       {/* Add My Expertise section */}
-      <section className="py-20 mb:py-10 p-p-gap">
-        <div>
-        <h2 className="heading-2-custom mb-8">Cross-funtional </h2>
-        <div className="expertise-grid mx-auto flex flex-wrap justify-between gap-y-14 gap-10 sm:gap-12">
-          <div className="expertise-item w-full sm:w-[calc(100%)] lg:w-[calc(40%)] xl:w-[calc(20%)] flex flex-col items-start text-left">
-            <div className="mb-2 flex">
-              <MdOutlineDesignServices size={24} className="text-black" />
-              <h5 className="heading-4-custom ml-2">Strategy & Direction</h5> 
-            </div>
-            <h4 className="heading-3-custom">14+ Projects</h4>
-            <p className="decription-1-custom">In 2 Years. Developed actionable product strategies, guiding projects from concept to launch, aligning user needs with business goals.</p>
+    <section className="py-10 p-p-gap">
+      <div className="  rounded-3xl">
+        <div className="expertise-grid grid grid-cols-1 gap-10 md:grid-cols-2 lg:grid-cols-3 md:gap-16">
+                        <div className="h-auto expertise-item bg-blue-800 py-4 rounded-3xl">
+                              <div className="gap-2 max-md:w-full w-full h-[calc(40vh)]  md:h-[calc(50vh)] flex flex-col overflow-hidden justify-center items-center">
+                                <div className="h-full image-scroll-container flex flex-row overflow-hidden">
+                                  {[...Array(12)].map((_, index) => (
+                                    <img 
+                                      key={index} 
+                                      src={`/project-${index + 1}.png`} 
+                                      alt={`Project ${index + 1}`} 
+                                      className='h-[100%] w-[80%] flex-shrink-0'
+                                      style={{ objectFit: 'cover' }}
+                                    />
+                                  ))}
+                                </div>
+                              </div>
+                        </div>
+
+    <div className="bg-blue-400 p p-12 rounded-3xl">
+    <div className=''>
+    <h4 className="heading-3-custom mb-4 text-white">3-Week End-to-end</h4>
+    <p className="heading-4-custom text-white">
+    3-week projects managing and conducted an MVP, from strategic planning to coding and design, within a tight deadline.    
+    </p>
+    </div>
+    <div className="flex flex-wrap gap-4 mt-4">
+      <span className="bg-white text-blue-400 py-2 px-6 rounded-full text-sm">Frontend</span>
+      <span className="bg-white text-blue-400 py-2 px-6  rounded-full text-sm">React</span>
+      <span className="bg-white text-blue-400 py-2 px-6  rounded-full text-sm">Firebase</span>
+      <span className="bg-white text-blue-400 py-2 px-6  rounded-full text-sm">Next.js</span>
+      <span className="bg-white text-blue-400 py-2 px-6  rounded-full text-sm">UIUX</span>
+      <span className="bg-white text-blue-400  py-2 px-6  rounded-full text-sm">Figma</span>
+      <span className="bg-white text-blue-400 py-2 px-6  rounded-full text-sm">Branding</span>
+      <span className="bg-white text-blue-400  py-2 px-6  rounded-full text-sm">Product Management</span>
+    </div>
+    </div>
+
+    <div className="bg-stone-400 p-12 rounded-3xl">
+    <div className=''>
+    <h4 className="heading-3-custom mb-4 text-white">User Researches</h4>
+    <span className="heading-4-custom text-white">
+    Highlighting the digital product research process across C2C, B2B, medical, and accessibility domains    
+    </span>
+    </div>
+    <div className="flex flex-wrap gap-4 mt-4">
+    <span className="bg-white text-stone-400 py-2 px-6 rounded-full text-sm">UIUX</span>
+      <span className="bg-white text-stone-400 py-2 px-6  rounded-full text-sm">Figma</span>
+      <span className="bg-white text-stone-400 py-2 px-6  rounded-full text-sm">Miro</span>
+      <span className="bg-white text-stone-400 py-2 px-6  rounded-full text-sm">User Research</span>
+      <span className="bg-white text-stone-400 py-2 px-6  rounded-full text-sm">Affinity Diagram</span>
+      <span className="bg-white text-stone-400  py-2 px-6  rounded-full text-sm">User Interview</span>
+    </div>
+    </div>
           </div>
-          <div className="expertise-item w-full sm:w-[calc(100%)] lg:w-[calc(40%)] xl:w-[calc(20%)] flex flex-col items-start text-left">
-            <div className="mb-2 flex">
-              <MdOutlineComputer size={24} className="text-black" />
-              <h5 className="heading-4-custom ml-2">Technology</h5> 
-            </div>
-            <h4 className="heading-3-custom">30% Faster Delivery</h4>
-            <p className="decription-1-custom ">In 2 Months. Integrated emerging technologies to improve scalability and foster collaboration between design and engineering.</p>
-          </div>
-          <div className="expertise-item w-full sm:w-[calc(100%)] lg:w-[calc(40%)] xl:w-[calc(20%)] flex flex-col items-start text-left">
-          <div className="mb-2 flex"> 
-            <MdOutlineBrush size={24} className="text-black" />
-            <h5 className="heading-4-custom ml-2">UI & UX Design</h5> 
-          </div>
-            <h4 className="heading-3-custom">45% Engagement Increase</h4>
-            <p className="decription-1-custom "> In 2 Months. Led user-centered design processes, enhancing usability and consistency across devices.</p>
-          </div>
-          <div className="expertise-item w-full sm:w-[calc(100%)] lg:w-[calc(40%)] xl:w-[calc(20%)] flex flex-col items-start text-left">
-            <div className=" mb-2 flex">
-              <FiTool size={24} className="text-black" />
-              <h5 className="heading-4-custom ml-2">Key Skills</h5> 
-            </div>
-            <h4 className="heading-3-custom">40% Efficiency Increase</h4>
-            <p className="decription-1-custom ">in 2 months. Proficient in Jira, Trello, Figma, and Agile frameworks, managing complete product lifecycles and conducting market research.
-            </p>
-          </div>
-        </div>
         </div>
       </section>
 
       {/* After the home cover section */}
 
-                  {/* <h1 className='heading-2-custom mb-10'>Projects</h1> */}
+      {/* <h1 className='heading-2-custom mb-10'>Projects</h1> */}
       <section className="resume-section p-p-gap">
-        <h1 className='heading-2-custom '>End-to-end Projects</h1>
         <div className="resume-container h-auto">
+          
           <div className='title-contatiner p-2 py-20 bg-stone-100 md:p-10 ls:p-40 rounded-3xl'>
+          <h1 className='heading-2-custom text-stone-400 '>End-to-end Projects</h1>
 
             <div className='grid grid-cols-1 md:grid-cols-2 gap-x-0 md:gap-x-40 ls:gap-x-20 gap-y-10 '>
-              {projects.map((project) => (
+              {projects.filter(project => project.id !== 'project-5' && project.id !== 'project-7').map((project) => (
                 <div key={project.id} className="resume-item w-full">
                   <div className="resume-item-header flex flex-col place-items-start w-full">
                     <div 
@@ -381,8 +417,8 @@ export default function Home() {
                     >
                       {(project.id === 'project-2' || project.id === 'project-3' || project.id === 'project-4') && (
                         <div 
-                        className="absolute top-4 right-4 z-10 bg-white rounded-full p-2 cursor-pointer hover:bg-gray-100 transition-all duration-300 shadow-lg hover:shadow-xl"
-                        onClick={(e) => {
+                          className="absolute top-4 right-4 z-10 bg-white rounded-full p-2 cursor-pointer hover:bg-gray-100 transition-all duration-300 shadow-lg hover:shadow-xl"
+                          onClick={(e) => {
                             e.stopPropagation();
                             router.push(`/projects/${project.name}`);
                           }}
@@ -394,16 +430,19 @@ export default function Home() {
                         </div>
                       )}
                       
-                      <img 
-                        src={`/home_p${project.id.split('-')[1]}.png`}
-                        alt={getProjectName(project.id)}
-                        className="w-full h-full object-cover rounded-3xl absolute top-0 left-0" 
-                        style={{ 
-                          opacity: hoverProjects[project.id] || isPlaying[project.id] ? 0 : 1,
-                          transition: 'opacity 0.3s ease-in-out',
-                          display: isPlaying[project.id] ? 'none' : 'block'
-                        }}
-                      />
+                      <Link href={`/projects/${project.name}`}>
+                        <img 
+                          src={`/home_p${project.id.split('-')[1]}.png`}
+                          alt={getProjectName(project.id)}
+                          className="w-full h-full object-cover rounded-3xl absolute top-0 left-0" 
+                          style={{ 
+                            opacity: hoverProjects[project.id] || isPlaying[project.id] ? 0 : 1,
+                            transition: 'opacity 0.3s ease-in-out',
+                            display: isPlaying[project.id] ? 'none' : 'block'
+                          }}
+                        />
+                      </Link>
+
                       <div 
                         id={`vimeo-player-${project.id}`}
                         className="w-full h-full absolute top-0 left-0 overflow-hidden" 
@@ -425,7 +464,15 @@ export default function Home() {
                     </div>
                     <div className='flex flex-col place-items-start w-full'>
                       <div className="flex items-center space-x-2">
-                        <h3 className='heading-3-custom'>{getProjectName(project.id)}</h3>
+                        <h3 className='heading-3-custom'>
+                          {project.id === 'project-1' || project.id === 'project-6' ? (
+                            getProjectName(project.id)
+                          ) : (
+                            <Link href={`/projects/${project.name}`}>
+                              {getProjectName(project.id)}
+                            </Link>
+                          )}
+                        </h3>
                         
                         {isPlaying[project.id] ? (
                           <FaRegStopCircle 
@@ -446,21 +493,137 @@ export default function Home() {
                             }}
                           />
                         )}
-                        
-                       
                       </div>
                       <div className="flex">
-                      <div>
-                      <IoMdInformationCircleOutline 
-                          size={22}  // 統一設置為 22
-                          className="text-black cursor-pointer hover:text-blue-600 transition-colors duration-300" 
-                          onClick={() => toggleItem(project.id)}
-                        />
+                        <div>
+                          <IoMdInformationCircleOutline 
+                            size={22} 
+                            className="text-black cursor-pointer hover:text-blue-600 transition-colors duration-300" 
+                            onClick={() => toggleItem(project.id)}
+                          />
                         </div>
-                     <div>
-                      <p className='decription-2-custom pl-2'>{getProjectSubtitle(project.id)}</p>
+                        <div>
+                          <p className='decription-2-custom pl-2'>{getProjectSubtitle(project.id)}</p>
+                        </div>
                       </div>
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
 
+          
+        </div>
+
+        <div className="resume-container pt-10 h-auto">
+          
+          <div className='title-contatiner p-2 py-20 bg-stone-400 md:p-10 ls:p-40 rounded-3xl'>
+          <h1 className='heading-2-custom text-white'>User Researches</h1>
+
+            <div className='grid grid-cols-1 md:grid-cols-2 gap-x-0 md:gap-x-40 ls:gap-x-20 gap-y-10'>
+              {projects.filter(project => project.id === 'project-5' || project.id === 'project-7').map((project) => (
+                <div key={project.id} className="resume-item w-full">
+                  <div className="resume-item-header flex flex-col place-items-start w-full">
+                    <div 
+                      className="flex w-full h-full justify-center items-center bg-black rounded-3xl mb-4 resume-item-image-container aspect-[4/3]" 
+                      style={{ position: 'relative' }}
+                      onMouseEnter={() => handleProjectMouseEnter(project.id)}
+                      onMouseLeave={() => handleProjectMouseLeave(project.id)}
+                    >
+                      {(project.id === 'project-2' || project.id === 'project-3' || project.id === 'project-4') && (
+                        <div 
+                          className="absolute top-4 right-4 z-10 bg-white rounded-full p-2 cursor-pointer hover:bg-gray-100 transition-all duration-300 shadow-lg hover:shadow-xl"
+                          onClick={(e) => {
+                            e.stopPropagation();
+                            router.push(`/longProjects/${project.name}`);
+                          }}
+                        >
+                          <LuArrowUpRight 
+                            size={24} 
+                            className="text-white"
+                          />
+                        </div>
+                      )}
+                      
+                      <Link href={project.id === 'project-7' ? '/longProjects/accessibility' : `/longProjects/${project.name}`}>
+                        <img 
+                          src={`/home_p${project.id.split('-')[1]}.png`}
+                          alt={getProjectName(project.id)}
+                          className="w-full h-full object-cover rounded-3xl absolute top-0 left-0" 
+                          style={{ 
+                            opacity: project.id === 'project-7' ? 1 : (hoverProjects[project.id] || isPlaying[project.id] ? 0 : 1),
+                            transition: 'opacity 0.3s ease-in-out',
+                            display: isPlaying[project.id] ? 'none' : 'block'
+                          }}
+                        />
+                      </Link>
+
+                      {project.id !== 'project-7' && ( // Only show video player for projects other than project-7
+                        <div 
+                          id={`vimeo-player-${project.id}`}
+                          className="w-full h-full absolute top-0 left-0 overflow-hidden" 
+                          style={{ 
+                            opacity: hoverProjects[project.id] || isPlaying[project.id] ? 1 : 0,
+                            transition: 'opacity 0.3s ease-in-out'
+                          }}
+                        >
+                          <div className="w-full h-full">
+                            {/* Vimeo player will be inserted here */}
+                          </div>
+                        </div>
+                      )}
+                      {openItems[project.id] && (
+                        <div className="resume-item-overlay open absolute top-0 left-0 w-full h-full ">
+                          <p className="resume-item-description text-white">{getProjectDescription(project.id)}</p>
+                        </div>
+                      )}
+                    </div>
+                    <div className='flex flex-col place-items-start w-full'>
+                      <div className="flex items-center space-x-2">
+                        <h3 className='heading-3-custom text-white'>
+                          {project.id === 'project-1' || project.id === 'project-6' ? (
+                            getProjectName(project.id)
+                          ) : (
+                            <Link href={project.id === 'project-7' ? '/longProjects/accessibility' : `/longProjects/${project.name}`}>
+                              {getProjectName(project.id)}
+                            </Link>
+                          )}
+                        </h3>
+                                  
+                        {project.id !== 'project-7' && ( // Only show play icon for projects other than project-7
+                          isPlaying[project.id] ? (
+                            <FaRegStopCircle 
+                              size={22} 
+                              className="text-red-500 cursor-pointer transition-colors duration-300 hover:text-red-600"
+                              onClick={(e) => {
+                                e.stopPropagation();
+                                handlePlayClick(project.id);
+                              }}
+                            />
+                          ) : (
+                            <FaRegPlayCircle 
+                              size={22} 
+                              className="text-blue-600 cursor-pointer transition-colors duration-300 hover:text-blue-900"
+                              onClick={(e) => {
+                                e.stopPropagation();
+                                handlePlayClick(project.id);
+                              }}
+                            />
+                          )
+                        )}
+                      </div>
+                      <div className="flex">
+                        <div>
+                          <IoMdInformationCircleOutline 
+                            size={22} 
+                            className="text-white cursor-pointer hover:text-blue-600 transition-colors duration-300" 
+                            onClick={() => toggleItem(project.id)}
+                          />
+                        </div>
+                        <div>
+                          <p className='decription-2-custom text-white pl-2'>{getProjectSubtitle(project.id)}</p>
+                        </div>
                       </div>
                     </div>
                   </div>

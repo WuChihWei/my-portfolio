@@ -4,10 +4,10 @@
 
 @layer components {
   .heading-1-custom {
-    @apply text-3xl font-bold md:text-4xl lg:text-5xl lg:font-bold
-    tracking-wide leading-relaxed
+    @apply text-3xl font-bold md:text-3xl lg:text-5xl lg:font-semibold
+    tracking-normal leading-relaxed
     md:tracking-normal md:leading-snug
-    lg:tracking-normal lg:leading-normal;
+    lg:tracking-normal lg:leading-snug;
   }
 
   .heading-sub1-custom {
@@ -16,14 +16,13 @@
     md:tracking-normal md:leading-snug
     lg:tracking-wide lg:leading-tight;
   }
-  
 
   .heading-2-custom {
-    @apply text-5xl pb-4 md:text-7xl font-bold text-left leading-normal tracking-normal
+    @apply text-5xl pb-4 md:text-7xl font-bold text-left leading-normal tracking-normal;
   }
 
   .heading-3-custom {
-    @apply text-xl font-bold mb-0 md:text-lg lg:text-2xl lg:font-bold
+    @apply text-xl font-bold mb-0 md:text-lg lg:text-3xl lg:font-bold
     tracking-tight leading-tight
     md:tracking-normal md:leading-snug
     lg:tracking-wide lg:leading-snug;
@@ -43,26 +42,24 @@
   }
 
   .decription-1-custom {
-    @apply text-base leading-snug tracking-wide
+    @apply text-base leading-snug tracking-wide;
   }
 
   .decription-2-custom {
-    @apply text-lg leading-snug tracking-normal font-medium
+    @apply text-lg leading-snug tracking-normal font-medium;
   }
 
   .resume-item-header {
-    @apply flex justify-between items-center cursor-pointer text-lg font-bold md:text-lg lg:text-xl lg:font-semibold mb-2 my-4
+    @apply flex justify-between items-center cursor-pointer text-lg font-bold md:text-lg lg:text-xl lg:font-semibold mb-2 my-4;
   }
 
   .resume-item-subheader {
-    @apply flex items-center text-lg font-normal md:text-lg lg:text-xl lg:font-normal 
+    @apply flex items-center text-lg font-normal md:text-lg lg:text-xl lg:font-normal;
   }
 
   .resume-item-header-static {
-    @apply flex justify-between items-center cursor-default text-lg font-bold md:text-lg lg:text-xl lg:font-semibold mb-2 my-4
-
+    @apply flex justify-between items-center cursor-default text-lg font-bold md:text-lg lg:text-xl lg:font-semibold mb-2 my-4;
   }
-
 }
 
 :root {
@@ -71,15 +68,14 @@
   --font-mono: ui-monospace, Menlo, Monaco, "Cascadia Mono", "Segoe UI Mono",
     "Roboto Mono", "Oxygen Mono", "Ubuntu Monospace", "Source Code Pro",
     "Fira Mono", "Droid Sans Mono", "Courier New", monospace;
-  --font-family: 'Inter', sans-serif;
-
+  --font-family: "Inter", sans-serif;
 }
 
 @media (prefers-color-scheme: dark) {
-    :root {
-      --text-color: white;
-      --background-color: black;
-    }
+  :root {
+    --text-color: white;
+    --background-color: black;
+  }
 }
 
 /* 全局樣式 */
@@ -109,8 +105,6 @@ a {
   text-decoration: none;
 }
 
-
-
 /* 網格覆蓋 */
 .grid-overlay {
   position: fixed;
@@ -121,7 +115,7 @@ a {
   display: grid;
   grid-template-columns: repeat(12, 1fr);
   gap: 24px; /* Gutter between columns */
-  margin: 0 40px; 
+  margin: 0 40px;
   pointer-events: none; /* Allows interaction with underlying content */
   z-index: 9999; /* Ensures it is above all other content */
 }
@@ -140,47 +134,45 @@ a {
   display: flex;
   justify-content: center; /* 水平居中 */
   align-items: center;
-  padding-top: 40px;
+  padding-top: 20px;
   /* background-color: white; */
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
   z-index: 50;
-  
 }
-
 
 .navbar-container {
   display: flex;
   width: 100%;
   border-radius: 60px;
-  padding: 12px 12px;
+  padding: 6px 6px;
   background-color: #ffffff;
   max-width: 980px;
-  margin: 0px 20px; 
+  margin: 0px 20px;
   align-items: center;
   justify-content: center;
   box-shadow: 2px 2px 14px rgba(0, 0, 0, 0.8);
   background-color: rgba(255, 255, 255, 0.9); /* 80% opaque white */
 }
 
-.navbar-logo img{
+.navbar-logo img {
   display: flex;
+  height: 50px;
+}
+
+.logo-white-containter img {
   height: 60px;
 }
 
-.logo-white-containter img{
-height: 60px;
-}
-
-.navbar-logo-container{
+.navbar-logo-container {
   display: flex;
   align-items: center;
   width: 100%;
 }
 
-.navbar-items{
+.navbar-items {
   display: flex;
   justify-content: space-between;
   gap: 80px;
@@ -188,7 +180,7 @@ height: 60px;
 }
 
 .projects-dropdown {
-  position:absolute;
+  position: absolute;
   /* padding-top: 20px; */
 }
 
@@ -199,9 +191,9 @@ height: 60px;
   top: 100%;
   left: 0;
   background-color: white;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
   z-index: 1000;
-  min-width: 150px; 
+  min-width: 150px;
   border-radius: 10px;
 }
 
@@ -215,7 +207,6 @@ height: 60px;
 }
 
 @media (max-width: 768px) {
-
   .navbar-container.mobile {
     display: flex;
     align-items: center;
@@ -228,7 +219,7 @@ height: 60px;
 }
 
 .navbar-logo.mobile .navbar-logo-img {
-  width: auto; 
+  width: auto;
   height: 60px;
   align-items: center;
   align-items: flex-end;
@@ -240,14 +231,14 @@ height: 60px;
 }
 
 .introduction-carousel {
-  position: fixed;  /* 改為 fixed 以固定在視窗底部 */
-  bottom: 0;  /* 改為 bottom: 0 以置於底部 */
+  position: fixed; /* 改為 fixed 以固定在視窗底部 */
+  bottom: 0; /* 改為 bottom: 0 以置於底部 */
   left: 0;
   right: 0;
   background: linear-gradient(
     to right,
-    rgba(54, 54, 54, 0.4),  /* 左側較淺 */
-    rgb(25, 25, 25)   /* 右側較深 */
+    rgba(54, 54, 54, 0.4),
+    /* 左側較淺 */ rgb(25, 25, 25) /* 右側較深 */
   );
   z-index: 1001;
   width: 100%;
@@ -280,9 +271,8 @@ height: 60px;
   display: flex;
   flex-direction: column;
   /* margin-top: 40px; */
-  width: 100%;  
+  width: 100%;
 }
-
 
 .home-carousel {
   display: flex;
@@ -372,12 +362,12 @@ height: 60px;
   padding: 10px 0px;
 } */
 
-.resume-item-content{
+.resume-item-content {
   padding-bottom: 10px;
   color: rgb(88, 88, 88);
 }
 
-.resume-item-content li{
+.resume-item-content li {
   font-size: calc(0.8rem + 0.2vw);
 }
 
@@ -404,10 +394,9 @@ height: 60px;
   text-align: bottom;
 }
 
-
 .key-skills {
-  margin-top: auto; 
-  width: 80%; 
+  margin-top: auto;
+  width: 80%;
 }
 
 .skill-icons {
@@ -447,7 +436,6 @@ height: 60px;
   animation: scroll 30s linear infinite;
   height: 50%;
   overflow: visible;
-  
 }
 
 .image-scroll-container.bottom {
@@ -480,7 +468,6 @@ height: 60px;
 
 /* 響應式設計 */
 @media (max-width: 768px) {
-
   .navbar-items {
     display: none;
     flex-direction: column;
@@ -488,10 +475,10 @@ height: 60px;
     top: 90px;
     left: 0;
     width: 100%;
-    gap:10px;
+    gap: 10px;
     background-color: rgb(255, 255, 255);
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-    height: auto;  
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    height: auto;
     border-radius: 20px;
   }
 
@@ -561,8 +548,6 @@ height: 60px;
   }
 }
 
-
-
 @media (max-width: 768px) {
   .projects-list {
     flex-direction: column;
@@ -610,7 +595,6 @@ height: 60px;
   scrollbar-width: thin;
   scrollbar-color: rgba(255, 255, 255, 0.5) transparent;
 }
-
 
 .menu-overlay {
   position: absolute;
@@ -670,7 +654,6 @@ body li {
   animation-play-state: paused;
 }
 
-
 @media (min-width: 768px) {
   .animate-carousel {
     animation: carousel 240s linear infinite;
@@ -712,7 +695,7 @@ body li {
     top: 100%;
     left: 0;
     background-color: white;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     min-width: 150px;
     z-index: 1000;
   }
@@ -809,13 +792,17 @@ body li {
     transform: translateX(0);
   }
   100% {
-    transform: translateX(calc(-50% - 80px)); /* 調整這個值以匹配 .skill-icon-container 的一半寬度 */
+    transform: translateX(
+      calc(-50% - 80px)
+    ); /* 調整這個值以匹配 .skill-icon-container 的一半寬度 */
   }
 }
 
 @keyframes carousel-rtl {
   0% {
-    transform: translateX(calc(-50% - 80px)); /* 調整這個值以匹配 .skill-icon-container 的一半寬度 */
+    transform: translateX(
+      calc(-50% - 80px)
+    ); /* 調整這個值以匹配 .skill-icon-container 的一半寬度 */
   }
   100% {
     transform: translateX(0);
@@ -849,11 +836,10 @@ body li {
 
 .vimeo-wrapper {
   position: relative;
-  padding-bottom: 56.25%; 
+  padding-bottom: 56.25%;
   height: 0;
   overflow: hidden;
   /* background-color: #000000;  */
-
 }
 
 .vimeo-wrapper iframe {
@@ -865,5 +851,4 @@ body li {
   /* transform: translate(-50%, -50%); */
   object-fit: cover;
   /* background-color: #000000; */
-
 }
