@@ -303,7 +303,7 @@ export default function Home() {
           </div>
         </div>
 
-        <div className="h-[calc(40vh)] md:h-[calc(50vh)] lg:md:h-[calc(70vh)] w-full md:w-2/3 flex flex-col overflow-hidden rounded-3xl bg-white">
+        <div className="h-[calc(40vh)] md:h-[calc(50vh)] lg:md:h-[calc(70vh)] w-full md:w-2/3 flex flex-col overflow-hidden rounded-3xl bg-stone-200">
          <div className="max-md:w-full w-full h-[calc(80vh)] md:h-[calc(80vh)] flex flex-col overflow-hidden rounded-3xl">
           <div
             style={{
