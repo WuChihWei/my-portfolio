@@ -5,6 +5,8 @@ import { useProjectsData } from '../../../hooks/UseProjectsData';
 import Image from 'next/image';
 import comgoraData from '../comgora.js';
 import accessibility from '../accessibility.js';
+import bumbleRedesign from '../bumbleRedesign.js';
+
 
 export default function ProjectPage({ params }) {
   const { slug } = params;
@@ -20,7 +22,9 @@ export default function ProjectPage({ params }) {
           ? comgoraData 
           : slug === 'accessibility' 
             ? accessibility 
-            : allProjects[slug]
+                : slug === 'bumbleRedesign' 
+                ? bumbleRedesign 
+                   : allProjects[slug]
       );
     }
   }, [allProjects, slug]);
@@ -31,14 +35,14 @@ export default function ProjectPage({ params }) {
   const data = projectData;
 
   return (
-    <div className="flex flex-col max-w-screen-2xl mx-auto py-32 sm:px-20 md:px-20 lg:px-20">
+    <div className="flex flex-col max-w-screen-2xl mx-auto py-32 p-4 sm:px-20 md:px-20 lg:px-20">
       {/* Hero Section */}
       <section className="py-12">
         <div className="flex md:flex flex-col gap-12">
           <div className='flex flex-col md:flex-row'>
             <div className="w-full md:flex flex-col">
               <div>
-                <h1 className="text-6xl md:w-3/4 font-bold mb-4">{data.introduction.title}</h1>
+                <h1 className="text-5xl md:w-3/4 font-bold mb-4">{data.introduction.title}</h1>
               </div>
               <div className='mr-12'>
                 <h3 className="text-xl h-auto font-bold mb-4">Overview</h3>
@@ -215,7 +219,7 @@ export default function ProjectPage({ params }) {
           {data.analysisProblem?.map((problem, index) => (
             <div key={index} className="bg-white">
               {problem.imageUrl && (
-                <div className="relative h-[550px] mt-4 rounded-3xl">
+                <div className="relative h-[500px] mt-4 rounded-3xl">
                   <Image src={problem.imageUrl} alt={problem.title} fill className="object-cover rounded-3xl" />
                 </div>
               )}
@@ -366,7 +370,7 @@ export default function ProjectPage({ params }) {
         
         {/* Main Image */}
         {data?.prototypeMainPic?.imageUrl && (
-          <div className="relative w-full h-screen max-h-[650px] rounded-3xl mb-12 bg-stone-100">
+          <div className={`relative w-full h-screen max-h-[650px] rounded-3xl mb-12 ${data.prototypeMainPic?.backgroundColor || 'bg-stone-100'}`}>
             <Image 
               src={data.prototypeMainPic.imageUrl} 
               alt={"userEvaluation"} 
@@ -380,7 +384,10 @@ export default function ProjectPage({ params }) {
         <div className="grid grid-cols-1 md:grid-cols-1 gap-8">
           {data.prototype?.map((solution, index) => (
             <div key={index} className="flex flex-col gap-4">
-              <div className="relative w-full h-screen max-h-[650px] rounded-3xl bg-stone-100">
+              <div 
+                className="relative w-full h-screen max-h-[650px] rounded-3xl" 
+                style={{ backgroundColor: solution.backgroundColor || 'bg-stone-100' }}
+              >
                 {solution.imageUrl && (
                   <Image 
                     src={solution.imageUrl} 
@@ -480,18 +487,18 @@ export default function ProjectPage({ params }) {
           
           {/* Main Image */}
           <div className="flex flex-col gap-6">
-            <div className="relative w-full h-[50vh] sm:h-[40vh] md:h-[80vh] lg:h-[100vh] xl:h-[110vh]">
+            <div className="relative w-full h-[50vh] sm:h-[40vh] md:h-[80vh] lg:h-[100vh] xl:h-[110vh] rounded-3xl">
               <Image 
                 src={data.flow.imageUrl} 
                 alt={"userEvaluation"} 
                 fill
-                className="object-contain" 
+                className="object-contain rounded-3xl" 
                 sizes="100vw"
                 priority
               />
             </div>
             {data.flow?.description && (
-              <p className="text-gray-600 text-lg text-center px-4">
+              <p className="text-gray-600 text-lg text-center px-4 rounded-3xl">
                 {data.flow.description}
               </p>
             )}

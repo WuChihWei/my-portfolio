@@ -114,6 +114,7 @@ const Navbar = () => {
                   <li className="project-category font-bold">UI/UX Researches</li>
                   <li><Link href="/longProjects/comgora">Comgora</Link></li>
                   <li><Link href="/longProjects/accessibility">AI Accessibility Tool</Link></li>
+                  <li><Link href="/longProjects/bumbleRedesign">Bumble Redesign</Link></li>
                   <li className="project-category font-bold">3-weeks MVPs</li>
                   <li><Link href="/projects/davincin">Davincin</Link></li>
                   <li><Link href="/projects/hommap">Hommap</Link></li>
@@ -144,6 +145,7 @@ const Navbar = () => {
                   <li className="project-category font-bold">UI/UX Researches</li>
                   <li><Link href="/longProjects/comgora" onClick={closeMenu}>Comgora</Link></li>
                   <li><Link href="/longProjects/accessibility">AI Accessibility Tool</Link></li>
+                  <li><Link href="/longProjects/bumbleRedesign">Bumble Redesign</Link></li>
                   <li className="project-category font-bold">3-weeks MVPs</li>
                   <li><Link href="/projects/superfake" onClick={closeMenu}>Superfake</Link></li>
                   <li><Link href="/projects/hommap" onClick={closeMenu}>Hommap</Link></li>
