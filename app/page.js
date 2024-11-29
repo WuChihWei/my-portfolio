@@ -37,7 +37,8 @@ const projects = [
   { id: 'project-4', videoId: 1023690918, name:'superfake' },
   { id: 'project-5', videoId: 1023664411, name:'comgora' },
   { id: 'project-6', videoId: 1023686732, name:'' },
-  { id: 'project-7', videoId: 0, name:'' }
+  { id: 'project-7', videoId: 0, name:'' },
+  { id: 'project-8', videoId: 0, name:'bumbleRedesign' }
   // 可以根據需要添加更多項目
 ];
 
@@ -213,7 +214,8 @@ export default function Home() {
       'project-4': 'Superfake (Full Stack + UI/UX)',
       'project-5': 'Comgora (PM + UI/UX)',
       'project-6': 'Naturian (PM + Full Stack + UI/UX)',
-      'project-7': 'AI Accessibility Tool (UI/UX + Frontend)'
+      'project-7': 'AI Accessibility Tool (UI/UX + Frontend)',
+      'project-8': 'Redesign Bumble (UI/UX + Strategy)'
     };
     return names[projectId] || 'Unknown Project';
   }
@@ -226,7 +228,8 @@ export default function Home() {
       'project-4': 'Product Manager + Full Stack Web Developer. Developed key features with using React.js, Next.js, and Tailwind CSS.',
       'project-5': 'Product Manager + UI/UX Designer. AI-powered contract app for remote workers. Developed cross-platform app with Flutter.',
       'project-6': 'Full Stack iOS Developer. A social app for people who want to live a more natural life and explore themselves.',
-      'project-7': 'Thesis Project. Adaptive Web Design for Aging Eyes: An AI-Driven Approach.'
+      'project-7': 'Thesis Project. Adaptive Web Design for Aging Eyes: An AI-Driven Approach.',
+      'project-8': 'UI/UX + Strategy. Data-Driven Profile Optimization & Tailored Icebreakers for Bumble.'
 
     };
     return descriptions[projectId] || 'No description available.';
@@ -240,7 +243,8 @@ export default function Home() {
       'project-4': 'Discover, Create, and Share AI-Driven Inspiration. (3-weeks Project)',
       'project-5': 'AI contract generator for small business. (2-months Project)',
       'project-6': 'An iOS App for people who want to live a more natural life. (5-weeks Project)',
-      'project-7': 'Adaptive Web Design for Aging Eyes: An AI-Driven Approach'
+      'project-7': 'Adaptive Web Design for Aging Eyes: An AI-Driven Approach (6-weeks Project)',
+      'project-8': 'Data-Driven Profile Optimization & Tailored Icebreakers for Bumble. (1 week Project)'
     };
     return subtitles[projectId] || '';
   }
@@ -434,7 +438,7 @@ export default function Home() {
           <h1 className='heading-2-custom text-stone-400 '>End-to-end Projects</h1>
 
             <div className='grid grid-cols-1 md:grid-cols-2 gap-x-0 md:gap-x-40 ls:gap-x-20 gap-y-10 '>
-              {projects.filter(project => project.id !== 'project-5' && project.id !== 'project-7').map((project) => (
+              {projects.filter(project => project.id !== 'project-5' && project.id !== 'project-7'  && project.id !== 'project-8').map((project) => (
                 <div key={project.id} className="resume-item w-full">
                   <div className="resume-item-header flex flex-col place-items-start w-full">
                     <div 
@@ -464,26 +468,27 @@ export default function Home() {
                           alt={getProjectName(project.id)}
                           className="w-full h-full object-cover rounded-3xl absolute top-0 left-0" 
                           style={{ 
-                            opacity: hoverProjects[project.id] || isPlaying[project.id] ? 0 : 1,
+                            opacity: (project.id === 'project-7' || project.id === 'project-8') ? 1 : (hoverProjects[project.id] || isPlaying[project.id] ? 0 : 1),
                             transition: 'opacity 0.3s ease-in-out',
                             display: isPlaying[project.id] ? 'none' : 'block'
                           }}
                         />
                       </Link>
 
-                      <div 
-                        id={`vimeo-player-${project.id}`}
-                        className="w-full h-full absolute top-0 left-0 overflow-hidden" 
-                        style={{ 
-                          opacity: hoverProjects[project.id] || isPlaying[project.id] ? 1 : 0,
-                          transition: 'opacity 0.3s ease-in-out'
-                        }}
-                      >
-                        <div className="w-full h-full">
-                          {/* Vimeo player will be inserted here */}
+                      {(project.id !== 'project-7' && project.id !== 'project-8') && ( // Only show video player for projects other than project-7 and project-8
+                        <div 
+                          id={`vimeo-player-${project.id}`}
+                          className="w-full h-full absolute top-0 left-0 overflow-hidden" 
+                          style={{ 
+                            opacity: hoverProjects[project.id] || isPlaying[project.id] ? 1 : 0,
+                            transition: 'opacity 0.3s ease-in-out'
+                          }}
+                        >
+                          <div className="w-full h-full">
+                            {/* Vimeo player will be inserted here */}
+                          </div>
                         </div>
-
-                      </div>
+                      )}
                       {openItems[project.id] && (
                         <div className="resume-item-overlay open absolute top-0 left-0 w-full h-full ">
                           <p className="resume-item-description">{getProjectDescription(project.id)}</p>
@@ -502,24 +507,26 @@ export default function Home() {
                           )}
                         </h3>
                         
-                        {isPlaying[project.id] ? (
-                          <FaRegStopCircle 
-                            size={22} 
-                            className="text-red-500 cursor-pointer transition-colors duration-300 hover:text-red-600"
-                            onClick={(e) => {
-                              e.stopPropagation();
-                              handlePlayClick(project.id);
-                            }}
-                          />
-                        ) : (
-                          <FaRegPlayCircle 
-                            size={22} 
-                            className="text-blue-600 cursor-pointer transition-colors duration-300 hover:text-blue-900"
-                            onClick={(e) => {
-                              e.stopPropagation();
-                              handlePlayClick(project.id);
-                            }}
-                          />
+                        {(project.id !== 'project-7' && project.id !== 'project-8') && ( // Only show play icon for projects other than project-7 and project-8
+                          isPlaying[project.id] ? (
+                            <FaRegStopCircle 
+                              size={22} 
+                              className="text-red-500 cursor-pointer transition-colors duration-300 hover:text-red-600"
+                              onClick={(e) => {
+                                e.stopPropagation();
+                                handlePlayClick(project.id);
+                              }}
+                            />
+                          ) : (
+                            <FaRegPlayCircle 
+                              size={22} 
+                              className="text-blue-600 cursor-pointer transition-colors duration-300 hover:text-blue-900"
+                              onClick={(e) => {
+                                e.stopPropagation();
+                                handlePlayClick(project.id);
+                              }}
+                            />
+                          )
                         )}
                       </div>
                       <div className="flex">
@@ -550,7 +557,7 @@ export default function Home() {
           <h1 className='heading-2-custom text-white'>User Researches</h1>
 
             <div className='grid grid-cols-1 md:grid-cols-2 gap-x-0 md:gap-x-40 ls:gap-x-20 gap-y-10'>
-              {projects.filter(project => project.id === 'project-5' || project.id === 'project-7').map((project) => (
+              {projects.filter(project => project.id === 'project-5' || project.id === 'project-7' || project.id === 'project-8').map((project) => (
                 <div key={project.id} className="resume-item w-full">
                   <div className="resume-item-header flex flex-col place-items-start w-full">
                     <div 
@@ -574,20 +581,20 @@ export default function Home() {
                         </div>
                       )}
                       
-                      <Link href={project.id === 'project-7' ? '/longProjects/accessibility' : `/longProjects/${project.name}`}>
-                        <img 
-                          src={`/home_p${project.id.split('-')[1]}.png`}
-                          alt={getProjectName(project.id)}
-                          className="w-full h-full object-cover rounded-3xl absolute top-0 left-0" 
-                          style={{ 
-                            opacity: project.id === 'project-7' ? 1 : (hoverProjects[project.id] || isPlaying[project.id] ? 0 : 1),
-                            transition: 'opacity 0.3s ease-in-out',
-                            display: isPlaying[project.id] ? 'none' : 'block'
-                          }}
-                        />
-                      </Link>
+                      <Link href={(project.id === 'project-7' || project.id === 'project-8') ? `/longProjects/${project.id === 'project-7' ? 'accessibility' : project.name}` : `/longProjects/${project.name}`}>
+                      <img 
+                        src={`/home_p${project.id.split('-')[1]}.png`}
+                        alt={getProjectName(project.id)}
+                        className="w-full h-full object-cover rounded-3xl absolute top-0 left-0" 
+                        style={{ 
+                          opacity: (project.id === 'project-7' || project.id === 'project-8') ? 1 : (hoverProjects[project.id] || isPlaying[project.id] ? 0 : 1),
+                          transition: 'opacity 0.3s ease-in-out',
+                          display: isPlaying[project.id] ? 'none' : 'block'
+                        }}
+                      />
+                    </Link>
 
-                      {project.id !== 'project-7' && ( // Only show video player for projects other than project-7
+                      {(project.id !== 'project-7' && project.id !== 'project-8') && ( // Only show video player for projects other than project-7 and project-8
                         <div 
                           id={`vimeo-player-${project.id}`}
                           className="w-full h-full absolute top-0 left-0 overflow-hidden" 
@@ -613,13 +620,13 @@ export default function Home() {
                           {project.id === 'project-1' || project.id === 'project-6' ? (
                             getProjectName(project.id)
                           ) : (
-                            <Link href={project.id === 'project-7' ? '/longProjects/accessibility' : `/longProjects/${project.name}`}>
+                            <Link href={(project.id === 'project-7' || project.id === 'project-8') ? `/longProjects/${project.id === 'project-7' ? 'accessibility' : project.name}` : `/longProjects/${project.name}`}>
                               {getProjectName(project.id)}
                             </Link>
                           )}
                         </h3>
                                   
-                        {project.id !== 'project-7' && ( // Only show play icon for projects other than project-7
+                        {(project.id !== 'project-7' && project.id !== 'project-8') && ( // Only show play icon for projects other than project-7 and project-8
                           isPlaying[project.id] ? (
                             <FaRegStopCircle 
                               size={22} 

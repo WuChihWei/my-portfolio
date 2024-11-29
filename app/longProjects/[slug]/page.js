@@ -6,6 +6,7 @@ import Image from 'next/image';
 import comgoraData from '../comgora.js';
 import accessibility from '../accessibility.js';
 import bumbleRedesign from '../bumbleRedesign.js';
+import Link from 'next/link';
 
 
 export default function ProjectPage({ params }) {
