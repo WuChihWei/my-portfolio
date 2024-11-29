@@ -371,7 +371,7 @@ export default function ProjectPage({ params }) {
         
         {/* Main Image */}
         {data?.prototypeMainPic?.imageUrl && (
-          <div className={`relative w-full h-screen max-h-[650px] rounded-3xl mb-12 ${data.prototypeMainPic?.backgroundColor || 'bg-stone-100'}`}>
+          <div className={`relative w-full h-screen max-h-[650px] rounded-3xl mb-12 ${data.prototypeMainPic?.backgroundColor ? data.prototypeMainPic.backgroundColor : 'bg-stone-100'}`}>
             <Image 
               src={data.prototypeMainPic.imageUrl} 
               alt={"userEvaluation"} 
@@ -387,7 +387,7 @@ export default function ProjectPage({ params }) {
             <div key={index} className="flex flex-col gap-4">
               <div 
                 className="relative w-full h-screen max-h-[650px] rounded-3xl" 
-                style={{ backgroundColor: solution.backgroundColor || 'bg-stone-100' }}
+                style={{ backgroundColor: solution.backgroundColor ? solution.backgroundColor : 'CCCCCC' }}
               >
                 {solution.imageUrl && (
                   <Image 

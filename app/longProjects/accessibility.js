@@ -195,12 +195,14 @@ const accessibility = {
         {
           title: "AI Chat Interface",
           description: "The process of redesigning the re-imagined image reCAPTCHA tool and enhancing the website user interface. (a) Analyze image color composition. (b) Add a (smore information) button on the tool. (c) Include a navigation list for more customized features. (d) Implement a test frequency adjustment function. (e) Integrate a text-to-image plugin. (f) Adjust the text and image ratio. (g) Incorporate a chat-to-website plugin.",
-          imageUrl: "/iteration1_thesis.png"
+          imageUrl: "/iteration1_thesis.png",
+          backgroundColor: "bg-stone-100",
         },
         {
           title: "Analytics Dashboard",
           // description: "Comprehensive view of audience engagement patterns and trending topics",
-          imageUrl: "/iteration2_thesis.png"
+          imageUrl: "/iteration2_thesis.png",
+          backgroundColor: "bg-stone-100",
         },
       ],
 
