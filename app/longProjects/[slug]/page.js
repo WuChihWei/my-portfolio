@@ -7,6 +7,7 @@ import comgoraData from '../comgora.js';
 import accessibility from '../accessibility.js';
 import bumbleRedesign from '../bumbleRedesign.js';
 import Link from 'next/link';
+import { RiScrollToBottomFill } from "react-icons/ri";
 
 
 export default function ProjectPage({ params }) {

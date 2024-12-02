@@ -14,6 +14,7 @@ import { Fragment } from 'react';
 import { useRouter } from 'next/navigation';
 import Player from '@vimeo/player';
 import Link from 'next/link'; // 確保在文件頂部導入 Link
+import { FaAnglesDown } from "react-icons/fa6";
 
 const skillIcons = [
   { icon: '/skill-1.png', name: 'After Effect' },
@@ -261,6 +262,13 @@ export default function Home() {
     return () => clearTimeout(timer); // 清除計時器
   }, []);
 
+  const scrollToSection = (sectionId) => {
+    const section = document.getElementById(sectionId);
+    if (section) {
+      section.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
   return (
     <div className='home-container h-auto'>
       {showPopup && (
@@ -296,7 +304,7 @@ export default function Home() {
                 </div>
 
               <h1 className=" pr-6  heading-1-custom">
-              End-to-end Digital Product Enthusiast passionate about programming, business strategy, and product design.              </h1>
+              End-to-end AI Digital Product Enthusiast passionate about programming, business strategy, and product design.              </h1>
               <div className="py-2 md:py-0 mr-0 md:mr-10">
               <h4 className='heading-4-custom mr-12 pb-4'>
               {/* Delivering digital solutions through design thinking, strategy to coding with AI-power.<br />
@@ -389,15 +397,19 @@ export default function Home() {
                               </div>
                         </div>
 
-    <div className="bg-blue-400 p p-12 rounded-3xl">
-    <div className=''>
-    <h4 className="heading-3-custom mb-4 text-white">3-Week End-to-end</h4>
-    <p className="heading-4-custom text-white">
-    3-week projects managing and conducted an MVP, from strategic planning to coding and design, within a tight deadline.    
+    <div className="bg-blue-400 p-12 rounded-3xl flex flex-col justify-between">
+    <div className='h-auto'>
+    <div className='flex flex-row items-center mb-8'>
+    <h4 className="heading-3-custom text-white pr-2">End-to-end Projects</h4>
+    <FaAnglesDown className="mr-2 heading-3-custom text-stone-50 cursor-pointer" onClick={() => scrollToSection('end-to-end-projects')} />
+    </div>
+    {/* <p className="mr-2 text-m">Behance</p>      */}
+    <p className="heading-4-custom text-white h-auto">
+    3-week projects  managing and conducted an MVP, from strategic planning to coding and design, within a tight deadline.    
     </p>
     </div>
-    <div className="flex flex-wrap gap-4 mt-4">
-      <span className="bg-white text-blue-400 py-2 px-6 rounded-full text-sm">Frontend</span>
+    <div className="flex flex-wrap gap-4 mt-4 font-medium">
+      <span className="bg-white text-blue-400 py-2 px-6 rounded-full text-sm ">Frontend</span>
       <span className="bg-white text-blue-400 py-2 px-6  rounded-full text-sm">React</span>
       <span className="bg-white text-blue-400 py-2 px-6  rounded-full text-sm">Firebase</span>
       <span className="bg-white text-blue-400 py-2 px-6  rounded-full text-sm">Next.js</span>
@@ -408,14 +420,17 @@ export default function Home() {
     </div>
     </div>
 
-    <div className="bg-stone-400 p-12 rounded-3xl">
+    <div className="bg-stone-400 p-12 rounded-3xl flex flex-col justify-between">
     <div className=''>
-    <h4 className="heading-3-custom mb-4 text-white">User Researches</h4>
+    <div className='flex flex-row items-center mb-8'>
+    <h4 className="heading-3-custom pr-4 text-white">User Researches</h4>
+    <FaAnglesDown className="mr-2 heading-3-custom text-stone-50 cursor-pointer" onClick={() => scrollToSection('user-researches')} />
+    </div>
     <span className="heading-4-custom text-white">
     Highlighting the digital product research process across C2C, B2B, medical, and accessibility domains    
     </span>
     </div>
-    <div className="flex flex-wrap gap-4 mt-4">
+    <div className="flex flex-wrap gap-4 mt-4 font-medium">
     <span className="bg-white text-stone-400 py-2 px-6 rounded-full text-sm">UIUX</span>
       <span className="bg-white text-stone-400 py-2 px-6  rounded-full text-sm">Figma</span>
       <span className="bg-white text-stone-400 py-2 px-6  rounded-full text-sm">Miro</span>
@@ -435,7 +450,7 @@ export default function Home() {
         <div className="resume-container h-auto">
           
           <div className='title-contatiner p-2 py-20 bg-stone-100 md:p-10 ls:p-40 rounded-3xl'>
-          <h1 className='heading-2-custom text-stone-400 '>End-to-end Projects</h1>
+          <h1 id="end-to-end-projects" className='heading-2-custom text-stone-400'>End-to-end Projects</h1>
 
             <div className='grid grid-cols-1 md:grid-cols-2 gap-x-0 md:gap-x-40 ls:gap-x-20 gap-y-10 '>
               {projects.filter(project => project.id !== 'project-5' && project.id !== 'project-7'  && project.id !== 'project-8').map((project) => (
@@ -554,7 +569,7 @@ export default function Home() {
         <div className="resume-container pt-10 h-auto">
           
           <div className='title-contatiner p-2 py-20 bg-stone-400 md:p-10 ls:p-40 rounded-3xl'>
-          <h1 className='heading-2-custom text-white'>User Researches</h1>
+          <h1 id="user-researches" className='heading-2-custom text-white'>User Researches</h1>
 
             <div className='grid grid-cols-1 md:grid-cols-2 gap-x-0 md:gap-x-40 ls:gap-x-20 gap-y-10'>
               {projects.filter(project => project.id === 'project-5' || project.id === 'project-7' || project.id === 'project-8').map((project) => (
@@ -679,7 +694,7 @@ export default function Home() {
           <div className="flex justify-between items-start mb-4">
             <div>
               <h3 className='heading-3-custom text-2xl font-bold'>Comgora</h3>
-              <p className='text-gray-600'>Stockholm 2023</p>
+              <p className='text-gray-600'>KTH Innovation Center (Stockholm 2023)</p>
             </div>
             {/* <IoMdInformationCircleOutline 
               size={24} 
@@ -692,28 +707,28 @@ export default function Home() {
             <div>
               <p className="font-semibold">Role</p>
               <div className="text-right">
-                <p>Cofounder</p>
+                <p>Founder</p>
                 <p>Product Manager</p>
-                <p>Full Stack</p>
+                <p>UI/UX</p>
               </div>
             </div>
             <hr className="my-4 border-gray-400" />
             <div>
               <p className="font-semibold">Key Projects</p>
               <div className="text-right">
-                <p>AI Contract App</p>
+                <p>AI Contract App UIUX</p>
                 <p>Workflow Optimization</p>
+                <p>Business Analysis</p>
               </div>
             </div>
             <hr className="my-4 border-gray-400" />
             <div>
               <p className="font-semibold">Scope</p>
               <div className="text-left space-y-4 pt-2">
-                <p>Led market research, boosted satisfaction by 60%</p>
-                <p>Increased team productivity by 35% with workflow</p>
-                <p>Built app with 5 developers in 4 months</p>
-                <p>Managed 7+ team, sped up delivery by 45%</p>
-                <p>Defined product vision and did SWOT analysis</p>
+                <p>Developed an AI-powered contract app on Flutter, after 20+ interviews</p>
+                <p>Managed 7+ team, and Developed with 5 developers in 4 months</p>
+                <p>Defined product design systems and design guideline</p>
+                <p>Conducted SWOT, STP analysis, Porter’s Five Forces and Customer Journey Mapping analysis. </p>
               </div>
             </div>
           </div>
@@ -735,7 +750,7 @@ export default function Home() {
           <div className="flex justify-between items-start mb-4">
             <div>
               <h3 className='heading-3-custom text-2xl font-bold'>Studs</h3>
-              <p className='text-gray-600'>Stockholm 2023</p>
+              <p className='text-gray-600'>Part Time (Stockholm 2023)</p>
             </div>
             {/* <IoMdInformationCircleOutline 
               size={24} 
@@ -748,7 +763,7 @@ export default function Home() {
             <div>
               <p className="font-semibold">Role</p>
               <div className="text-right space-y-1">
-                <p>Art Director</p>
+                <p>Art Director (UI/UX)</p>
               </div>
             </div>
             <hr className="my-4 border-gray-400" />
@@ -763,10 +778,10 @@ export default function Home() {
             <div>
               <p className="font-semibold">Scope</p>
               <div className="text-left space-y-4 pt-2">
-                <p>Increased content output by 120%, views by 40%</p>
-                <p>Boosted engagement with social media strategy</p>
-                <p>Increased content output by 120%, views by 40%</p>
-                <p>Created content for 25 companies in 4 cities</p>
+                <p>Led UI/UX strategies for 25+ companies using A/B testing and KPI analysis</p>
+                <p>Improved user engagement by 40% among top graduate users</p>
+                <p>Executed agile design strategies for websites and social media</p>
+                <p>Increased content views by 60% in 6 months</p>
               </div>
             </div>
           </div>
@@ -786,7 +801,7 @@ export default function Home() {
           <div className="flex justify-between items-start mb-4">
             <div>
               <h3 className='heading-3-custom text-2xl font-bold'>AppWorks</h3>
-              <p className='text-gray-600'>Taipei 2022</p>
+              <p className='text-gray-600'>Trainee (Taipei 2022)</p>
             </div>
             {/* <IoMdInformationCircleOutline 
               size={24} 
@@ -799,8 +814,9 @@ export default function Home() {
             <div>
               <p className="font-semibold">Role</p>
               <div className="text-right space-y-1">
-                <p>Developer Trainee</p>
-                <p>Product Integrated Trainee</p>
+                <p>Frontend Developer</p>
+                <p>UI/UX</p>
+                <p>Product Manager</p>
               </div>
             </div>
             <hr className="my-4 border-gray-400" />
@@ -818,10 +834,10 @@ export default function Home() {
             <div>
               <p className="font-semibold">Scope</p>
               <div className="text-left space-y-4 pt-2">
-                <p>Improved app by 30% with refactoring</p>
-                <p>Boosted output by 20% in cross-functional teams</p>
-                <p>Developed "Naturian" app in 5 weeks</p>
-                <p>Enhanced team collaboration in Scrum</p>
+                <p>Built the 'Naturian' app in 5 weeks with UI/UX design in Figma and Swift development</p>
+                <p>Coordinated with Android, Back-End, and Front-End teams using Scrum</p>
+                <p>Designed and coded two e-commerce and social media apps in 7 weeks</p>
+                <p>Enhanced performance by 30% via code refactoring and testing</p>
               </div>
             </div>
           </div>
@@ -841,7 +857,7 @@ export default function Home() {
           <div className="flex justify-between items-start mb-4">
             <div>
               <h3 className='heading-3-custom text-2xl font-bold'>Atom Health Corp.</h3>
-              <p className='text-gray-600'>Taipei 2021</p>
+              <p className='text-gray-600'>Full Time (Taipei 2021 - 2018)</p>
             </div>
             {/* <IoMdInformationCircleOutline 
               size={24} 
@@ -855,7 +871,7 @@ export default function Home() {
               <p className="font-semibold">Role</p>
               <div className="text-right space-y-1">
                 <p>Associate Product Owner</p>
-                <p>R&D Product engineering</p>
+                <p>R&D Design Engineering</p>
               </div>
             </div>
             <hr className="my-4 border-gray-400" />
@@ -875,10 +891,10 @@ export default function Home() {
             <div>
               <p className="font-semibold">Scope</p>
               <div className="text-left space-y-4 pt-2">
-                <p>Secured FDA patent, drove 45% revenue</p>
-                <p>Increased production by 60%, cut costs by 50%</p>
-                <p>Conducted research for strategic growth</p>
-                <p>Boosted sales by 46% with data marketing</p>
+                <p>Created patent drawings and UI/UX documents aligned with ISO medical standards</p>
+                <p>Secured FDA approval for 7 products within 3 months in collaboration with RA and engineers</p>
+                <p>Used Amazon and Shopify data for targeted ads and packaging redesigns</p>
+                <p>Boosted conversion rates by 50% and increased U.S. mask sales by 40%</p>
               </div>
             </div>
           </div>
@@ -902,7 +918,7 @@ export default function Home() {
       <section className='skillSection w-full py-20  rounded-3xl'>
         <div className='container h-full py-20  bg-stone-700  rounded-full'>
           <div className='h-1/2 flex flex-col justify-center'>         
-          <h2 className='heading-2-custom text-white py-8  text-center'>Innovative Skills</h2>
+          <h2 className='heading-2-custom text-white py-8  text-center'>Key Skills</h2>
           <p className='heading-4-custom text-white mb-12 px-8 text-center'>
           I integrate front-end technologies like React.js and Next.js with back-end systems using Node.js, Flask, and Firebase, while leveraging AI to enhance user experiences and automate processes. Combining data-driven insights with intuitive design, I deliver scalable, innovative solutions that anticipate user needs and solve challenges efficiently.
           </p>
