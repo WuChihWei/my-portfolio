@@ -326,7 +326,7 @@ export default function Home() {
                 </div>
                 <div className='text-white p-2 px-4 rounded-full border-2'>
                 <a
-                  href="https://www.behance.net/gallery/212278441/Digital-Design-Portfolio"
+                  href="https://www.behance.net/jordanwu-tech"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="resume-item-subheader text-white hover:text-stone-800 transition-colors duration-300"
