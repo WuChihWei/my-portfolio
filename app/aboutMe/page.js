@@ -4,13 +4,6 @@ import { useState, useEffect } from 'react';
 import { MdArrowOutward } from "react-icons/md";
 import { CiCircleInfo } from "react-icons/ci";
 
-// 添加页面元数据
-export const metadata = {
-  title: 'About Jordan Wu | AI Product Designer | Business Strategist',
-  description: 'Learn about Jordan Wu, an experienced AI Product Designer with expertise in UI/UX design, business strategy, product development, and innovative digital solutions.',
-  keywords: 'Jordan Wu, AI Product Designer, UX/UI Design, Business Strategy, KTH Royal Institute of Technology, Product Development, Design Portfolio',
-};
-
 export default function AboutMePage() {
     const [isClient, setIsClient] = useState(false);
 
