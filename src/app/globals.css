@@ -4,32 +4,32 @@
 
 @layer components {
   .heading-1-custom {
-    @apply text-3xl font-bold md:text-3xl lg:text-5xl lg:font-semibold
+    @apply text-3xl font-bold md:text-3xl lg:text-4xl lg:font-bold
     tracking-normal leading-relaxed
     md:tracking-normal md:leading-snug
     lg:tracking-normal lg:leading-snug;
   }
 
   .heading-sub1-custom {
-    @apply text-5xl pb-2 font-bold md:text-5xl lg:text-6xl lg:font-extrabold
+    @apply text-4xl pb-2 font-bold md:text-4xl lg:text-5xl lg:font-bold
     tracking-tight leading-tight
     md:tracking-normal md:leading-snug
     lg:tracking-wide lg:leading-tight;
   }
 
   .heading-2-custom {
-    @apply text-5xl pb-4 md:text-7xl font-bold text-left leading-normal tracking-normal;
+    @apply text-3xl pb-4 md:text-3xl font-bold text-left leading-normal tracking-normal;
   }
 
   .heading-3-custom {
-    @apply text-xl font-bold mb-0 md:text-lg lg:text-3xl lg:font-bold
+    @apply text-xl font-bold mb-0 md:text-lg lg:text-2xl lg:font-semibold
     tracking-tight leading-tight
     md:tracking-normal md:leading-snug
     lg:tracking-wide lg:leading-snug;
   }
 
   .heading-4-custom {
-    @apply text-xl font-normal mb-4 md:text-xl lg:text-xl lg:font-medium
+    @apply text-xl font-normal mb-4 md:text-xl lg:text-base lg:font-medium
     tracking-normal leading-snug
     md:tracking-normal md:leading-snug
     lg:tracking-wide lg:leading-tight;
@@ -68,7 +68,7 @@
   --font-mono: ui-monospace, Menlo, Monaco, "Cascadia Mono", "Segoe UI Mono",
     "Roboto Mono", "Oxygen Mono", "Ubuntu Monospace", "Source Code Pro",
     "Fira Mono", "Droid Sans Mono", "Courier New", monospace;
-  --font-family: "Inter", sans-serif;
+  --font-family: "Poppins", sans-serif;
 }
 
 @media (prefers-color-scheme: dark) {

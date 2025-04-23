@@ -7,10 +7,10 @@ const IntroductionPage = ({ title, description, backgroundImageUrl, contentImage
       <div className="flex flex-col lg:flex-row items-center w-full h-full">
         <div className="flex flex-col justify-between md:justify-around w-full p-p-gap py-14 pr-10 md:pr-10 h-full lg:w-1/2 text-black">
           <div className='top-title'>
-            <h1 className="heading-sub1-custom">  
+            <h1 className="heading-1-custom">  
               {title}
             </h1>
-            <div className='flex items-center gap-4'>
+            <div className='flex items-center gap-2 py-2'>
             {websiteLink && (
               <a
                 href={websiteLink}
@@ -34,7 +34,7 @@ const IntroductionPage = ({ title, description, backgroundImageUrl, contentImage
           </div>
 
           <div className='middle-description'>
-            <h4 className="heading-4-custom mt-4 mb-14 md:mr-20 md:font-semibold md:mb-4 md:mt-10">
+            <h4 className="heading-4-custom mt-4 mb-14 md:mr-20 md:font-semibold md:mb-4 md:mt-2">
               {description}
             </h4>
           </div>
@@ -43,7 +43,7 @@ const IntroductionPage = ({ title, description, backgroundImageUrl, contentImage
 
          
           <div className='list-description'>
-            <ul className="list-disc sm:text-sm md:text-base">
+            <ul className="list-disc sm:text-xs md:text-sm">
               <p className='pb-2 font-semibold text-stone-400'>Jordan's' 3-weeks, Project Response for</p>
               <p>- Market Research</p>
               <p>- User Study</p>

@@ -15,6 +15,7 @@ import { useRouter } from 'next/navigation';
 import Player from '@vimeo/player';
 import Link from 'next/link'; // 確保在文件頂部導入 Link
 import { FaAnglesDown } from "react-icons/fa6";
+import { FaArrowAltCircleDown } from "react-icons/fa";
 
 const skillIcons = [
   { icon: '/skill-1.png', name: 'After Effect' },
@@ -304,7 +305,8 @@ export default function Home() {
                 </div>
 
               <h1 className=" pr-6  heading-1-custom">
-              End-to-end AI Digital Product Enthusiast passionate about programming, business strategy, and product design.              </h1>
+              Business-driven. AI-enabled. Every product here was built from insight to launch by Jordan Wu.
+              </h1>
               <div className="py-2 md:py-0 mr-0 md:mr-10">
               <h4 className='heading-4-custom mr-12 pb-4'>
               {/* Delivering digital solutions through design thinking, strategy to coding with AI-power.<br />
@@ -397,11 +399,11 @@ export default function Home() {
                               </div>
                         </div>
 
-    <div className="bg-blue-400 p-12 rounded-3xl flex flex-col justify-between">
+    <div className="bg-blue-400 p-6 rounded-3xl flex flex-col justify-between">
     <div className='h-auto'>
     <div className='flex flex-row items-center mb-8'>
     <h4 className="heading-3-custom text-white pr-2">End-to-end Projects</h4>
-    <FaAnglesDown className="mr-2 heading-3-custom text-stone-50 cursor-pointer" onClick={() => scrollToSection('end-to-end-projects')} />
+    <FaArrowAltCircleDown className="mr-2 heading-3-custom text-stone-50 cursor-pointer" onClick={() => scrollToSection('end-to-end-projects')} />
     </div>
     {/* <p className="mr-2 text-m">Behance</p>      */}
     <p className="heading-4-custom text-white h-auto">
@@ -420,11 +422,11 @@ export default function Home() {
     </div>
     </div>
 
-    <div className="bg-stone-400 p-12 rounded-3xl flex flex-col justify-between">
+    <div className="bg-stone-400 p-6 rounded-3xl flex flex-col justify-between">
     <div className=''>
     <div className='flex flex-row items-center mb-8'>
     <h4 className="heading-3-custom pr-4 text-white">User Researches</h4>
-    <FaAnglesDown className="mr-2 heading-3-custom text-stone-50 cursor-pointer" onClick={() => scrollToSection('user-researches')} />
+    <FaArrowAltCircleDown className="mr-2 heading-3-custom text-stone-50 cursor-pointer" onClick={() => scrollToSection('user-researches')} />
     </div>
     <span className="heading-4-custom text-white">
     Highlighting the digital product research process across C2C, B2B, medical, and accessibility domains    
