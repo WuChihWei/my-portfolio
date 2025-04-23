@@ -410,15 +410,15 @@ export default function Home() {
     3-week projects  managing and conducted an MVP, from strategic planning to coding and design, within a tight deadline.    
     </p>
     </div>
-    <div className="flex flex-wrap gap-4 mt-4 font-medium">
-      <span className="bg-white text-blue-400 py-2 px-6 rounded-full text-sm ">Frontend</span>
-      <span className="bg-white text-blue-400 py-2 px-6  rounded-full text-sm">React</span>
-      <span className="bg-white text-blue-400 py-2 px-6  rounded-full text-sm">Firebase</span>
-      <span className="bg-white text-blue-400 py-2 px-6  rounded-full text-sm">Next.js</span>
-      <span className="bg-white text-blue-400 py-2 px-6  rounded-full text-sm">UIUX</span>
-      <span className="bg-white text-blue-400  py-2 px-6  rounded-full text-sm">Figma</span>
-      <span className="bg-white text-blue-400 py-2 px-6  rounded-full text-sm">Branding</span>
-      <span className="bg-white text-blue-400  py-2 px-6  rounded-full text-sm">Product Management</span>
+    <div className="flex flex-wrap gap-4 mt-2 font-medium">
+      <span className="bg-white text-blue-400 py-2 px-3 rounded-full text-sm ">Frontend</span>
+      <span className="bg-white text-blue-400 py-2 px-3  rounded-full text-sm">React</span>
+      <span className="bg-white text-blue-400 py-2 px-3  rounded-full text-sm">Firebase</span>
+      <span className="bg-white text-blue-400 py-2 px-3  rounded-full text-sm">Next.js</span>
+      <span className="bg-white text-blue-400 py-2 px-3  rounded-full text-sm">UIUX</span>
+      <span className="bg-white text-blue-400  py-2 px-3  rounded-full text-sm">Figma</span>
+      <span className="bg-white text-blue-400 py-2 px-3  rounded-full text-sm">Branding</span>
+      <span className="bg-white text-blue-400  py-2 px-3  rounded-full text-sm">Product Management</span>
     </div>
     </div>
 
@@ -432,13 +432,13 @@ export default function Home() {
     Highlighting the digital product research process across C2C, B2B, medical, and accessibility domains    
     </span>
     </div>
-    <div className="flex flex-wrap gap-4 mt-4 font-medium">
-    <span className="bg-white text-stone-400 py-2 px-6 rounded-full text-sm">UIUX</span>
-      <span className="bg-white text-stone-400 py-2 px-6  rounded-full text-sm">Figma</span>
-      <span className="bg-white text-stone-400 py-2 px-6  rounded-full text-sm">Miro</span>
-      <span className="bg-white text-stone-400 py-2 px-6  rounded-full text-sm">User Research</span>
-      <span className="bg-white text-stone-400 py-2 px-6  rounded-full text-sm">Affinity Diagram</span>
-      <span className="bg-white text-stone-400  py-2 px-6  rounded-full text-sm">User Interview</span>
+    <div className="flex flex-wrap gap-4 mt-2 font-medium">
+    <span className="bg-white text-stone-400 py-2 px-3 rounded-full text-sm">UIUX</span>
+      <span className="bg-white text-stone-400 py-2 px-3  rounded-full text-sm">Figma</span>
+      <span className="bg-white text-stone-400 py-2 px-3  rounded-full text-sm">Miro</span>
+      <span className="bg-white text-stone-400 py-2 px-3  rounded-full text-sm">User Research</span>
+      <span className="bg-white text-stone-400 py-2 px-3  rounded-full text-sm">Affinity Diagram</span>
+      <span className="bg-white text-stone-400  py-2 px-3  rounded-full text-sm">User Interview</span>
     </div>
     </div>
           </div>
@@ -452,7 +452,7 @@ export default function Home() {
         <div className="resume-container h-auto">
           
           <div className='title-contatiner p-2 py-20 bg-stone-100 md:p-10 ls:p-40 rounded-3xl'>
-          <h1 id="end-to-end-projects" className='heading-2-custom text-stone-400'>End-to-end Projects</h1>
+          <h1 id="end-to-end-projects" className='heading-2-custom text-stone-800'>End-to-end Projects</h1>
 
             <div className='grid grid-cols-1 md:grid-cols-2 gap-x-0 md:gap-x-40 ls:gap-x-20 gap-y-10 '>
               {projects.filter(project => project.id !== 'project-5' && project.id !== 'project-7'  && project.id !== 'project-8').map((project) => (
@@ -687,15 +687,15 @@ export default function Home() {
       {/* </section> */}
 
       <div  className='md:py-10'>
-      <div className='title-container p-4 bg-stone-200 rounded-3xl md:p-20'>
+      <div className='title-container p-4 bg-stone-200 rounded-3xl md:p-10'>
       <h2 className='heading-2-custom'>Work Experience</h2>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 md:gap-20">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 md:gap-10">
         {/* Comgora */}
         <div className="experience-item py-10 rounded-lg">
           <div className="flex justify-between items-start mb-4">
             <div>
-              <h3 className='heading-3-custom text-2xl font-bold'>Comgora</h3>
+              <h3 className='heading-3-custom text-2xl'>Comgora</h3>
               <p className='text-gray-600'>KTH Innovation Center (Stockholm 2023)</p>
             </div>
             {/* <IoMdInformationCircleOutline 
@@ -751,7 +751,7 @@ export default function Home() {
         <div className="experience-item py-10 rounded-lg ">
           <div className="flex justify-between items-start mb-4">
             <div>
-              <h3 className='heading-3-custom text-2xl font-bold'>Studs</h3>
+              <h3 className='heading-3-custom text-2xl '>Studs</h3>
               <p className='text-gray-600'>Part Time (Stockholm 2023)</p>
             </div>
             {/* <IoMdInformationCircleOutline 
@@ -802,7 +802,7 @@ export default function Home() {
         <div className="experience-item py-10 rounded-lg ">
           <div className="flex justify-between items-start mb-4">
             <div>
-              <h3 className='heading-3-custom text-2xl font-bold'>AppWorks</h3>
+              <h3 className='heading-3-custom text-2xl'>AppWorks</h3>
               <p className='text-gray-600'>Trainee (Taipei 2022)</p>
             </div>
             {/* <IoMdInformationCircleOutline 
@@ -858,7 +858,7 @@ export default function Home() {
         <div className="experience-item py-10 rounded-lg ">
           <div className="flex justify-between items-start mb-4">
             <div>
-              <h3 className='heading-3-custom text-2xl font-bold'>Atom Health Corp.</h3>
+              <h3 className='heading-3-custom text-2xl'>Atom Health Corp.</h3>
               <p className='text-gray-600'>Full Time (Taipei 2021 - 2018)</p>
             </div>
             {/* <IoMdInformationCircleOutline 
@@ -921,8 +921,8 @@ export default function Home() {
         <div className='container h-full py-20  bg-stone-700  rounded-full'>
           <div className='h-1/2 flex flex-col justify-center'>         
           <h2 className='heading-2-custom text-white py-8  text-center'>Key Skills</h2>
-          <p className='heading-4-custom text-white mb-12 px-8 text-center'>
-          I integrate front-end technologies like React.js and Next.js with back-end systems using Node.js, Flask, and Firebase, while leveraging AI to enhance user experiences and automate processes. Combining data-driven insights with intuitive design, I deliver scalable, innovative solutions that anticipate user needs and solve challenges efficiently.
+          <p className='heading-4-custom text-white mb-12 px-20 text-center'>
+          I build scalable digital products by combining React, Next.js, Node.js, and AI—enhancing user experience through smart automation and data-driven design.
           </p>
           </div>
           <div className='skill-carousel h-1/2 overflow-hidden items-center justify-center'>

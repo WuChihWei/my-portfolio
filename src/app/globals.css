@@ -4,39 +4,39 @@
 
 @layer components {
   .heading-1-custom {
-    @apply text-3xl font-bold md:text-3xl lg:text-4xl lg:font-bold
+    @apply text-3xl font-bold md:text-3xl lg:text-4xl lg:font-semibold
     tracking-normal leading-relaxed
     md:tracking-normal md:leading-snug
     lg:tracking-normal lg:leading-snug;
   }
 
   .heading-sub1-custom {
-    @apply text-4xl pb-2 font-bold md:text-4xl lg:text-5xl lg:font-bold
+    @apply text-4xl pb-2 font-semibold md:text-xl lg:text-5xl lg:font-semibold
     tracking-tight leading-tight
     md:tracking-normal md:leading-snug
     lg:tracking-wide lg:leading-tight;
   }
 
   .heading-2-custom {
-    @apply text-3xl pb-4 md:text-3xl font-bold text-left leading-normal tracking-normal;
+    @apply text-3xl pb-4 md:text-4xl font-semibold text-left leading-normal tracking-normal;
   }
 
   .heading-3-custom {
-    @apply text-xl font-bold mb-0 md:text-lg lg:text-2xl lg:font-semibold
+    @apply text-xl font-semibold mb-0 md:text-lg lg:text-2xl lg:font-semibold
     tracking-tight leading-tight
     md:tracking-normal md:leading-snug
     lg:tracking-wide lg:leading-snug;
   }
 
   .heading-4-custom {
-    @apply text-xl font-normal mb-4 md:text-xl lg:text-base lg:font-medium
-    tracking-normal leading-snug
-    md:tracking-normal md:leading-snug
-    lg:tracking-wide lg:leading-tight;
+    @apply text-lg font-normal mb-2 md:text-base lg:text-lg lg:font-medium
+    tracking-normal leading-normal
+    md:tracking-normal md:leading-normal
+    lg:tracking-normal lg:leading-relaxed;
   }
 
   .heading-5-custom {
-    @apply text-lg font-medium md:font-bold mb-4 md:text-lg lg:text-xl lg:font-normal text-balance
+    @apply text-lg font-medium md:font-semibold mb-4 md:text-lg lg:text-xl lg:font-normal text-balance
     tracking-normal leading-snug
     md:tracking-normal md:leading-snug;
   }
@@ -50,7 +50,7 @@
   }
 
   .resume-item-header {
-    @apply flex justify-between items-center cursor-pointer text-lg font-bold md:text-lg lg:text-xl lg:font-semibold mb-2 my-4;
+    @apply flex justify-between items-center cursor-pointer text-lg font-semibold md:text-lg lg:text-xl lg:font-semibold mb-2 my-4;
   }
 
   .resume-item-subheader {
@@ -58,7 +58,7 @@
   }
 
   .resume-item-header-static {
-    @apply flex justify-between items-center cursor-default text-lg font-bold md:text-lg lg:text-xl lg:font-semibold mb-2 my-4;
+    @apply flex justify-between items-center cursor-default text-lg font-semibold md:text-lg lg:text-xl lg:font-semibold mb-2 my-4;
   }
 }
 
