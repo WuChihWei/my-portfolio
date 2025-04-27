@@ -2,7 +2,7 @@ import Navbar from '../components/Navbar';
 import FooterWrapper from '../components/FooterWrapper';
 import GridOverlay from '../components/GridOverlay'; 
 import '../src/app/globals.css';
-import { Analytics } from "@vercel/analytics/react"
+import { Analytics } from "@vercel/analytics/react";
 
 export const metadata = {
   title: 'Jordan Wu | AI Product Developer | UI/UX Designer | Business Strategist',
@@ -43,18 +43,18 @@ export const metadata = {
 };
 
 export default function RootLayout({ children }) {
-    
   return (
     <html lang="en">
       <head>
+        {/* 原本你的 SEO 設定 */}
         <link rel="icon" href="/favicon.ico" sizes="any" />
         <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
         <link rel="manifest" href="/site.webmanifest" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
-        
-        {/* 添加结构化数据 */}
+
+        {/* 原本你的結構化資料 Schema */}
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
@@ -86,16 +86,34 @@ export default function RootLayout({ children }) {
             })
           }}
         />
+
+        {/* 加上 Google Tag Manager (GTM) script */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+            new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+            j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+            'https://www.googletagmanager.com/gtm.js?id=GTM-MNZMBL8T';f.parentNode.insertBefore(j,f);
+            })(window,document,'script','dataLayer','GTM-MNZMBL8T');`
+          }}
+        />
       </head>
+
       <body>
+        {/* 加上 Google Tag Manager (noscript) */}
+        <noscript>
+          <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MNZMBL8T"
+            height="0" width="0" style={{ display: "none", visibility: "hidden" }}>
+          </iframe>
+        </noscript>
+
+        {/* 正常內容 */}
         <Navbar />
         <main>
-        {/* <ProjectsProvider value={null}> */}
           {children}
-        {/* </ProjectsProvider> */}
         </main>
         <FooterWrapper />
-        <Analytics /> {/* Add the Analytics component here */}
+        <Analytics />
       </body>
     </html>
   );
