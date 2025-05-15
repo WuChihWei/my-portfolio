@@ -5,12 +5,12 @@ import '../src/app/globals.css';
 import { Analytics } from "@vercel/analytics/react";
 
 export const metadata = {
-  title: 'Jordan Wu | AI Product Developer | UI/UX Designer | Business Strategist',
-  description: 'Jordan Wu is an experienced AI Product Developer specializing in UX design, product development, business strategy, and creating innovative digital experiences.',
-  keywords: 'Jordan Wu, AI Product Developer, UX Designer, Product Development, Digital Product, Business Strategy, Portfolio',
+  title: 'Jordan Wu | AI Product Manager | Data-Driven Product Manager | Business Strategist',
+  description: 'Jordan Wu is an experienced AI Product Manager specializing in data-driven product development, business strategy, and creating innovative digital experiences.',
+  keywords: 'Jordan Wu, AI Product Manager, Data-Driven Product Manager, Business Strategist, Portfolio',
   openGraph: {
-    title: 'Jordan Wu | AI Product Developer | UX Designer | Business Strategist',
-    description: 'Jordan Wu is an experienced AI Product Developer specializing in UI/UX design, product development, business strategy, and creating innovative digital experiences.',
+    title: 'Jordan Wu | AI Product Manager | Data-Driven Product Manager | Business Strategist',
+    description: 'Jordan Wu is an experienced AI Product Manager specializing in data-driven product development, business strategy, and creating innovative digital experiences.',
     url: 'https://www.jordan-wu.com',
     siteName: 'Jordan Wu Portfolio',
     images: [
