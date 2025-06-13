@@ -3,12 +3,15 @@
 import { useState, useEffect } from 'react';
 import { MdArrowOutward } from "react-icons/md";
 import { CiCircleInfo } from "react-icons/ci";
+import TrackingEvents from '../../lib/trackingEvents';
 
 export default function AboutMePage() {
     const [isClient, setIsClient] = useState(false);
 
     useEffect(() => {
         setIsClient(true);
+        // 頁面載入追蹤
+        TrackingEvents.trackPageView('about_me');
     }, []);
 
     const [openItems, setOpenItems] = useState({

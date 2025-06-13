@@ -5,6 +5,7 @@ import { FaFacebook, FaGithub, FaLinkedin } from 'react-icons/fa';
 import { useRouter } from 'next/navigation';
 import { useState } from 'react';
 import axios from 'axios';
+import TrackingEvents from '../lib/trackingEvents';
 
 const FooterTop = () => {
   const [email, setEmail] = useState('');
@@ -15,14 +16,26 @@ const FooterTop = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setSubmitStatus('Sending...');
+    
+    // 追蹤聯絡表單點擊
+    TrackingEvents.trackContactClick('email_form');
+    
     try {
       await axios.post('/api/contact', { email, name, message });
       setSubmitStatus('Thank you for your message!');
+      
+      // 追蹤表單提交成功
+      TrackingEvents.trackFormSubmit('contact_form', true);
+      
       setEmail('');
       setName('');
       setMessage('');
     } catch (error) {
       setSubmitStatus('Error. Please try again.');
+      
+      // 追蹤表單提交失敗
+      TrackingEvents.trackFormSubmit('contact_form', false);
+      
       console.error('Error submitting form:', error);
     }
   };
@@ -102,6 +115,7 @@ const FooterBottom = () => {
           className="text-black hover:text-gray-300 transition duration-300"
           target="_blank"
           rel="noopener noreferrer"
+          onClick={() => TrackingEvents.trackSocialLinkClick('LinkedIn', 'https://www.linkedin.com/in/jordanwu-tech/')}
         >
           <FaLinkedin size={24} />
         </a>
@@ -110,6 +124,7 @@ const FooterBottom = () => {
           className="text-black hover:text-gray-300 transition duration-300"
           target="_blank"
           rel="noopener noreferrer"
+          onClick={() => TrackingEvents.trackSocialLinkClick('GitHub', 'https://github.com/WuChihWei')}
         >
           <FaGithub size={24} />
         </a>

@@ -16,6 +16,9 @@ import Player from '@vimeo/player';
 import Link from 'next/link'; // 確保在文件頂部導入 Link
 import { FaAnglesDown } from "react-icons/fa6";
 import { FaArrowAltCircleDown } from "react-icons/fa";
+// 導入追蹤功能
+import useTrackingEvents from '../hooks/useTrackingEvents';
+import TrackingEvents from '../lib/trackingEvents';
 
 const skillIcons = [
   { icon: '/skill-1.png', name: 'After Effect' },
@@ -53,6 +56,14 @@ export default function Home() {
   const carouselRef = useRef(null);
   const [isPlaying, setIsPlaying] = useState({});
   const [showPopup, setShowPopup] = useState(true);
+  
+  // 初始化追蹤功能
+  const { trackProjectClick, trackVideoInteraction, trackSocialClick } = useTrackingEvents();
+
+  // 頁面載入追蹤
+  useEffect(() => {
+    TrackingEvents.trackPageView('homepage');
+  }, []);
 
   useEffect(() => {
     const fetchProjectsData = async () => {
@@ -175,7 +186,14 @@ export default function Home() {
         });
         
         // 切換當前影片的播放狀態
-        newState[projectId] = !prev[projectId];
+        const isNowPlaying = !prev[projectId];
+        newState[projectId] = isNowPlaying;
+        
+        // 追蹤影片互動
+        trackVideoInteraction(
+          isNowPlaying ? 'play' : 'pause', 
+          getProjectName(projectId)
+        );
         
         // 使用 Promise 來處理播放/暫停
         if (newState[projectId]) {
@@ -299,6 +317,7 @@ export default function Home() {
                   target="_blank"
                   rel="noopener noreferrer"
                   className="resume-item-subheader text-white hover:text-blue-800 transition-colors duration-300"
+                  onClick={() => trackSocialClick('LinkedIn', 'https://www.linkedin.com/in/jordanwu-tech/')}
                 >
                 <FaLinkedin className="mb-2" size={40}/> 
                 </a>
@@ -320,6 +339,7 @@ export default function Home() {
                   target="_blank"
                   rel="noopener noreferrer"
                   className="resume-item-subheader text-white hover:text-gray-600 transition-colors duration-300"
+                  onClick={() => trackSocialClick('GitHub', 'https://github.com/WuChihWei')}
                 >
                   <FaGithub className="mr-4 text-m" />
                   <p className="mr-2 text-m">GitHub</p>
@@ -332,6 +352,7 @@ export default function Home() {
                   target="_blank"
                   rel="noopener noreferrer"
                   className="resume-item-subheader text-white hover:text-stone-800 transition-colors duration-300"
+                  onClick={() => trackSocialClick('Behance', 'https://www.behance.net/jordanwu-tech')}
                 >
                   <IoLogoBehance className="mr-2 text-m" />
                   <p className="mr-2 text-m">Behance</p>                  
@@ -469,6 +490,8 @@ export default function Home() {
                           className="absolute top-4 right-4 z-10 bg-white rounded-full p-2 cursor-pointer hover:bg-gray-100 transition-all duration-300 shadow-lg hover:shadow-xl"
                           onClick={(e) => {
                             e.stopPropagation();
+                            // 追蹤作品卡片點擊
+                            trackProjectClick(getProjectName(project.id), project.id);
                             router.push(`/projects/${project.name}`);
                           }}
                         >

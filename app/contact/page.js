@@ -1,9 +1,16 @@
 "use client";
 
-import React from 'react';
+import React, { useEffect } from 'react';
 import Footer from '../../components/Footer';
+import TrackingEvents from '../../lib/trackingEvents';
 
 export default function ContactPage() {
+  // 頁面載入追蹤
+  useEffect(() => {
+    TrackingEvents.trackPageView('contact');
+    TrackingEvents.trackContactClick('contact_page');
+  }, []);
+
   return (
     <div className="h-auto items-center  flex flex-col flex-wrap">
            
@@ -23,6 +30,7 @@ export default function ContactPage() {
               target="_blank" 
               rel="noopener noreferrer" 
               className="text-base md:text-base font-medium hover:text-blue-600 transition-colors duration-300"
+              onClick={() => TrackingEvents.trackSocialLinkClick('LinkedIn', 'https://www.linkedin.com/in/jordanwu-tech/')}
             >
               linkedin.com/in/jordanwu-tech
             </a>

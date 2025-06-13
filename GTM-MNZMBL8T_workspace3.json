@@ -1,0 +1,269 @@
+{
+    "exportFormatVersion": 2,
+    "exportTime": "2025-06-13 10:46:58",
+    "containerVersion": {
+        "path": "accounts/6292741793/containers/218711763/versions/0",
+        "accountId": "6292741793",
+        "containerId": "218711763",
+        "containerVersionId": "0",
+        "container": {
+            "path": "accounts/6292741793/containers/218711763",
+            "accountId": "6292741793",
+            "containerId": "218711763",
+            "name": "jordan-wu.com",
+            "publicId": "GTM-MNZMBL8T",
+            "usageContext": [
+                "WEB"
+            ],
+            "fingerprint": "1745778840438",
+            "tagManagerUrl": "https://tagmanager.google.com/#/container/accounts/6292741793/containers/218711763/workspaces?apiLink=container",
+            "features": {
+                "supportUserPermissions": true,
+                "supportEnvironments": true,
+                "supportWorkspaces": true,
+                "supportGtagConfigs": false,
+                "supportBuiltInVariables": true,
+                "supportClients": false,
+                "supportFolders": true,
+                "supportTags": true,
+                "supportTemplates": true,
+                "supportTriggers": true,
+                "supportVariables": true,
+                "supportVersions": true,
+                "supportZones": true,
+                "supportTransformations": false
+            },
+            "tagIds": [
+                "GTM-MNZMBL8T"
+            ]
+        },
+        "tag": [
+            {
+                "accountId": "6292741793",
+                "containerId": "218711763",
+                "tagId": "3",
+                "name": "test_1",
+                "type": "gaawe",
+                "parameter": [
+                    {
+                        "type": "BOOLEAN",
+                        "key": "sendEcommerceData",
+                        "value": "false"
+                    },
+                    {
+                        "type": "BOOLEAN",
+                        "key": "enhancedUserId",
+                        "value": "false"
+                    },
+                    {
+                        "type": "TEMPLATE",
+                        "key": "eventName",
+                        "value": "test_1"
+                    },
+                    {
+                        "type": "TEMPLATE",
+                        "key": "measurementIdOverride",
+                        "value": "G-B3R9YH472J"
+                    }
+                ],
+                "fingerprint": "1745780142606",
+                "firingTriggerId": [
+                    "2147479553"
+                ],
+                "tagFiringOption": "ONCE_PER_EVENT",
+                "monitoringMetadata": {
+                    "type": "MAP"
+                },
+                "consentSettings": {
+                    "consentStatus": "NOT_SET"
+                }
+            },
+            {
+                "accountId": "6292741793",
+                "containerId": "218711763",
+                "tagId": "5",
+                "name": "Google Tag G-B3R9YH472J",
+                "type": "googtag",
+                "parameter": [
+                    {
+                        "type": "TEMPLATE",
+                        "key": "tagId",
+                        "value": "G-B3R9YH472J"
+                    }
+                ],
+                "fingerprint": "1745781259047",
+                "firingTriggerId": [
+                    "2147479573"
+                ],
+                "tagFiringOption": "ONCE_PER_EVENT",
+                "monitoringMetadata": {
+                    "type": "MAP"
+                },
+                "consentSettings": {
+                    "consentStatus": "NOT_SET"
+                }
+            },
+            {
+                "accountId": "6292741793",
+                "containerId": "218711763",
+                "tagId": "6",
+                "name": "GA4 Event - Click GitHub",
+                "type": "gaawe",
+                "parameter": [
+                    {
+                        "type": "BOOLEAN",
+                        "key": "sendEcommerceData",
+                        "value": "false"
+                    },
+                    {
+                        "type": "BOOLEAN",
+                        "key": "enhancedUserId",
+                        "value": "false"
+                    },
+                    {
+                        "type": "LIST",
+                        "key": "eventSettingsTable",
+                        "list": [
+                            {
+                                "type": "MAP",
+                                "map": [
+                                    {
+                                        "type": "TEMPLATE",
+                                        "key": "parameter",
+                                        "value": "link_url"
+                                    },
+                                    {
+                                        "type": "TEMPLATE",
+                                        "key": "parameterValue",
+                                        "value": "{{Click URL}}"
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "type": "TEMPLATE",
+                        "key": "eventName",
+                        "value": "click_github"
+                    },
+                    {
+                        "type": "TEMPLATE",
+                        "key": "measurementIdOverride",
+                        "value": "G-B3R9YH472J"
+                    }
+                ],
+                "fingerprint": "1745781705505",
+                "firingTriggerId": [
+                    "4"
+                ],
+                "tagFiringOption": "ONCE_PER_EVENT",
+                "monitoringMetadata": {
+                    "type": "MAP"
+                },
+                "consentSettings": {
+                    "consentStatus": "NOT_SET"
+                }
+            }
+        ],
+        "trigger": [
+            {
+                "accountId": "6292741793",
+                "containerId": "218711763",
+                "triggerId": "4",
+                "name": "Click - GitHub Button",
+                "type": "LINK_CLICK",
+                "filter": [
+                    {
+                        "type": "CONTAINS",
+                        "parameter": [
+                            {
+                                "type": "TEMPLATE",
+                                "key": "arg0",
+                                "value": "{{Click URL}}"
+                            },
+                            {
+                                "type": "TEMPLATE",
+                                "key": "arg1",
+                                "value": "github.com"
+                            }
+                        ]
+                    }
+                ],
+                "waitForTags": {
+                    "type": "BOOLEAN",
+                    "value": "false"
+                },
+                "checkValidation": {
+                    "type": "BOOLEAN",
+                    "value": "false"
+                },
+                "waitForTagsTimeout": {
+                    "type": "TEMPLATE",
+                    "value": "2000"
+                },
+                "uniqueTriggerId": {
+                    "type": "TEMPLATE"
+                },
+                "fingerprint": "1745781143122"
+            }
+        ],
+        "builtInVariable": [
+            {
+                "accountId": "6292741793",
+                "containerId": "218711763",
+                "type": "PAGE_URL",
+                "name": "Page URL"
+            },
+            {
+                "accountId": "6292741793",
+                "containerId": "218711763",
+                "type": "PAGE_HOSTNAME",
+                "name": "Page Hostname"
+            },
+            {
+                "accountId": "6292741793",
+                "containerId": "218711763",
+                "type": "PAGE_PATH",
+                "name": "Page Path"
+            },
+            {
+                "accountId": "6292741793",
+                "containerId": "218711763",
+                "type": "REFERRER",
+                "name": "Referrer"
+            },
+            {
+                "accountId": "6292741793",
+                "containerId": "218711763",
+                "type": "EVENT",
+                "name": "Event"
+            },
+            {
+                "accountId": "6292741793",
+                "containerId": "218711763",
+                "type": "CLICK_CLASSES",
+                "name": "Click Classes"
+            },
+            {
+                "accountId": "6292741793",
+                "containerId": "218711763",
+                "type": "CLICK_ID",
+                "name": "Click ID"
+            },
+            {
+                "accountId": "6292741793",
+                "containerId": "218711763",
+                "type": "CLICK_URL",
+                "name": "Click URL"
+            },
+            {
+                "accountId": "6292741793",
+                "containerId": "218711763",
+                "type": "CLICK_TEXT",
+                "name": "Click Text"
+            }
+        ],
+        "fingerprint": "1749811618773",
+        "tagManagerUrl": "https://tagmanager.google.com/#/versions/accounts/6292741793/containers/218711763/versions/0?apiLink=version"
+    }
+}

@@ -1,0 +1,770 @@
+{
+  "exportFormatVersion": 2,
+  "exportTime": "2024-01-01 00:00:00 UTC",
+  "containerVersion": {
+    "accountId": "123456789",
+    "containerId": "GTM-XXXXXXX",
+    "containerVersionId": "1",
+    "name": "Jordan Wu Portfolio Tracking Container",
+    "description": "完整的作品集網站追蹤配置，包含 GA4 事件追蹤",
+    "container": {
+      "accountId": "123456789",
+      "containerId": "GTM-XXXXXXX",
+      "name": "Jordan Wu Portfolio",
+      "publicId": "GTM-XXXXXXX",
+      "usageContext": ["WEB"],
+      "fingerprint": "1234567890"
+    },
+    "tag": [
+      {
+        "tagId": "1",
+        "name": "GA4 Configuration",
+        "type": "gaawc",
+        "parameter": [
+          {
+            "key": "measurementId",
+            "value": "G-XXXXXXXXXX"
+          }
+        ],
+        "fingerprint": "1234567890",
+        "firingTriggerId": ["2147483647"]
+      },
+      {
+        "tagId": "2",
+        "name": "GA4 - Project Card Click",
+        "type": "gaawe",
+        "parameter": [
+          {
+            "key": "eventName",
+            "value": "{{Event}}"
+          },
+          {
+            "key": "measurementId",
+            "value": "G-XXXXXXXXXX"
+          },
+          {
+            "key": "eventParameters",
+            "list": [
+              {
+                "map": [
+                  {
+                    "key": "parameter_name",
+                    "value": "project_title"
+                  },
+                  {
+                    "key": "value",
+                    "value": "{{DLV - project_title}}"
+                  }
+                ]
+              },
+              {
+                "map": [
+                  {
+                    "key": "parameter_name",
+                    "value": "project_id"
+                  },
+                  {
+                    "key": "value",
+                    "value": "{{DLV - project_id}}"
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "fingerprint": "1234567891",
+        "firingTriggerId": ["10"]
+      },
+      {
+        "tagId": "3",
+        "name": "GA4 - Scroll Depth",
+        "type": "gaawe",
+        "parameter": [
+          {
+            "key": "eventName",
+            "value": "{{Event}}"
+          },
+          {
+            "key": "measurementId",
+            "value": "G-XXXXXXXXXX"
+          },
+          {
+            "key": "eventParameters",
+            "list": [
+              {
+                "map": [
+                  {
+                    "key": "parameter_name",
+                    "value": "scroll_depth"
+                  },
+                  {
+                    "key": "value",
+                    "value": "{{DLV - scroll_depth}}"
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "fingerprint": "1234567892",
+        "firingTriggerId": ["11", "12", "13"]
+      },
+      {
+        "tagId": "4",
+        "name": "GA4 - Contact Click",
+        "type": "gaawe",
+        "parameter": [
+          {
+            "key": "eventName",
+            "value": "{{Event}}"
+          },
+          {
+            "key": "measurementId",
+            "value": "G-XXXXXXXXXX"
+          },
+          {
+            "key": "eventParameters",
+            "list": [
+              {
+                "map": [
+                  {
+                    "key": "parameter_name",
+                    "value": "contact_type"
+                  },
+                  {
+                    "key": "value",
+                    "value": "{{DLV - contact_type}}"
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "fingerprint": "1234567893",
+        "firingTriggerId": ["14"]
+      },
+      {
+        "tagId": "5",
+        "name": "GA4 - Resume Click",
+        "type": "gaawe",
+        "parameter": [
+          {
+            "key": "eventName",
+            "value": "{{Event}}"
+          },
+          {
+            "key": "measurementId",
+            "value": "G-XXXXXXXXXX"
+          }
+        ],
+        "fingerprint": "1234567894",
+        "firingTriggerId": ["15"]
+      },
+      {
+        "tagId": "6",
+        "name": "GA4 - Social Link Click",
+        "type": "gaawe",
+        "parameter": [
+          {
+            "key": "eventName",
+            "value": "{{Event}}"
+          },
+          {
+            "key": "measurementId",
+            "value": "G-XXXXXXXXXX"
+          },
+          {
+            "key": "eventParameters",
+            "list": [
+              {
+                "map": [
+                  {
+                    "key": "parameter_name",
+                    "value": "social_platform"
+                  },
+                  {
+                    "key": "value",
+                    "value": "{{DLV - social_platform}}"
+                  }
+                ]
+              },
+              {
+                "map": [
+                  {
+                    "key": "parameter_name",
+                    "value": "link_url"
+                  },
+                  {
+                    "key": "value",
+                    "value": "{{DLV - link_url}}"
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "fingerprint": "1234567895",
+        "firingTriggerId": ["16"]
+      },
+      {
+        "tagId": "7",
+        "name": "GA4 - Navigation Link Click",
+        "type": "gaawe",
+        "parameter": [
+          {
+            "key": "eventName",
+            "value": "{{Event}}"
+          },
+          {
+            "key": "measurementId",
+            "value": "G-XXXXXXXXXX"
+          },
+          {
+            "key": "eventParameters",
+            "list": [
+              {
+                "map": [
+                  {
+                    "key": "parameter_name",
+                    "value": "link_text"
+                  },
+                  {
+                    "key": "value",
+                    "value": "{{DLV - link_text}}"
+                  }
+                ]
+              },
+              {
+                "map": [
+                  {
+                    "key": "parameter_name",
+                    "value": "link_url"
+                  },
+                  {
+                    "key": "value",
+                    "value": "{{DLV - link_url}}"
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "fingerprint": "1234567896",
+        "firingTriggerId": ["17"]
+      },
+      {
+        "tagId": "8",
+        "name": "GA4 - Idle 30 Seconds",
+        "type": "gaawe",
+        "parameter": [
+          {
+            "key": "eventName",
+            "value": "{{Event}}"
+          },
+          {
+            "key": "measurementId",
+            "value": "G-XXXXXXXXXX"
+          },
+          {
+            "key": "eventParameters",
+            "list": [
+              {
+                "map": [
+                  {
+                    "key": "parameter_name",
+                    "value": "timestamp"
+                  },
+                  {
+                    "key": "value",
+                    "value": "{{DLV - timestamp}}"
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "fingerprint": "1234567897",
+        "firingTriggerId": ["18"]
+      },
+      {
+        "tagId": "9",
+        "name": "GA4 - Video Interaction",
+        "type": "gaawe",
+        "parameter": [
+          {
+            "key": "eventName",
+            "value": "{{Event}}"
+          },
+          {
+            "key": "measurementId",
+            "value": "G-XXXXXXXXXX"
+          },
+          {
+            "key": "eventParameters",
+            "list": [
+              {
+                "map": [
+                  {
+                    "key": "parameter_name",
+                    "value": "video_action"
+                  },
+                  {
+                    "key": "value",
+                    "value": "{{DLV - video_action}}"
+                  }
+                ]
+              },
+              {
+                "map": [
+                  {
+                    "key": "parameter_name",
+                    "value": "project_title"
+                  },
+                  {
+                    "key": "value",
+                    "value": "{{DLV - project_title}}"
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "fingerprint": "1234567898",
+        "firingTriggerId": ["19"]
+      },
+      {
+        "tagId": "10",
+        "name": "GA4 - Form Submit",
+        "type": "gaawe",
+        "parameter": [
+          {
+            "key": "eventName",
+            "value": "{{Event}}"
+          },
+          {
+            "key": "measurementId",
+            "value": "G-XXXXXXXXXX"
+          },
+          {
+            "key": "eventParameters",
+            "list": [
+              {
+                "map": [
+                  {
+                    "key": "parameter_name",
+                    "value": "form_type"
+                  },
+                  {
+                    "key": "value",
+                    "value": "{{DLV - form_type}}"
+                  }
+                ]
+              },
+              {
+                "map": [
+                  {
+                    "key": "parameter_name",
+                    "value": "success"
+                  },
+                  {
+                    "key": "value",
+                    "value": "{{DLV - success}}"
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "fingerprint": "1234567899",
+        "firingTriggerId": ["20"]
+      }
+    ],
+    "trigger": [
+      {
+        "triggerId": "10",
+        "name": "Project Card Click",
+        "type": "customEvent",
+        "customEventFilter": [
+          {
+            "type": "equals",
+            "parameter": [
+              {
+                "key": "arg0",
+                "value": "{{Event}}"
+              },
+              {
+                "key": "arg1",
+                "value": "click_project_card"
+              }
+            ]
+          }
+        ],
+        "fingerprint": "1234567890"
+      },
+      {
+        "triggerId": "11",
+        "name": "Scroll 25%",
+        "type": "customEvent",
+        "customEventFilter": [
+          {
+            "type": "equals",
+            "parameter": [
+              {
+                "key": "arg0",
+                "value": "{{Event}}"
+              },
+              {
+                "key": "arg1",
+                "value": "scroll_25%"
+              }
+            ]
+          }
+        ],
+        "fingerprint": "1234567891"
+      },
+      {
+        "triggerId": "12",
+        "name": "Scroll 50%",
+        "type": "customEvent",
+        "customEventFilter": [
+          {
+            "type": "equals",
+            "parameter": [
+              {
+                "key": "arg0",
+                "value": "{{Event}}"
+              },
+              {
+                "key": "arg1",
+                "value": "scroll_50%"
+              }
+            ]
+          }
+        ],
+        "fingerprint": "1234567892"
+      },
+      {
+        "triggerId": "13",
+        "name": "Scroll 75%",
+        "type": "customEvent",
+        "customEventFilter": [
+          {
+            "type": "equals",
+            "parameter": [
+              {
+                "key": "arg0",
+                "value": "{{Event}}"
+              },
+              {
+                "key": "arg1",
+                "value": "scroll_75%"
+              }
+            ]
+          }
+        ],
+        "fingerprint": "1234567893"
+      },
+      {
+        "triggerId": "14",
+        "name": "Contact Click",
+        "type": "customEvent",
+        "customEventFilter": [
+          {
+            "type": "equals",
+            "parameter": [
+              {
+                "key": "arg0",
+                "value": "{{Event}}"
+              },
+              {
+                "key": "arg1",
+                "value": "click_contact"
+              }
+            ]
+          }
+        ],
+        "fingerprint": "1234567894"
+      },
+      {
+        "triggerId": "15",
+        "name": "Resume Click",
+        "type": "customEvent",
+        "customEventFilter": [
+          {
+            "type": "equals",
+            "parameter": [
+              {
+                "key": "arg0",
+                "value": "{{Event}}"
+              },
+              {
+                "key": "arg1",
+                "value": "click_resume"
+              }
+            ]
+          }
+        ],
+        "fingerprint": "1234567895"
+      },
+      {
+        "triggerId": "16",
+        "name": "Social Link Click",
+        "type": "customEvent",
+        "customEventFilter": [
+          {
+            "type": "equals",
+            "parameter": [
+              {
+                "key": "arg0",
+                "value": "{{Event}}"
+              },
+              {
+                "key": "arg1",
+                "value": "click_social_link"
+              }
+            ]
+          }
+        ],
+        "fingerprint": "1234567896"
+      },
+      {
+        "triggerId": "17",
+        "name": "Navigation Link Click",
+        "type": "customEvent",
+        "customEventFilter": [
+          {
+            "type": "equals",
+            "parameter": [
+              {
+                "key": "arg0",
+                "value": "{{Event}}"
+              },
+              {
+                "key": "arg1",
+                "value": "click_nav_link"
+              }
+            ]
+          }
+        ],
+        "fingerprint": "1234567897"
+      },
+      {
+        "triggerId": "18",
+        "name": "Idle 30 Seconds",
+        "type": "customEvent",
+        "customEventFilter": [
+          {
+            "type": "equals",
+            "parameter": [
+              {
+                "key": "arg0",
+                "value": "{{Event}}"
+              },
+              {
+                "key": "arg1",
+                "value": "idle_30s"
+              }
+            ]
+          }
+        ],
+        "fingerprint": "1234567898"
+      },
+      {
+        "triggerId": "19",
+        "name": "Video Interaction",
+        "type": "customEvent",
+        "customEventFilter": [
+          {
+            "type": "equals",
+            "parameter": [
+              {
+                "key": "arg0",
+                "value": "{{Event}}"
+              },
+              {
+                "key": "arg1",
+                "value": "video_interaction"
+              }
+            ]
+          }
+        ],
+        "fingerprint": "1234567899"
+      },
+      {
+        "triggerId": "20",
+        "name": "Form Submit",
+        "type": "customEvent",
+        "customEventFilter": [
+          {
+            "type": "equals",
+            "parameter": [
+              {
+                "key": "arg0",
+                "value": "{{Event}}"
+              },
+              {
+                "key": "arg1",
+                "value": "form_submit"
+              }
+            ]
+          }
+        ],
+        "fingerprint": "1234567900"
+      }
+    ],
+    "variable": [
+      {
+        "variableId": "1",
+        "name": "Event",
+        "type": "v",
+        "parameter": [
+          {
+            "key": "name",
+            "value": "event"
+          }
+        ]
+      },
+      {
+        "variableId": "2",
+        "name": "DLV - project_title",
+        "type": "v",
+        "parameter": [
+          {
+            "key": "name",
+            "value": "project_title"
+          }
+        ]
+      },
+      {
+        "variableId": "3",
+        "name": "DLV - project_id",
+        "type": "v",
+        "parameter": [
+          {
+            "key": "name",
+            "value": "project_id"
+          }
+        ]
+      },
+      {
+        "variableId": "4",
+        "name": "DLV - scroll_depth",
+        "type": "v",
+        "parameter": [
+          {
+            "key": "name",
+            "value": "scroll_depth"
+          }
+        ]
+      },
+      {
+        "variableId": "5",
+        "name": "DLV - contact_type",
+        "type": "v",
+        "parameter": [
+          {
+            "key": "name",
+            "value": "contact_type"
+          }
+        ]
+      },
+      {
+        "variableId": "6",
+        "name": "DLV - social_platform",
+        "type": "v",
+        "parameter": [
+          {
+            "key": "name",
+            "value": "social_platform"
+          }
+        ]
+      },
+      {
+        "variableId": "7",
+        "name": "DLV - link_url",
+        "type": "v",
+        "parameter": [
+          {
+            "key": "name",
+            "value": "link_url"
+          }
+        ]
+      },
+      {
+        "variableId": "8",
+        "name": "DLV - link_text",
+        "type": "v",
+        "parameter": [
+          {
+            "key": "name",
+            "value": "link_text"
+          }
+        ]
+      },
+      {
+        "variableId": "9",
+        "name": "DLV - timestamp",
+        "type": "v",
+        "parameter": [
+          {
+            "key": "name",
+            "value": "timestamp"
+          }
+        ]
+      },
+      {
+        "variableId": "10",
+        "name": "DLV - video_action",
+        "type": "v",
+        "parameter": [
+          {
+            "key": "name",
+            "value": "video_action"
+          }
+        ]
+      },
+      {
+        "variableId": "11",
+        "name": "DLV - form_type",
+        "type": "v",
+        "parameter": [
+          {
+            "key": "name",
+            "value": "form_type"
+          }
+        ]
+      },
+      {
+        "variableId": "12",
+        "name": "DLV - success",
+        "type": "v",
+        "parameter": [
+          {
+            "key": "name",
+            "value": "success"
+          }
+        ]
+      }
+    ],
+    "builtInVariable": [
+      {
+        "type": "event",
+        "name": "Event"
+      },
+      {
+        "type": "pageUrl",
+        "name": "Page URL"
+      },
+      {
+        "type": "pageTitle",
+        "name": "Page Title"
+      },
+      {
+        "type": "pagePath",
+        "name": "Page Path"
+      }
+    ],
+    "fingerprint": "1234567890",
+    "tagManagerUrl": "https://tagmanager.google.com/"
+  }
+} 

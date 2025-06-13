@@ -3,6 +3,7 @@
 import { useState, useEffect, useRef } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
+import TrackingEvents from '../lib/trackingEvents';
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -74,6 +75,10 @@ const Navbar = () => {
     closeMenu(); // Close the dropdown after selection
   };
 
+  const handleNavLinkClick = (linkText, linkUrl) => {
+    TrackingEvents.trackNavLinkClick(linkText, linkUrl);
+  };
+
   const isActive = (path) => {
     if (path === '/') return pathname === '/';
     return pathname.startsWith(path);
@@ -98,7 +103,11 @@ const Navbar = () => {
         ) : (
           <ul className="navbar-items desktop">
             <li>
-              <Link href="/" className={`${isActive('/') ? 'font-bold' : ''} whitespace-nowrap`}>
+              <Link 
+                href="/" 
+                className={`${isActive('/') ? 'font-bold' : ''} whitespace-nowrap`}
+                onClick={() => handleNavLinkClick('Jordan Wu', '/')}
+              >
                 Jordan Wu
               </Link>
             </li>
@@ -112,24 +121,32 @@ const Navbar = () => {
               {projectsOpen && (
                 <ul className="projects-list">
                   <li className="project-category font-bold">UI/UX Researches</li>
-                  <li><Link href="/longProjects/comgora">Comgora</Link></li>
-                  <li><Link href="/longProjects/accessibility">AI Accessibility Tool</Link></li>
-                  <li><Link href="/longProjects/bumbleRedesign">Bumble Redesign</Link></li>
+                  <li><Link href="/longProjects/comgora" onClick={() => handleNavLinkClick('Comgora', '/longProjects/comgora')}>Comgora</Link></li>
+                  <li><Link href="/longProjects/accessibility" onClick={() => handleNavLinkClick('AI Accessibility Tool', '/longProjects/accessibility')}>AI Accessibility Tool</Link></li>
+                  <li><Link href="/longProjects/bumbleRedesign" onClick={() => handleNavLinkClick('Bumble Redesign', '/longProjects/bumbleRedesign')}>Bumble Redesign</Link></li>
                   <li className="project-category font-bold">3-weeks MVPs</li>
-                  <li><Link href="/projects/davincin">Davincin</Link></li>
-                  <li><Link href="/projects/hommap">Hommap</Link></li>
-                  <li><Link href="/projects/superfake">Superfake</Link></li>
+                  <li><Link href="/projects/davincin" onClick={() => handleNavLinkClick('Davincin', '/projects/davincin')}>Davincin</Link></li>
+                  <li><Link href="/projects/hommap" onClick={() => handleNavLinkClick('Hommap', '/projects/hommap')}>Hommap</Link></li>
+                  <li><Link href="/projects/superfake" onClick={() => handleNavLinkClick('Superfake', '/projects/superfake')}>Superfake</Link></li>
          
                 </ul>
               )}
             </li>
             <li>
-              <Link href="/contact" className={isActive('/contact') ? 'font-bold' : ''}>
+              <Link 
+                href="/contact" 
+                className={isActive('/contact') ? 'font-bold' : ''}
+                onClick={() => handleNavLinkClick('Contact', '/contact')}
+              >
                 Contact
               </Link>
             </li>
             <li>
-              <Link href="/aboutMe" className={`${isActive('/aboutMe') ? 'font-bold' : ''} whitespace-nowrap`}>
+              <Link 
+                href="/aboutMe" 
+                className={`${isActive('/aboutMe') ? 'font-bold' : ''} whitespace-nowrap`}
+                onClick={() => handleNavLinkClick('About Me', '/aboutMe')}
+              >
                 About Me
               </Link>
             </li>
@@ -137,24 +154,24 @@ const Navbar = () => {
         )}
         {isMobile && isOpen && (
           <ul className={`navbar-items mobile ${isOpen ? 'open' : ''}`}>
-            <li><Link href="/" onClick={closeMenu}>Home</Link></li>
+            <li><Link href="/" onClick={() => { handleNavLinkClick('Home', '/'); closeMenu(); }}>Home</Link></li>
             <li className={`relative projects-dropdown ${projectsOpen ? 'open' : ''}`}>
               <button onClick={toggleProjects}>Projects</button>
               {projectsOpen && (
                 <ul className="projects-list">
                   <li className="project-category font-bold">UI/UX Researches</li>
-                  <li><Link href="/longProjects/comgora" onClick={closeMenu}>Comgora</Link></li>
-                  <li><Link href="/longProjects/accessibility">AI Accessibility Tool</Link></li>
-                  <li><Link href="/longProjects/bumbleRedesign">Bumble Redesign</Link></li>
+                  <li><Link href="/longProjects/comgora" onClick={() => { handleNavLinkClick('Comgora', '/longProjects/comgora'); closeMenu(); }}>Comgora</Link></li>
+                  <li><Link href="/longProjects/accessibility" onClick={() => { handleNavLinkClick('AI Accessibility Tool', '/longProjects/accessibility'); closeMenu(); }}>AI Accessibility Tool</Link></li>
+                  <li><Link href="/longProjects/bumbleRedesign" onClick={() => { handleNavLinkClick('Bumble Redesign', '/longProjects/bumbleRedesign'); closeMenu(); }}>Bumble Redesign</Link></li>
                   <li className="project-category font-bold">3-weeks MVPs</li>
-                  <li><Link href="/projects/superfake" onClick={closeMenu}>Superfake</Link></li>
-                  <li><Link href="/projects/hommap" onClick={closeMenu}>Hommap</Link></li>
-                  <li><Link href="/projects/davincin" onClick={closeMenu}>Davincin</Link></li>
+                  <li><Link href="/projects/superfake" onClick={() => { handleNavLinkClick('Superfake', '/projects/superfake'); closeMenu(); }}>Superfake</Link></li>
+                  <li><Link href="/projects/hommap" onClick={() => { handleNavLinkClick('Hommap', '/projects/hommap'); closeMenu(); }}>Hommap</Link></li>
+                  <li><Link href="/projects/davincin" onClick={() => { handleNavLinkClick('Davincin', '/projects/davincin'); closeMenu(); }}>Davincin</Link></li>
                 </ul>
               )}
             </li>
-            <li><Link href="/contact" onClick={closeMenu}>Contact</Link></li>
-            <li><Link href="/aboutMe" onClick={closeMenu}>About Me</Link></li>
+            <li><Link href="/contact" onClick={() => { handleNavLinkClick('Contact', '/contact'); closeMenu(); }}>Contact</Link></li>
+            <li><Link href="/aboutMe" onClick={() => { handleNavLinkClick('About Me', '/aboutMe'); closeMenu(); }}>About Me</Link></li>
           </ul>
         )}
       </div>
